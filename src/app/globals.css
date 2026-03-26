@@ -4,24 +4,122 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1a1a2e;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  overflow-x: hidden;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Editorial serif italic style for mixed headlines */
+.serif-italic {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Smooth image reveal */
+.img-reveal {
+  clip-path: inset(100% 0 0 0);
+}
+
+.img-reveal.revealed {
+  clip-path: inset(0 0 0 0);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #A8AEE4;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2832C2;
+}
+
+/* Text split animation helper */
+.line-mask {
+  overflow: hidden;
+}
+
+.line-mask > * {
+  display: block;
+}
+
+/* Parallax container */
+.parallax-wrap {
+  overflow: hidden;
+  position: relative;
+}
+
+.parallax-wrap img {
+  will-change: transform;
+}
+
+/* Nav blur */
+.nav-blur {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Button hover effects */
+.btn-primary {
+  @apply relative overflow-hidden transition-all duration-500;
+}
+
+.btn-primary::before {
+  content: "";
+  @apply absolute inset-0 bg-primary-dark transition-transform duration-500;
+  transform: translateY(100%);
+}
+
+.btn-primary:hover::before {
+  transform: translateY(0);
+}
+
+.btn-primary span {
+  @apply relative z-10;
+}
+
+/* Horizontal scroll section */
+.horizontal-scroll {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+/* Selection color */
+::selection {
+  background: #A8AEE4;
+  color: #1a1a2e;
+}
+
+/* Focus styles */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #2832C2;
+  outline-offset: 4px;
+  border-radius: 2px;
 }
