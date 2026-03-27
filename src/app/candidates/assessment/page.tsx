@@ -5,8 +5,8 @@ import { gsap } from "gsap";
 import Link from "next/link";
 
 /* ──────────────────────────────────────────────
-   Assessment questions — based on ien2RN's intake
-   process. Filters: licensing, NCLEX, relocation
+   Assessment questions - based on ien2RN's intake
+   process. Filters: licensing, assessments, relocation
    willingness, experience, availability.
    ────────────────────────────────────────────── */
 
@@ -39,12 +39,12 @@ const questions: Question[] = [
     ],
   },
   {
-    id: "nclex",
-    question: "Have you passed the NCLEX-RN exam?",
+    id: "assessment",
+    question: "Have you completed your CBA or SLA assessment?",
     options: [
-      { label: "Yes, I have passed", value: "passed", weight: 3 },
-      { label: "I am currently studying for it", value: "studying", weight: 1 },
-      { label: "I have not taken it yet", value: "not_taken", weight: 0 },
+      { label: "Yes, I have completed it", value: "passed", weight: 3 },
+      { label: "I am currently preparing for it", value: "studying", weight: 1 },
+      { label: "I have not started yet", value: "not_taken", weight: 0 },
     ],
   },
   {
@@ -118,7 +118,7 @@ const results: Record<
   almost: {
     headline: "You're almost there",
     description:
-      "You're on the right track, but there are a few things to complete before we can match you with employers. Create your profile now and our team will help you with the remaining steps — including NCLEX prep and credential support.",
+      "You're on the right track, but there are a few things to complete before we can match you with employers. Create your profile now and our team will help you with the remaining steps, including mentorship, training, and credential support.",
     cta: {
       label: "Create My Profile",
       href: "https://engine-hire.com",
@@ -132,7 +132,7 @@ const results: Record<
   not_ready: {
     headline: "Let's get you prepared",
     description:
-      "It looks like you have some steps to complete before you're ready for placement. That's okay — we have courses and resources designed to help internationally educated nurses get licensed and job-ready in Canada.",
+      "It looks like you have some steps to complete before you're ready for placement. That's okay. We have courses and resources designed to help internationally educated nurses get licensed and job-ready in Canada.",
     cta: {
       label: "View Courses & Training",
       href: "/learning/courses",

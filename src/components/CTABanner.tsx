@@ -44,10 +44,10 @@ export default function CTABanner() {
 
           <div className="cta-banner-animate flex flex-col sm:flex-row items-center gap-3 shrink-0">
             <Link
-              href="/candidates"
+              href="/candidates/assessment"
               className="inline-flex items-center justify-center bg-primary text-white font-body font-semibold text-sm px-7 py-3 rounded-full hover:shadow-lg hover:shadow-primary/20 transition-all duration-300"
             >
-              Find a Nursing Job
+              Apply Now
             </Link>
             <Link
               href="/employers"

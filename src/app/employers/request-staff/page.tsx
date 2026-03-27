@@ -47,7 +47,7 @@ export default function RequestStaffPage() {
         description="Fill out the form below with your staffing requirements. Our team will review your request and get back to you within one business day."
       />
 
-      {/* Centered form — focused, clean */}
+      {/* Centered form - focused, clean */}
       <section ref={formRef} className="py-section">
         <div className="max-w-[720px] mx-auto px-6 md:px-12">
           {submitted ? (
@@ -244,7 +244,7 @@ export default function RequestStaffPage() {
             </form>
           )}
 
-          {/* What happens next — horizontal at bottom */}
+          {/* What happens next - horizontal at bottom */}
           <div className="mt-16 pt-12 border-t border-secondary/15">
             <p className="font-heading font-bold text-sm text-foreground mb-6 text-center">
               What happens after you submit

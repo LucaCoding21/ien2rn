@@ -17,7 +17,7 @@ const navLinks: NavLink[] = [
     label: "For Employers",
     href: "/employers",
     children: [
-      { label: "Our Services", href: "/employers/services" },
+      { label: "Why ien2RN", href: "/employers" },
       { label: "Request Staff", href: "/employers/request-staff" },
     ],
   },

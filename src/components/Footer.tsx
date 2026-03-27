@@ -11,7 +11,6 @@ const footerLinks = {
   ],
   "For Employers": [
     { label: "Hire Staff", href: "/employers" },
-    { label: "Our Services", href: "/employers/services" },
     { label: "Request Staff", href: "/employers/request-staff" },
     { label: "Book Consultation", href: "/consultation" },
   ],

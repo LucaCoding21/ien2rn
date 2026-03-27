@@ -67,7 +67,7 @@ export default function Trust() {
             </h2>
             <p className="font-body text-base text-white/55 leading-relaxed mb-10">
               ien2RN was started by internationally educated nurses who moved
-              to Canada — just like you. We know how hard it is. We built
+              to Canada, just like you. We know how hard it is. We built
               this company so you don&apos;t have to do it alone.
             </p>
 

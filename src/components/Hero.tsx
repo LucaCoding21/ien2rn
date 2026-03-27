@@ -73,7 +73,7 @@ export default function Hero() {
       {/* Main content */}
       <div className="relative flex-1 flex items-start px-6 md:px-12 lg:px-20 pt-4 md:pt-8">
         <div className="max-w-[1200px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-start">
-          {/* Left column — text */}
+          {/* Left column - text */}
           <div className="lg:col-span-6 xl:col-span-7 pt-2 lg:pt-8">
             {/* Label */}
             <div className="hero-label inline-flex items-center gap-2.5 bg-secondary-light/60 rounded-full px-4 py-1.5 mb-8">
@@ -132,8 +132,8 @@ export default function Hero() {
 
             {/* Subline */}
             <p className="hero-sub font-body text-base md:text-lg text-muted max-w-md mb-9 leading-relaxed">
-              We handle credential assessment, NCLEX prep, and employer
-              matching — so you can focus on what you do best.
+              We handle credentialing, immigration support, and
+              employer matching, so you can focus on what you do best.
             </p>
 
             {/* CTAs */}
@@ -142,7 +142,7 @@ export default function Hero() {
                 href="/candidates/assessment"
                 className="group inline-flex items-center justify-center gap-2.5 text-white font-body font-semibold text-sm px-8 py-3.5 rounded-full bg-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5"
               >
-                Find Your Next Role
+                Apply Now
                 <svg
                   className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
                   fill="none"
@@ -198,7 +198,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right column — image */}
+          {/* Right column - image */}
           <div className="lg:col-span-6 xl:col-span-5 pt-0 lg:pt-0">
             <div className="hero-image-wrap relative rounded-3xl overflow-hidden aspect-[3/4] max-h-[620px] shadow-2xl shadow-foreground/8">
               <Image

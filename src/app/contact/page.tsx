@@ -15,7 +15,7 @@ export default function ContactPage() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Left column — slide from left
+      // Left column - slide from left
       const leftEls = contentRef.current!.querySelectorAll(".contact-left > *");
       gsap.set(leftEls, { x: -25, autoAlpha: 0 });
       gsap.to(leftEls, {
@@ -27,7 +27,7 @@ export default function ContactPage() {
         scrollTrigger: { trigger: contentRef.current, start: "top 75%" },
       });
 
-      // Right column — slide from right
+      // Right column - slide from right
       const rightEls = contentRef.current!.querySelectorAll(".contact-right > *");
       gsap.set(rightEls, { x: 25, autoAlpha: 0 });
       gsap.to(rightEls, {
@@ -64,7 +64,7 @@ export default function ContactPage() {
       <section ref={contentRef} className="py-section">
         <div className="max-w-[1200px] mx-auto px-6 md:px-12">
           <div className="grid lg:grid-cols-12 gap-16 lg:gap-20">
-            {/* Left — Large contact info */}
+            {/* Left - Large contact info */}
             <div className="lg:col-span-5 contact-left">
               <h2 className="font-heading font-black text-2xl text-foreground mb-8">
                 Get in touch
@@ -123,7 +123,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Right — Form */}
+            {/* Right - Form */}
             <div className="lg:col-span-7 contact-right">
               <h2 className="font-heading font-bold text-2xl text-foreground mb-8">
                 Send us a message

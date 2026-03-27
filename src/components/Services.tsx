@@ -20,11 +20,11 @@ const services = [
   },
   {
     label: "For nurses",
-    title: "NCLEX Prep & Training",
+    title: "Mentorship & Training",
     description:
-      "Study plans, practice tests, and one-on-one coaching designed to help you pass the first time.",
-    href: "/learning/courses",
-    linkText: "View courses",
+      "CBA & SLA boot camps, 1-on-1 nurse mentorship, career coaching, and upskilling webinars. All built by IEN nurses who've been where you are.",
+    href: "/learning",
+    linkText: "View programs",
     image: "/2.jpg",
   },
   {
@@ -82,9 +82,7 @@ export default function Services() {
             What we do
           </p>
           <h2 className="font-heading font-black text-display-md text-foreground">
-            Everything you need to{" "}
-            <span className="serif-italic text-primary">start working</span>{" "}
-            in Canada
+            Everything you need to start working in Canada
           </h2>
         </div>
 

@@ -19,7 +19,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "ien2RN — Connecting Internationally Educated Nurses to Canadian Healthcare Careers",
+  title: "ien2RN | Connecting Internationally Educated Nurses to Canadian Healthcare Careers",
   description:
     "ien2RN is a premium healthcare recruitment company placing internationally educated nurses into meaningful careers across Canada. Find your next chapter in Canadian healthcare.",
   keywords: ["healthcare recruitment", "nurses Canada", "IEN", "internationally educated nurses", "nursing jobs Canada"],

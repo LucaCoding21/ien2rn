@@ -3,98 +3,155 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import PageHero from "@/components/PageHero";
-import CTABanner from "@/components/CTABanner";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
 interface Resource {
   title: string;
   description: string;
-  category: string;
   type: "free" | "paid";
   price?: string;
 }
 
-const resources: Resource[] = [
+interface ResourceGroup {
+  stage: string;
+  subtitle: string;
+  resources: Resource[];
+}
+
+const freeResources: ResourceGroup[] = [
   {
-    title: "NCLEX-RN Study Guide",
-    description: "Comprehensive study guide covering all major NCLEX-RN content areas with practice questions and strategies.",
-    category: "Exam Prep",
+    stage: "Getting Started",
+    subtitle: "New to Canadian healthcare? Start here.",
+    resources: [
+      {
+        title: "Canadian Healthcare System Overview",
+        description:
+          "A concise guide to understanding the Canadian healthcare system, provincial differences, and career navigation.",
+        type: "free",
+      },
+      {
+        title: "Provincial Licensing Requirements",
+        description:
+          "Detailed breakdown of nursing licensing requirements for each Canadian province and territory.",
+        type: "free",
+      },
+    ],
+  },
+  {
+    stage: "Preparing for Assessment",
+    subtitle: "Getting ready for CBA, SLA, or clinical practice.",
+    resources: [
+      {
+        title: "Medication Math Reference Sheet",
+        description:
+          "Quick-reference sheet for common medication calculations used in Canadian healthcare settings.",
+        type: "free",
+      },
+    ],
+  },
+  {
+    stage: "Landing Your Job",
+    subtitle: "Resume, interviews, and getting hired.",
+    resources: [
+      {
+        title: "Resume Template for IENs",
+        description:
+          "Canadian-format resume template specifically designed for internationally educated nurses.",
+        type: "free",
+      },
+      {
+        title: "Interview Preparation Guide",
+        description:
+          "Common nursing interview questions in Canada, how to answer them, and what employers look for.",
+        type: "free",
+      },
+    ],
+  },
+];
+
+const premiumResources: Resource[] = [
+  {
+    title: "CBA & SLA Study Guide",
+    description:
+      "Comprehensive study guide covering all major CBA and SLA assessment areas with practice scenarios, strategies, and self-assessment tools.",
     type: "paid",
     price: "$29",
   },
   {
-    title: "Canadian Healthcare System Overview",
-    description: "A concise guide to understanding the Canadian healthcare system, provincial differences, and career navigation.",
-    category: "Orientation",
-    type: "free",
-  },
-  {
-    title: "Medication Math Reference Sheet",
-    description: "Quick-reference sheet for common medication calculations used in Canadian healthcare settings.",
-    category: "Clinical Reference",
-    type: "free",
-  },
-  {
-    title: "Resume Template for IENs",
-    description: "Canadian-format resume template specifically designed for internationally educated nurses.",
-    category: "Career",
-    type: "free",
-  },
-  {
     title: "Clinical Skills Competency Checklist",
-    description: "Self-assessment checklist covering essential clinical competencies in Canadian nursing practice.",
-    category: "Clinical Reference",
+    description:
+      "Self-assessment checklist covering essential clinical competencies in Canadian nursing practice. Track your readiness.",
     type: "paid",
     price: "$14",
   },
   {
-    title: "Interview Preparation Guide",
-    description: "Common nursing interview questions in Canada, how to answer them, and what employers look for.",
-    category: "Career",
-    type: "free",
-  },
-  {
     title: "Pharmacology Quick Reference",
-    description: "Essential drug classifications, common medications, and nursing considerations for Canadian practice.",
-    category: "Clinical Reference",
+    description:
+      "Essential drug classifications, common medications, and nursing considerations for Canadian practice. Built for quick lookup.",
     type: "paid",
     price: "$19",
   },
-  {
-    title: "Provincial Licensing Requirements",
-    description: "Detailed breakdown of nursing licensing requirements for each Canadian province and territory.",
-    category: "Orientation",
-    type: "free",
-  },
 ];
 
-const categories = ["All", ...Array.from(new Set(resources.map((r) => r.category)))];
-
 export default function ResourcesPage() {
-  const gridRef = useRef<HTMLDivElement>(null);
-  const [filter, setFilter] = useState("All");
+  const pageRef = useRef<HTMLDivElement>(null);
+  const premiumRef = useRef<HTMLElement>(null);
   const [showModal, setShowModal] = useState(false);
-  const [selectedResource, setSelectedResource] = useState<Resource | null>(null);
-
-  const filtered = filter === "All" ? resources : resources.filter((r) => r.category === filter);
+  const [selectedResource, setSelectedResource] = useState<Resource | null>(
+    null
+  );
 
   useEffect(() => {
-    if (!gridRef.current) return;
-    const cards = gridRef.current.querySelectorAll(".resource-card");
-    gsap.set(cards, { y: 25, autoAlpha: 0 });
-    cards.forEach((card, i) => {
-      gsap.to(card, {
+    const ctx = gsap.context(() => {
+      // Header
+      const headerEls = pageRef.current!.querySelectorAll(".res-header");
+      gsap.set(headerEls, { y: 20, autoAlpha: 0 });
+      gsap.to(headerEls, {
         y: 0,
         autoAlpha: 1,
-        duration: 0.6,
-        delay: i * 0.05,
+        duration: 0.7,
+        stagger: 0.06,
         ease: "power2.out",
-        scrollTrigger: { trigger: card, start: "top 90%" },
+        delay: 0.3,
       });
+
+      // Free resource groups
+      const groups = pageRef.current!.querySelectorAll(".res-group");
+      groups.forEach((group) => {
+        const els = group.querySelectorAll(".res-card");
+        gsap.set(els, { y: 20, autoAlpha: 0 });
+        gsap.to(els, {
+          y: 0,
+          autoAlpha: 1,
+          duration: 0.6,
+          stagger: 0.06,
+          ease: "power2.out",
+          scrollTrigger: { trigger: group, start: "top 85%" },
+        });
+      });
+
+      // Premium
+      if (premiumRef.current) {
+        const premEls =
+          premiumRef.current.querySelectorAll(".premium-card");
+        gsap.set(premEls, { y: 30, autoAlpha: 0 });
+        premEls.forEach((el, i) => {
+          gsap.to(el, {
+            y: 0,
+            autoAlpha: 1,
+            duration: 0.7,
+            delay: i * 0.1,
+            ease: "power2.out",
+            scrollTrigger: { trigger: el, start: "top 85%" },
+          });
+        });
+      }
     });
-  }, [filter]);
+
+    return () => ctx.revert();
+  }, []);
 
   const handleDownload = (resource: Resource) => {
     setSelectedResource(resource);
@@ -103,122 +160,198 @@ export default function ResourcesPage() {
 
   return (
     <main>
-      <PageHero
-        label="Resources"
-        heading={
-          <>
-            Downloadable materials for{" "}
-            <span className="serif-italic text-primary">healthcare professionals</span>
-          </>
-        }
-        description="Study guides, reference sheets, and career resources. Download free materials or purchase premium content to support your professional development."
-      />
+      <div ref={pageRef}>
+        {/* ── Header (compact, no hero) ── */}
+        <section className="pt-32 pb-8 md:pt-40 md:pb-10">
+          <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+            <p className="res-header font-body text-sm font-semibold text-primary uppercase tracking-[0.2em] mb-3">
+              Resources
+            </p>
+            <h1 className="res-header font-heading font-black text-display-md text-foreground mb-3">
+              Free downloads for your journey
+            </h1>
+            <p className="res-header font-body text-base text-muted leading-relaxed max-w-xl">
+              Study guides, templates, and reference materials — organized by
+              where you are in your nursing career.
+            </p>
+            <div className="res-header h-px bg-gradient-to-r from-primary/25 via-secondary/20 to-transparent mt-10" />
+          </div>
+        </section>
 
-      <section className="py-section">
+        {/* ── Free Resources (grouped by journey stage) ── */}
+        <section className="pb-section">
+          <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+            <div className="space-y-14">
+              {freeResources.map((group) => (
+                <div key={group.stage} className="res-group">
+                  <div className="flex items-baseline gap-3 mb-5">
+                    <h2 className="font-heading font-black text-xl text-foreground">
+                      {group.stage}
+                    </h2>
+                    <p className="font-body text-sm text-muted hidden sm:block">
+                      — {group.subtitle}
+                    </p>
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {group.resources.map((resource) => (
+                      <button
+                        key={resource.title}
+                        onClick={() => handleDownload(resource)}
+                        className="res-card text-left group bg-white border border-secondary/15 rounded-xl p-5 hover:border-primary/25 hover:shadow-sm transition-all duration-300"
+                      >
+                        <div className="flex items-start gap-4">
+                          <div className="w-10 h-10 rounded-lg bg-secondary-light/60 flex items-center justify-center text-primary shrink-0 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                            <svg
+                              className="w-5 h-5"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                              strokeWidth={1.5}
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
+                              />
+                            </svg>
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h3 className="font-heading font-bold text-sm text-foreground mb-1.5 group-hover:text-primary transition-colors duration-300">
+                              {resource.title}
+                            </h3>
+                            <p className="font-body text-xs text-muted leading-relaxed">
+                              {resource.description}
+                            </p>
+                            <span className="inline-block mt-3 font-body text-[10px] font-semibold text-green-600 bg-green-50 px-2.5 py-1 rounded-full uppercase tracking-wide">
+                              Free
+                            </span>
+                          </div>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
+
+      {/* ── Premium Resources ── */}
+      <section ref={premiumRef} className="py-section bg-foreground">
         <div className="max-w-[1200px] mx-auto px-6 md:px-12">
-          {/* Filter pills */}
-          <div className="flex flex-wrap gap-2 mb-12">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setFilter(cat)}
-                className={`font-body text-sm px-5 py-2 rounded-full transition-all duration-300 ${
-                  filter === cat
-                    ? "bg-primary text-white"
-                    : "bg-secondary-light/40 text-muted hover:bg-secondary-light hover:text-foreground"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+          <div className="max-w-2xl mb-12">
+            <p className="font-body text-sm font-semibold text-white/30 uppercase tracking-[0.2em] mb-4">
+              Go deeper
+            </p>
+            <h2 className="font-heading font-black text-display-sm text-white mb-3">
+              Premium resources
+            </h2>
+            <p className="font-body text-base text-white/40 leading-relaxed">
+              In-depth study materials designed to complement our programs. Built
+              by IEN nurses who&apos;ve passed these assessments themselves.
+            </p>
           </div>
 
-          {/* Resources grid — distinct free vs paid styling */}
-          <div ref={gridRef} className="grid md:grid-cols-2 gap-5">
-            {filtered.map((resource) => (
+          <div className="grid md:grid-cols-3 gap-5">
+            {premiumResources.map((resource) => (
               <button
                 key={resource.title}
                 onClick={() => handleDownload(resource)}
-                className={`resource-card text-left rounded-2xl p-6 md:p-7 transition-all duration-300 group flex gap-5 ${
-                  resource.type === "paid"
-                    ? "bg-foreground hover:bg-foreground/95 text-white"
-                    : "bg-secondary-light/30 hover:bg-secondary-light/50"
-                }`}
+                className="premium-card text-left group bg-white/[0.06] border border-white/10 rounded-xl p-6 hover:bg-white/[0.1] hover:border-white/20 transition-all duration-300"
               >
-                {/* Icon */}
-                <div
-                  className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 ${
-                    resource.type === "paid" ? "bg-white/10" : "bg-white"
-                  }`}
-                >
+                <div className="flex items-start justify-between gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-white/60 shrink-0 group-hover:bg-white group-hover:text-foreground transition-colors duration-300">
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={1.5}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"
+                      />
+                    </svg>
+                  </div>
+                  <span className="font-heading font-black text-lg text-white">
+                    {resource.price}
+                  </span>
+                </div>
+                <h3 className="font-heading font-bold text-base text-white mb-2 group-hover:text-secondary transition-colors duration-300">
+                  {resource.title}
+                </h3>
+                <p className="font-body text-sm text-white/35 leading-relaxed mb-5">
+                  {resource.description}
+                </p>
+                <span className="inline-flex items-center gap-2 font-body font-semibold text-sm text-white/50 group-hover:text-white transition-colors duration-300">
+                  Purchase & Download
                   <svg
-                    className={`w-5 h-5 ${resource.type === "paid" ? "text-white/70" : "text-primary"}`}
+                    className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                    strokeWidth={1.5}
+                    strokeWidth={2}
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
                   </svg>
-                </div>
-
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-start justify-between gap-3 mb-2">
-                    <div>
-                      <span
-                        className={`font-body text-[10px] font-semibold uppercase tracking-wider ${
-                          resource.type === "paid" ? "text-white/30" : "text-primary"
-                        }`}
-                      >
-                        {resource.category}
-                      </span>
-                      <h3
-                        className={`font-heading font-bold text-base mt-0.5 ${
-                          resource.type === "paid"
-                            ? "text-white group-hover:text-white/90"
-                            : "text-foreground group-hover:text-primary"
-                        } transition-colors duration-300`}
-                      >
-                        {resource.title}
-                      </h3>
-                    </div>
-                    <span
-                      className={`font-body text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shrink-0 ${
-                        resource.type === "free"
-                          ? "bg-green-50 text-green-600"
-                          : "bg-white/10 text-white/60"
-                      }`}
-                    >
-                      {resource.type === "free" ? "Free" : resource.price}
-                    </span>
-                  </div>
-                  <p
-                    className={`font-body text-sm leading-relaxed ${
-                      resource.type === "paid" ? "text-white/40" : "text-muted"
-                    }`}
-                  >
-                    {resource.description}
-                  </p>
-                </div>
+                </span>
               </button>
             ))}
           </div>
 
-          {/* Info note */}
-          <div className="mt-14 flex items-start gap-4 p-5 rounded-xl bg-secondary-light/30">
-            <svg className="w-5 h-5 text-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
-            </svg>
-            <p className="font-body text-sm text-muted leading-relaxed">
-              Free resources require your name and email. Paid resources are
-              processed through Stripe — you&apos;ll receive the PDF
-              immediately after payment. No account required.
-            </p>
+          {/* Info */}
+          <p className="font-body text-xs text-white/20 mt-8">
+            Paid resources are processed securely through Stripe. You&apos;ll receive
+            the PDF immediately after payment. No account required.
+          </p>
+        </div>
+      </section>
+
+      {/* ── Bottom nudge back to programs ── */}
+      <section className="py-16">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 rounded-2xl bg-secondary-light/30 px-8 md:px-10 py-8">
+            <div>
+              <p className="font-heading font-bold text-lg text-foreground mb-1">
+                Want more than resources?
+              </p>
+              <p className="font-body text-sm text-muted">
+                Our CBA boot camp, mentorship, and career programs go deeper
+                than any PDF.
+              </p>
+            </div>
+            <Link
+              href="/learning/courses"
+              className="group shrink-0 inline-flex items-center justify-center gap-2.5 font-body font-semibold text-sm px-7 py-3.5 rounded-full bg-primary text-white transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5"
+            >
+              View Programs
+              <svg
+                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Download/Purchase Modal */}
+      {/* ── Download/Purchase Modal ── */}
       {showModal && selectedResource && (
         <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
           <div
@@ -230,17 +363,28 @@ export default function ResourcesPage() {
               onClick={() => setShowModal(false)}
               className="absolute top-4 right-4 w-8 h-8 rounded-full bg-secondary-light/50 flex items-center justify-center text-muted hover:text-foreground transition-colors"
             >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             </button>
 
             <h3 className="font-heading font-bold text-xl text-foreground mb-1">
-              {selectedResource.type === "free" ? "Download" : "Purchase"}{" "}
+              {selectedResource.type === "free" ? "Download" : "Purchase"}
             </h3>
             <p className="font-body text-sm text-muted mb-6">
               {selectedResource.title}
-              {selectedResource.type === "paid" && ` — ${selectedResource.price}`}
+              {selectedResource.type === "paid" &&
+                ` (${selectedResource.price})`}
             </p>
 
             <form
@@ -299,8 +443,6 @@ export default function ResourcesPage() {
           </div>
         </div>
       )}
-
-      <CTABanner />
     </main>
   );
 }

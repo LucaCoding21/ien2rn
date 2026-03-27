@@ -31,7 +31,7 @@ export default function CTA() {
     <section ref={sectionRef} className="py-section">
       <div className="max-w-[1200px] mx-auto px-6 md:px-12">
         <div className="bg-primary rounded-[2rem] md:rounded-[3rem] px-8 md:px-16 py-16 md:py-20 text-center relative overflow-hidden">
-          {/* Subtle decorative elements — warm, not techy */}
+          {/* Subtle decorative elements - warm, not techy */}
           <div className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full bg-white/[0.03] -translate-y-1/2 translate-x-1/3" />
           <div className="absolute bottom-0 left-0 w-[200px] h-[200px] rounded-full bg-white/[0.03] translate-y-1/2 -translate-x-1/3" />
 
@@ -41,21 +41,20 @@ export default function CTA() {
             </p>
 
             <h2 className="cta-animate font-heading font-black text-display-md text-white mb-5">
-              Ready to begin your{" "}
-              <span className="serif-italic">nursing career</span> in Canada?
+              Ready to begin your nursing career in Canada?
             </h2>
 
             <p className="cta-animate font-body text-base text-white/45 mb-10 max-w-lg mx-auto leading-relaxed">
               Whether you are a nurse looking for work or an employer looking
-              for talent — we are here to help.
+              for talent, we are here to help.
             </p>
 
             <div className="cta-animate flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
-                href="/candidates"
+                href="/candidates/assessment"
                 className="inline-flex items-center justify-center bg-white text-primary font-body font-semibold text-sm px-8 py-3.5 rounded-full hover:bg-white/90 transition-colors duration-300"
               >
-                Find a Nursing Job
+                Apply Now
               </Link>
               <Link
                 href="/employers"
