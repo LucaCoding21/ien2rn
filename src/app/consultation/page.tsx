@@ -108,13 +108,13 @@ export default function ConsultationPage() {
     <main>
       {/* Professionals Grid */}
       <section className="py-section bg-secondary-light/20">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           {/* Section heading */}
           <div className="max-w-2xl mb-8">
-            <p className="font-body text-sm font-semibold text-primary uppercase tracking-[0.2em] mb-4">
+            <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
               Our Team
             </p>
-            <h2 className="font-heading font-black text-display-md text-foreground">
+            <h2 className="font-heading font-bold text-display-md text-foreground">
               Meet your{" "}
               <span className="serif-italic text-primary">consultants</span>
             </h2>
@@ -142,7 +142,7 @@ export default function ConsultationPage() {
             {filtered.map((person) => (
               <div
                 key={person.name}
-                className="pro-card group bg-white rounded-2xl border border-secondary/15 overflow-hidden hover:shadow-lg hover:shadow-primary/5 transition-all duration-500"
+                className="pro-card group bg-offwhite rounded-2xl border border-secondary/15 overflow-hidden hover:shadow-lg hover:shadow-primary/5 transition-all duration-500"
               >
                 {/* Image */}
                 <div className="relative aspect-[4/3] overflow-hidden">
@@ -237,13 +237,13 @@ export default function ConsultationPage() {
 
       {/* Immigration Notice */}
       <section className="py-section">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="bg-foreground rounded-[2rem] md:rounded-[3rem] px-8 md:px-14 py-12 md:py-14 grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">
               <p className="font-body text-xs font-semibold text-white/35 uppercase tracking-[0.2em] mb-3">
                 Immigration Services
               </p>
-              <h2 className="font-heading font-black text-display-sm text-white mb-4">
+              <h2 className="font-heading font-bold text-display-sm text-white mb-4">
                 Why immigration consultations are{" "}
                 <span className="serif-italic text-secondary">paid</span>
               </h2>

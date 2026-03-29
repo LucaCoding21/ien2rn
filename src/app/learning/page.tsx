@@ -113,17 +113,31 @@ export default function LearningPage() {
         });
       });
 
-      // Social proof
-      const proofEls = proofRef.current!.querySelectorAll(".proof-anim");
-      gsap.set(proofEls, { y: 25, autoAlpha: 0 });
-      gsap.to(proofEls, {
+      // CTA
+      const ctaEls = proofRef.current!.querySelectorAll(".cta-anim");
+      gsap.set(ctaEls, { y: 25, autoAlpha: 0 });
+      gsap.to(ctaEls, {
         y: 0,
         autoAlpha: 1,
         duration: 0.8,
         stagger: 0.08,
         ease: "power2.out",
-        scrollTrigger: { trigger: proofRef.current, start: "top 70%" },
+        scrollTrigger: { trigger: proofRef.current, start: "top 75%" },
       });
+
+      gsap.fromTo("#learn-cta-parallax-img",
+        { y: "-10%" },
+        {
+          y: "10%",
+          ease: "none",
+          scrollTrigger: {
+            trigger: proofRef.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        }
+      );
     });
 
     return () => ctx.revert();
@@ -150,13 +164,13 @@ export default function LearningPage() {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 w-full max-w-[1200px] mx-auto px-6 md:px-12 pb-16 md:pb-20 pt-40">
+        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 pb-16 md:pb-20 pt-40">
           <div className="max-w-2xl">
-            <p className="learn-hero-anim font-body text-sm font-semibold text-white/50 uppercase tracking-[0.2em] mb-5">
+            <p className="learn-hero-anim font-body text-sm font-semibold text-yellow-400 uppercase tracking-[0.08em] mb-5">
               Learning & Mentorship
             </p>
             <h1
-              className="learn-hero-anim font-heading font-black text-white mb-6"
+              className="learn-hero-anim font-heading font-bold text-white mb-6"
               style={{
                 fontSize: "clamp(2.2rem, 5vw, 3.75rem)",
                 lineHeight: "1.05",
@@ -217,12 +231,12 @@ export default function LearningPage() {
 
       {/* ── Section 2 — Flagship: CBA & SLA Boot Camp ── */}
       <section ref={flagshipRef} className="py-section">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="flagship-header max-w-2xl mb-14 md:mb-16">
-            <p className="font-body text-sm font-semibold text-primary uppercase tracking-[0.2em] mb-4">
+            <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
               Flagship program
             </p>
-            <h2 className="font-heading font-black text-display-md text-foreground">
+            <h2 className="font-heading font-bold text-display-md text-foreground">
               CBA & SLA Boot Camp
             </h2>
           </div>
@@ -280,21 +294,21 @@ export default function LearningPage() {
 
               <div className="flex items-center gap-6 mb-8 pb-8 border-b border-secondary/15">
                 <div>
-                  <p className="font-heading font-black text-2xl text-primary leading-none">
+                  <p className="font-heading font-bold text-2xl text-primary leading-none">
                     12
                   </p>
                   <p className="font-body text-xs text-muted mt-1">weeks</p>
                 </div>
                 <div className="w-px h-10 bg-secondary/20" />
                 <div>
-                  <p className="font-heading font-black text-2xl text-primary leading-none">
+                  <p className="font-heading font-bold text-2xl text-primary leading-none">
                     All
                   </p>
                   <p className="font-body text-xs text-muted mt-1">levels</p>
                 </div>
                 <div className="w-px h-10 bg-secondary/20" />
                 <div>
-                  <p className="font-heading font-black text-2xl text-primary leading-none">
+                  <p className="font-heading font-bold text-2xl text-primary leading-none">
                     Live
                   </p>
                   <p className="font-body text-xs text-muted mt-1">in-person</p>
@@ -327,15 +341,15 @@ export default function LearningPage() {
 
       {/* ── Section 3 — More Programs + Popular Resources ── */}
       <section ref={moreRef} className="py-section bg-secondary-light/25">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-12">
             {/* Left — More programs */}
             <div className="lg:col-span-7">
               <div className="more-anim mb-10">
-                <p className="font-body text-sm font-semibold text-primary uppercase tracking-[0.2em] mb-4">
+                <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
                   More programs
                 </p>
-                <h2 className="font-heading font-black text-display-sm text-foreground">
+                <h2 className="font-heading font-bold text-display-sm text-foreground">
                   Mentorship & workshops
                 </h2>
               </div>
@@ -345,7 +359,7 @@ export default function LearningPage() {
                   <Link
                     key={program.title}
                     href="/learning/courses"
-                    className="more-anim group flex flex-col sm:flex-row gap-5 bg-white rounded-2xl overflow-hidden border border-secondary/10 hover:border-primary/20 transition-colors duration-300"
+                    className="more-anim group flex flex-col sm:flex-row gap-5 bg-offwhite rounded-2xl overflow-hidden border border-secondary/10 hover:border-primary/20 transition-colors duration-300"
                   >
                     <div className="relative sm:w-48 aspect-[16/10] sm:aspect-auto shrink-0 overflow-hidden">
                       <Image
@@ -393,10 +407,10 @@ export default function LearningPage() {
             {/* Right — Popular resources */}
             <div className="lg:col-span-5">
               <div className="more-anim mb-10">
-                <p className="font-body text-sm font-semibold text-primary uppercase tracking-[0.2em] mb-4">
+                <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
                   Free resources
                 </p>
-                <h2 className="font-heading font-black text-display-sm text-foreground">
+                <h2 className="font-heading font-bold text-display-sm text-foreground">
                   Popular downloads
                 </h2>
               </div>
@@ -406,7 +420,7 @@ export default function LearningPage() {
                   <Link
                     key={resource.title}
                     href="/learning/resources"
-                    className="more-anim group flex items-center gap-4 bg-white rounded-xl border border-secondary/10 p-4 hover:border-primary/20 transition-colors duration-300"
+                    className="more-anim group flex items-center gap-4 bg-offwhite rounded-xl border border-secondary/10 p-4 hover:border-primary/20 transition-colors duration-300"
                   >
                     <div className="w-10 h-10 rounded-lg bg-secondary-light/60 flex items-center justify-center text-primary shrink-0 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                       <svg
@@ -462,74 +476,53 @@ export default function LearningPage() {
         </div>
       </section>
 
-      {/* ── Section 4 — Social Proof ── */}
-      <section ref={proofRef} className="py-section">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
-          <div className="relative rounded-[2rem] md:rounded-[3rem] overflow-hidden min-h-[450px] md:min-h-[500px]">
-            {/* Background */}
-            <div className="absolute inset-0">
-              <Image
-                src="/aboutus2.jpg"
-                alt="Healthcare team"
-                fill
-                className="object-cover"
-                sizes="100vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/75 to-foreground/40" />
-            </div>
+      {/* ── Section 4 — CTA ── */}
+      <section ref={proofRef} className="relative py-28 md:py-36 overflow-hidden">
+        {/* Background image with parallax */}
+        <div className="absolute inset-0 scale-110">
+          <Image
+            src="/cta-section.jpg"
+            alt="Nurses working in a Canadian hospital"
+            fill
+            className="object-cover object-[center_30%]"
+            sizes="100vw"
+            style={{ willChange: "transform" }}
+            id="learn-cta-parallax-img"
+          />
+        </div>
 
-            {/* Content */}
-            <div className="relative z-10 flex items-center min-h-[450px] md:min-h-[500px] px-8 md:px-16 py-14">
-              <div className="max-w-xl">
-                <svg
-                  className="proof-anim w-8 h-8 text-white/20 mb-6"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311C9.591 11.69 11.25 13.441 11.25 15.625 11.25 16.82 10.82 17.926 10.037 18.713 9.254 19.5 8.197 19.929 7.05 19.929c-1.33 0-2.386-.486-2.467-.608zM14.583 17.321C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.986.179 3.645 1.93 3.645 4.114 0 1.195-.43 2.301-1.213 3.088-.783.787-1.84 1.216-2.987 1.216-1.33 0-2.386-.486-2.467-.608z" />
-                </svg>
-                <p className="proof-anim font-body text-xl md:text-2xl text-white leading-snug font-light mb-8">
-                  &ldquo;The CBA boot camp changed everything. I walked into my
-                  assessment confident because I&apos;d already practiced every
-                  scenario with my mentor. Passed on the first attempt.&rdquo;
-                </p>
-                <div className="proof-anim flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-white/15 flex items-center justify-center">
-                    <span className="font-heading font-bold text-sm text-white">
-                      MR
-                    </span>
-                  </div>
-                  <div>
-                    <p className="font-heading font-bold text-sm text-white">
-                      Maria R.
-                    </p>
-                    <p className="font-body text-xs text-white/40">
-                      Passed CBA on first attempt
-                    </p>
-                  </div>
-                </div>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-foreground/80" />
 
-                <Link
-                  href="/learning/courses"
-                  className="proof-anim group inline-flex items-center justify-center gap-2.5 text-foreground font-body font-semibold text-sm px-8 py-3.5 rounded-full bg-white transition-all duration-300 hover:shadow-lg hover:shadow-white/15 hover:-translate-y-0.5 mt-10"
-                >
-                  Start Your Training
-                  <svg
-                    className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                    />
-                  </svg>
-                </Link>
-              </div>
-            </div>
+        {/* Content */}
+        <div className="relative z-10 max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24 flex flex-col lg:flex-row lg:items-center justify-between gap-10">
+          {/* Left — text */}
+          <div className="max-w-2xl">
+            <p className="cta-anim font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
+              Start today
+            </p>
+            <h2 className="cta-anim font-heading font-bold text-display-md text-white mb-4">
+              Ready to begin your nursing career in Canada?
+            </h2>
+            <p className="cta-anim font-body text-base text-white/55 leading-relaxed">
+              Join our next cohort and get the mentorship, training, and support you need to succeed.
+            </p>
+          </div>
+
+          {/* Right — CTAs */}
+          <div className="cta-anim flex flex-col sm:flex-row gap-4 shrink-0">
+            <Link
+              href="/learning/courses"
+              className="inline-flex items-center justify-center bg-white text-primary font-body font-semibold text-sm px-8 py-4 rounded-full hover:bg-white/90 transition-colors duration-300"
+            >
+              Explore Programs
+            </Link>
+            <Link
+              href="/consultation"
+              className="inline-flex items-center justify-center border border-white/25 text-white font-body font-semibold text-sm px-8 py-4 rounded-full hover:border-white/50 transition-colors duration-300"
+            >
+              Book a Consultation
+            </Link>
           </div>
         </div>
       </section>

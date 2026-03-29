@@ -14,7 +14,9 @@ const config: Config = {
         secondary: "#A8AEE4",
         "secondary-light": "#E8EAFF",
         foreground: "#1a1a2e",
-        muted: "#6b7094",
+        muted: "#3d4166",
+        accent: "#C48A0A",
+        offwhite: "#F7F7F5",
       },
       fontFamily: {
         heading: ["var(--font-public-sans)", "system-ui", "sans-serif"],

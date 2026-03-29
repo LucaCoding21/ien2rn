@@ -28,13 +28,12 @@ export default function CTABanner() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-section">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+    <section ref={sectionRef} className="py-8 md:py-12">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         <div className="bg-secondary-light/40 rounded-[2rem] md:rounded-[3rem] px-8 md:px-16 py-14 md:py-16 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="max-w-lg">
-            <h2 className="cta-banner-animate font-heading font-black text-2xl md:text-3xl text-foreground mb-3">
-              Ready to take the{" "}
-              <span className="serif-italic text-primary">next step?</span>
+            <h2 className="cta-banner-animate font-heading font-bold text-2xl md:text-3xl text-foreground mb-3">
+              Ready to take the next step?
             </h2>
             <p className="cta-banner-animate font-body text-sm text-muted leading-relaxed">
               Whether you&apos;re a nurse seeking your next opportunity or an

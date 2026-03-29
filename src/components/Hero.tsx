@@ -17,46 +17,51 @@ export default function Hero() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
-        defaults: { ease: "power2.out" },
-        delay: 0.4,
+        defaults: { ease: "power3.out" },
+        delay: 0.2,
       });
 
-      gsap.set(".hero-label", { y: 15, autoAlpha: 0 });
-      gsap.set(".hero-headline-line", { y: 50, autoAlpha: 0 });
-      gsap.set(".hero-sub", { y: 15, autoAlpha: 0 });
-      gsap.set(".hero-cta > *", { y: 12, autoAlpha: 0 });
-      gsap.set(".hero-stat-item", { y: 15, autoAlpha: 0 });
-      gsap.set(".hero-image-wrap", { clipPath: "inset(8% 8% 8% 8% round 1.5rem)", autoAlpha: 0 });
-      gsap.set(".hero-trust", { y: 10, autoAlpha: 0 });
+      // Initial states
+      gsap.set(".hero-label", { y: 20, autoAlpha: 0 });
+      gsap.set(".hero-headline-line", { y: 60, autoAlpha: 0 });
+      gsap.set(".hero-sub", { y: 20, autoAlpha: 0 });
+      gsap.set(".hero-cta > *", { y: 16, autoAlpha: 0 });
+      gsap.set(".hero-stat-item", { y: 20, autoAlpha: 0 });
+      gsap.set(".hero-image-wrap", { scale: 0.92, autoAlpha: 0, clipPath: "inset(6% 6% 6% 6% round 0.5rem)" });
+      gsap.set(".hero-trust", { y: 14, autoAlpha: 0 });
 
-      tl.to(".hero-label", { y: 0, autoAlpha: 1, duration: 0.7 })
+      // Main entrance timeline
+      tl.to(".hero-label", { y: 0, autoAlpha: 1, duration: 0.8, ease: "power2.out" })
         .to(
           ".hero-headline-line",
-          { y: 0, autoAlpha: 1, duration: 0.9, stagger: 0.08 },
-          "-=0.4"
+          { y: 0, autoAlpha: 1, duration: 1, stagger: 0.1, ease: "power3.out" },
+          "-=0.5"
         )
-        .to(".hero-sub", { y: 0, autoAlpha: 1, duration: 0.7 }, "-=0.4")
+        .to(".hero-sub", { y: 0, autoAlpha: 1, duration: 0.8 }, "-=0.5")
         .to(
           ".hero-cta > *",
-          { y: 0, autoAlpha: 1, duration: 0.6, stagger: 0.06 },
-          "-=0.3"
+          { y: 0, autoAlpha: 1, duration: 0.7, stagger: 0.08 },
+          "-=0.4"
         )
         .to(
           ".hero-image-wrap",
           {
-            clipPath: "inset(0% 0% 0% 0% round 1.5rem)",
+            scale: 1,
+            clipPath: "inset(0% 0% 0% 0% round 0.5rem)",
             autoAlpha: 1,
-            duration: 1.2,
+            duration: 1.4,
             ease: "power3.inOut",
           },
-          0.6
+          0.4
         )
         .to(
           ".hero-stat-item",
-          { y: 0, autoAlpha: 1, duration: 0.6, stagger: 0.08 },
-          "-=0.5"
+          { y: 0, autoAlpha: 1, duration: 0.7, stagger: 0.1 },
+          "-=0.6"
         )
-        .to(".hero-trust", { y: 0, autoAlpha: 1, duration: 0.6 }, "-=0.3");
+        .to(".hero-trust", { y: 0, autoAlpha: 1, duration: 0.7 }, "-=0.4");
+
+
     }, sectionRef);
 
     return () => ctx.revert();
@@ -71,27 +76,21 @@ export default function Hero() {
       <div className="h-28 shrink-0" />
 
       {/* Main content */}
-      <div className="relative flex-1 flex items-start px-6 md:px-12 lg:px-20 pt-4 md:pt-8">
-        <div className="max-w-[1200px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-start">
+      <div className="relative flex-1 flex items-start px-6 md:px-12 lg:px-20 pt-14">
+        <div className="max-w-[1400px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-stretch">
           {/* Left column - text */}
-          <div className="lg:col-span-6 xl:col-span-7 pt-2 lg:pt-8">
+          <div className="lg:col-span-6 xl:col-span-6 lg:pl-2 xl:pl-4">
             {/* Label */}
-            <div className="hero-label inline-flex items-center gap-2.5 bg-secondary-light/60 rounded-full px-4 py-1.5 mb-8">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
-              </span>
-              <span className="font-body text-xs font-semibold text-primary tracking-wide uppercase">
-                Now placing nurses across Canada
-              </span>
-            </div>
+            <p className="hero-label font-body text-xs font-semibold text-accent tracking-[0.12em] uppercase mb-8">
+              Now placing nurses across Canada
+            </p>
 
             {/* Headline */}
-            <h1 className="hero-headline font-heading font-black text-foreground mb-7">
+            <h1 className="hero-headline font-heading font-bold text-foreground mb-7">
               <span
                 className="hero-headline-line block"
                 style={{
-                  fontSize: "clamp(2.2rem, 4.5vw, 3.75rem)",
+                  fontSize: "clamp(2.4rem, 4.8vw, 4.2rem)",
                   lineHeight: "1.08",
                   letterSpacing: "-0.03em",
                 }}
@@ -101,7 +100,7 @@ export default function Hero() {
               <span
                 className="hero-headline-line block"
                 style={{
-                  fontSize: "clamp(2.2rem, 4.5vw, 3.75rem)",
+                  fontSize: "clamp(2.4rem, 4.8vw, 4.2rem)",
                   lineHeight: "1.08",
                   letterSpacing: "-0.03em",
                 }}
@@ -111,27 +110,27 @@ export default function Hero() {
               <span
                 className="hero-headline-line block mt-2"
                 style={{
-                  fontSize: "clamp(2.2rem, 4.5vw, 3.75rem)",
+                  fontSize: "clamp(2.4rem, 4.8vw, 4.2rem)",
                   lineHeight: "1.08",
                   letterSpacing: "-0.03em",
                 }}
               >
-                <span className="serif-italic text-primary">Land your first</span>
+                <span className="text-primary">Land your first</span>
               </span>
               <span
                 className="hero-headline-line block"
                 style={{
-                  fontSize: "clamp(2.2rem, 4.5vw, 3.75rem)",
+                  fontSize: "clamp(2.4rem, 4.8vw, 4.2rem)",
                   lineHeight: "1.08",
                   letterSpacing: "-0.03em",
                 }}
               >
-                <span className="serif-italic text-primary">Canadian</span> job.
+                <span className="text-primary">Canadian</span> job.
               </span>
             </h1>
 
             {/* Subline */}
-            <p className="hero-sub font-body text-base md:text-lg text-muted max-w-md mb-9 leading-relaxed">
+            <p className="hero-sub font-body text-base md:text-lg text-muted max-w-xl mb-9 leading-relaxed">
               We handle credentialing, immigration support, and
               employer matching, so you can focus on what you do best.
             </p>
@@ -140,9 +139,18 @@ export default function Hero() {
             <div className="hero-cta flex flex-col sm:flex-row items-start gap-4 mb-12">
               <Link
                 href="/candidates/assessment"
-                className="group inline-flex items-center justify-center gap-2.5 text-white font-body font-semibold text-sm px-8 py-3.5 rounded-full bg-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center text-white font-body font-semibold text-base px-10 py-4 rounded-full bg-primary transition-all duration-300 hover:bg-accent hover:-translate-y-0.5"
               >
                 Apply Now
+              </Link>
+              <Link
+                href="/employers"
+                className="group relative inline-flex items-center gap-2 font-body font-medium text-base text-muted hover:text-primary transition-colors duration-300 py-4"
+              >
+                <span className="relative">
+                  Hire Qualified Staff
+                  <span className="absolute -bottom-1.5 left-0 h-[1.5px] w-full bg-primary scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
+                </span>
                 <svg
                   className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
                   fill="none"
@@ -150,30 +158,7 @@ export default function Hero() {
                   stroke="currentColor"
                   strokeWidth={2}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                  />
-                </svg>
-              </Link>
-              <Link
-                href="/employers"
-                className="group inline-flex items-center gap-2 font-body font-medium text-sm text-muted hover:text-primary transition-colors duration-300 py-3.5"
-              >
-                Hire Qualified Staff
-                <svg
-                  className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
               </Link>
             </div>
@@ -183,7 +168,7 @@ export default function Hero() {
               {stats.map((stat, i) => (
                 <div key={stat.label} className="hero-stat-item flex items-center gap-8 md:gap-10">
                   <div>
-                    <p className="font-heading font-black text-2xl md:text-3xl text-primary leading-none">
+                    <p className="font-heading font-bold text-2xl md:text-3xl text-primary leading-none">
                       {stat.value}
                     </p>
                     <p className="font-body text-xs text-muted mt-1">
@@ -199,10 +184,10 @@ export default function Hero() {
           </div>
 
           {/* Right column - image */}
-          <div className="lg:col-span-6 xl:col-span-5 pt-0 lg:pt-0">
-            <div className="hero-image-wrap relative rounded-3xl overflow-hidden aspect-[3/4] max-h-[620px] shadow-2xl shadow-foreground/8">
+          <div className="lg:col-span-6 xl:col-span-6 pt-0 lg:pt-0">
+            <div className="hero-image-wrap relative rounded-lg overflow-hidden h-full min-h-[500px] shadow-2xl shadow-foreground/8">
               <Image
-                src="/hero-nurse.jpg"
+                src="/hero-picture-ien2rn.jpg"
                 alt="Internationally educated nurse working in a Canadian healthcare setting"
                 fill
                 className="object-cover object-top"
@@ -217,18 +202,18 @@ export default function Hero() {
       </div>
 
       {/* Trust bar */}
-      <div className="hero-trust shrink-0 py-10 px-6 md:px-12 mt-8">
-        <div className="max-w-[1200px] mx-auto">
-          <div className="border-t border-secondary/15 pt-8">
-            <p className="font-body text-[10px] text-muted/40 uppercase tracking-[0.15em] text-center mb-4">
+      <div className="hero-trust shrink-0 py-14 px-6 md:px-12 mt-8">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="border-t border-secondary/15 pt-10">
+            <p className="font-body text-sm text-muted/70 uppercase tracking-[0.15em] text-center mb-8">
               Trusted by healthcare organizations across Canada
             </p>
-            <div className="flex items-center justify-center gap-8 md:gap-14 opacity-20">
+            <div className="flex items-center justify-center gap-10 md:gap-20 opacity-60">
               {["Ontario Health", "BC Health", "Alberta HS", "Quebec CISSS"].map(
                 (name) => (
                   <span
                     key={name}
-                    className="font-heading font-bold text-xs md:text-sm text-foreground whitespace-nowrap"
+                    className="font-heading font-bold text-base md:text-xl text-foreground whitespace-nowrap"
                   >
                     {name}
                   </span>

@@ -9,9 +9,9 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <Trust />
       <Services />
       <HowItWorks />
-      <Trust />
       <Testimonials />
       <CTA />
     </main>

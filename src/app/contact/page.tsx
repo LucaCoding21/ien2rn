@@ -52,34 +52,52 @@ export default function ContactPage() {
     <main>
       <PageHero
         label="Contact"
-        heading={
-          <>
-            We&apos;d love to{" "}
-            <span className="serif-italic text-primary">hear from you</span>
-          </>
-        }
+        heading="We'd love to hear from you"
         description="Have a question that isn't answered on our website? Drop us a message and our team will get back to you."
+        image="/mentorship.jpg"
       />
 
-      <section ref={contentRef} className="py-section">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+      <section ref={contentRef} className="pt-8 md:pt-12 pb-8 md:pb-12">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid lg:grid-cols-12 gap-16 lg:gap-20">
             {/* Left - Large contact info */}
             <div className="lg:col-span-5 contact-left">
-              <h2 className="font-heading font-black text-2xl text-foreground mb-8">
+              <h2 className="font-heading font-bold text-2xl text-foreground mb-8">
                 Get in touch
               </h2>
 
               <div className="space-y-8 mb-12">
                 <div>
                   <p className="font-body text-xs font-semibold text-muted uppercase tracking-wider mb-2">
+                    Phone
+                  </p>
+                  <a
+                    href="tel:+16042295549"
+                    className="font-heading font-bold text-xl md:text-2xl text-foreground hover:text-primary transition-colors duration-300"
+                  >
+                    (604) 229-5549
+                  </a>
+                </div>
+                <div>
+                  <p className="font-body text-xs font-semibold text-muted uppercase tracking-wider mb-2">
                     Email
                   </p>
                   <a
-                    href="mailto:hello@ien2rn.com"
+                    href="mailto:NurseMentor@ien2RN.org"
                     className="font-heading font-bold text-xl md:text-2xl text-foreground hover:text-primary transition-colors duration-300"
                   >
-                    hello@ien2rn.com
+                    NurseMentor@ien2RN.org
+                  </a>
+                </div>
+                <div>
+                  <p className="font-body text-xs font-semibold text-muted uppercase tracking-wider mb-2">
+                    Website
+                  </p>
+                  <a
+                    href="https://www.ien2rn.org"
+                    className="font-heading font-bold text-xl md:text-2xl text-foreground hover:text-primary transition-colors duration-300"
+                  >
+                    www.ien2rn.org
                   </a>
                 </div>
                 <div>

@@ -87,11 +87,11 @@ export default function Stats() {
                     ref={(el) => {
                       numberRefs.current[i] = el;
                     }}
-                    className="font-heading font-black text-display-lg text-primary"
+                    className="font-heading font-bold text-display-lg text-primary"
                   >
                     0
                   </span>
-                  <span className="font-heading font-black text-display-sm text-primary">
+                  <span className="font-heading font-bold text-display-sm text-primary">
                     {stat.suffix}
                   </span>
                 </div>

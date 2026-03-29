@@ -163,11 +163,11 @@ export default function ResourcesPage() {
       <div ref={pageRef}>
         {/* ── Header (compact, no hero) ── */}
         <section className="pt-32 pb-8 md:pt-40 md:pb-10">
-          <div className="max-w-[1200px] mx-auto px-6 md:px-12">
-            <p className="res-header font-body text-sm font-semibold text-primary uppercase tracking-[0.2em] mb-3">
+          <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+            <p className="res-header font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-3">
               Resources
             </p>
-            <h1 className="res-header font-heading font-black text-display-md text-foreground mb-3">
+            <h1 className="res-header font-heading font-bold text-display-md text-foreground mb-3">
               Free downloads for your journey
             </h1>
             <p className="res-header font-body text-base text-muted leading-relaxed max-w-xl">
@@ -180,12 +180,12 @@ export default function ResourcesPage() {
 
         {/* ── Free Resources (grouped by journey stage) ── */}
         <section className="pb-section">
-          <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+          <div className="max-w-[1400px] mx-auto px-6 md:px-12">
             <div className="space-y-14">
               {freeResources.map((group) => (
                 <div key={group.stage} className="res-group">
                   <div className="flex items-baseline gap-3 mb-5">
-                    <h2 className="font-heading font-black text-xl text-foreground">
+                    <h2 className="font-heading font-bold text-xl text-foreground">
                       {group.stage}
                     </h2>
                     <p className="font-body text-sm text-muted hidden sm:block">
@@ -198,7 +198,7 @@ export default function ResourcesPage() {
                       <button
                         key={resource.title}
                         onClick={() => handleDownload(resource)}
-                        className="res-card text-left group bg-white border border-secondary/15 rounded-xl p-5 hover:border-primary/25 hover:shadow-sm transition-all duration-300"
+                        className="res-card text-left group bg-offwhite border border-secondary/15 rounded-xl p-5 hover:border-primary/25 hover:shadow-sm transition-all duration-300"
                       >
                         <div className="flex items-start gap-4">
                           <div className="w-10 h-10 rounded-lg bg-secondary-light/60 flex items-center justify-center text-primary shrink-0 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
@@ -240,12 +240,12 @@ export default function ResourcesPage() {
 
       {/* ── Premium Resources ── */}
       <section ref={premiumRef} className="py-section bg-foreground">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="max-w-2xl mb-12">
             <p className="font-body text-sm font-semibold text-white/30 uppercase tracking-[0.2em] mb-4">
               Go deeper
             </p>
-            <h2 className="font-heading font-black text-display-sm text-white mb-3">
+            <h2 className="font-heading font-bold text-display-sm text-white mb-3">
               Premium resources
             </h2>
             <p className="font-body text-base text-white/40 leading-relaxed">
@@ -277,7 +277,7 @@ export default function ResourcesPage() {
                       />
                     </svg>
                   </div>
-                  <span className="font-heading font-black text-lg text-white">
+                  <span className="font-heading font-bold text-lg text-white">
                     {resource.price}
                   </span>
                 </div>
@@ -317,7 +317,7 @@ export default function ResourcesPage() {
 
       {/* ── Bottom nudge back to programs ── */}
       <section className="py-16">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6 rounded-2xl bg-secondary-light/30 px-8 md:px-10 py-8">
             <div>
               <p className="font-heading font-bold text-lg text-foreground mb-1">
@@ -358,7 +358,7 @@ export default function ResourcesPage() {
             className="absolute inset-0 bg-foreground/40 backdrop-blur-sm"
             onClick={() => setShowModal(false)}
           />
-          <div className="relative bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl">
+          <div className="relative bg-offwhite rounded-2xl p-8 max-w-md w-full shadow-2xl">
             <button
               onClick={() => setShowModal(false)}
               className="absolute top-4 right-4 w-8 h-8 rounded-full bg-secondary-light/50 flex items-center justify-center text-muted hover:text-foreground transition-colors"

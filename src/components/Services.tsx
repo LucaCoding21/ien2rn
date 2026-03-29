@@ -16,7 +16,7 @@ const services = [
       "We match you with hospitals, clinics, and care homes across Canada that need your skills. From your first interview to your first shift.",
     href: "/candidates",
     linkText: "Explore opportunities",
-    image: "/1.jpg",
+    image: "/job-placement.jpg",
   },
   {
     label: "For nurses",
@@ -25,7 +25,7 @@ const services = [
       "CBA & SLA boot camps, 1-on-1 nurse mentorship, career coaching, and upskilling webinars. All built by IEN nurses who've been where you are.",
     href: "/learning",
     linkText: "View programs",
-    image: "/2.jpg",
+    image: "/mentorship.jpg",
   },
   {
     label: "For employers",
@@ -34,7 +34,7 @@ const services = [
       "We connect healthcare employers with qualified, ready-to-work internationally educated nurses.",
     href: "/employers",
     linkText: "Partner with us",
-    image: "/3.jpg",
+    image: "/employer-partnership.jpg",
   },
 ];
 
@@ -74,15 +74,15 @@ export default function Services() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-section">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+    <section ref={sectionRef} className="pb-section pt-10 md:pt-14">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24">
         {/* Header */}
         <div className="services-header max-w-2xl mb-14 md:mb-16">
-          <p className="font-body text-sm font-semibold text-primary uppercase tracking-[0.2em] mb-4">
+          <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
             What we do
           </p>
-          <h2 className="font-heading font-black text-display-md text-foreground">
-            Everything you need to start working in Canada
+          <h2 className="font-heading font-bold text-display-md text-foreground whitespace-nowrap">
+            All you need to work in Canada
           </h2>
         </div>
 
@@ -92,10 +92,10 @@ export default function Services() {
             <Link
               key={service.title}
               href={service.href}
-              className="service-card group block"
+              className="service-card group flex flex-col"
             >
               {/* Image */}
-              <div className="relative rounded-2xl overflow-hidden aspect-[4/3] mb-6">
+              <div className="relative rounded-lg overflow-hidden aspect-[4/3] mb-6">
                 <Image
                   src={service.image}
                   alt={service.title}
@@ -107,25 +107,22 @@ export default function Services() {
               </div>
 
               {/* Content */}
-              <span className="font-body text-[10px] font-semibold text-primary uppercase tracking-[0.15em]">
-                {service.label}
-              </span>
-              <h3 className="font-heading font-black text-xl md:text-2xl text-foreground mt-2 mb-3 group-hover:text-primary transition-colors duration-300">
+              <h3 className="font-heading font-bold text-xl md:text-2xl text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
                 {service.title}
               </h3>
-              <p className="font-body text-sm text-muted leading-relaxed mb-4">
+              <p className="font-body text-sm text-muted leading-relaxed mb-4 flex-1">
                 {service.description}
               </p>
-              <span className="inline-flex items-center gap-2 font-body font-semibold text-sm text-primary">
+              <span className="inline-flex items-center gap-2 font-body font-semibold text-sm text-primary border border-primary/30 rounded-full px-5 py-2 transition-all duration-300 group-hover:bg-primary group-hover:text-white group-hover:border-primary self-end mt-auto">
                 {service.linkText}
                 <svg
-                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                  className="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                   strokeWidth={2}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
                 </svg>
               </span>
             </Link>

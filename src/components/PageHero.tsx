@@ -2,14 +2,16 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import Image from "next/image";
 
 interface PageHeroProps {
   label: string;
   heading: React.ReactNode;
   description: string;
+  image?: string;
 }
 
-export default function PageHero({ label, heading, description }: PageHeroProps) {
+export default function PageHero({ label, heading, description, image }: PageHeroProps) {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -36,17 +38,31 @@ export default function PageHero({ label, heading, description }: PageHeroProps)
 
   return (
     <section ref={sectionRef} className="relative pt-32 pb-12 md:pt-40 md:pb-16">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-12">
-        <div className="max-w-3xl">
-          <p className="page-hero-label font-body text-sm font-semibold text-primary uppercase tracking-[0.2em] mb-4">
-            {label}
-          </p>
-          <h1 className="page-hero-heading font-heading font-black text-display-lg text-foreground mb-6">
-            {heading}
-          </h1>
-          <p className="page-hero-desc font-body text-lg text-muted leading-relaxed max-w-2xl">
-            {description}
-          </p>
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+        <div className={`flex flex-col ${image ? "lg:flex-row lg:items-center lg:gap-16" : ""}`}>
+          <div className={image ? "lg:flex-1" : "max-w-3xl"}>
+            <p className="page-hero-label font-body text-sm font-semibold text-yellow-500 uppercase tracking-[0.08em] mb-4">
+              {label}
+            </p>
+            <h1 className="page-hero-heading font-heading font-bold text-display-lg text-foreground mb-6">
+              {heading}
+            </h1>
+            <p className="page-hero-desc font-body text-lg text-muted leading-relaxed max-w-2xl">
+              {description}
+            </p>
+          </div>
+
+          {image && (
+            <div className="page-hero-desc relative mt-10 lg:mt-0 lg:w-[42%] rounded-2xl overflow-hidden aspect-[4/3] shrink-0">
+              <Image
+                src={image}
+                alt=""
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 42vw"
+              />
+            </div>
+          )}
         </div>
 
         {/* Subtle accent line */}

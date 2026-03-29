@@ -153,6 +153,21 @@ export default function CandidatesPage() {
         ease: "power2.out",
         scrollTrigger: { trigger: ctaRef.current, start: "top 75%" },
       });
+
+      // Parallax on CTA background image
+      gsap.fromTo("#candidates-cta-parallax-img",
+        { y: "-10%" },
+        {
+          y: "10%",
+          ease: "none",
+          scrollTrigger: {
+            trigger: ctaRef.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        }
+      );
     });
 
     return () => ctx.revert();
@@ -176,13 +191,13 @@ export default function CandidatesPage() {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 w-full max-w-[1200px] mx-auto px-6 md:px-12 pb-16 md:pb-20 pt-40">
+        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 pb-16 md:pb-20 pt-40">
           <div className="max-w-2xl">
-            <p className="hero-anim font-body text-sm font-semibold text-white/50 uppercase tracking-[0.2em] mb-5">
+            <p className="hero-anim font-body text-sm font-semibold text-yellow-400 uppercase tracking-[0.2em] mb-5">
               For nurses
             </p>
             <h1
-              className="hero-anim font-heading font-black text-white mb-6"
+              className="hero-anim font-heading font-bold text-white mb-6"
               style={{
                 fontSize: "clamp(2.2rem, 5vw, 3.75rem)",
                 lineHeight: "1.05",
@@ -225,7 +240,7 @@ export default function CandidatesPage() {
 
       {/* ============ TRUST STRIP — Instant credibility ============ */}
       <div ref={trustRef} className="bg-white border-b border-secondary/10">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12 py-8">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-8 md:gap-12">
               {[
@@ -234,7 +249,7 @@ export default function CandidatesPage() {
                 { value: "$0", label: "Cost to you" },
               ].map((stat) => (
                 <div key={stat.label} className="trust-item text-center md:text-left">
-                  <p className="font-heading font-black text-2xl text-primary leading-none">
+                  <p className="font-heading font-bold text-2xl text-primary leading-none">
                     {stat.value}
                   </p>
                   <p className="font-body text-xs text-muted mt-1">{stat.label}</p>
@@ -255,14 +270,14 @@ export default function CandidatesPage() {
 
       {/* ============ PROCESS — Visual, with image ============ */}
       <section ref={processRef} className="py-section">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-14">
             {/* Left — Steps */}
             <div className="lg:col-span-6">
-              <p className="font-body text-sm font-semibold text-primary uppercase tracking-[0.2em] mb-4">
+              <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
                 How it works
               </p>
-              <h2 className="font-heading font-black text-display-md text-foreground mb-12">
+              <h2 className="font-heading font-bold text-display-md text-foreground mb-12">
                 From application to your first shift
               </h2>
 
@@ -274,7 +289,7 @@ export default function CandidatesPage() {
                       i < steps.length - 1 ? "border-b border-secondary/15" : ""
                     }`}
                   >
-                    <span className="font-heading font-black text-2xl text-primary/20 shrink-0 w-10">
+                    <span className="font-heading font-bold text-2xl text-primary/20 shrink-0 w-10">
                       {step.number}
                     </span>
                     <div>
@@ -287,6 +302,15 @@ export default function CandidatesPage() {
                     </div>
                   </div>
                 ))}
+              </div>
+
+              <div className="process-item mt-8">
+                <Link
+                  href="/candidates/assessment"
+                  className="inline-flex items-center justify-center font-body font-semibold text-sm px-8 py-3.5 rounded-full bg-primary text-white transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5"
+                >
+                  Apply Now
+                </Link>
               </div>
             </div>
 
@@ -308,7 +332,7 @@ export default function CandidatesPage() {
 
       {/* ============ TESTIMONIAL — Social proof moment ============ */}
       <section ref={testimonialRef} className="py-section bg-secondary-light/25">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="max-w-3xl mx-auto text-center">
             <svg
               className="test-anim w-10 h-10 text-secondary/40 mx-auto mb-6"
@@ -357,14 +381,14 @@ export default function CandidatesPage() {
 
       {/* ============ FAQ ============ */}
       <section ref={faqRef} className="py-section">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
             {/* Left — heading */}
             <div className="lg:col-span-4">
-              <p className="font-body text-sm font-semibold text-primary uppercase tracking-[0.2em] mb-4">
+              <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
                 FAQ
               </p>
-              <h2 className="font-heading font-black text-display-md text-foreground mb-4">
+              <h2 className="font-heading font-bold text-display-md text-foreground mb-4">
                 Common questions
               </h2>
               <p className="font-body text-sm text-muted leading-relaxed mb-6">
@@ -436,51 +460,45 @@ export default function CandidatesPage() {
       </section>
 
       {/* ============ BOTTOM CTA — Photo background ============ */}
-      <section ref={ctaRef} className="py-section">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
-          <div className="relative rounded-[2rem] md:rounded-[3rem] overflow-hidden min-h-[400px] md:min-h-[450px]">
-            {/* Background */}
-            <div className="absolute inset-0">
-              <Image
-                src="/empty2.jpg"
-                alt="Nurses collaborating"
-                fill
-                className="object-cover"
-                sizes="100vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/75 to-foreground/40" />
-            </div>
+      <section ref={ctaRef} className="relative py-28 md:py-36 overflow-hidden">
+        {/* Background image with parallax */}
+        <div className="absolute inset-0 scale-110">
+          <Image
+            src="/empty2.jpg"
+            alt="Nurses collaborating"
+            fill
+            className="object-cover"
+            sizes="100vw"
+            style={{ willChange: "transform" }}
+            id="candidates-cta-parallax-img"
+          />
+        </div>
 
-            {/* Content */}
-            <div className="relative z-10 flex items-center min-h-[400px] md:min-h-[450px] px-8 md:px-16 py-14">
-              <div className="max-w-lg">
-                <p className="cta-anim font-body text-xs font-semibold text-white/40 uppercase tracking-[0.2em] mb-5">
-                  Ready?
-                </p>
-                <h2 className="cta-anim font-heading font-black text-display-md text-white mb-5">
-                  Your career in Canada starts with one step
-                </h2>
-                <p className="cta-anim font-body text-base text-white/50 mb-8 leading-relaxed">
-                  Apply now and our team will reach out to guide you through the
-                  next steps. It&apos;s free, it&apos;s fast, and we&apos;ve got your back.
-                </p>
-                <Link
-                  href="/candidates/assessment"
-                  className="cta-anim group inline-flex items-center justify-center gap-2.5 text-foreground font-body font-semibold text-sm px-8 py-3.5 rounded-full bg-white transition-all duration-300 hover:shadow-lg hover:shadow-white/15 hover:-translate-y-0.5"
-                >
-                  Apply Now
-                  <svg
-                    className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                </Link>
-              </div>
-            </div>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-foreground/80" />
+
+        {/* Content */}
+        <div className="relative z-10 max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24 flex flex-col lg:flex-row lg:items-center justify-between gap-10">
+          <div className="max-w-2xl">
+            <p className="cta-anim font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
+              Ready?
+            </p>
+            <h2 className="cta-anim font-heading font-bold text-display-md text-white mb-4">
+              Your career in Canada starts with one step
+            </h2>
+            <p className="cta-anim font-body text-base text-white/55 leading-relaxed">
+              Apply now and our team will reach out to guide you through the
+              next steps. It&apos;s free, it&apos;s fast, and we&apos;ve got your back.
+            </p>
+          </div>
+
+          <div className="cta-anim shrink-0">
+            <Link
+              href="/candidates/assessment"
+              className="inline-flex items-center justify-center bg-white text-primary font-body font-semibold text-sm px-8 py-4 rounded-full hover:bg-white/90 transition-colors duration-300"
+            >
+              Apply Now
+            </Link>
           </div>
         </div>
       </section>

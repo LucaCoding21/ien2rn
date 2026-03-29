@@ -77,21 +77,20 @@ export default function Testimonials() {
   const t = testimonials[current];
 
   return (
-    <section ref={sectionRef} className="py-section bg-secondary-light/25">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+    <section ref={sectionRef} className="pb-section pt-10 md:pt-14 bg-secondary-light/25">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="testimonial-animate font-body text-sm font-semibold text-primary uppercase tracking-[0.2em] mb-4">
+          <p className="testimonial-animate font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
             Stories
           </p>
-          <h2 className="testimonial-animate font-heading font-black text-display-sm text-foreground mb-14">
-            Hear from our{" "}
-            <span className="serif-italic text-primary">community</span>
+          <h2 className="testimonial-animate font-heading font-bold text-display-sm text-foreground mb-14">
+            Hear from our community
           </h2>
 
           <div ref={quoteRef}>
             {/* Quote mark */}
             <svg
-              className="testimonial-animate w-12 h-12 text-secondary/40 mx-auto mb-6"
+              className="testimonial-animate w-12 h-12 text-accent mx-auto mb-6"
               viewBox="0 0 24 24"
               fill="currentColor"
             >

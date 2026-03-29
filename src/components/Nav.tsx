@@ -86,14 +86,14 @@ export default function Nav() {
         style={{ paddingTop: scrolled ? "0.5rem" : "1rem" }}
       >
         <div
-          className={`max-w-[1200px] mx-auto flex items-center justify-between transition-all duration-500 rounded-full px-4 md:px-8 shadow-lg shadow-black/10 ${
-            scrolled ? "py-2.5" : "py-3"
+          className={`max-w-[1400px] mx-auto flex items-center justify-between transition-all duration-500 rounded-full px-4 md:px-8  ${
+            scrolled ? "py-2.5" : "py-4"
           }`}
           style={{ backgroundColor: "#2832C2" }}
         >
           {/* Logo */}
           <Link href="/" className="relative z-50">
-            <span className="font-heading font-black text-xl tracking-tight text-white">
+            <span className="font-heading font-bold text-2xl tracking-tight text-white">
               ien2RN
             </span>
           </Link>
@@ -140,7 +140,7 @@ export default function Nav() {
                         : "opacity-0 pointer-events-none -translate-y-2"
                     }`}
                   >
-                    <div className="bg-white rounded-2xl shadow-xl shadow-black/10 border border-secondary/15 py-2 min-w-[200px]">
+                    <div className="bg-offwhite rounded-2xl shadow-xl shadow-black/10 border border-secondary/15 py-2 min-w-[200px]">
                       {link.children.map((child) => (
                         <Link
                           key={child.label}

@@ -98,6 +98,9 @@ export default function AboutPage() {
   const teamRef = useRef<HTMLElement>(null);
   const quoteRef = useRef<HTMLElement>(null);
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
+  const selectedIndex = selectedMember ? team.findIndex((m) => m.name === selectedMember.name) : -1;
+  const goPrev = () => selectedIndex > 0 && setSelectedMember(team[selectedIndex - 1]);
+  const goNext = () => selectedIndex < team.length - 1 && setSelectedMember(team[selectedIndex + 1]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -176,80 +179,149 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/50 to-foreground/10" />
         </div>
 
-        <div className="relative z-10 w-full max-w-[1200px] mx-auto px-6 md:px-12 pb-16 md:pb-20 pt-40">
-          <div className="max-w-xl">
-            <p className="about-hero-anim font-body text-sm font-semibold text-white/50 uppercase tracking-[0.2em] mb-5">
+        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24 pb-16 md:pb-20 pt-40">
+          <div className="flex flex-col lg:flex-row lg:items-end gap-8 lg:gap-20">
+            {/* Left — tagline + headline */}
+            <div className="flex-1">
+              <p className="about-hero-anim font-body text-sm font-semibold text-yellow-400 uppercase tracking-[0.08em] mb-5">
+                About ien2RN
+              </p>
+              <h1
+                className="about-hero-anim font-heading font-bold text-white"
+                style={{
+                  fontSize: "clamp(2.2rem, 5vw, 3.75rem)",
+                  lineHeight: "1.05",
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                We&apos;re IEN nurses.
+                <br />
+                We built what we wished existed.
+              </h1>
+            </div>
+
+            {/* Right — description */}
+            <div className="lg:max-w-sm xl:max-w-md shrink-0">
+              <p className="about-hero-anim font-body text-base text-white/60 leading-relaxed">
+                ien2RN was founded by internationally educated nurses who lived the
+                struggle firsthand — navigating an unfamiliar system without support.
+                Today, we provide the mentorship, upskilling, and placement pathways
+                we wished had existed when we arrived.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── About intro ── */}
+      <section className="pt-section pb-10 md:pb-14 border-b border-secondary/15">
+        <div className="max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24">
+          <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+            <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
               About ien2RN
             </p>
-            <h1
-              className="about-hero-anim font-heading font-black text-white mb-6"
-              style={{
-                fontSize: "clamp(2.2rem, 5vw, 3.75rem)",
-                lineHeight: "1.05",
-                letterSpacing: "-0.02em",
-              }}
-            >
-              We&apos;re IEN nurses.
-              <br />
-              We built what we wished existed.
-            </h1>
+            <h2 className="font-heading font-bold text-display-md text-foreground">
+              Our story, our mission,<br />our people.
+            </h2>
           </div>
         </div>
       </section>
 
       {/* ── Mission & Vision ── */}
-      <section ref={missionRef} className="py-section">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
-          <div className="grid md:grid-cols-2 gap-10 lg:gap-20">
-            <div className="mission-anim">
-              <p className="font-body text-xs font-semibold text-primary uppercase tracking-[0.2em] mb-4">
-                Our Mission
-              </p>
-              <p className="font-heading font-black text-display-sm text-foreground leading-tight">
-                Empower IEN integration through mentorship and partner with
-                healthcare organizations to conquer the HHR crisis.
-              </p>
+      <section ref={missionRef} className="py-10 md:py-14">
+        <div className="max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24">
+          <div className="grid lg:grid-cols-12 gap-5 lg:gap-6 min-h-[560px]">
+
+            {/* Large photo */}
+            <div className="mission-anim lg:col-span-7 relative rounded-lg overflow-hidden min-h-[340px] lg:min-h-0">
+              <Image
+                src="/who-we-are-ien2rn.jpg"
+                alt="ien2RN nurses"
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 1024px) 100vw, 58vw"
+              />
             </div>
-            <div className="mission-anim">
-              <p className="font-body text-xs font-semibold text-primary uppercase tracking-[0.2em] mb-4">
-                Our Vision
-              </p>
-              <p className="font-heading font-black text-display-sm text-foreground leading-tight">
-                Strengthened and sustainable high quality care for all.
-              </p>
+
+            {/* Dark text panel */}
+            <div className="mission-anim lg:col-span-5 bg-foreground rounded-lg px-8 py-10 md:px-10 md:py-12 flex flex-col justify-between gap-10">
+
+              <div>
+                <p className="font-body text-xs font-semibold text-yellow-400 uppercase tracking-[0.15em] mb-5">
+                  Our Mission
+                </p>
+                <p className="font-heading font-bold text-white leading-tight"
+                  style={{ fontSize: "clamp(1.2rem, 2vw, 1.6rem)", letterSpacing: "-0.01em" }}
+                >
+                  Empower IEN integration through mentorship and partner with
+                  healthcare organizations to conquer the HHR crisis.
+                </p>
+              </div>
+
+              <div className="h-px bg-white/10" />
+
+              <div>
+                <p className="font-body text-xs font-semibold text-yellow-400 uppercase tracking-[0.15em] mb-5">
+                  Our Vision
+                </p>
+                <p className="font-heading font-bold text-white leading-tight"
+                  style={{ fontSize: "clamp(1.2rem, 2vw, 1.6rem)", letterSpacing: "-0.01em" }}
+                >
+                  Strengthened and sustainable high quality care for all.
+                </p>
+                <p className="font-body text-sm text-white/50 leading-relaxed mt-4">
+                  When internationally educated nurses are fully supported,
+                  patients and communities everywhere benefit.
+                </p>
+              </div>
+
             </div>
           </div>
         </div>
       </section>
 
       {/* ── Team ── */}
-      <section ref={teamRef} className="py-section bg-secondary-light/25">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
-          <p className="font-body text-sm font-semibold text-primary uppercase tracking-[0.2em] mb-12 text-center">
-            The team
-          </p>
+      <section ref={teamRef} className="py-section">
+        <div className="max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24">
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+          {/* Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div>
+              <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
+                The team
+              </p>
+              <h2 className="font-heading font-bold text-display-md text-foreground">
+                The people behind ien2RN
+              </h2>
+            </div>
+            <p className="font-body text-sm text-muted max-w-xs leading-relaxed md:text-right shrink-0">
+              IEN nurses, educators, and career coaches — each with lived
+              experience of the journey.
+            </p>
+          </div>
+
+          {/* Team grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
             {team.map((member) => (
               <button
                 key={member.name}
                 onClick={() => setSelectedMember(member)}
-                className="team-member group text-left bg-white rounded-2xl border border-secondary/10 overflow-hidden hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 cursor-pointer"
+                className="team-member group text-left cursor-pointer focus:outline-none"
               >
                 {/* Photo */}
-                <div className="relative aspect-[4/3] bg-secondary-light/40 overflow-hidden">
+                <div className="relative aspect-[3/4] rounded-lg overflow-hidden bg-secondary-light/40 mb-3">
                   {member.photo ? (
                     <Image
                       src={member.photo}
                       alt={member.name}
                       fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                       style={{ objectPosition: member.photoPosition || "center top" }}
-                      sizes="(max-width: 768px) 50vw, 25vw"
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
                     />
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="font-heading font-black text-4xl text-primary/15">
+                      <span className="font-heading font-bold text-4xl text-primary/15">
                         {member.initials}
                       </span>
                     </div>
@@ -257,37 +329,20 @@ export default function AboutPage() {
                 </div>
 
                 {/* Info */}
-                <div className="p-4">
-                  <h3 className="font-heading font-bold text-sm text-foreground group-hover:text-primary transition-colors duration-300 mb-0.5">
-                    {member.name}
-                  </h3>
-                  <p className="font-body text-xs text-primary font-medium mb-3">
-                    {member.role}
-                  </p>
-                  <p className="font-body text-xs text-muted leading-relaxed line-clamp-2">
-                    {member.bio}
-                  </p>
-                  <span className="inline-flex items-center gap-1 font-body text-xs font-semibold text-primary mt-3 group-hover:gap-1.5 transition-all duration-300">
-                    Read more
-                    <svg
-                      className="w-3 h-3"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                    </svg>
-                  </span>
-                </div>
+                <h3 className="font-heading font-bold text-sm text-foreground group-hover:text-primary transition-colors duration-300 mb-0.5">
+                  {member.name.split(",")[0]}
+                </h3>
+                <p className="font-body text-xs text-muted">
+                  {member.role}
+                </p>
               </button>
             ))}
           </div>
 
-          {/* Advisors — inline */}
-          <div className="mt-16 pt-10 border-t border-secondary/15">
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <p className="font-body text-xs text-muted uppercase tracking-[0.15em]">
+          {/* Board of Advisors */}
+          <div className="mt-14 pt-10 border-t border-secondary/15">
+            <div className="flex flex-col sm:flex-row items-center gap-6">
+              <p className="font-body text-xs text-muted uppercase tracking-[0.15em] shrink-0">
                 Board of Advisors
               </p>
               <div className="flex items-center gap-6">
@@ -301,19 +356,20 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
+
         </div>
       </section>
 
       {/* ── Quote ── */}
-      <section ref={quoteRef} className="py-section">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+      <section ref={quoteRef} className="pt-0 pb-10 md:pb-14">
+        <div className="max-w-[1600px] mx-auto px-6 md:px-12">
           <div className="relative rounded-[2rem] md:rounded-[3rem] overflow-hidden min-h-[400px] md:min-h-[450px]">
             <div className="absolute inset-0">
               <Image
                 src="/about-us.jpg"
                 alt="ien2RN team"
                 fill
-                className="object-cover"
+                className="object-cover object-[center_45%]"
                 sizes="100vw"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/75 to-foreground/40" />
@@ -329,7 +385,7 @@ export default function AboutPage() {
                   <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311C9.591 11.69 11.25 13.441 11.25 15.625 11.25 16.82 10.82 17.926 10.037 18.713 9.254 19.5 8.197 19.929 7.05 19.929c-1.33 0-2.386-.486-2.467-.608zM14.583 17.321C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.986.179 3.645 1.93 3.645 4.114 0 1.195-.43 2.301-1.213 3.088-.783.787-1.84 1.216-2.987 1.216-1.33 0-2.386-.486-2.467-.608z" />
                 </svg>
                 <p
-                  className="quote-anim font-heading font-black text-white leading-tight mb-8"
+                  className="quote-anim font-heading font-bold text-white leading-tight mb-8"
                   style={{
                     fontSize: "clamp(1.5rem, 3.5vw, 2.5rem)",
                   }}
@@ -360,37 +416,33 @@ export default function AboutPage() {
       </section>
 
       {/* ── Bottom links ── */}
-      <section className="py-14">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
+      <section className="pt-10 pb-16 md:pb-20">
+        <div className="max-w-[1600px] mx-auto px-6 md:px-12">
+          <p className="font-body text-xs font-semibold text-muted/50 uppercase tracking-[0.12em] text-center mb-8">
+            Where would you like to go?
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/candidates"
-              className="group inline-flex items-center gap-2 font-body font-semibold text-sm text-muted hover:text-primary transition-colors duration-300"
+              className="group inline-flex items-center justify-between gap-8 w-full sm:w-auto bg-offwhite border border-secondary/20 hover:border-primary/30 rounded-2xl px-6 py-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
             >
-              I&apos;m a nurse
-              <svg
-                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
+              <div>
+                <p className="font-heading font-bold text-base text-foreground group-hover:text-primary transition-colors duration-300">I&apos;m a nurse</p>
+                <p className="font-body text-xs text-muted/60 mt-0.5">Explore programs & pathways</p>
+              </div>
+              <svg className="w-4 h-4 text-muted group-hover:text-primary transition-all duration-300 group-hover:translate-x-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
             </Link>
-            <div className="w-px h-5 bg-secondary/25 hidden sm:block" />
             <Link
               href="/employers"
-              className="group inline-flex items-center gap-2 font-body font-semibold text-sm text-muted hover:text-primary transition-colors duration-300"
+              className="group inline-flex items-center justify-between gap-8 w-full sm:w-auto bg-offwhite border border-secondary/20 hover:border-primary/30 rounded-2xl px-6 py-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
             >
-              I&apos;m an employer
-              <svg
-                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
+              <div>
+                <p className="font-heading font-bold text-base text-foreground group-hover:text-primary transition-colors duration-300">I&apos;m an employer</p>
+                <p className="font-body text-xs text-muted/60 mt-0.5">Find mentored, permanent staff</p>
+              </div>
+              <svg className="w-4 h-4 text-muted group-hover:text-primary transition-all duration-300 group-hover:translate-x-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
             </Link>
@@ -408,112 +460,94 @@ export default function AboutPage() {
           />
 
           {/* Panel */}
-          <div className="relative bg-white w-full md:max-w-4xl md:rounded-3xl rounded-t-3xl shadow-2xl max-h-[92vh] flex flex-col md:flex-row overflow-hidden">
+          <div className="relative bg-white w-full md:max-w-2xl shadow-2xl shadow-foreground/20 max-h-[92vh] flex flex-col overflow-hidden">
+
             {/* Close */}
             <button
               onClick={() => setSelectedMember(null)}
-              className="absolute top-5 right-5 z-10 shrink-0 w-9 h-9 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-muted hover:text-foreground transition-colors"
+              className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-secondary-light/60 flex items-center justify-center text-muted hover:text-foreground hover:bg-secondary-light transition-colors"
             >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
 
-            {/* Main content */}
-            <div className="overflow-y-auto flex-1 min-h-0 min-w-0">
-              {/* Header with avatar */}
-              <div className="flex items-center gap-4 px-8 pt-7 pb-6">
-                <div className="relative w-14 h-14 rounded-full overflow-hidden shrink-0 bg-secondary-light/50">
-                  {selectedMember.photo ? (
-                    <Image
-                      src={selectedMember.photo}
-                      alt={selectedMember.name}
-                      fill
-                      className="object-cover"
-                      style={{ objectPosition: selectedMember.photoPosition || "center top" }}
-                      sizes="56px"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center">
-                      <span className="font-heading font-black text-lg text-primary/25">
-                        {selectedMember.initials}
-                      </span>
-                    </div>
-                  )}
-                </div>
-                <div>
-                  <h3 className="font-heading font-black text-xl md:text-2xl text-foreground leading-tight">
-                    {selectedMember.name}
-                  </h3>
-                  <p className="font-body text-sm font-semibold text-primary mt-0.5">
-                    {selectedMember.role}
-                  </p>
-                </div>
+            {/* Identity */}
+            <div className="flex items-center gap-6 px-8 pt-8 pb-6 border-b border-secondary/10 shrink-0">
+              {/* Portrait photo */}
+              <div className="relative w-20 h-20 rounded-2xl overflow-hidden shrink-0 bg-secondary-light/50">
+                {selectedMember.photo ? (
+                  <Image
+                    src={selectedMember.photo}
+                    alt={selectedMember.name}
+                    fill
+                    className="object-cover object-top"
+                    sizes="80px"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-secondary-light">
+                    <span className="font-heading font-bold text-2xl text-primary/25">{selectedMember.initials}</span>
+                  </div>
+                )}
               </div>
-
-              {/* Bio */}
-              <div className="px-8 pb-8">
-                <div className="font-body text-sm md:text-[15px] text-muted leading-relaxed space-y-4">
-                  {selectedMember.bio.split("\n\n").map((paragraph, i) => (
-                    <p key={i}>{paragraph}</p>
-                  ))}
-                </div>
+              <div>
+                <h3 className="font-heading font-bold text-2xl text-foreground leading-tight">
+                  {selectedMember.name}
+                </h3>
+                <p className="font-body text-xs font-semibold text-accent uppercase tracking-[0.08em] mt-1">
+                  {selectedMember.role}
+                </p>
               </div>
             </div>
 
-            {/* Right side: other team members */}
-            <div className="shrink-0 md:w-52 border-t md:border-t-0 md:border-l border-secondary/10 bg-secondary-light/10 md:overflow-y-auto">
-              <p className="font-body text-[10px] font-semibold text-muted/40 uppercase tracking-[0.15em] px-5 pt-6 pb-2 hidden md:block">
-                Read about
-              </p>
-              <div className="flex md:flex-col gap-0.5 px-3 py-3 md:py-1 md:pb-5 overflow-x-auto md:overflow-x-visible">
-                {team
-                  .filter((m) => m.name !== selectedMember.name)
-                  .slice(0, 5)
-                  .map((member) => (
-                    <button
-                      key={member.name}
-                      onClick={() => setSelectedMember(member)}
-                      className="group flex items-center gap-3 shrink-0 px-2 py-2.5 rounded-xl hover:bg-white transition-colors w-full text-left"
-                    >
-                      <div className="relative w-9 h-9 rounded-full overflow-hidden shrink-0 bg-secondary-light/50">
-                        {member.photo ? (
-                          <Image
-                            src={member.photo}
-                            alt={member.name}
-                            fill
-                            className="object-cover"
-                            style={{ objectPosition: member.photoPosition || "center top" }}
-                            sizes="36px"
-                          />
-                        ) : (
-                          <div className="w-full h-full flex items-center justify-center">
-                            <span className="font-heading font-bold text-xs text-primary/25">
-                              {member.initials}
-                            </span>
-                          </div>
-                        )}
-                      </div>
-                      <div className="min-w-0 hidden md:block">
-                        <p className="font-heading font-bold text-xs text-foreground group-hover:text-primary transition-colors truncate">
-                          {member.name.split(",")[0]}
-                        </p>
-                        <p className="font-body text-[10px] text-muted truncate">
-                          {member.role}
-                        </p>
-                      </div>
-                      <svg
-                        className="w-3.5 h-3.5 text-muted/30 group-hover:text-primary shrink-0 ml-auto transition-colors hidden md:block"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                      </svg>
-                    </button>
-                  ))}
+            {/* Bio */}
+            <div className="overflow-y-auto flex-1 px-8 py-6">
+              <div className="font-body text-sm text-muted leading-loose space-y-4">
+                {selectedMember.bio.split("\n\n").map((paragraph, i) => (
+                  <p key={i}>{paragraph}</p>
+                ))}
               </div>
+            </div>
+
+            {/* Bottom nav — prev / next */}
+            <div className="border-t border-secondary/10 px-6 py-4 flex items-center justify-between gap-4">
+              <button
+                onClick={goPrev}
+                disabled={selectedIndex <= 0}
+                className="group flex items-center gap-2 disabled:opacity-30 disabled:pointer-events-none"
+              >
+                <div className="w-8 h-8 rounded-full border border-secondary/20 group-hover:border-primary/30 flex items-center justify-center transition-colors">
+                  <svg className="w-3.5 h-3.5 text-muted group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                  </svg>
+                </div>
+                {selectedIndex > 0 && (
+                  <span className="font-body text-xs text-muted group-hover:text-primary transition-colors hidden sm:block">
+                    {team[selectedIndex - 1].name.split(",")[0]}
+                  </span>
+                )}
+              </button>
+
+              <span className="font-body text-xs text-muted/40">
+                {selectedIndex + 1} / {team.length}
+              </span>
+
+              <button
+                onClick={goNext}
+                disabled={selectedIndex >= team.length - 1}
+                className="group flex items-center gap-2 disabled:opacity-30 disabled:pointer-events-none"
+              >
+                {selectedIndex < team.length - 1 && (
+                  <span className="font-body text-xs text-muted group-hover:text-primary transition-colors hidden sm:block">
+                    {team[selectedIndex + 1].name.split(",")[0]}
+                  </span>
+                )}
+                <div className="w-8 h-8 rounded-full border border-secondary/20 group-hover:border-primary/30 flex items-center justify-center transition-colors">
+                  <svg className="w-3.5 h-3.5 text-muted group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                  </svg>
+                </div>
+              </button>
             </div>
           </div>
         </div>

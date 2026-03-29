@@ -191,13 +191,13 @@ export default function CoursesPage() {
     <main>
       {/* ── Section 1 — Hero ── */}
       <section ref={heroRef} className="relative pt-32 pb-12 md:pt-40 md:pb-16">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="max-w-3xl">
-            <p className="courses-hero-anim font-body text-sm font-semibold text-primary uppercase tracking-[0.2em] mb-4">
+            <p className="courses-hero-anim font-body text-sm font-semibold text-yellow-500 uppercase tracking-[0.08em] mb-4">
               Programs & Training
             </p>
             <h1
-              className="courses-hero-anim font-heading font-black text-foreground mb-6"
+              className="courses-hero-anim font-heading font-bold text-foreground mb-6"
               style={{
                 fontSize: "clamp(2.5rem, 5vw, 4rem)",
                 lineHeight: "1",
@@ -219,7 +219,7 @@ export default function CoursesPage() {
 
       {/* ── Section 2 — CBA & SLA Boot Camp (deep dive) ── */}
       <section ref={bootcampRef} className="py-section">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
             {/* Image */}
             <div className="lg:col-span-6">
@@ -240,7 +240,7 @@ export default function CoursesPage() {
               <span className="font-body text-[10px] font-semibold text-primary uppercase tracking-[0.15em] bg-secondary-light/50 self-start px-3 py-1 rounded-full mb-5">
                 Flagship Program
               </span>
-              <h2 className="font-heading font-black text-display-md text-foreground mb-4">
+              <h2 className="font-heading font-bold text-display-md text-foreground mb-4">
                 CBA & SLA Boot Camp
               </h2>
               <p className="font-body text-base text-muted leading-relaxed mb-8">
@@ -287,7 +287,7 @@ export default function CoursesPage() {
                 ].map((stat, i) => (
                   <div key={stat.label} className="flex items-center gap-6">
                     <div>
-                      <p className="font-heading font-black text-2xl text-primary leading-none">
+                      <p className="font-heading font-bold text-2xl text-primary leading-none">
                         {stat.value}
                       </p>
                       <p className="font-body text-xs text-muted mt-1">
@@ -349,12 +349,12 @@ export default function CoursesPage() {
 
       {/* ── Curriculum breakdown ── */}
       <section ref={curriculumRef} className="py-section bg-secondary-light/25">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="max-w-2xl mb-14">
-            <p className="font-body text-sm font-semibold text-primary uppercase tracking-[0.2em] mb-4">
+            <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
               What you&apos;ll learn
             </p>
-            <h2 className="font-heading font-black text-display-md text-foreground">
+            <h2 className="font-heading font-bold text-display-md text-foreground">
               12 weeks, broken down
             </h2>
           </div>
@@ -363,9 +363,9 @@ export default function CoursesPage() {
             {curriculum.map((phase, i) => (
               <div
                 key={phase.week}
-                className="curr-item bg-white rounded-2xl p-6 border border-secondary/10"
+                className="curr-item bg-offwhite rounded-2xl p-6 border border-secondary/10"
               >
-                <span className="font-heading font-black text-3xl text-primary/15 leading-none">
+                <span className="font-heading font-bold text-3xl text-primary/15 leading-none">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <p className="font-body text-xs font-semibold text-primary uppercase tracking-wide mt-3 mb-2">
@@ -385,7 +385,7 @@ export default function CoursesPage() {
 
       {/* ── Section 3a — IEN Nurse Mentorship ── */}
       <section ref={programsRef} className="py-section">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="prog-card grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             {/* Image */}
             <div className="lg:col-span-5">
@@ -406,7 +406,7 @@ export default function CoursesPage() {
               <span className="font-body text-[10px] font-semibold text-primary uppercase tracking-[0.15em] mb-4">
                 Mentorship
               </span>
-              <h2 className="font-heading font-black text-display-md text-foreground mb-5">
+              <h2 className="font-heading font-bold text-display-md text-foreground mb-5">
                 IEN Nurse Mentorship
               </h2>
               <p className="font-body text-base text-muted leading-relaxed mb-6">
@@ -467,7 +467,7 @@ export default function CoursesPage() {
                 ].map((stat, i) => (
                   <div key={stat.label} className="flex items-center gap-6">
                     <div>
-                      <p className="font-heading font-black text-xl text-primary leading-none">
+                      <p className="font-heading font-bold text-xl text-primary leading-none">
                         {stat.value}
                       </p>
                       <p className="font-body text-xs text-muted mt-1">
@@ -505,14 +505,14 @@ export default function CoursesPage() {
 
       {/* ── Section 3b — Career Accelerator Program ── */}
       <section className="py-section bg-secondary-light/25">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="prog-card grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             {/* Content (left on desktop) */}
             <div className="lg:col-span-7 flex flex-col justify-center order-2 lg:order-1">
               <span className="font-body text-[10px] font-semibold text-primary uppercase tracking-[0.15em] mb-4">
                 Career Development
               </span>
-              <h2 className="font-heading font-black text-display-md text-foreground mb-5">
+              <h2 className="font-heading font-bold text-display-md text-foreground mb-5">
                 Career Accelerator Program
               </h2>
               <p className="font-body text-base text-muted leading-relaxed mb-6">
@@ -572,7 +572,7 @@ export default function CoursesPage() {
                 ].map((stat, i) => (
                   <div key={stat.label} className="flex items-center gap-6">
                     <div>
-                      <p className="font-heading font-black text-xl text-primary leading-none">
+                      <p className="font-heading font-bold text-xl text-primary leading-none">
                         {stat.value}
                       </p>
                       <p className="font-body text-xs text-muted mt-1">
@@ -624,14 +624,14 @@ export default function CoursesPage() {
 
       {/* ── Section 4 — FAQ ── */}
       <section ref={faqRef} className="py-section bg-secondary-light/25">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
             {/* Left — heading */}
             <div className="lg:col-span-4">
-              <p className="font-body text-sm font-semibold text-primary uppercase tracking-[0.2em] mb-4">
+              <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
                 FAQ
               </p>
-              <h2 className="font-heading font-black text-display-md text-foreground mb-4">
+              <h2 className="font-heading font-bold text-display-md text-foreground mb-4">
                 Common questions
               </h2>
               <p className="font-body text-sm text-muted leading-relaxed mb-6">

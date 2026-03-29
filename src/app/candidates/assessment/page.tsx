@@ -253,7 +253,7 @@ export default function AssessmentPage() {
               <p className="q-animate font-body text-[10px] font-semibold text-primary uppercase tracking-[0.15em] mb-3">
                 Candidate Assessment
               </p>
-              <h1 className="q-animate font-heading font-black text-2xl md:text-3xl text-foreground mb-2 leading-tight">
+              <h1 className="q-animate font-heading font-bold text-2xl md:text-3xl text-foreground mb-2 leading-tight">
                 {current.question}
               </h1>
               {current.subtitle && (
@@ -330,7 +330,7 @@ export default function AssessmentPage() {
                 )}
               </div>
 
-              <h1 className="result-animate font-heading font-black text-2xl md:text-3xl text-foreground mb-4 leading-tight">
+              <h1 className="result-animate font-heading font-bold text-2xl md:text-3xl text-foreground mb-4 leading-tight">
                 {result.headline}
               </h1>
               <p className="result-animate font-body text-base text-muted leading-relaxed mb-10 max-w-lg">
