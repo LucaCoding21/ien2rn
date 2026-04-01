@@ -8,7 +8,7 @@ import Link from "next/link";
 const stats = [
   { value: "500+", label: "Nurses placed" },
   { value: "95%", label: "Satisfaction rate" },
-  { value: "50+", label: "Employer partners" },
+  { value: "6+", label: "Provinces served" },
 ];
 
 export default function Hero() {
@@ -81,7 +81,7 @@ export default function Hero() {
           {/* Left column - text */}
           <div className="lg:col-span-6 xl:col-span-6 lg:pl-2 xl:pl-4">
             {/* Label */}
-            <p className="hero-label font-body text-xs font-semibold text-accent tracking-[0.12em] uppercase mb-8">
+            <p className="hero-label font-body text-[0.85rem] font-semibold text-accent tracking-[0.12em] uppercase mb-[1rem]">
               Now placing nurses across Canada
             </p>
 

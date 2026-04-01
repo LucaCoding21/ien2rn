@@ -45,6 +45,12 @@ export default function RequestStaffPage() {
           </>
         }
         description="Fill out the form below with your staffing requirements. Our team will review your request and get back to you within one business day."
+        headingClassName="page-hero-heading font-heading font-bold text-foreground mb-6"
+        headingStyle={{
+          fontSize: "clamp(2.4rem, 4.8vw, 4.2rem)",
+          lineHeight: "1.08",
+          letterSpacing: "-0.03em",
+        }}
       />
 
       {/* Centered form - focused, clean */}

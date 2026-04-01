@@ -107,7 +107,7 @@ export default function HowItWorks() {
                 href="/candidates/assessment"
                 className="inline-flex items-center justify-center font-body font-semibold text-sm px-7 py-3.5 rounded-full bg-primary text-white transition-all duration-300 hover:-translate-y-0.5"
               >
-                Start your assessment
+                Apply now
               </Link>
             </div>
           </div>

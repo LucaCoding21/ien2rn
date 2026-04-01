@@ -69,23 +69,16 @@ export default function Trust() {
               this company so you don&apos;t have to do it alone.
             </p>
 
-            <p className="font-body text-base italic text-foreground/70 tracking-wide mb-10">
-              Strengthened sustainability through empowered integration.
-            </p>
-
             {/* Quote */}
             <blockquote className="border-l-2 border-primary/25 pl-6">
               <p className="font-body text-lg md:text-xl italic text-foreground/70 leading-snug mb-5">
-                &ldquo;Every nurse we place carries a story of resilience.
-                Our job is to give that story its next chapter.&rdquo;
+                &ldquo;ien2RN&apos;s mentors gave me the confidence and hands-on skills I needed to pass my SLA &mdash; I highly recommend them to any IEN navigating the process.&rdquo;
               </p>
               <footer className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-secondary-light flex items-center justify-center">
-                  <span className="font-heading font-bold text-xs text-primary">FT</span>
-                </div>
+                <img src="/Testimonial-Sherrie2-225x300.jpg" alt="Sherrie" className="w-10 h-10 rounded-full object-cover" />
                 <div>
-                  <p className="font-heading font-bold text-sm text-foreground">Founding Team</p>
-                  <p className="font-body text-xs text-muted">ien2RN</p>
+                  <p className="font-heading font-bold text-sm text-foreground">Sherrie</p>
+                  <p className="font-body text-xs text-muted">2023 Mentee</p>
                 </div>
               </footer>
             </blockquote>

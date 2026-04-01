@@ -244,7 +244,7 @@ export default function CandidatesPage() {
             <div className="flex items-center gap-8 md:gap-12">
               {[
                 { value: "500+", label: "Nurses supported" },
-                { value: "50+", label: "Employer partners" },
+                { value: "6+", label: "Provinces served" },
                 { value: "95%", label: "Satisfaction rate" },
               ].map((stat) => (
                 <div key={stat.label} className="trust-item text-center md:text-left">
@@ -256,11 +256,9 @@ export default function CandidatesPage() {
               ))}
             </div>
             <div className="trust-item flex items-center gap-3 bg-secondary-light/40 rounded-xl px-5 py-3">
-              <div className="w-9 h-9 rounded-full bg-primary flex items-center justify-center shrink-0">
-                <span className="font-heading font-bold text-xs text-white">AO</span>
-              </div>
+              <img src="/testimonial-mentee.png" alt="Mentee" className="w-9 h-9 rounded-full object-cover shrink-0" />
               <p className="font-body text-sm text-muted italic leading-snug max-w-xs">
-                &ldquo;In four months, I was working full-time at a hospital in Toronto.&rdquo;
+                &ldquo;Sheena&apos;s mentorship gave me the confidence and skills to thrive in Canadian healthcare.&rdquo;
               </p>
             </div>
           </div>
@@ -270,7 +268,7 @@ export default function CandidatesPage() {
       {/* ============ THE REALITY ============ */}
       <section ref={realityRef} className="py-section">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-24">
             <div className="lg:col-span-5">
               <p className="reality-anim font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
                 The reality

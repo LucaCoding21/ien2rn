@@ -245,14 +245,13 @@ export default function EmployersPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/25 via-transparent to-transparent" />
               </div>
 
-              <div className="absolute -top-4 -left-4 bg-white rounded-2xl shadow-xl shadow-foreground/10 px-4 py-3.5 max-w-[190px] border border-secondary/20">
+              <div className="absolute -top-4 -left-4 bg-white rounded-2xl shadow-xl shadow-foreground/10 px-4 py-3.5 whitespace-nowrap border border-secondary/20">
                 <div className="flex items-center gap-2 mb-1.5">
-                  <span className="font-body text-xs font-semibold text-muted uppercase tracking-wide">Permanent</span>
+                  <span className="font-body text-xs font-semibold text-muted uppercase tracking-wide">Long-term placements</span>
                 </div>
-                <p className="font-heading font-bold text-foreground text-base leading-tight">
-                  No more agency churn
+                <p className="font-heading font-bold text-foreground text-base leading-tight whitespace-normal max-w-[140px]">
+                  Nurses who grow with your team
                 </p>
-                <p className="font-body text-xs text-muted/60 mt-1">Long-term placements</p>
               </div>
 
               <div className="absolute -bottom-4 -right-4 bg-primary text-white rounded-2xl px-4 py-3.5 max-w-[210px]">
@@ -273,9 +272,15 @@ export default function EmployersPage() {
             <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
               The challenge
             </p>
-            <h2 className="font-heading font-bold text-display-md text-foreground">
+            <h2 className="font-heading font-bold text-display-md text-foreground mb-8">
               The talent exists. The gap is integration.
             </h2>
+            <Link
+              href="/employers/request-staff"
+              className="inline-flex items-center justify-center font-body font-semibold text-sm px-7 py-3.5 rounded-full bg-primary text-white transition-all duration-300 hover:-translate-y-0.5"
+            >
+              Request staff
+            </Link>
           </div>
 
           <div className="challenge-image relative rounded-3xl overflow-hidden aspect-[21/9] mb-12 shadow-xl shadow-foreground/5">

@@ -9,10 +9,11 @@ gsap.registerPlugin(ScrollTrigger);
 const testimonials = [
   {
     quote:
-      "Moving to Canada felt very hard until I found ien2RN. They helped me with every step. In four months, I was working full-time at a hospital in Toronto.",
-    name: "Amara O.",
-    role: "Registered Nurse, Toronto",
-    initials: "AO",
+      "Sheena\u2019s mentorship gave me the knowledge, confidence, and practical skills I needed to navigate my nursing registration and thrive in Canadian healthcare.",
+    name: "2023 Mentee",
+    role: "Internationally Educated Nurse",
+    initials: "M",
+    image: "/testimonial-mentee.png",
   },
   {
     quote:
@@ -104,11 +105,15 @@ export default function Testimonials() {
 
             {/* Author */}
             <div className="testimonial-animate flex items-center justify-center gap-4">
-              <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center">
-                <span className="font-heading font-bold text-sm text-white">
-                  {t.initials}
-                </span>
-              </div>
+              {t.image ? (
+                <img src={t.image} alt={t.name} className="w-11 h-11 rounded-full object-cover" />
+              ) : (
+                <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center">
+                  <span className="font-heading font-bold text-sm text-white">
+                    {t.initials}
+                  </span>
+                </div>
+              )}
               <div className="text-left">
                 <p className="font-heading font-bold text-sm text-foreground">
                   {t.name}

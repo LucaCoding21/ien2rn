@@ -9,9 +9,11 @@ interface PageHeroProps {
   heading: React.ReactNode;
   description: string;
   image?: string;
+  headingClassName?: string;
+  headingStyle?: React.CSSProperties;
 }
 
-export default function PageHero({ label, heading, description, image }: PageHeroProps) {
+export default function PageHero({ label, heading, description, image, headingClassName, headingStyle }: PageHeroProps) {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -44,7 +46,7 @@ export default function PageHero({ label, heading, description, image }: PageHer
             <p className="page-hero-label font-body text-sm font-semibold text-yellow-500 uppercase tracking-[0.08em] mb-4">
               {label}
             </p>
-            <h1 className="page-hero-heading font-heading font-bold text-display-lg text-foreground mb-6">
+            <h1 className={headingClassName || "page-hero-heading font-heading font-bold text-display-lg text-foreground mb-6"} style={headingStyle}>
               {heading}
             </h1>
             <p className="page-hero-desc font-body text-lg text-muted leading-relaxed max-w-2xl">

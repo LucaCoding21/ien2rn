@@ -9,10 +9,11 @@ gsap.registerPlugin(ScrollTrigger);
 const quotes = [
   {
     quote:
-      "Moving to Canada felt very hard until I found ien2RN. They helped me with every step. In four months, I was working full-time at a hospital in Toronto.",
-    name: "Amara O.",
-    role: "Registered Nurse",
-    location: "Toronto",
+      "Sheena\u2019s mentorship gave me the knowledge, confidence, and practical skills I needed to navigate my nursing registration and thrive in Canadian healthcare.",
+    name: "2023 Mentee",
+    role: "Internationally Educated Nurse",
+    location: "Canada",
+    image: "/testimonial-mentee.png",
   },
   {
     quote:
