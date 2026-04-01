@@ -145,21 +145,9 @@ export default function Hero() {
               </Link>
               <Link
                 href="/employers"
-                className="group relative inline-flex items-center gap-2 font-body font-medium text-base text-muted hover:text-primary transition-colors duration-300 py-4"
+                className="inline-flex items-center justify-center text-primary font-body font-semibold text-base px-10 py-4 rounded-full border-2 border-primary transition-all duration-300 hover:bg-primary hover:text-white hover:-translate-y-0.5"
               >
-                <span className="relative">
-                  Hire Qualified Staff
-                  <span className="absolute -bottom-1.5 left-0 h-[1.5px] w-full bg-primary scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
-                </span>
-                <svg
-                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                </svg>
+                Hire Qualified Staff
               </Link>
             </div>
 

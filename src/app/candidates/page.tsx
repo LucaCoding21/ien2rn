@@ -8,30 +8,45 @@ import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const steps = [
+const challenges = [
+  "Unclear next steps after arriving in Canada",
+  "Overwhelmed by licensing exams and documentation",
+  "No mentor or guide through the process",
+  "Navigating it all alone in a new country",
+];
+
+const pathwaySteps = [
   {
     number: "01",
-    title: "Apply online",
+    title: "Get personalized guidance",
     description:
-      "Tell us about your nursing background, licensing status, and career goals. It takes 2 minutes.",
+      "We review your background, credentials, and goals. Then we map out your next best steps with clarity.",
+    cta: "Book your assessment",
+    href: "/consultation",
   },
   {
     number: "02",
-    title: "We build your plan",
+    title: "Build your readiness",
     description:
-      "Our team reviews your profile, connects you with mentorship and training if needed, and prepares you for placement.",
+      "Prepare with targeted courses and materials for language exams, competency assessments, and Canadian nursing practice.",
+    cta: "Browse courses",
+    href: "/learning/courses",
   },
   {
     number: "03",
-    title: "Get matched",
+    title: "Join live sessions",
     description:
-      "We introduce you to employers who fit your skills, location preference, and career goals. You always have the final say.",
+      "Learn alongside other nurses in online workshops and in-person sessions. Build confidence in a supportive environment.",
+    cta: "View upcoming sessions",
+    href: "/learning",
   },
   {
     number: "04",
-    title: "Start working",
+    title: "Join the community",
     description:
-      "We support you through onboarding and beyond — your first day, your first month, and everything after.",
+      "Connect with internationally educated nurses on the same journey. Share experiences, ask questions, and grow together.",
+    cta: "Join the community",
+    href: "/contact",
   },
 ];
 
@@ -39,12 +54,12 @@ const faqs = [
   {
     question: "Do I need to be licensed in Canada to apply?",
     answer:
-      "No. We work with nurses at every stage — whether you're fully licensed, in the process, or just starting to explore. Apply and we'll figure out the right path together.",
+      "No. We work with nurses at every stage, whether you're fully licensed, in the process, or just starting to explore. Apply and we'll figure out the right path together.",
   },
   {
     question: "Is there a fee?",
     answer:
-      "Never. Our services are 100% free for nurses. Employers cover all placement costs.",
+      "Our initial assessment and guidance are free. Some courses and preparation programs have fees, which we share upfront so there are no surprises.",
   },
   {
     question: "How long does it take to get placed?",
@@ -59,14 +74,15 @@ const faqs = [
   {
     question: "Can I choose where I want to work?",
     answer:
-      "Absolutely. We match based on your preferences — location, facility type, shift preferences, and specialty area.",
+      "Absolutely. We match based on your preferences: location, facility type, shift preferences, and specialty area.",
   },
 ];
 
 export default function CandidatesPage() {
   const heroRef = useRef<HTMLElement>(null);
   const trustRef = useRef<HTMLDivElement>(null);
-  const processRef = useRef<HTMLElement>(null);
+  const realityRef = useRef<HTMLElement>(null);
+  const pathwayRef = useRef<HTMLElement>(null);
   const testimonialRef = useRef<HTMLElement>(null);
   const faqRef = useRef<HTMLElement>(null);
   const ctaRef = useRef<HTMLElement>(null);
@@ -74,16 +90,11 @@ export default function CandidatesPage() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Hero text
+      // Hero
       const heroEls = heroRef.current!.querySelectorAll(".hero-anim");
       gsap.set(heroEls, { y: 30, autoAlpha: 0 });
       gsap.to(heroEls, {
-        y: 0,
-        autoAlpha: 1,
-        duration: 0.8,
-        stagger: 0.08,
-        ease: "power2.out",
-        delay: 0.3,
+        y: 0, autoAlpha: 1, duration: 0.8, stagger: 0.08, ease: "power2.out", delay: 0.3,
       });
 
       // Trust bar
@@ -91,39 +102,48 @@ export default function CandidatesPage() {
         const trustEls = trustRef.current.querySelectorAll(".trust-item");
         gsap.set(trustEls, { y: 15, autoAlpha: 0 });
         gsap.to(trustEls, {
-          y: 0,
-          autoAlpha: 1,
-          duration: 0.6,
-          stagger: 0.08,
-          ease: "power2.out",
+          y: 0, autoAlpha: 1, duration: 0.6, stagger: 0.08, ease: "power2.out",
           scrollTrigger: { trigger: trustRef.current, start: "top 85%" },
         });
       }
 
-      // Process
-      const stepEls = processRef.current!.querySelectorAll(".process-item");
+      // Reality
+      if (realityRef.current) {
+        const realityEls = realityRef.current.querySelectorAll(".reality-anim");
+        gsap.set(realityEls, { y: 25, autoAlpha: 0 });
+        gsap.to(realityEls, {
+          y: 0, autoAlpha: 1, duration: 0.8, stagger: 0.08, ease: "power2.out",
+          scrollTrigger: { trigger: realityRef.current, start: "top 75%" },
+        });
+      }
+
+      // Pathway steps
+      const stepEls = pathwayRef.current!.querySelectorAll(".pathway-step");
       gsap.set(stepEls, { y: 25, autoAlpha: 0 });
       stepEls.forEach((step, i) => {
         gsap.to(step, {
-          y: 0,
-          autoAlpha: 1,
-          duration: 0.7,
-          delay: i * 0.1,
-          ease: "power2.out",
+          y: 0, autoAlpha: 1, duration: 0.7, delay: i * 0.1, ease: "power2.out",
           scrollTrigger: { trigger: step, start: "top 88%" },
         });
       });
+
+      // Pathway image
+      const pathwayImg = pathwayRef.current!.querySelector(".pathway-image");
+      if (pathwayImg) {
+        gsap.set(pathwayImg, { clipPath: "inset(4% 4% 4% 4% round 0.5rem)", autoAlpha: 0 });
+        gsap.to(pathwayImg, {
+          clipPath: "inset(0% 0% 0% 0% round 0.5rem)", autoAlpha: 1,
+          duration: 1.3, ease: "power3.inOut",
+          scrollTrigger: { trigger: pathwayRef.current, start: "top 70%" },
+        });
+      }
 
       // Testimonial
       if (testimonialRef.current) {
         const tEls = testimonialRef.current.querySelectorAll(".test-anim");
         gsap.set(tEls, { y: 25, autoAlpha: 0 });
         gsap.to(tEls, {
-          y: 0,
-          autoAlpha: 1,
-          duration: 0.8,
-          stagger: 0.08,
-          ease: "power2.out",
+          y: 0, autoAlpha: 1, duration: 0.8, stagger: 0.08, ease: "power2.out",
           scrollTrigger: { trigger: testimonialRef.current, start: "top 75%" },
         });
       }
@@ -133,11 +153,7 @@ export default function CandidatesPage() {
       gsap.set(faqEls, { y: 15, autoAlpha: 0 });
       faqEls.forEach((item, i) => {
         gsap.to(item, {
-          y: 0,
-          autoAlpha: 1,
-          duration: 0.6,
-          delay: i * 0.06,
-          ease: "power2.out",
+          y: 0, autoAlpha: 1, duration: 0.6, delay: i * 0.06, ease: "power2.out",
           scrollTrigger: { trigger: item, start: "top 92%" },
         });
       });
@@ -146,26 +162,16 @@ export default function CandidatesPage() {
       const ctaEls = ctaRef.current!.querySelectorAll(".cta-anim");
       gsap.set(ctaEls, { y: 25, autoAlpha: 0 });
       gsap.to(ctaEls, {
-        y: 0,
-        autoAlpha: 1,
-        duration: 0.8,
-        stagger: 0.08,
-        ease: "power2.out",
+        y: 0, autoAlpha: 1, duration: 0.8, stagger: 0.08, ease: "power2.out",
         scrollTrigger: { trigger: ctaRef.current, start: "top 75%" },
       });
 
-      // Parallax on CTA background image
-      gsap.fromTo("#candidates-cta-parallax-img",
+      gsap.fromTo(
+        "#candidates-cta-parallax-img",
         { y: "-10%" },
         {
-          y: "10%",
-          ease: "none",
-          scrollTrigger: {
-            trigger: ctaRef.current,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true,
-          },
+          y: "10%", ease: "none",
+          scrollTrigger: { trigger: ctaRef.current, start: "top bottom", end: "bottom top", scrub: true },
         }
       );
     });
@@ -175,9 +181,8 @@ export default function CandidatesPage() {
 
   return (
     <main>
-      {/* ============ HERO — Emotional, with a face ============ */}
+      {/* ============ HERO ============ */}
       <section ref={heroRef} className="relative min-h-[85vh] flex items-end overflow-hidden">
-        {/* Background image */}
         <div className="absolute inset-0">
           <Image
             src="/1.jpg"
@@ -190,7 +195,6 @@ export default function CandidatesPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/60 to-foreground/20" />
         </div>
 
-        {/* Content */}
         <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 pb-16 md:pb-20 pt-40">
           <div className="max-w-2xl">
             <p className="hero-anim font-body text-sm font-semibold text-yellow-400 uppercase tracking-[0.2em] mb-5">
@@ -198,11 +202,7 @@ export default function CandidatesPage() {
             </p>
             <h1
               className="hero-anim font-heading font-bold text-white mb-6"
-              style={{
-                fontSize: "clamp(2.2rem, 5vw, 3.75rem)",
-                lineHeight: "1.05",
-                letterSpacing: "-0.02em",
-              }}
+              style={{ fontSize: "clamp(2.2rem, 5vw, 3.75rem)", lineHeight: "1.05", letterSpacing: "-0.02em" }}
             >
               You&apos;re a nurse.
               <br />
@@ -211,42 +211,41 @@ export default function CandidatesPage() {
               Let&apos;s make it happen.
             </h1>
             <p className="hero-anim font-body text-base md:text-lg text-white/60 leading-relaxed max-w-md mb-8">
-              We handle credentialing, immigration support, mentorship, and
-              employer matching — so you can focus on what you do best.
+              ien2RN guides internationally educated nurses through licensing, preparation, and placement in Canada.
             </p>
             <div className="hero-anim flex flex-col sm:flex-row items-start gap-4">
               <Link
                 href="/candidates/assessment"
                 className="group inline-flex items-center justify-center gap-2.5 text-foreground font-body font-semibold text-sm px-8 py-3.5 rounded-full bg-white transition-all duration-300 hover:shadow-lg hover:shadow-white/20 hover:-translate-y-0.5"
               >
-                Apply Now
+                Take the Assessment
                 <svg
                   className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
               </Link>
-              <span className="font-body text-xs text-white/35 py-3.5">
-                Free · Takes 2 minutes · No account needed
-              </span>
+              <Link
+                href="/consultation"
+                className="inline-flex items-center justify-center font-body font-semibold text-sm px-8 py-3.5 rounded-full border border-white/30 text-white transition-all duration-300 hover:bg-white/10"
+              >
+                Book a Consultation
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ============ TRUST STRIP — Instant credibility ============ */}
+      {/* ============ TRUST STRIP ============ */}
       <div ref={trustRef} className="bg-white border-b border-secondary/10">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-8 md:gap-12">
               {[
-                { value: "500+", label: "Nurses placed" },
+                { value: "500+", label: "Nurses supported" },
                 { value: "50+", label: "Employer partners" },
-                { value: "$0", label: "Cost to you" },
+                { value: "95%", label: "Satisfaction rate" },
               ].map((stat) => (
                 <div key={stat.label} className="trust-item text-center md:text-left">
                   <p className="font-heading font-bold text-2xl text-primary leading-none">
@@ -268,25 +267,56 @@ export default function CandidatesPage() {
         </div>
       </div>
 
-      {/* ============ PROCESS — Visual, with image ============ */}
-      <section ref={processRef} className="py-section">
+      {/* ============ THE REALITY ============ */}
+      <section ref={realityRef} className="py-section">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
+            <div className="lg:col-span-5">
+              <p className="reality-anim font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
+                The reality
+              </p>
+              <h2 className="reality-anim font-heading font-bold text-display-md text-foreground">
+                You&apos;re not starting over. But it can feel that way.
+              </h2>
+            </div>
+            <div className="lg:col-span-7 flex flex-col justify-center">
+              <div className="space-y-5 mb-8">
+                {challenges.map((challenge) => (
+                  <div key={challenge} className="reality-anim flex items-start gap-4">
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
+                    <p className="font-body text-base text-muted leading-relaxed">
+                      {challenge}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              <p className="reality-anim font-heading font-bold text-lg text-foreground">
+                You don&apos;t have to figure it out alone.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============ YOUR PATHWAY ============ */}
+      <section ref={pathwayRef} className="py-section bg-secondary-light/25">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-14">
             {/* Left — Steps */}
             <div className="lg:col-span-6">
               <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
-                How it works
+                Your pathway
               </p>
               <h2 className="font-heading font-bold text-display-md text-foreground mb-12">
-                From application to your first shift
+                From first questions to your first shift
               </h2>
 
               <div>
-                {steps.map((step, i) => (
+                {pathwaySteps.map((step, i) => (
                   <div
                     key={step.number}
-                    className={`process-item flex gap-5 py-7 ${
-                      i < steps.length - 1 ? "border-b border-secondary/15" : ""
+                    className={`pathway-step flex gap-5 py-7 ${
+                      i < pathwaySteps.length - 1 ? "border-b border-secondary/15" : ""
                     }`}
                   >
                     <span className="font-heading font-bold text-2xl text-primary/20 shrink-0 w-10">
@@ -296,27 +326,30 @@ export default function CandidatesPage() {
                       <h3 className="font-heading font-bold text-lg text-foreground mb-1.5">
                         {step.title}
                       </h3>
-                      <p className="font-body text-sm text-muted leading-relaxed">
+                      <p className="font-body text-sm text-muted leading-relaxed mb-3">
                         {step.description}
                       </p>
+                      <Link
+                        href={step.href}
+                        className="inline-flex items-center gap-1.5 font-body font-semibold text-sm text-primary hover:text-primary-dark transition-colors duration-300 group"
+                      >
+                        {step.cta}
+                        <svg
+                          className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"
+                          fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                        </svg>
+                      </Link>
                     </div>
                   </div>
                 ))}
-              </div>
-
-              <div className="process-item mt-8">
-                <Link
-                  href="/candidates/assessment"
-                  className="inline-flex items-center justify-center font-body font-semibold text-sm px-8 py-3.5 rounded-full bg-primary text-white transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5"
-                >
-                  Apply Now
-                </Link>
               </div>
             </div>
 
             {/* Right — Image */}
             <div className="lg:col-span-6 flex items-center">
-              <div className="relative rounded-2xl overflow-hidden aspect-[4/5] w-full">
+              <div className="pathway-image relative rounded-2xl overflow-hidden aspect-[4/5] w-full">
                 <Image
                   src="/2.jpg"
                   alt="Nurse preparing for Canadian healthcare career"
@@ -330,48 +363,56 @@ export default function CandidatesPage() {
         </div>
       </section>
 
-      {/* ============ TESTIMONIAL — Social proof moment ============ */}
-      <section ref={testimonialRef} className="py-section bg-secondary-light/25">
+      {/* ============ TESTIMONIAL — Video cards ============ */}
+      <section ref={testimonialRef} className="py-section">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="max-w-3xl mx-auto text-center">
-            <svg
-              className="test-anim w-10 h-10 text-secondary/40 mx-auto mb-6"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311C9.591 11.69 11.25 13.441 11.25 15.625 11.25 16.82 10.82 17.926 10.037 18.713 9.254 19.5 8.197 19.929 7.05 19.929c-1.33 0-2.386-.486-2.467-.608zM14.583 17.321C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.986.179 3.645 1.93 3.645 4.114 0 1.195-.43 2.301-1.213 3.088-.783.787-1.84 1.216-2.987 1.216-1.33 0-2.386-.486-2.467-.608z" />
-            </svg>
-            <p className="test-anim font-body text-xl md:text-2xl text-foreground leading-snug font-light mb-8 max-w-2xl mx-auto">
-              &ldquo;Moving to Canada felt very hard until I found ien2RN. They helped
-              me with every step. In four months, I was working full-time at a
-              hospital in Toronto.&rdquo;
+          <div className="test-anim mb-14 md:mb-16">
+            <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
+              Stories
             </p>
-            <div className="test-anim flex items-center justify-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
-                <span className="font-heading font-bold text-sm text-white">AO</span>
-              </div>
-              <div className="text-left">
-                <p className="font-heading font-bold text-sm text-foreground">
-                  Amara O.
-                </p>
-                <p className="font-body text-xs text-muted">
-                  Registered Nurse, Toronto
-                </p>
-              </div>
-            </div>
+            <h2 className="font-heading font-bold text-display-md text-foreground">
+              Hear from our community
+            </h2>
+          </div>
+        </div>
 
-            {/* Supporting stats */}
-            <div className="test-anim flex items-center justify-center gap-8 mt-10 pt-8 border-t border-secondary/15">
+        <div className="test-anim overflow-hidden">
+          <div className="overflow-x-auto scrollbar-hide">
+            <div className="flex gap-5 md:gap-6 pl-6 md:pl-12 pr-6 md:pr-12">
               {[
-                "Permanent placement",
-                "Temporary & contract",
-                "ICU, ER, OR & specialty",
-              ].map((type) => (
-                <div key={type} className="flex items-center gap-2">
-                  <svg className="w-4 h-4 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                  </svg>
-                  <p className="font-body text-sm text-muted">{type}</p>
+                { name: "Amara O.", role: "Registered Nurse, Toronto", initials: "AO" },
+                { name: "Dr. Sarah Chen", role: "Director of Nursing, Vancouver", initials: "SC" },
+                { name: "James M.", role: "ICU Nurse, Ottawa", initials: "JM" },
+                { name: "Grace T.", role: "LPN, Calgary", initials: "GT" },
+                { name: "Priya S.", role: "Nurse Manager, Montreal", initials: "PS" },
+              ].map((t) => (
+                <div
+                  key={t.name}
+                  className="group flex-shrink-0 relative rounded-lg border border-secondary/15 overflow-hidden cursor-pointer"
+                  style={{ width: "clamp(280px, 30vw, 380px)", aspectRatio: "9/14" }}
+                >
+                  <div className="absolute inset-0 bg-secondary-light" />
+                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(168,174,228,0.3)_0%,transparent_70%)]" />
+
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-14 h-14 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center">
+                      <svg className="w-5 h-5 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+
+                  <div className="absolute bottom-3 left-3 right-3">
+                    <div className="bg-white rounded-full px-4 py-2.5 flex items-center gap-3 shadow-sm">
+                      <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0">
+                        <span className="font-heading font-bold text-[10px] text-white">{t.initials}</span>
+                      </div>
+                      <div className="min-w-0">
+                        <p className="font-heading font-bold text-sm text-foreground truncate">{t.name}</p>
+                        <p className="font-body text-xs text-muted truncate">{t.role}</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -380,10 +421,9 @@ export default function CandidatesPage() {
       </section>
 
       {/* ============ FAQ ============ */}
-      <section ref={faqRef} className="py-section">
+      <section ref={faqRef} className="py-section bg-secondary-light/25">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
-            {/* Left — heading */}
             <div className="lg:col-span-4">
               <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
                 FAQ
@@ -392,7 +432,7 @@ export default function CandidatesPage() {
                 Common questions
               </h2>
               <p className="font-body text-sm text-muted leading-relaxed mb-6">
-                Can&apos;t find what you&apos;re looking for? Book a free consultation
+                Can&apos;t find what you&apos;re looking for? Book a consultation
                 with our team.
               </p>
               <Link
@@ -402,17 +442,13 @@ export default function CandidatesPage() {
                 Book a consultation
                 <svg
                   className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
               </Link>
             </div>
 
-            {/* Right — questions */}
             <div className="lg:col-span-8">
               {faqs.map((faq, i) => (
                 <div key={i} className="faq-item border-b border-secondary/20">
@@ -425,19 +461,14 @@ export default function CandidatesPage() {
                     </h3>
                     <div
                       className={`w-8 h-8 rounded-full border border-secondary/30 flex items-center justify-center shrink-0 mt-0.5 transition-all duration-300 ${
-                        openFaq === i
-                          ? "bg-primary border-primary rotate-45"
-                          : "group-hover:border-primary"
+                        openFaq === i ? "bg-primary border-primary rotate-45" : "group-hover:border-primary"
                       }`}
                     >
                       <svg
                         className={`w-3.5 h-3.5 transition-colors duration-300 ${
                           openFaq === i ? "text-white" : "text-muted"
                         }`}
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2}
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                       </svg>
@@ -459,9 +490,8 @@ export default function CandidatesPage() {
         </div>
       </section>
 
-      {/* ============ BOTTOM CTA — Photo background ============ */}
+      {/* ============ BOTTOM CTA ============ */}
       <section ref={ctaRef} className="relative py-28 md:py-36 overflow-hidden">
-        {/* Background image with parallax */}
         <div className="absolute inset-0 scale-110">
           <Image
             src="/empty2.jpg"
@@ -473,11 +503,8 @@ export default function CandidatesPage() {
             id="candidates-cta-parallax-img"
           />
         </div>
-
-        {/* Overlay */}
         <div className="absolute inset-0 bg-foreground/80" />
 
-        {/* Content */}
         <div className="relative z-10 max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24 flex flex-col lg:flex-row lg:items-center justify-between gap-10">
           <div className="max-w-2xl">
             <p className="cta-anim font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
@@ -487,17 +514,23 @@ export default function CandidatesPage() {
               Your career in Canada starts with one step
             </h2>
             <p className="cta-anim font-body text-base text-white/55 leading-relaxed">
-              Apply now and our team will reach out to guide you through the
-              next steps. It&apos;s free, it&apos;s fast, and we&apos;ve got your back.
+              Take the assessment and our team will reach out to guide you through
+              the next steps.
             </p>
           </div>
 
-          <div className="cta-anim shrink-0">
+          <div className="cta-anim flex flex-col sm:flex-row gap-4 shrink-0">
             <Link
               href="/candidates/assessment"
               className="inline-flex items-center justify-center bg-white text-primary font-body font-semibold text-sm px-8 py-4 rounded-full hover:bg-white/90 transition-colors duration-300"
             >
-              Apply Now
+              Take the Assessment
+            </Link>
+            <Link
+              href="/consultation"
+              className="inline-flex items-center justify-center border border-white/25 text-white font-body font-semibold text-sm px-8 py-4 rounded-full hover:border-white/50 transition-colors duration-300"
+            >
+              Book a Consultation
             </Link>
           </div>
         </div>

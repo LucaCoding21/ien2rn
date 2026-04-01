@@ -110,6 +110,16 @@ body {
   flex-wrap: nowrap;
 }
 
+/* Hide scrollbar */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 /* Selection color */
 ::selection {
   background: #A8AEE4;
