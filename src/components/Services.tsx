@@ -15,7 +15,7 @@ const services = [
     description:
       "We match you with hospitals, clinics, and care homes across Canada that need your skills. From your first interview to your first shift.",
     href: "/candidates",
-    linkText: "Explore opportunities",
+    linkText: "Learn more",
     image: "/job-placement.jpg",
   },
   {
@@ -23,7 +23,7 @@ const services = [
     title: "Mentorship & Training",
     description:
       "CBA & SLA boot camps, 1-on-1 nurse mentorship, career coaching, and upskilling webinars. All built by IEN nurses who've been where you are.",
-    href: "/learning",
+    href: "/learning/courses",
     linkText: "View programs",
     image: "/mentorship.jpg",
   },

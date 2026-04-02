@@ -16,7 +16,7 @@ const footerLinks = {
   ],
   Company: [
     { label: "About Us", href: "/about" },
-    { label: "Learning", href: "/learning" },
+    { label: "Learning", href: "/learning/courses" },
     { label: "Contact", href: "/contact" },
   ],
 };
@@ -64,7 +64,7 @@ export default function Footer() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 0115 0z" />
                 </svg>
-                Toronto, Ontario, Canada
+                Vancouver, British Columbia, Canada
               </p>
             </div>
           </div>

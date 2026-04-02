@@ -235,47 +235,6 @@ export default function ConsultationPage() {
         </div>
       </section>
 
-      {/* Immigration Notice */}
-      <section className="py-section">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="bg-foreground rounded-[2rem] md:rounded-[3rem] px-8 md:px-14 py-12 md:py-14 grid lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7">
-              <p className="font-body text-xs font-semibold text-white/35 uppercase tracking-[0.2em] mb-3">
-                Immigration Services
-              </p>
-              <h2 className="font-heading font-bold text-display-sm text-white mb-4">
-                Why immigration consultations are{" "}
-                <span className="serif-italic text-secondary">paid</span>
-              </h2>
-              <p className="font-body text-sm text-white/50 leading-relaxed mb-3">
-                Our immigration consultants are Regulated Canadian Immigration Consultants (RCICs) licensed by the College of Immigration and Citizenship Consultants. Their expert advice covers work permits, permanent residency, LMIA applications, and provincial nominee programs.
-              </p>
-              <p className="font-body text-sm text-white/50 leading-relaxed">
-                Because immigration advice is a regulated professional service, these sessions require payment at the time of booking. This ensures you receive dedicated, personalized guidance tailored to your situation.
-              </p>
-            </div>
-            <div className="lg:col-span-5">
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-4">
-                {[
-                  { icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", label: "Licensed & regulated professionals" },
-                  { icon: "M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z", label: "Secure payment via Cal.com" },
-                  { icon: "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z", label: "Cancel or reschedule with 24hr notice" },
-                ].map((item) => (
-                  <div key={item.label} className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-                      <svg className="w-4 h-4 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
-                      </svg>
-                    </div>
-                    <p className="font-body text-sm text-white/70">{item.label}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <CTABanner />
 
       {/* Booking Modal */}

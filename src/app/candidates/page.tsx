@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
+import ApplyButton from "@/components/ApplyButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,7 +22,7 @@ const pathwaySteps = [
     title: "Get personalized guidance",
     description:
       "We review your background, credentials, and goals. Then we map out your next best steps with clarity.",
-    cta: "Book your assessment",
+    cta: "Get started",
     href: "/consultation",
   },
   {
@@ -34,19 +35,19 @@ const pathwaySteps = [
   },
   {
     number: "03",
-    title: "Join live sessions",
+    title: "Get matched",
     description:
-      "Learn alongside other nurses in online workshops and in-person sessions. Build confidence in a supportive environment.",
-    cta: "View upcoming sessions",
-    href: "/learning",
+      "We connect you with hospitals, clinics, and care homes across Canada that match your skills, preferences, and goals.",
+    cta: "Learn more",
+    href: "/candidates",
   },
   {
     number: "04",
-    title: "Join the community",
+    title: "Start your career",
     description:
-      "Connect with internationally educated nurses on the same journey. Share experiences, ask questions, and grow together.",
-    cta: "Join the community",
-    href: "/contact",
+      "From your first shift to long-term growth, we stay with you to make sure the transition sticks.",
+    cta: "Apply now",
+    href: "/candidates/assessment",
   },
 ];
 
@@ -59,7 +60,7 @@ const faqs = [
   {
     question: "Is there a fee?",
     answer:
-      "Our initial assessment and guidance are free. Some courses and preparation programs have fees, which we share upfront so there are no surprises.",
+      "Our initial consultation and guidance are free. Some courses and preparation programs have fees, which we share upfront so there are no surprises.",
   },
   {
     question: "How long does it take to get placed?",
@@ -214,18 +215,7 @@ export default function CandidatesPage() {
               ien2RN guides internationally educated nurses through licensing, preparation, and placement in Canada.
             </p>
             <div className="hero-anim flex flex-col sm:flex-row items-start gap-4">
-              <Link
-                href="/candidates/assessment"
-                className="group inline-flex items-center justify-center gap-2.5 text-foreground font-body font-semibold text-sm px-8 py-3.5 rounded-full bg-white transition-all duration-300 hover:shadow-lg hover:shadow-white/20 hover:-translate-y-0.5"
-              >
-                Take the Assessment
-                <svg
-                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                  fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                </svg>
-              </Link>
+              <ApplyButton variant="white" />
               <Link
                 href="/consultation"
                 className="inline-flex items-center justify-center font-body font-semibold text-sm px-8 py-3.5 rounded-full border border-white/30 text-white transition-all duration-300 hover:bg-white/10"
@@ -244,7 +234,7 @@ export default function CandidatesPage() {
             <div className="flex items-center gap-8 md:gap-12">
               {[
                 { value: "500+", label: "Nurses supported" },
-                { value: "6+", label: "Provinces served" },
+                { value: "100%", label: "Employer retention" },
                 { value: "95%", label: "Satisfaction rate" },
               ].map((stat) => (
                 <div key={stat.label} className="trust-item text-center md:text-left">
@@ -256,10 +246,13 @@ export default function CandidatesPage() {
               ))}
             </div>
             <div className="trust-item flex items-center gap-3 bg-secondary-light/40 rounded-xl px-5 py-3">
-              <img src="/testimonial-mentee.png" alt="Mentee" className="w-9 h-9 rounded-full object-cover shrink-0" />
-              <p className="font-body text-sm text-muted italic leading-snug max-w-xs">
-                &ldquo;Sheena&apos;s mentorship gave me the confidence and skills to thrive in Canadian healthcare.&rdquo;
-              </p>
+              <img src="/testimonial-mentee.png" alt="Analyn" className="w-9 h-9 rounded-full object-cover shrink-0" />
+              <div>
+                <p className="font-body text-sm text-muted italic leading-snug max-w-xs">
+                  &ldquo;Sheena&apos;s mentorship gave me the confidence and skills to thrive in Canadian healthcare.&rdquo;
+                </p>
+                <p className="font-body text-xs text-muted/70 mt-1 not-italic">Analyn, RN</p>
+              </div>
             </div>
           </div>
         </div>
@@ -349,7 +342,7 @@ export default function CandidatesPage() {
             <div className="lg:col-span-6 flex items-center">
               <div className="pathway-image relative rounded-2xl overflow-hidden aspect-[4/5] w-full">
                 <Image
-                  src="/2.jpg"
+                  src="/new2.png"
                   alt="Nurse preparing for Canadian healthcare career"
                   fill
                   className="object-cover"
@@ -369,7 +362,7 @@ export default function CandidatesPage() {
               Stories
             </p>
             <h2 className="font-heading font-bold text-display-md text-foreground">
-              Hear from our community
+              Hear from nurses like you
             </h2>
           </div>
         </div>
@@ -512,18 +505,13 @@ export default function CandidatesPage() {
               Your career in Canada starts with one step
             </h2>
             <p className="cta-anim font-body text-base text-white/55 leading-relaxed">
-              Take the assessment and our team will reach out to guide you through
+              Apply now and our team will reach out to guide you through
               the next steps.
             </p>
           </div>
 
           <div className="cta-anim flex flex-col sm:flex-row gap-4 shrink-0">
-            <Link
-              href="/candidates/assessment"
-              className="inline-flex items-center justify-center bg-white text-primary font-body font-semibold text-sm px-8 py-4 rounded-full hover:bg-white/90 transition-colors duration-300"
-            >
-              Take the Assessment
-            </Link>
+            <ApplyButton variant="white" />
             <Link
               href="/consultation"
               className="inline-flex items-center justify-center border border-white/25 text-white font-body font-semibold text-sm px-8 py-4 rounded-full hover:border-white/50 transition-colors duration-300"

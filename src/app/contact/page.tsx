@@ -105,7 +105,7 @@ export default function ContactPage() {
                     Location
                   </p>
                   <p className="font-heading font-bold text-xl md:text-2xl text-foreground">
-                    Toronto, Ontario
+                    Vancouver, British Columbia
                   </p>
                 </div>
               </div>

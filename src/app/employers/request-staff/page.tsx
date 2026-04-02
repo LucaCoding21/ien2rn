@@ -100,7 +100,7 @@ export default function RequestStaffPage() {
                         type="text"
                         required
                         className="w-full font-body text-sm px-4 py-3 rounded-xl border border-secondary/25 bg-transparent focus:outline-none focus:border-primary transition-colors"
-                        placeholder="e.g. Toronto General Hospital"
+                        placeholder="e.g. Vancouver General Hospital"
                       />
                     </div>
                     <div>

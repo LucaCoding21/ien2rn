@@ -190,30 +190,68 @@ export default function CoursesPage() {
   return (
     <main>
       {/* ── Section 1 — Hero ── */}
-      <section ref={heroRef} className="relative pt-32 pb-12 md:pt-40 md:pb-16">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="max-w-3xl">
-            <p className="courses-hero-anim font-body text-sm font-semibold text-yellow-500 uppercase tracking-[0.08em] mb-4">
-              Programs & Training
+      <section ref={heroRef} className="relative min-h-[85vh] flex items-end overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/empty2.jpg"
+            alt="Nurse mentorship and training session"
+            fill
+            className="object-cover object-[center_30%]"
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/60 to-foreground/20" />
+        </div>
+
+        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 pb-16 md:pb-20 pt-40">
+          <div className="max-w-2xl">
+            <p className="courses-hero-anim font-body text-sm font-semibold text-yellow-400 uppercase tracking-[0.08em] mb-5">
+              Learning & Mentorship
             </p>
             <h1
-              className="courses-hero-anim font-heading font-bold text-foreground mb-6"
+              className="courses-hero-anim font-heading font-bold text-white mb-6"
               style={{
-                fontSize: "clamp(2.5rem, 5vw, 4rem)",
-                lineHeight: "1",
+                fontSize: "clamp(2.2rem, 5vw, 3.75rem)",
+                lineHeight: "1.05",
                 letterSpacing: "-0.02em",
               }}
             >
-              Training that gets you working
+              Built by IEN nurses,
+              <br />
+              for IEN nurses.
             </h1>
-            <p className="courses-hero-anim font-body text-lg text-muted leading-relaxed max-w-2xl">
-              Not a course catalog. These are mentorship-driven programs built by
-              IEN nurses who&apos;ve been where you are — designed to get you
-              assessment-ready and into the Canadian workforce.
+            <p className="courses-hero-anim font-body text-base md:text-lg text-white/60 leading-relaxed max-w-md mb-8">
+              CBA &amp; SLA boot camps, 1-on-1 mentorship, and upskilling workshops —
+              everything you need to succeed in Canadian healthcare.
             </p>
+            <div className="courses-hero-anim flex flex-col sm:flex-row items-start gap-4">
+              <Link
+                href="/consultation"
+                className="group inline-flex items-center justify-center gap-2.5 text-foreground font-body font-semibold text-sm px-8 py-3.5 rounded-full bg-white transition-all duration-300 hover:shadow-lg hover:shadow-white/20 hover:-translate-y-0.5"
+              >
+                Book a Consultation
+              </Link>
+              <Link
+                href="/learning/resources"
+                className="group inline-flex items-center gap-2 font-body font-medium text-sm text-white/50 hover:text-white transition-colors duration-300 py-3.5"
+              >
+                Free Resources
+                <svg
+                  className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                  />
+                </svg>
+              </Link>
+            </div>
           </div>
-
-          <div className="courses-hero-anim h-px bg-gradient-to-r from-primary/25 via-secondary/20 to-transparent mt-12 origin-left" />
         </div>
       </section>
 
@@ -302,22 +340,27 @@ export default function CoursesPage() {
               {/* Testimonial */}
               <div className="bg-secondary-light/30 rounded-xl p-5 mb-8">
                 <p className="font-body text-sm text-foreground italic leading-relaxed mb-3">
-                  &ldquo;I walked into my CBA confident because I&apos;d already
-                  practiced every scenario with my mentor. Passed on the first
-                  attempt.&rdquo;
+                  &ldquo;I enrolled in the ien2RN SLA bootcamp with only one week
+                  before my assessment. The mentorship gave me the confidence and
+                  resilience I needed. Without a doubt, this is what started my
+                  RN journey in BC.&rdquo;
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-                    <span className="font-heading font-bold text-[10px] text-white">
-                      MR
-                    </span>
+                  <div className="w-8 h-8 rounded-full overflow-hidden relative shrink-0">
+                    <Image
+                      src="/april.jpg"
+                      alt="April"
+                      fill
+                      className="object-cover"
+                      sizes="32px"
+                    />
                   </div>
                   <div>
                     <p className="font-heading font-bold text-xs text-foreground">
-                      Maria R.
+                      April
                     </p>
                     <p className="font-body text-[11px] text-muted">
-                      Passed CBA on first attempt
+                      IEN from the Philippines, SLA Bootcamp Graduate
                     </p>
                   </div>
                 </div>
@@ -391,7 +434,7 @@ export default function CoursesPage() {
             <div className="lg:col-span-5">
               <div className="relative rounded-2xl overflow-hidden aspect-[4/5] shadow-lg shadow-foreground/5">
                 <Image
-                  src="/2.jpg"
+                  src="/new2.png"
                   alt="IEN Nurse mentorship session"
                   fill
                   className="object-cover"

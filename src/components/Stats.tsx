@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
   { number: 500, suffix: "+", label: "Nurses placed in Canadian healthcare" },
-  { number: 50, suffix: "+", label: "Healthcare employer partners" },
+  { number: 100, suffix: "%", label: "Employer retention rate" },
   { number: 95, suffix: "%", label: "Candidate satisfaction rate" },
 ];
 

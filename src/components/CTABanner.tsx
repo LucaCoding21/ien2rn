@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
+import ApplyButton from "./ApplyButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -42,12 +43,7 @@ export default function CTABanner() {
           </div>
 
           <div className="cta-banner-animate flex flex-col sm:flex-row items-center gap-3 shrink-0">
-            <Link
-              href="/candidates/assessment"
-              className="inline-flex items-center justify-center bg-primary text-white font-body font-semibold text-sm px-7 py-3 rounded-full hover:shadow-lg hover:shadow-primary/20 transition-all duration-300"
-            >
-              Apply Now
-            </Link>
+            <ApplyButton variant="small" />
             <Link
               href="/employers"
               className="inline-flex items-center justify-center border border-foreground/15 text-foreground font-body font-semibold text-sm px-7 py-3 rounded-full hover:border-primary hover:text-primary transition-all duration-300"

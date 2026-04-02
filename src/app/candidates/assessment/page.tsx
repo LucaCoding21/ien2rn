@@ -251,7 +251,7 @@ export default function AssessmentPage() {
           {!done && current && (
             <div ref={containerRef}>
               <p className="q-animate font-body text-[10px] font-semibold text-primary uppercase tracking-[0.15em] mb-3">
-                Candidate Assessment
+                Tell us about yourself
               </p>
               <h1 className="q-animate font-heading font-bold text-2xl md:text-3xl text-foreground mb-2 leading-tight">
                 {current.question}

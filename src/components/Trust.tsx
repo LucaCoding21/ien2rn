@@ -44,15 +44,9 @@ export default function Trust() {
       <div className="max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
 
-          {/* Left — Image */}
-          <div className="trust-image lg:col-span-7 relative rounded-lg overflow-hidden aspect-[4/3]">
-            <Image
-              src="/whoweare.jpg"
-              alt="Our team of internationally educated nurses"
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
+          {/* Left — Image placeholder */}
+          <div className="trust-image lg:col-span-7 relative rounded-lg overflow-hidden aspect-[4/3] bg-gray-200 flex items-center justify-center">
+            <p className="font-body text-sm text-gray-500 text-center px-6">PUT COMPANY PHOTO OR GROUP PHOTO HERE</p>
           </div>
 
           {/* Right — Content */}
@@ -70,15 +64,24 @@ export default function Trust() {
             </p>
 
             {/* Quote */}
-            <blockquote className="border-l-2 border-primary/25 pl-6">
+            <blockquote className="border-l-2 border-primary/25 pl-6 mt-4">
               <p className="font-body text-lg md:text-xl italic text-foreground/70 leading-snug mb-5">
-                &ldquo;ien2RN&apos;s mentors gave me the confidence and hands-on skills I needed to pass my SLA &mdash; I highly recommend them to any IEN navigating the process.&rdquo;
+                &ldquo;Every nurse we place carries a story of resilience.
+                Our job is to give that story its next chapter.&rdquo;
               </p>
               <footer className="flex items-center gap-3">
-                <img src="/Testimonial-Sherrie2-225x300.jpg" alt="Sherrie" className="w-10 h-10 rounded-full object-cover" />
+                <div className="w-10 h-10 rounded-full overflow-hidden relative">
+                  <Image
+                    src="/team/sheena.jpg"
+                    alt="Sheena Park"
+                    fill
+                    className="object-cover"
+                    sizes="40px"
+                  />
+                </div>
                 <div>
-                  <p className="font-heading font-bold text-sm text-foreground">Sherrie</p>
-                  <p className="font-body text-xs text-muted">2023 Mentee</p>
+                  <p className="font-heading font-bold text-sm text-foreground">Sheena Park, RN</p>
+                  <p className="font-body text-xs text-muted">Founder, ien2RN</p>
                 </div>
               </footer>
             </blockquote>

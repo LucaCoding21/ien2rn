@@ -5,11 +5,12 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
+import ApplyButton from "./ApplyButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const nurseSteps = [
-  { number: "01", title: "Assessment", description: "Take a quick assessment so we understand your background and where you stand." },
+  { number: "01", title: "Apply", description: "Tell us about your background, credentials, and goals so we can map out your next steps." },
   { number: "02", title: "Mentorship", description: "Get paired with a nurse mentor who's already made the move to Canada." },
   { number: "03", title: "Preparation", description: "Credentialing support, exam prep, and career coaching to get you job-ready." },
   { number: "04", title: "Placement", description: "We match you with hospitals and clinics across Canada that need your skills." },
@@ -73,12 +74,12 @@ export default function HowItWorks() {
         <div className="hiw-cards grid md:grid-cols-2 gap-6 lg:gap-8">
           {/* Nurse pathway */}
           <div className="hiw-card bg-white rounded-lg overflow-hidden border border-secondary/15">
-            <div className="relative aspect-[3/2] overflow-hidden">
+            <div className="relative aspect-[4/3] overflow-hidden">
               <Image
                 src="/Satisfaction-rate.jpg"
                 alt="Nurse in a clinical consultation"
                 fill
-                className="object-cover object-[center_30%]"
+                className="object-cover object-[center_10%]"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
@@ -103,23 +104,18 @@ export default function HowItWorks() {
                   </div>
                 ))}
               </div>
-              <Link
-                href="/candidates/assessment"
-                className="inline-flex items-center justify-center font-body font-semibold text-sm px-7 py-3.5 rounded-full bg-primary text-white transition-all duration-300 hover:-translate-y-0.5"
-              >
-                Apply now
-              </Link>
+              <ApplyButton variant="small" label="Apply now" />
             </div>
           </div>
 
           {/* Employer pathway */}
           <div className="hiw-card bg-white rounded-lg overflow-hidden border border-secondary/15">
-            <div className="relative aspect-[3/2] overflow-hidden">
+            <div className="relative aspect-[4/3] overflow-hidden">
               <Image
                 src="/employer-partnership2.jpg"
                 alt="Healthcare professional reviewing candidate qualifications"
                 fill
-                className="object-cover"
+                className="object-cover object-[center_20%]"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>

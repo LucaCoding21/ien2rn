@@ -60,6 +60,16 @@ body {
   background: #2832C2;
 }
 
+/* Hide hero elements before GSAP initializes (prevents FOUC) */
+.hero-label,
+.hero-sub,
+.hero-cta > *,
+.hero-stat-item,
+.hero-image-wrap,
+.hero-trust {
+  visibility: hidden;
+}
+
 /* Text split animation helper */
 .line-mask {
   overflow: hidden;

@@ -230,15 +230,15 @@ export default function AboutPage() {
       {/* ── Mission & Vision ── */}
       <section ref={missionRef} className="py-10 md:py-14">
         <div className="max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24">
-          <div className="grid lg:grid-cols-12 gap-5 lg:gap-6 min-h-[560px]">
+          <div className="grid lg:grid-cols-12 gap-5 lg:gap-6">
 
             {/* Large photo */}
-            <div className="mission-anim lg:col-span-7 relative rounded-lg overflow-hidden min-h-[340px] lg:min-h-0">
+            <div className="mission-anim lg:col-span-7 relative rounded-lg overflow-hidden min-h-[340px] aspect-[4/3] lg:aspect-auto">
               <Image
-                src="/who-we-are-ien2rn.jpg"
-                alt="ien2RN nurses"
+                src="/realactionshot.jpg"
+                alt="ien2RN mentorship in action"
                 fill
-                className="object-cover object-top"
+                className="object-cover object-center"
                 sizes="(max-width: 1024px) 100vw, 58vw"
               />
             </div>
@@ -366,13 +366,13 @@ export default function AboutPage() {
           <div className="relative rounded-[2rem] md:rounded-[3rem] overflow-hidden min-h-[400px] md:min-h-[450px]">
             <div className="absolute inset-0">
               <Image
-                src="/about-us.jpg"
+                src="/sheenabigphoto.jpg"
                 alt="ien2RN team"
                 fill
-                className="object-cover object-[center_45%]"
+                className="object-cover object-[center_20%]"
                 sizes="100vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/75 to-foreground/40" />
+              <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/55 to-foreground/25" />
             </div>
 
             <div className="relative z-10 flex items-center min-h-[400px] md:min-h-[450px] px-8 md:px-16 py-14">
@@ -387,7 +387,7 @@ export default function AboutPage() {
                 <p
                   className="quote-anim font-heading font-bold text-white leading-tight mb-8"
                   style={{
-                    fontSize: "clamp(1.5rem, 3.5vw, 2.5rem)",
+                    fontSize: "clamp(1.1rem, 2.5vw, 1.6rem)",
                   }}
                 >
                   Because of our innate understanding of the struggles faced by
@@ -395,10 +395,14 @@ export default function AboutPage() {
                   communities truly receive safe, high quality care.
                 </p>
                 <div className="quote-anim flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center">
-                    <span className="font-heading font-bold text-xs text-white">
-                      SP
-                    </span>
+                  <div className="w-10 h-10 rounded-full overflow-hidden relative shrink-0">
+                    <Image
+                      src="/team/sheena.jpg"
+                      alt="Sheena Park"
+                      fill
+                      className="object-cover"
+                      sizes="40px"
+                    />
                   </div>
                   <div>
                     <p className="font-heading font-bold text-sm text-white">

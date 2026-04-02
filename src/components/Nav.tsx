@@ -23,7 +23,7 @@ const navLinks: NavLink[] = [
   },
   {
     label: "Learning",
-    href: "/learning",
+    href: "/learning/courses",
     children: [
       { label: "View Courses", href: "/learning/courses" },
       { label: "Resources", href: "/learning/resources" },

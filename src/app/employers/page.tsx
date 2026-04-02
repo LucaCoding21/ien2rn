@@ -35,7 +35,7 @@ const approachSteps = [
   {
     title: "Rigorous vetting",
     image: "/employer-partnership2.jpg",
-    imagePosition: "center",
+    imagePosition: "center 15%",
     description: "We assess beyond credentials.",
     items: [
       "Practice readiness for Canadian settings",
@@ -46,8 +46,8 @@ const approachSteps = [
   },
   {
     title: "Pre-employment preparation",
-    image: "/2.jpg",
-    imagePosition: "center 20%",
+    image: "/new2.png",
+    imagePosition: "center 10%",
     description: "Before placement, every candidate receives:",
     items: [
       "Cultural and practice environment orientation",
@@ -58,7 +58,7 @@ const approachSteps = [
   {
     title: "Ongoing retention support",
     image: "/photo3.jpg",
-    imagePosition: "center",
+    imagePosition: "center 15%",
     description: "Our involvement continues after placement.",
     items: [
       "Integration guidance through the first months",
@@ -221,7 +221,7 @@ export default function EmployersPage() {
                 {[
                   { value: "95%", label: "Placement retention" },
                   { value: "48h", label: "Avg. response time" },
-                  { value: "10+", label: "Provinces served" },
+                  { value: "100%", label: "Employer retention" },
                 ].map(({ value, label }) => (
                   <div key={label}>
                     <p className="font-heading font-bold text-xl text-foreground">{value}</p>
@@ -272,26 +272,9 @@ export default function EmployersPage() {
             <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
               The challenge
             </p>
-            <h2 className="font-heading font-bold text-display-md text-foreground mb-8">
+            <h2 className="font-heading font-bold text-display-md text-foreground">
               The talent exists. The gap is integration.
             </h2>
-            <Link
-              href="/employers/request-staff"
-              className="inline-flex items-center justify-center font-body font-semibold text-sm px-7 py-3.5 rounded-full bg-primary text-white transition-all duration-300 hover:-translate-y-0.5"
-            >
-              Request staff
-            </Link>
-          </div>
-
-          <div className="challenge-image relative rounded-3xl overflow-hidden aspect-[21/9] mb-12 shadow-xl shadow-foreground/5">
-            <Image
-              src="/whoweare.jpg"
-              alt="Diverse nursing team in a Canadian hospital"
-              fill
-              className="object-cover object-center"
-              sizes="100vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-foreground/10 via-transparent to-transparent" />
           </div>
 
           <div className="grid md:grid-cols-2 gap-x-16 gap-y-0">
@@ -315,9 +298,17 @@ export default function EmployersPage() {
             ))}
           </div>
 
-          <p className="challenge-item font-heading font-bold text-lg text-foreground mt-10 text-center">
+          <p className="challenge-item font-heading font-bold text-lg text-foreground mt-10 text-center mb-8">
             Hiring internationally educated nurses should solve staffing problems, not create new ones.
           </p>
+          <div className="flex justify-center">
+            <Link
+              href="/employers/request-staff"
+              className="inline-flex items-center justify-center font-body font-semibold text-sm px-7 py-3.5 rounded-full bg-primary text-white transition-all duration-300 hover:-translate-y-0.5"
+            >
+              Request staff
+            </Link>
+          </div>
         </div>
       </section>
 
