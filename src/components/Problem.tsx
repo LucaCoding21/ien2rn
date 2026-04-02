@@ -23,10 +23,21 @@ export default function Problem() {
         scrollTrigger: { trigger: sectionRef.current, start: "top 70%" },
       });
 
-      // Content
-      const contentEls = sectionRef.current!.querySelectorAll(".problem-content > *");
-      gsap.set(contentEls, { y: 30, autoAlpha: 0 });
-      gsap.to(contentEls, {
+      // Main heading — slide in from left
+      const heading = sectionRef.current!.querySelector(".problem-content h2");
+      gsap.set(heading, { x: -40, autoAlpha: 0 });
+      gsap.to(heading, {
+        x: 0,
+        autoAlpha: 1,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: { trigger: sectionRef.current, start: "top 65%" },
+      });
+
+      // Remaining content — fade up
+      const otherEls = sectionRef.current!.querySelectorAll(".problem-content > *:not(h2)");
+      gsap.set(otherEls, { y: 30, autoAlpha: 0 });
+      gsap.to(otherEls, {
         y: 0,
         autoAlpha: 1,
         duration: 0.8,

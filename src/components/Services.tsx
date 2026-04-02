@@ -43,11 +43,11 @@ export default function Services() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Header
+      // Header – slide in from the left
       const headerEls = sectionRef.current!.querySelectorAll(".services-header > *");
-      gsap.set(headerEls, { y: 25, autoAlpha: 0 });
+      gsap.set(headerEls, { x: -40, autoAlpha: 0 });
       gsap.to(headerEls, {
-        y: 0,
+        x: 0,
         autoAlpha: 1,
         duration: 0.8,
         stagger: 0.06,
@@ -55,12 +55,13 @@ export default function Services() {
         scrollTrigger: { trigger: sectionRef.current, start: "top 80%" },
       });
 
-      // Cards
+      // Cards – alternating slide directions (odd from left, even from right)
       const cards = sectionRef.current!.querySelectorAll(".service-card");
-      gsap.set(cards, { y: 50, autoAlpha: 0 });
       cards.forEach((card, i) => {
+        const fromX = i % 2 === 0 ? -30 : 30;
+        gsap.set(card, { x: fromX, autoAlpha: 0 });
         gsap.to(card, {
-          y: 0,
+          x: 0,
           autoAlpha: 1,
           duration: 0.9,
           delay: i * 0.12,

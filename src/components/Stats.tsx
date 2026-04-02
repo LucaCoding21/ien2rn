@@ -35,20 +35,17 @@ export default function Stats() {
       // Counter animation
       numberRefs.current.forEach((el, i) => {
         if (!el) return;
-        const target = stats[i].number;
-        const obj = { val: 0 };
+        el.textContent = stats[i].number.toString();
 
-        gsap.to(obj, {
-          val: target,
+        gsap.from(el, {
+          innerText: 0,
           duration: 2,
           ease: "power2.out",
+          snap: { innerText: 1 },
           scrollTrigger: {
             trigger: el,
             start: "top 85%",
             toggleActions: "play none none none",
-          },
-          onUpdate: () => {
-            el.textContent = Math.round(obj.val).toString();
           },
         });
       });

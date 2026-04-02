@@ -130,6 +130,18 @@ export default function AboutPage() {
         });
       });
 
+      // Mission photo clip-path reveal (left-to-right)
+      const missionPhoto = missionRef.current!.querySelector(".mission-photo");
+      if (missionPhoto) {
+        gsap.set(missionPhoto, { clipPath: "inset(0 100% 0 0)" });
+        gsap.to(missionPhoto, {
+          clipPath: "inset(0 0% 0 0)",
+          duration: 1.2,
+          ease: "power3.inOut",
+          scrollTrigger: { trigger: missionPhoto, start: "top 75%" },
+        });
+      }
+
       // Team
       const teamEls = teamRef.current!.querySelectorAll(".team-member");
       gsap.set(teamEls, { y: 20, autoAlpha: 0 });
@@ -143,6 +155,7 @@ export default function AboutPage() {
           scrollTrigger: { trigger: teamRef.current, start: "top 80%" },
         });
       });
+
 
       // Quote
       const quoteEls = quoteRef.current!.querySelectorAll(".quote-anim");
@@ -233,7 +246,7 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-12 gap-5 lg:gap-6">
 
             {/* Large photo */}
-            <div className="mission-anim lg:col-span-7 relative rounded-lg overflow-hidden min-h-[340px] aspect-[4/3] lg:aspect-auto">
+            <div className="mission-anim mission-photo lg:col-span-7 relative rounded-lg overflow-hidden min-h-[340px] aspect-[4/3] lg:aspect-auto">
               <Image
                 src="/realactionshot.jpg"
                 alt="ien2RN mentorship in action"
@@ -364,7 +377,7 @@ export default function AboutPage() {
       <section ref={quoteRef} className="pt-0 pb-10 md:pb-14">
         <div className="max-w-[1600px] mx-auto px-6 md:px-12">
           <div className="relative rounded-[2rem] md:rounded-[3rem] overflow-hidden min-h-[400px] md:min-h-[450px]">
-            <div className="absolute inset-0">
+            <div className="quote-bg absolute inset-0">
               <Image
                 src="/sheenabigphoto.jpg"
                 alt="ien2RN team"

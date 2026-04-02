@@ -111,10 +111,23 @@ export default function CandidatesPage() {
       // Reality
       if (realityRef.current) {
         const realityEls = realityRef.current.querySelectorAll(".reality-anim");
-        gsap.set(realityEls, { y: 25, autoAlpha: 0 });
-        gsap.to(realityEls, {
-          y: 0, autoAlpha: 1, duration: 0.8, stagger: 0.08, ease: "power2.out",
-          scrollTrigger: { trigger: realityRef.current, start: "top 75%" },
+        realityEls.forEach((el, i) => {
+          const isChallenge = el.closest(".space-y-5") !== null;
+          if (isChallenge) {
+            // Odd items from left, even items from right
+            const xOffset = i % 2 === 0 ? -20 : 20;
+            gsap.set(el, { x: xOffset, autoAlpha: 0 });
+            gsap.to(el, {
+              x: 0, autoAlpha: 1, duration: 0.8, delay: i * 0.08, ease: "power2.out",
+              scrollTrigger: { trigger: realityRef.current, start: "top 75%" },
+            });
+          } else {
+            gsap.set(el, { y: 25, autoAlpha: 0 });
+            gsap.to(el, {
+              y: 0, autoAlpha: 1, duration: 0.8, delay: i * 0.08, ease: "power2.out",
+              scrollTrigger: { trigger: realityRef.current, start: "top 75%" },
+            });
+          }
         });
       }
 
@@ -131,11 +144,11 @@ export default function CandidatesPage() {
       // Pathway image
       const pathwayImg = pathwayRef.current!.querySelector(".pathway-image");
       if (pathwayImg) {
-        gsap.set(pathwayImg, { clipPath: "inset(4% 4% 4% 4% round 0.5rem)", autoAlpha: 0 });
+        gsap.set(pathwayImg, { clipPath: "inset(100% 0 0 0)", autoAlpha: 0 });
         gsap.to(pathwayImg, {
-          clipPath: "inset(0% 0% 0% 0% round 0.5rem)", autoAlpha: 1,
+          clipPath: "inset(0% 0 0 0)", autoAlpha: 1,
           duration: 1.3, ease: "power3.inOut",
-          scrollTrigger: { trigger: pathwayRef.current, start: "top 70%" },
+          scrollTrigger: { trigger: pathwayImg, start: "top 75%" },
         });
       }
 
@@ -306,7 +319,7 @@ export default function CandidatesPage() {
                 {pathwaySteps.map((step, i) => (
                   <div
                     key={step.number}
-                    className={`pathway-step flex gap-5 py-7 ${
+                    className={`pathway-step flex gap-5 py-7 hover:bg-secondary-light/20 rounded-lg px-3 -mx-3 transition-all duration-300 ${
                       i < pathwaySteps.length - 1 ? "border-b border-secondary/15" : ""
                     }`}
                   >

@@ -105,10 +105,11 @@ export default function EmployersPage() {
         scrollTrigger: { trigger: ".challenge-image", start: "top 80%" },
       });
 
-      // Challenge items
+      // Challenge items — alternate from left and right
       const challengeEls = challengeRef.current!.querySelectorAll(".challenge-item");
-      gsap.set(challengeEls, { x: 20, autoAlpha: 0 });
       challengeEls.forEach((el, i) => {
+        const fromX = i % 2 === 0 ? -25 : 25;
+        gsap.set(el, { x: fromX, autoAlpha: 0 });
         gsap.to(el, {
           x: 0, autoAlpha: 1, duration: 0.7, delay: i * 0.1, ease: "power2.out",
           scrollTrigger: { trigger: el, start: "top 88%" },
@@ -123,14 +124,27 @@ export default function EmployersPage() {
         scrollTrigger: { trigger: approachRef.current, start: "top 75%" },
       });
 
-      // Approach cards
+      // Approach cards — scale up with increasing delay
       const approachCards = approachRef.current!.querySelectorAll(".approach-card");
-      gsap.set(approachCards, { y: 40, autoAlpha: 0 });
+      gsap.set(approachCards, { y: 40, autoAlpha: 0, scale: 0.95 });
       approachCards.forEach((el, i) => {
         gsap.to(el, {
-          y: 0, autoAlpha: 1, duration: 0.8, delay: i * 0.12, ease: "power2.out",
+          y: 0, autoAlpha: 1, scale: 1, duration: 0.8, delay: i * 0.15, ease: "power2.out",
           scrollTrigger: { trigger: el, start: "top 85%" },
         });
+      });
+
+      // Approach card image parallax
+      const approachImages = approachRef.current!.querySelectorAll(".approach-card-img");
+      approachImages.forEach((img) => {
+        gsap.fromTo(
+          img,
+          { y: "-15%" },
+          {
+            y: "15%", ease: "none",
+            scrollTrigger: { trigger: img.parentElement, start: "top bottom", end: "bottom top", scrub: true },
+          }
+        );
       });
 
       // Contact
@@ -331,14 +345,14 @@ export default function EmployersPage() {
             {approachSteps.map((step) => (
               <div
                 key={step.title}
-                className="approach-card group bg-offwhite rounded-2xl overflow-hidden border border-secondary/10"
+                className="approach-card group bg-offwhite rounded-2xl overflow-hidden border border-secondary/10 hover:shadow-lg hover:border-primary/25 hover:-translate-y-1 transition-all duration-300"
               >
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <Image
                     src={step.image}
                     alt={step.title}
                     fill
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                    className="approach-card-img object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                     sizes="(max-width: 768px) 100vw, 33vw"
                     style={{ objectPosition: step.imagePosition }}
                   />

@@ -74,7 +74,7 @@ export default function HowItWorks() {
         <div className="hiw-cards grid md:grid-cols-2 gap-6 lg:gap-8">
           {/* Nurse pathway */}
           <div className="hiw-card bg-white rounded-lg overflow-hidden border border-secondary/15">
-            <div className="relative aspect-[4/3] overflow-hidden">
+            <div className="hiw-image-nurse relative aspect-[4/3] overflow-hidden">
               <Image
                 src="/Satisfaction-rate.jpg"
                 alt="Nurse in a clinical consultation"
@@ -110,7 +110,7 @@ export default function HowItWorks() {
 
           {/* Employer pathway */}
           <div className="hiw-card bg-white rounded-lg overflow-hidden border border-secondary/15">
-            <div className="relative aspect-[4/3] overflow-hidden">
+            <div className="hiw-image-employer relative aspect-[4/3] overflow-hidden">
               <Image
                 src="/employer-partnership2.jpg"
                 alt="Healthcare professional reviewing candidate qualifications"
