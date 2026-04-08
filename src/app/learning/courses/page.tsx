@@ -190,7 +190,7 @@ export default function CoursesPage() {
   return (
     <main>
       {/* ── Section 1 — Hero ── */}
-      <section ref={heroRef} className="relative min-h-[85vh] flex items-end overflow-hidden">
+      <section ref={heroRef} className="relative min-h-[85svh] sm:min-h-[85vh] flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="/empty2.jpg"
@@ -203,15 +203,15 @@ export default function CoursesPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/60 to-foreground/20" />
         </div>
 
-        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 pb-16 md:pb-20 pt-40">
+        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12 pb-12 sm:pb-16 md:pb-20 pt-32 sm:pt-36 md:pt-40">
           <div className="max-w-2xl">
-            <p className="courses-hero-anim font-body text-sm font-semibold text-yellow-400 uppercase tracking-[0.08em] mb-5">
+            <p className="courses-hero-anim font-body text-xs sm:text-sm font-semibold text-yellow-400 uppercase tracking-[0.08em] mb-4 sm:mb-5">
               Learning & Mentorship
             </p>
             <h1
-              className="courses-hero-anim font-heading font-bold text-white mb-6"
+              className="courses-hero-anim font-heading font-bold text-white mb-5 sm:mb-6"
               style={{
-                fontSize: "clamp(2.2rem, 5vw, 3.75rem)",
+                fontSize: "clamp(2rem, 8vw, 3.75rem)",
                 lineHeight: "1.05",
                 letterSpacing: "-0.02em",
               }}
@@ -220,11 +220,11 @@ export default function CoursesPage() {
               <br />
               for IEN nurses.
             </h1>
-            <p className="courses-hero-anim font-body text-base md:text-lg text-white/60 leading-relaxed max-w-md mb-8">
+            <p className="courses-hero-anim font-body text-base md:text-lg text-white/60 leading-relaxed max-w-md mb-7 sm:mb-8">
               CBA &amp; SLA boot camps, 1-on-1 mentorship, and upskilling workshops —
               everything you need to succeed in Canadian healthcare.
             </p>
-            <div className="courses-hero-anim flex flex-col sm:flex-row items-start gap-4">
+            <div className="courses-hero-anim flex flex-col sm:flex-row items-stretch sm:items-start gap-3 sm:gap-4">
               <Link
                 href="/consultation"
                 className="group inline-flex items-center justify-center gap-2.5 text-foreground font-body font-semibold text-sm px-8 py-3.5 rounded-full bg-white transition-all duration-300 hover:shadow-lg hover:shadow-white/20 hover:-translate-y-0.5"
@@ -257,7 +257,7 @@ export default function CoursesPage() {
 
       {/* ── Section 2 — CBA & SLA Boot Camp (deep dive) ── */}
       <section ref={bootcampRef} className="py-section">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
             {/* Image */}
             <div className="lg:col-span-6">
@@ -392,7 +392,7 @@ export default function CoursesPage() {
 
       {/* ── Curriculum breakdown ── */}
       <section ref={curriculumRef} className="py-section bg-secondary-light/25">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
           <div className="max-w-2xl mb-14">
             <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
               What you&apos;ll learn
@@ -428,8 +428,8 @@ export default function CoursesPage() {
 
       {/* ── Section 3a — IEN Nurse Mentorship ── */}
       <section ref={programsRef} className="py-section">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="prog-card grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
+          <div className="prog-card grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-start">
             {/* Image */}
             <div className="lg:col-span-5">
               <div className="relative rounded-2xl overflow-hidden aspect-[4/5] shadow-lg shadow-foreground/5">
@@ -548,8 +548,8 @@ export default function CoursesPage() {
 
       {/* ── Section 3b — Career Accelerator Program ── */}
       <section className="py-section bg-secondary-light/25">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="prog-card grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
+          <div className="prog-card grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-start">
             {/* Content (left on desktop) */}
             <div className="lg:col-span-7 flex flex-col justify-center order-2 lg:order-1">
               <span className="font-body text-[10px] font-semibold text-primary uppercase tracking-[0.15em] mb-4">
@@ -667,8 +667,8 @@ export default function CoursesPage() {
 
       {/* ── Section 4 — FAQ ── */}
       <section ref={faqRef} className="py-section bg-secondary-light/25">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
             {/* Left — heading */}
             <div className="lg:col-span-4">
               <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">

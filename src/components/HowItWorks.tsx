@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
@@ -25,6 +25,7 @@ const employerSteps = [
 
 export default function HowItWorks() {
   const sectionRef = useRef<HTMLElement>(null);
+  const [activeTab, setActiveTab] = useState<"nurse" | "employer">("nurse");
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -59,9 +60,9 @@ export default function HowItWorks() {
 
   return (
     <section ref={sectionRef} className="pb-section pt-10 md:pt-14 bg-secondary-light/25">
-      <div className="max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24">
+      <div className="max-w-[1600px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24">
         {/* Header */}
-        <div className="hiw-header max-w-2xl mb-14 md:mb-16">
+        <div className="hiw-header max-w-2xl mb-8 sm:mb-14 md:mb-16">
           <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
             How it works
           </p>
@@ -70,11 +71,35 @@ export default function HowItWorks() {
           </h2>
         </div>
 
+        {/* Mobile tab toggle */}
+        <div className="md:hidden mb-6 flex gap-1.5 bg-white border border-secondary/15 rounded-full p-1.5 max-w-sm">
+          <button
+            onClick={() => setActiveTab("nurse")}
+            className={`flex-1 font-body text-sm font-semibold py-2.5 rounded-full transition-all duration-300 ${
+              activeTab === "nurse"
+                ? "bg-primary text-white shadow-sm"
+                : "text-muted hover:text-foreground"
+            }`}
+          >
+            For nurses
+          </button>
+          <button
+            onClick={() => setActiveTab("employer")}
+            className={`flex-1 font-body text-sm font-semibold py-2.5 rounded-full transition-all duration-300 ${
+              activeTab === "employer"
+                ? "bg-primary text-white shadow-sm"
+                : "text-muted hover:text-foreground"
+            }`}
+          >
+            For employers
+          </button>
+        </div>
+
         {/* Two pathway cards */}
         <div className="hiw-cards grid md:grid-cols-2 gap-6 lg:gap-8">
           {/* Nurse pathway */}
-          <div className="hiw-card bg-white rounded-lg overflow-hidden border border-secondary/15">
-            <div className="hiw-image-nurse relative aspect-[4/3] overflow-hidden">
+          <div className={`hiw-card bg-white rounded-lg overflow-hidden border border-secondary/15 ${activeTab === "nurse" ? "block" : "hidden md:block"}`}>
+            <div className="hiw-image-nurse relative aspect-[16/10] sm:aspect-[4/3] overflow-hidden">
               <Image
                 src="/Satisfaction-rate.jpg"
                 alt="Nurse in a clinical consultation"
@@ -83,18 +108,18 @@ export default function HowItWorks() {
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
-            <div className="p-8 md:p-10">
-              <p className="font-body text-sm font-semibold text-primary uppercase tracking-[0.08em] mb-8">
+            <div className="p-6 sm:p-8 md:p-10">
+              <p className="font-body text-sm font-semibold text-primary uppercase tracking-[0.08em] mb-6 sm:mb-8 hidden md:block">
                 For nurses
               </p>
-              <div className="space-y-8 mb-10">
+              <div className="space-y-5 sm:space-y-7 md:space-y-8 mb-8 md:mb-10">
                 {nurseSteps.map((step) => (
-                  <div key={step.number} className="hiw-step flex gap-5">
+                  <div key={step.number} className="hiw-step flex gap-4 sm:gap-5">
                     <span className="font-heading font-bold text-sm text-secondary pt-0.5 shrink-0">
                       {step.number}
                     </span>
                     <div>
-                      <h3 className="font-heading font-bold text-lg text-foreground mb-1.5">
+                      <h3 className="font-heading font-bold text-base sm:text-lg text-foreground mb-1 sm:mb-1.5">
                         {step.title}
                       </h3>
                       <p className="font-body text-sm text-muted leading-relaxed">
@@ -109,8 +134,8 @@ export default function HowItWorks() {
           </div>
 
           {/* Employer pathway */}
-          <div className="hiw-card bg-white rounded-lg overflow-hidden border border-secondary/15">
-            <div className="hiw-image-employer relative aspect-[4/3] overflow-hidden">
+          <div className={`hiw-card bg-white rounded-lg overflow-hidden border border-secondary/15 ${activeTab === "employer" ? "block" : "hidden md:block"}`}>
+            <div className="hiw-image-employer relative aspect-[16/10] sm:aspect-[4/3] overflow-hidden">
               <Image
                 src="/employer-partnership2.jpg"
                 alt="Healthcare professional reviewing candidate qualifications"
@@ -119,18 +144,18 @@ export default function HowItWorks() {
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
-            <div className="p-8 md:p-10">
-              <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-8">
+            <div className="p-6 sm:p-8 md:p-10">
+              <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-6 sm:mb-8 hidden md:block">
                 For employers
               </p>
-              <div className="space-y-8 mb-10">
+              <div className="space-y-5 sm:space-y-7 md:space-y-8 mb-8 md:mb-10">
                 {employerSteps.map((step) => (
-                  <div key={step.number} className="hiw-step flex gap-5">
+                  <div key={step.number} className="hiw-step flex gap-4 sm:gap-5">
                     <span className="font-heading font-bold text-sm text-secondary pt-0.5 shrink-0">
                       {step.number}
                     </span>
                     <div>
-                      <h3 className="font-heading font-bold text-lg text-foreground mb-1.5">
+                      <h3 className="font-heading font-bold text-base sm:text-lg text-foreground mb-1 sm:mb-1.5">
                         {step.title}
                       </h3>
                       <p className="font-body text-sm text-muted leading-relaxed">

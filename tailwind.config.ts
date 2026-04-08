@@ -30,7 +30,7 @@ const config: Config = {
         "display-sm": ["clamp(1.5rem, 3vw, 2.5rem)", { lineHeight: "1.1", letterSpacing: "-0.01em" }],
       },
       spacing: {
-        "section": "clamp(6rem, 12vw, 10rem)",
+        "section": "clamp(4rem, 12vw, 10rem)",
       },
       borderRadius: {
         "2xl": "1rem",

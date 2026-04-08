@@ -41,11 +41,11 @@ export default function Trust() {
 
   return (
     <section ref={sectionRef} className="pb-section pt-10 md:pt-14">
-      <div className="max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+      <div className="max-w-[1600px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
 
           {/* Left — Image placeholder */}
-          <div className="trust-image lg:col-span-7 relative rounded-lg overflow-hidden aspect-[4/3] bg-gray-200 flex items-center justify-center">
+          <div className="trust-image lg:col-span-7 relative rounded-lg overflow-hidden aspect-[16/10] sm:aspect-[4/3] bg-gray-200 flex items-center justify-center">
             <p className="font-body text-sm text-gray-500 text-center px-6">PUT COMPANY PHOTO OR GROUP PHOTO HERE</p>
           </div>
 

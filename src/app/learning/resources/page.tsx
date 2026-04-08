@@ -162,8 +162,8 @@ export default function ResourcesPage() {
     <main>
       <div ref={pageRef}>
         {/* ── Header (compact, no hero) ── */}
-        <section className="pt-32 pb-8 md:pt-40 md:pb-10">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+        <section className="pt-28 pb-8 sm:pt-32 md:pt-40 md:pb-10">
+          <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
             <p className="res-header font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-3">
               Resources
             </p>
@@ -180,7 +180,7 @@ export default function ResourcesPage() {
 
         {/* ── Free Resources (grouped by journey stage) ── */}
         <section className="pb-section">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
             <div className="space-y-14">
               {freeResources.map((group) => (
                 <div key={group.stage} className="res-group">
@@ -240,7 +240,7 @@ export default function ResourcesPage() {
 
       {/* ── Premium Resources ── */}
       <section ref={premiumRef} className="py-section bg-foreground">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
           <div className="max-w-2xl mb-12">
             <p className="font-body text-sm font-semibold text-white/30 uppercase tracking-[0.2em] mb-4">
               Go deeper
@@ -317,8 +317,8 @@ export default function ResourcesPage() {
 
       {/* ── Bottom nudge back to programs ── */}
       <section className="py-16">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 rounded-2xl bg-secondary-light/30 px-8 md:px-10 py-8">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 sm:gap-6 rounded-2xl bg-secondary-light/30 px-6 sm:px-8 md:px-10 py-7 sm:py-8">
             <div>
               <p className="font-heading font-bold text-lg text-foreground mb-1">
                 Want more than resources?

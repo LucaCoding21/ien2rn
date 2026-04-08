@@ -50,8 +50,8 @@ export default function VideoTestimonials() {
 
   return (
     <section ref={sectionRef} className="pb-section pt-10 md:pt-14 bg-secondary-light/25">
-      <div className="max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24">
-        <div className="vt-header mb-14 md:mb-16">
+      <div className="max-w-[1600px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24">
+        <div className="vt-header mb-10 sm:mb-14 md:mb-16">
           <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
             Stories
           </p>
@@ -64,12 +64,12 @@ export default function VideoTestimonials() {
       {/* Scrollable row — extends past container edge */}
       <div className="overflow-hidden">
         <div className="overflow-x-auto scrollbar-hide">
-          <div className="flex gap-5 md:gap-6 pl-6 md:pl-16 lg:pl-24 pr-6 md:pr-16 lg:pr-24">
+          <div className="flex gap-4 sm:gap-5 md:gap-6 pl-5 sm:pl-6 md:pl-16 lg:pl-24 pr-5 sm:pr-6 md:pr-16 lg:pr-24">
           {videoTestimonials.map((t) => (
             <div
               key={t.name}
               className="vt-card group flex-shrink-0 relative rounded-lg border border-secondary/15 overflow-hidden cursor-pointer"
-              style={{ width: "clamp(280px, 30vw, 380px)", aspectRatio: "9/14" }}
+              style={{ width: "clamp(220px, 70vw, 360px)", aspectRatio: "9/14" }}
             >
               {/* Background layers */}
               <div className="absolute inset-0 bg-secondary-light" />

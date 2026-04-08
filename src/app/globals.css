@@ -17,6 +17,10 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
@@ -24,6 +28,19 @@ body {
   background: var(--background);
   font-family: var(--font-poppins), system-ui, sans-serif;
   overflow-x: hidden;
+  overflow-x: clip;
+  width: 100%;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Safari iOS — prevent input zoom on focus (font-size must be >= 16px) */
+@media (max-width: 640px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
 }
 
 /* Editorial serif italic style for mixed headlines */
@@ -120,14 +137,20 @@ body {
   flex-wrap: nowrap;
 }
 
-/* Hide scrollbar */
+/* Hide scrollbar with momentum scrolling on iOS */
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
 }
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+.scrollbar-hide > * > * {
+  scroll-snap-align: start;
 }
 
 /* Selection color */

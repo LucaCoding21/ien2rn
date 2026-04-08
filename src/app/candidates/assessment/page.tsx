@@ -219,14 +219,14 @@ export default function AssessmentPage() {
   const result = tier ? results[tier] : null;
 
   return (
-    <main className="min-h-screen flex flex-col">
+    <main className="min-h-[100svh] flex flex-col">
       {/* Spacer for nav */}
-      <div className="h-28 shrink-0" />
+      <div className="h-24 sm:h-28 shrink-0" />
 
-      <div className="flex-1 flex flex-col items-center px-6 md:px-12 pb-20">
+      <div className="flex-1 flex flex-col items-center px-5 sm:px-6 md:px-12 pb-16 sm:pb-20">
         <div className="w-full max-w-[600px]">
           {/* Progress bar */}
-          <div className="mb-12">
+          <div className="mb-10 sm:mb-12">
             <div className="flex items-center justify-between mb-3">
               <p className="font-body text-xs text-muted">
                 {done
@@ -253,7 +253,7 @@ export default function AssessmentPage() {
               <p className="q-animate font-body text-[10px] font-semibold text-primary uppercase tracking-[0.15em] mb-3">
                 Tell us about yourself
               </p>
-              <h1 className="q-animate font-heading font-bold text-2xl md:text-3xl text-foreground mb-2 leading-tight">
+              <h1 className="q-animate font-heading font-bold text-xl sm:text-2xl md:text-3xl text-foreground mb-2 leading-tight">
                 {current.question}
               </h1>
               {current.subtitle && (

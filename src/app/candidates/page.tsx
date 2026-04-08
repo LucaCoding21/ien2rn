@@ -141,16 +141,16 @@ export default function CandidatesPage() {
         });
       });
 
-      // Pathway image
-      const pathwayImg = pathwayRef.current!.querySelector(".pathway-image");
-      if (pathwayImg) {
-        gsap.set(pathwayImg, { clipPath: "inset(100% 0 0 0)", autoAlpha: 0 });
-        gsap.to(pathwayImg, {
+      // Pathway image (mobile + desktop variants share the class)
+      const pathwayImgs = pathwayRef.current!.querySelectorAll(".pathway-image");
+      pathwayImgs.forEach((img) => {
+        gsap.set(img, { clipPath: "inset(100% 0 0 0)", autoAlpha: 0 });
+        gsap.to(img, {
           clipPath: "inset(0% 0 0 0)", autoAlpha: 1,
           duration: 1.3, ease: "power3.inOut",
-          scrollTrigger: { trigger: pathwayImg, start: "top 75%" },
+          scrollTrigger: { trigger: img, start: "top 75%" },
         });
-      }
+      });
 
       // Testimonial
       if (testimonialRef.current) {
@@ -196,7 +196,7 @@ export default function CandidatesPage() {
   return (
     <main>
       {/* ============ HERO ============ */}
-      <section ref={heroRef} className="relative min-h-[85vh] flex items-end overflow-hidden">
+      <section ref={heroRef} className="relative min-h-[75svh] sm:min-h-[85vh] flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="/1.jpg"
@@ -209,14 +209,14 @@ export default function CandidatesPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/60 to-foreground/20" />
         </div>
 
-        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 pb-16 md:pb-20 pt-40">
+        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12 pb-12 sm:pb-16 md:pb-20 pt-32 sm:pt-36 md:pt-40">
           <div className="max-w-2xl">
-            <p className="hero-anim font-body text-sm font-semibold text-yellow-400 uppercase tracking-[0.2em] mb-5">
+            <p className="hero-anim font-body text-xs sm:text-sm font-semibold text-yellow-400 uppercase tracking-[0.18em] sm:tracking-[0.2em] mb-4 sm:mb-5">
               For nurses
             </p>
             <h1
-              className="hero-anim font-heading font-bold text-white mb-6"
-              style={{ fontSize: "clamp(2.2rem, 5vw, 3.75rem)", lineHeight: "1.05", letterSpacing: "-0.02em" }}
+              className="hero-anim font-heading font-bold text-white mb-5 sm:mb-6"
+              style={{ fontSize: "clamp(2rem, 8vw, 3.75rem)", lineHeight: "1.05", letterSpacing: "-0.02em" }}
             >
               You&apos;re a nurse.
               <br />
@@ -224,10 +224,10 @@ export default function CandidatesPage() {
               <br />
               Let&apos;s make it happen.
             </h1>
-            <p className="hero-anim font-body text-base md:text-lg text-white/60 leading-relaxed max-w-md mb-8">
+            <p className="hero-anim font-body text-base md:text-lg text-white/60 leading-relaxed max-w-md mb-7 sm:mb-8">
               ien2RN guides internationally educated nurses through licensing, preparation, and placement in Canada.
             </p>
-            <div className="hero-anim flex flex-col sm:flex-row items-start gap-4">
+            <div className="hero-anim flex flex-col sm:flex-row items-stretch sm:items-start gap-3 sm:gap-4">
               <ApplyButton variant="white" />
               <Link
                 href="/consultation"
@@ -242,26 +242,26 @@ export default function CandidatesPage() {
 
       {/* ============ TRUST STRIP ============ */}
       <div ref={trustRef} className="bg-white border-b border-secondary/10">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-8">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12 py-7 sm:py-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-8 md:gap-12">
+            <div className="grid grid-cols-3 gap-3 w-full sm:w-auto sm:flex sm:items-center sm:gap-8 md:gap-12">
               {[
                 { value: "500+", label: "Nurses supported" },
                 { value: "100%", label: "Employer retention" },
                 { value: "95%", label: "Satisfaction rate" },
               ].map((stat) => (
-                <div key={stat.label} className="trust-item text-center md:text-left">
-                  <p className="font-heading font-bold text-2xl text-primary leading-none">
+                <div key={stat.label} className="trust-item text-center md:text-left min-w-0">
+                  <p className="font-heading font-bold text-xl sm:text-2xl text-primary leading-none">
                     {stat.value}
                   </p>
-                  <p className="font-body text-xs text-muted mt-1">{stat.label}</p>
+                  <p className="font-body text-[11px] sm:text-xs text-muted mt-1 leading-snug">{stat.label}</p>
                 </div>
               ))}
             </div>
-            <div className="trust-item flex items-center gap-3 bg-secondary-light/40 rounded-xl px-5 py-3">
+            <div className="trust-item hidden md:flex items-center gap-3 bg-secondary-light/40 rounded-xl px-4 sm:px-5 py-3 w-full md:w-auto">
               <img src="/testimonial-mentee.png" alt="Analyn" className="w-9 h-9 rounded-full object-cover shrink-0" />
               <div>
-                <p className="font-body text-sm text-muted italic leading-snug max-w-xs">
+                <p className="font-body text-xs sm:text-sm text-muted italic leading-snug max-w-xs">
                   &ldquo;Sheena&apos;s mentorship gave me the confidence and skills to thrive in Canadian healthcare.&rdquo;
                 </p>
                 <p className="font-body text-xs text-muted/70 mt-1 not-italic">Analyn, RN</p>
@@ -273,10 +273,10 @@ export default function CandidatesPage() {
 
       {/* ============ THE REALITY ============ */}
       <section ref={realityRef} className="py-section">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-24">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
+          <div className="grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-24">
             <div className="lg:col-span-5">
-              <p className="reality-anim font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
+              <p className="reality-anim font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-3 sm:mb-4">
                 The reality
               </p>
               <h2 className="reality-anim font-heading font-bold text-display-md text-foreground">
@@ -284,17 +284,19 @@ export default function CandidatesPage() {
               </h2>
             </div>
             <div className="lg:col-span-7 flex flex-col justify-center">
-              <div className="space-y-5 mb-8">
+              <div className="space-y-3 sm:space-y-5 mb-6 sm:mb-8">
                 {challenges.map((challenge) => (
-                  <div key={challenge} className="reality-anim flex items-start gap-4">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                    <p className="font-body text-base text-muted leading-relaxed">
+                  <div key={challenge} className="reality-anim flex items-start gap-3 sm:gap-4">
+                    <svg className="w-4 h-4 text-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                    <p className="font-body text-sm sm:text-base text-muted leading-relaxed">
                       {challenge}
                     </p>
                   </div>
                 ))}
               </div>
-              <p className="reality-anim font-heading font-bold text-lg text-foreground">
+              <p className="reality-anim font-heading font-bold text-base sm:text-lg text-foreground">
                 You don&apos;t have to figure it out alone.
               </p>
             </div>
@@ -304,38 +306,61 @@ export default function CandidatesPage() {
 
       {/* ============ YOUR PATHWAY ============ */}
       <section ref={pathwayRef} className="py-section bg-secondary-light/25">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-14">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
+
+          {/* Mobile: image as top banner */}
+          <div className="lg:hidden mb-8">
+            <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-3">
+              Your pathway
+            </p>
+            <h2 className="font-heading font-bold text-display-md text-foreground mb-6">
+              From first questions to your first shift
+            </h2>
+            <div className="pathway-image relative rounded-2xl overflow-hidden aspect-[16/10] w-full">
+              <Image
+                src="/new2.png"
+                alt="Nurse preparing for Canadian healthcare career"
+                fill
+                className="object-cover object-[center_15%]"
+                sizes="100vw"
+              />
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-14">
             {/* Left — Steps */}
             <div className="lg:col-span-6">
-              <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
-                Your pathway
-              </p>
-              <h2 className="font-heading font-bold text-display-md text-foreground mb-12">
-                From first questions to your first shift
-              </h2>
+              {/* Desktop heading (mobile heading is above with the banner) */}
+              <div className="hidden lg:block">
+                <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
+                  Your pathway
+                </p>
+                <h2 className="font-heading font-bold text-display-md text-foreground mb-12">
+                  From first questions to your first shift
+                </h2>
+              </div>
 
               <div>
                 {pathwaySteps.map((step, i) => (
                   <div
                     key={step.number}
-                    className={`pathway-step flex gap-5 py-7 hover:bg-secondary-light/20 rounded-lg px-3 -mx-3 transition-all duration-300 ${
+                    className={`pathway-step flex gap-4 sm:gap-5 py-5 sm:py-7 lg:hover:bg-secondary-light/20 rounded-lg px-3 -mx-3 transition-all duration-300 ${
                       i < pathwaySteps.length - 1 ? "border-b border-secondary/15" : ""
                     }`}
                   >
-                    <span className="font-heading font-bold text-2xl text-primary/20 shrink-0 w-10">
+                    <span className="font-heading font-bold text-xl sm:text-2xl text-primary/20 shrink-0 w-9 sm:w-10">
                       {step.number}
                     </span>
-                    <div>
-                      <h3 className="font-heading font-bold text-lg text-foreground mb-1.5">
+                    <div className="min-w-0">
+                      <h3 className="font-heading font-bold text-base sm:text-lg text-foreground mb-1 sm:mb-1.5">
                         {step.title}
                       </h3>
-                      <p className="font-body text-sm text-muted leading-relaxed mb-3">
+                      <p className="font-body text-sm text-muted leading-relaxed lg:mb-3">
                         {step.description}
                       </p>
                       <Link
                         href={step.href}
-                        className="inline-flex items-center gap-1.5 font-body font-semibold text-sm text-primary hover:text-primary-dark transition-colors duration-300 group"
+                        className="hidden lg:inline-flex items-center gap-1.5 font-body font-semibold text-sm text-primary hover:text-primary-dark transition-colors duration-300 group"
                       >
                         {step.cta}
                         <svg
@@ -349,16 +374,21 @@ export default function CandidatesPage() {
                   </div>
                 ))}
               </div>
+
+              {/* Mobile: single CTA at the end */}
+              <div className="lg:hidden mt-8">
+                <ApplyButton variant="small" label="Start your pathway" />
+              </div>
             </div>
 
-            {/* Right — Image */}
-            <div className="lg:col-span-6 flex items-center">
-              <div className="pathway-image relative rounded-2xl overflow-hidden aspect-[4/5] w-full">
+            {/* Right — Image (desktop only, mobile shows it as a banner above) */}
+            <div className="hidden lg:col-span-6 lg:flex items-center">
+              <div className="pathway-image relative rounded-2xl overflow-hidden aspect-[4/5] max-h-[600px] w-full">
                 <Image
                   src="/new2.png"
                   alt="Nurse preparing for Canadian healthcare career"
                   fill
-                  className="object-cover"
+                  className="object-cover object-[center_15%]"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
@@ -369,8 +399,8 @@ export default function CandidatesPage() {
 
       {/* ============ TESTIMONIAL — Video cards ============ */}
       <section ref={testimonialRef} className="py-section">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="test-anim mb-14 md:mb-16">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
+          <div className="test-anim mb-10 sm:mb-14 md:mb-16">
             <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
               Stories
             </p>
@@ -382,7 +412,7 @@ export default function CandidatesPage() {
 
         <div className="test-anim overflow-hidden">
           <div className="overflow-x-auto scrollbar-hide">
-            <div className="flex gap-5 md:gap-6 pl-6 md:pl-12 pr-6 md:pr-12">
+            <div className="flex gap-4 sm:gap-5 md:gap-6 pl-5 sm:pl-6 md:pl-12 pr-5 sm:pr-6 md:pr-12">
               {[
                 { name: "Amara O.", role: "Registered Nurse, Toronto", initials: "AO" },
                 { name: "Dr. Sarah Chen", role: "Director of Nursing, Vancouver", initials: "SC" },
@@ -393,7 +423,7 @@ export default function CandidatesPage() {
                 <div
                   key={t.name}
                   className="group flex-shrink-0 relative rounded-lg border border-secondary/15 overflow-hidden cursor-pointer"
-                  style={{ width: "clamp(280px, 30vw, 380px)", aspectRatio: "9/14" }}
+                  style={{ width: "clamp(220px, 70vw, 360px)", aspectRatio: "9/14" }}
                 >
                   <div className="absolute inset-0 bg-secondary-light" />
                   <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(168,174,228,0.3)_0%,transparent_70%)]" />
@@ -426,8 +456,8 @@ export default function CandidatesPage() {
 
       {/* ============ FAQ ============ */}
       <section ref={faqRef} className="py-section bg-secondary-light/25">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
             <div className="lg:col-span-4">
               <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
                 FAQ
@@ -495,8 +525,8 @@ export default function CandidatesPage() {
       </section>
 
       {/* ============ BOTTOM CTA ============ */}
-      <section ref={ctaRef} className="relative py-28 md:py-36 overflow-hidden">
-        <div className="absolute inset-0 scale-110">
+      <section ref={ctaRef} className="relative py-20 sm:py-24 md:py-36 overflow-hidden">
+        <div className="absolute inset-0 scale-100 md:scale-110">
           <Image
             src="/empty2.jpg"
             alt="Nurses collaborating"
@@ -509,7 +539,7 @@ export default function CandidatesPage() {
         </div>
         <div className="absolute inset-0 bg-foreground/80" />
 
-        <div className="relative z-10 max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24 flex flex-col lg:flex-row lg:items-center justify-between gap-10">
+        <div className="relative z-10 max-w-[1600px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24 flex flex-col lg:flex-row lg:items-center justify-between gap-8 lg:gap-10">
           <div className="max-w-2xl">
             <p className="cta-anim font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
               Ready?
@@ -523,7 +553,7 @@ export default function CandidatesPage() {
             </p>
           </div>
 
-          <div className="cta-anim flex flex-col sm:flex-row gap-4 shrink-0">
+          <div className="cta-anim flex flex-col sm:flex-row gap-3 sm:gap-4 shrink-0">
             <ApplyButton variant="white" />
             <Link
               href="/consultation"

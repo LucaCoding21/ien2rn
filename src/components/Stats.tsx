@@ -69,8 +69,8 @@ export default function Stats() {
 
   return (
     <section ref={sectionRef} className="py-section">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-        <div className="grid md:grid-cols-3 gap-12 md:gap-0">
+      <div className="max-w-[1440px] mx-auto px-5 sm:px-6 md:px-12">
+        <div className="grid md:grid-cols-3 gap-10 sm:gap-12 md:gap-0">
           {stats.map((stat, i) => (
             <div key={stat.label} className="stat-item relative flex">
               {/* Divider */}

@@ -91,14 +91,14 @@ export default function Nav() {
     <>
       <nav
         ref={navRef}
-        className="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 transition-all duration-200"
+        className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-4 md:px-8 transition-all duration-200"
         style={{
           paddingTop: scrolled ? "0.5rem" : "1rem",
           transform: visible ? "translateY(0)" : "translateY(-100%)",
         }}
       >
         <div
-          className={`max-w-[1400px] mx-auto flex items-center justify-between transition-all duration-500 rounded-full px-4 md:px-8  ${
+          className={`max-w-[1400px] mx-auto flex items-center justify-between transition-all duration-500 rounded-full px-5 md:px-8  ${
             scrolled ? "py-2.5" : "py-4"
           }`}
           style={{ backgroundColor: "#2832C2" }}
@@ -216,20 +216,20 @@ export default function Nav() {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-white transition-all duration-500 lg:hidden flex flex-col justify-center px-12 overflow-y-auto ${
+        className={`fixed inset-0 z-40 bg-white transition-all duration-500 lg:hidden flex flex-col justify-between px-6 sm:px-10 md:px-12 pt-24 pb-10 overflow-y-auto ${
           mobileOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         }`}
       >
-        <div className="space-y-6 py-24">
+        <div className="space-y-4 sm:space-y-5 mt-4">
           {navLinks.map((link, i) => (
             <div key={link.label} className="overflow-hidden">
               <div className="flex items-center gap-2">
                 <Link
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block font-heading font-bold text-3xl text-foreground hover:text-primary transition-colors"
+                  className="block font-heading font-bold text-2xl sm:text-3xl text-foreground hover:text-primary transition-colors"
                   style={{
                     transform: mobileOpen ? "translateY(0)" : "translateY(100%)",
                     transition: `transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) ${i * 0.06}s`,
@@ -275,7 +275,7 @@ export default function Nav() {
                         key={child.label}
                         href={child.href}
                         onClick={() => setMobileOpen(false)}
-                        className="block font-body text-lg text-muted hover:text-primary transition-colors"
+                        className="block font-body text-base sm:text-lg text-muted hover:text-primary transition-colors"
                       >
                         {child.label}
                       </Link>
@@ -286,11 +286,11 @@ export default function Nav() {
             </div>
           ))}
         </div>
-        <div className="pb-12 flex flex-col gap-4 sm:flex-row sm:items-center">
+        <div className="pt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
           <Link
             href="/consultation"
             onClick={() => setMobileOpen(false)}
-            className="inline-block font-body text-base font-semibold text-primary border-2 border-primary px-8 py-4 rounded-full text-center"
+            className="inline-block w-full sm:w-auto font-body text-base font-semibold text-primary border-2 border-primary px-8 py-3.5 rounded-full text-center"
             style={{
               opacity: mobileOpen ? 1 : 0,
               transform: mobileOpen ? "translateY(0)" : "translateY(20px)",
@@ -302,7 +302,7 @@ export default function Nav() {
           <Link
             href="/candidates/assessment"
             onClick={() => setMobileOpen(false)}
-            className="inline-block font-body text-base font-semibold text-white bg-primary px-8 py-4 rounded-full text-center"
+            className="inline-block w-full sm:w-auto font-body text-base font-semibold text-white bg-primary px-8 py-3.5 rounded-full text-center"
             style={{
               opacity: mobileOpen ? 1 : 0,
               transform: mobileOpen ? "translateY(0)" : "translateY(20px)",

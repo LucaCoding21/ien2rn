@@ -30,8 +30,8 @@ export default function CTABanner() {
 
   return (
     <section ref={sectionRef} className="py-8 md:py-12">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-        <div className="bg-secondary-light/40 rounded-[2rem] md:rounded-[3rem] px-8 md:px-16 py-14 md:py-16 flex flex-col md:flex-row items-center justify-between gap-8">
+      <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
+        <div className="bg-secondary-light/40 rounded-[1.75rem] md:rounded-[3rem] px-6 sm:px-8 md:px-16 py-10 sm:py-14 md:py-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-8">
           <div className="max-w-lg">
             <h2 className="cta-banner-animate font-heading font-bold text-2xl md:text-3xl text-foreground mb-3">
               Ready to take the next step?
@@ -42,7 +42,7 @@ export default function CTABanner() {
             </p>
           </div>
 
-          <div className="cta-banner-animate flex flex-col sm:flex-row items-center gap-3 shrink-0">
+          <div className="cta-banner-animate flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0 w-full sm:w-auto">
             <ApplyButton variant="small" />
             <Link
               href="/employers"

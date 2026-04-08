@@ -40,9 +40,9 @@ export default function CTA() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-28 md:py-36 overflow-hidden">
+    <section ref={sectionRef} className="relative py-20 sm:py-24 md:py-36 overflow-hidden">
       {/* Background image with parallax */}
-      <div className="absolute inset-0 scale-110">
+      <div className="absolute inset-0 scale-100 md:scale-110">
         <Image
           src="/cta-section.jpg"
           alt="Nurses working in a Canadian hospital"
@@ -58,7 +58,7 @@ export default function CTA() {
       <div className="absolute inset-0 bg-foreground/80" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24 flex flex-col lg:flex-row lg:items-center justify-between gap-10">
+      <div className="relative z-10 max-w-[1600px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24 flex flex-col lg:flex-row lg:items-center justify-between gap-8 lg:gap-10">
 
         {/* Left — text */}
         <div className="max-w-2xl">
@@ -74,7 +74,7 @@ export default function CTA() {
         </div>
 
         {/* Right — CTAs */}
-        <div className="cta-animate flex flex-col sm:flex-row gap-4 shrink-0">
+        <div className="cta-animate flex flex-col sm:flex-row gap-3 sm:gap-4 shrink-0">
           <ApplyButton variant="white" />
           <Link
             href="/employers"

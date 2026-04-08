@@ -74,7 +74,7 @@ export default function BookingModal({ professional, onClose }: BookingModalProp
   };
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center px-4">
+    <div className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center px-3 sm:px-4 pb-3 sm:pb-0">
       {/* Overlay */}
       <div
         ref={overlayRef}
@@ -85,10 +85,10 @@ export default function BookingModal({ professional, onClose }: BookingModalProp
       {/* Panel */}
       <div
         ref={panelRef}
-        className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl shadow-foreground/20 overflow-hidden max-h-[90vh] overflow-y-auto"
+        className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl shadow-foreground/20 overflow-hidden max-h-[90svh] overflow-y-auto"
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-7 pt-7 pb-0">
+        <div className="flex items-start justify-between gap-3 px-5 sm:px-7 pt-6 sm:pt-7 pb-0">
           <div>
             <p className="font-body text-xs font-semibold text-primary uppercase tracking-[0.15em]">
               Book a Session
@@ -111,7 +111,7 @@ export default function BookingModal({ professional, onClose }: BookingModalProp
 
 
         {step === "form" ? (
-          <form onSubmit={handleSubmit} className="px-7 pt-6 pb-7 space-y-4">
+          <form onSubmit={handleSubmit} className="px-5 sm:px-7 pt-5 sm:pt-6 pb-6 sm:pb-7 space-y-4">
             <div>
               <label className="block font-body text-xs font-semibold text-foreground mb-1.5">
                 Full Name
@@ -176,7 +176,7 @@ export default function BookingModal({ professional, onClose }: BookingModalProp
             </button>
           </form>
         ) : (
-          <div className="px-7 pt-6 pb-7">
+          <div className="px-5 sm:px-7 pt-5 sm:pt-6 pb-6 sm:pb-7">
             {/* Confirmation step */}
             <div className="text-center mb-6">
               <div className="w-14 h-14 rounded-full bg-green-50 border border-green-200/50 flex items-center justify-center mx-auto mb-4">

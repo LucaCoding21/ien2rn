@@ -58,8 +58,8 @@ export default function ContactPage() {
       />
 
       <section ref={contentRef} className="pt-8 md:pt-12 pb-8 md:pb-12">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="grid lg:grid-cols-12 gap-16 lg:gap-20">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
+          <div className="grid lg:grid-cols-12 gap-12 sm:gap-16 lg:gap-20">
             {/* Left - Large contact info */}
             <div className="lg:col-span-5 contact-left">
               <h2 className="font-heading font-bold text-2xl text-foreground mb-8">

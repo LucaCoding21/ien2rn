@@ -178,7 +178,7 @@ export default function AboutPage() {
       {/* ── Hero ── */}
       <section
         ref={heroRef}
-        className="relative min-h-[85vh] flex items-end overflow-hidden"
+        className="relative min-h-[85svh] sm:min-h-[85vh] flex items-end overflow-hidden"
       >
         <div className="absolute inset-0">
           <Image
@@ -192,17 +192,17 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/50 to-foreground/10" />
         </div>
 
-        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24 pb-16 md:pb-20 pt-40">
-          <div className="flex flex-col lg:flex-row lg:items-end gap-8 lg:gap-20">
+        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24 pb-12 sm:pb-16 md:pb-20 pt-32 sm:pt-36 md:pt-40">
+          <div className="flex flex-col lg:flex-row lg:items-end gap-6 sm:gap-8 lg:gap-20">
             {/* Left — tagline + headline */}
             <div className="flex-1">
-              <p className="about-hero-anim font-body text-sm font-semibold text-yellow-400 uppercase tracking-[0.08em] mb-5">
+              <p className="about-hero-anim font-body text-xs sm:text-sm font-semibold text-yellow-400 uppercase tracking-[0.08em] mb-4 sm:mb-5">
                 About ien2RN
               </p>
               <h1
                 className="about-hero-anim font-heading font-bold text-white"
                 style={{
-                  fontSize: "clamp(2.2rem, 5vw, 3.75rem)",
+                  fontSize: "clamp(2rem, 8vw, 3.75rem)",
                   lineHeight: "1.05",
                   letterSpacing: "-0.02em",
                 }}
@@ -228,7 +228,7 @@ export default function AboutPage() {
 
       {/* ── About intro ── */}
       <section className="pt-section pb-10 md:pb-14 border-b border-secondary/15">
-        <div className="max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24">
+        <div className="max-w-[1600px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24">
           <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
             <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
               About ien2RN
@@ -242,7 +242,7 @@ export default function AboutPage() {
 
       {/* ── Mission & Vision ── */}
       <section ref={missionRef} className="py-10 md:py-14">
-        <div className="max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24">
+        <div className="max-w-[1600px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24">
           <div className="grid lg:grid-cols-12 gap-5 lg:gap-6">
 
             {/* Large photo */}
@@ -257,7 +257,7 @@ export default function AboutPage() {
             </div>
 
             {/* Dark text panel */}
-            <div className="mission-anim lg:col-span-5 bg-foreground rounded-lg px-8 py-10 md:px-10 md:py-12 flex flex-col justify-between gap-10">
+            <div className="mission-anim lg:col-span-5 bg-foreground rounded-lg px-6 py-8 sm:px-8 sm:py-10 md:px-10 md:py-12 flex flex-col justify-between gap-8 sm:gap-10">
 
               <div>
                 <p className="font-body text-xs font-semibold text-yellow-400 uppercase tracking-[0.15em] mb-5">
@@ -295,7 +295,7 @@ export default function AboutPage() {
 
       {/* ── Team ── */}
       <section ref={teamRef} className="py-section">
-        <div className="max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24">
+        <div className="max-w-[1600px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24">
 
           {/* Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
@@ -375,8 +375,8 @@ export default function AboutPage() {
 
       {/* ── Quote ── */}
       <section ref={quoteRef} className="pt-0 pb-10 md:pb-14">
-        <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-          <div className="relative rounded-[2rem] md:rounded-[3rem] overflow-hidden min-h-[400px] md:min-h-[450px]">
+        <div className="max-w-[1600px] mx-auto px-5 sm:px-6 md:px-12">
+          <div className="relative rounded-[1.75rem] md:rounded-[3rem] overflow-hidden min-h-[360px] sm:min-h-[400px] md:min-h-[450px]">
             <div className="quote-bg absolute inset-0">
               <Image
                 src="/sheenabigphoto.jpg"
@@ -388,7 +388,7 @@ export default function AboutPage() {
               <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/55 to-foreground/25" />
             </div>
 
-            <div className="relative z-10 flex items-center min-h-[400px] md:min-h-[450px] px-8 md:px-16 py-14">
+            <div className="relative z-10 flex items-center min-h-[360px] sm:min-h-[400px] md:min-h-[450px] px-6 sm:px-8 md:px-16 py-12 sm:py-14">
               <div className="max-w-2xl">
                 <svg
                   className="quote-anim w-8 h-8 text-white/15 mb-6"
@@ -434,7 +434,7 @@ export default function AboutPage() {
 
       {/* ── Bottom links ── */}
       <section className="pt-10 pb-16 md:pb-20">
-        <div className="max-w-[1600px] mx-auto px-6 md:px-12">
+        <div className="max-w-[1600px] mx-auto px-5 sm:px-6 md:px-12">
           <p className="font-body text-xs font-semibold text-muted/50 uppercase tracking-[0.12em] text-center mb-8">
             Where would you like to go?
           </p>

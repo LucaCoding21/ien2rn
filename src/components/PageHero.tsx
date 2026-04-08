@@ -39,23 +39,23 @@ export default function PageHero({ label, heading, description, image, headingCl
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative pt-32 pb-12 md:pt-40 md:pb-16">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+    <section ref={sectionRef} className="relative pt-28 pb-10 sm:pt-32 sm:pb-12 md:pt-40 md:pb-16">
+      <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
         <div className={`flex flex-col ${image ? "lg:flex-row lg:items-center lg:gap-16" : ""}`}>
           <div className={image ? "lg:flex-1" : "max-w-3xl"}>
-            <p className="page-hero-label font-body text-sm font-semibold text-yellow-500 uppercase tracking-[0.08em] mb-4">
+            <p className="page-hero-label font-body text-xs sm:text-sm font-semibold text-yellow-500 uppercase tracking-[0.08em] mb-3 sm:mb-4">
               {label}
             </p>
-            <h1 className={headingClassName || "page-hero-heading font-heading font-bold text-display-lg text-foreground mb-6"} style={headingStyle}>
+            <h1 className={headingClassName || "page-hero-heading font-heading font-bold text-display-lg text-foreground mb-5 sm:mb-6"} style={headingStyle}>
               {heading}
             </h1>
-            <p className="page-hero-desc font-body text-lg text-muted leading-relaxed max-w-2xl">
+            <p className="page-hero-desc font-body text-base sm:text-lg text-muted leading-relaxed max-w-2xl">
               {description}
             </p>
           </div>
 
           {image && (
-            <div className="page-hero-desc relative mt-10 lg:mt-0 lg:w-[42%] rounded-2xl overflow-hidden aspect-[4/3] shrink-0">
+            <div className="page-hero-desc relative mt-8 sm:mt-10 lg:mt-0 w-full lg:w-[42%] rounded-2xl overflow-hidden aspect-[16/10] sm:aspect-[4/3] shrink-0">
               <Image
                 src={image}
                 alt=""
@@ -68,7 +68,7 @@ export default function PageHero({ label, heading, description, image, headingCl
         </div>
 
         {/* Subtle accent line */}
-        <div className="page-hero-line h-px bg-gradient-to-r from-primary/25 via-secondary/20 to-transparent mt-12 origin-left" />
+        <div className="page-hero-line h-px bg-gradient-to-r from-primary/25 via-secondary/20 to-transparent mt-10 sm:mt-12 origin-left" />
       </div>
     </section>
   );

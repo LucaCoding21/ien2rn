@@ -76,13 +76,13 @@ export default function Services() {
 
   return (
     <section ref={sectionRef} className="pb-section pt-10 md:pt-14">
-      <div className="max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24">
+      <div className="max-w-[1600px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24">
         {/* Header */}
-        <div className="services-header max-w-2xl mb-14 md:mb-16">
+        <div className="services-header max-w-2xl mb-10 sm:mb-14 md:mb-16">
           <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
             What we do
           </p>
-          <h2 className="font-heading font-bold text-display-md text-foreground whitespace-nowrap">
+          <h2 className="font-heading font-bold text-display-md text-foreground lg:whitespace-nowrap">
             All you need to work in Canada
           </h2>
         </div>

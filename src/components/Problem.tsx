@@ -51,8 +51,8 @@ export default function Problem() {
 
   return (
     <section ref={sectionRef} className="pb-section pt-10 md:pt-14">
-      <div className="max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+      <div className="max-w-[1600px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
           {/* Left — Content */}
           <div className="problem-content lg:col-span-5 flex flex-col justify-center order-2 lg:order-1">
             <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-5">
@@ -74,7 +74,7 @@ export default function Problem() {
           </div>
 
           {/* Right — Image */}
-          <div className="problem-image lg:col-span-7 relative rounded-lg overflow-hidden aspect-[4/3] order-1 lg:order-2">
+          <div className="problem-image lg:col-span-7 relative rounded-lg overflow-hidden aspect-[16/10] sm:aspect-[4/3] order-1 lg:order-2">
             <Image
               src="/empty1.jpg"
               alt="Navigating complex credentialing paperwork"

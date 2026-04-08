@@ -108,7 +108,7 @@ export default function ConsultationPage() {
     <main>
       {/* Professionals Grid */}
       <section className="py-section bg-secondary-light/20">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
           {/* Section heading */}
           <div className="max-w-2xl mb-8">
             <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">

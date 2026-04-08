@@ -47,7 +47,7 @@ export default function RequestStaffPage() {
         description="Fill out the form below with your staffing requirements. Our team will review your request and get back to you within one business day."
         headingClassName="page-hero-heading font-heading font-bold text-foreground mb-6"
         headingStyle={{
-          fontSize: "clamp(2.4rem, 4.8vw, 4.2rem)",
+          fontSize: "clamp(2rem, 8vw, 4.2rem)",
           lineHeight: "1.08",
           letterSpacing: "-0.03em",
         }}
@@ -55,7 +55,7 @@ export default function RequestStaffPage() {
 
       {/* Centered form - focused, clean */}
       <section ref={formRef} className="py-section">
-        <div className="max-w-[720px] mx-auto px-6 md:px-12">
+        <div className="max-w-[720px] mx-auto px-5 sm:px-6 md:px-12">
           {submitted ? (
             <div className="form-animate bg-secondary-light/40 rounded-3xl p-10 md:p-14 text-center">
               <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center mx-auto mb-5">
