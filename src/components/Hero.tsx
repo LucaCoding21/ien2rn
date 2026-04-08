@@ -86,7 +86,7 @@ export default function Hero() {
             </p>
 
             {/* Headline */}
-            <h1 className="hero-headline font-heading font-bold text-foreground mb-6 sm:mb-7">
+            <h1 className="hero-headline font-heading font-bold text-foreground mb-6 sm:mb-8">
               {[
                 { text: "Internationally", className: "" },
                 { text: "educated nurse?", className: "" },
@@ -112,7 +112,7 @@ export default function Hero() {
             </h1>
 
             {/* Subline */}
-            <p className="hero-sub font-body text-base md:text-lg text-muted max-w-xl mb-7 sm:mb-9 leading-relaxed">
+            <p className="hero-sub font-body text-base md:text-lg text-muted max-w-xl mb-6 sm:mb-8 leading-relaxed">
               We handle credentialing, immigration support, and
               employer matching, so you can focus on what you do best.
             </p>
@@ -136,7 +136,7 @@ export default function Hero() {
                     <p className="font-heading font-bold text-xl sm:text-2xl md:text-3xl text-primary leading-none">
                       {stat.value}
                     </p>
-                    <p className="font-body text-[11px] sm:text-xs text-muted mt-1 leading-snug">
+                    <p className="font-body text-xs text-muted mt-1 leading-snug">
                       {stat.label}
                     </p>
                   </div>

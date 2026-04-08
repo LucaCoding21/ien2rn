@@ -47,6 +47,7 @@ export default function CTA() {
           src="/cta-section.jpg"
           alt="Nurses working in a Canadian hospital"
           fill
+          loading="lazy"
           className="object-cover object-[center_30%]"
           sizes="100vw"
           style={{ willChange: "transform" }}

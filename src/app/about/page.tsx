@@ -251,6 +251,7 @@ export default function AboutPage() {
                 src="/realactionshot.jpg"
                 alt="ien2RN mentorship in action"
                 fill
+                loading="lazy"
                 className="object-cover object-center"
                 sizes="(max-width: 1024px) 100vw, 58vw"
               />
@@ -328,6 +329,7 @@ export default function AboutPage() {
                       src={member.photo}
                       alt={member.name}
                       fill
+                      loading="lazy"
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                       style={{ objectPosition: member.photoPosition || "center top" }}
                       sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
@@ -382,6 +384,7 @@ export default function AboutPage() {
                 src="/sheenabigphoto.jpg"
                 alt="ien2RN team"
                 fill
+                loading="lazy"
                 className="object-cover object-[center_20%]"
                 sizes="100vw"
               />
@@ -498,6 +501,7 @@ export default function AboutPage() {
                     src={selectedMember.photo}
                     alt={selectedMember.name}
                     fill
+                    loading="lazy"
                     className="object-cover object-top"
                     sizes="80px"
                   />

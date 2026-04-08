@@ -100,7 +100,7 @@ export default function BookingModal({ professional, onClose }: BookingModalProp
           </div>
           <button
             onClick={handleClose}
-            className="w-9 h-9 rounded-full border border-secondary/25 flex items-center justify-center text-muted hover:text-foreground hover:border-secondary/50 transition-colors duration-200"
+            className="w-11 h-11 rounded-full border border-secondary/25 flex items-center justify-center text-muted hover:text-foreground hover:border-secondary/50 transition-colors duration-200"
             aria-label="Close"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

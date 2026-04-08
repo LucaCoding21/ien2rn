@@ -142,15 +142,38 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x proximity;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 1.25rem;
 }
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
 
-.scrollbar-hide > * > * {
-  scroll-snap-align: start;
+.scrollbar-hide > * > *,
+.snap-card {
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .hero-label,
+  .hero-sub,
+  .hero-cta > *,
+  .hero-stat-item,
+  .hero-image-wrap,
+  .hero-trust {
+    visibility: visible !important;
+  }
 }
 
 /* Selection color */

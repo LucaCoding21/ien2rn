@@ -266,6 +266,7 @@ export default function CoursesPage() {
                   src="/photo3.jpg"
                   alt="CBA & SLA Boot Camp training session"
                   fill
+                  loading="lazy"
                   className="object-cover object-[center_40%]"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
@@ -351,6 +352,7 @@ export default function CoursesPage() {
                       src="/april.jpg"
                       alt="April"
                       fill
+                      loading="lazy"
                       className="object-cover"
                       sizes="32px"
                     />
@@ -437,6 +439,7 @@ export default function CoursesPage() {
                   src="/new2.png"
                   alt="IEN Nurse mentorship session"
                   fill
+                  loading="lazy"
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 42vw"
                   style={{ objectPosition: "center 20%" }}
@@ -655,6 +658,7 @@ export default function CoursesPage() {
                   src="/1.jpg"
                   alt="Career accelerator consultation"
                   fill
+                  loading="lazy"
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 42vw"
                   style={{ objectPosition: "center 30%" }}

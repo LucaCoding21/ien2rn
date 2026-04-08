@@ -60,6 +60,7 @@ export default function PageHero({ label, heading, description, image, headingCl
                 src={image}
                 alt=""
                 fill
+                priority
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 42vw"
               />

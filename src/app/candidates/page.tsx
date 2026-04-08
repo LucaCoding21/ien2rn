@@ -321,6 +321,7 @@ export default function CandidatesPage() {
                 src="/new2.png"
                 alt="Nurse preparing for Canadian healthcare career"
                 fill
+                loading="lazy"
                 className="object-cover object-[center_15%]"
                 sizes="100vw"
               />
@@ -388,6 +389,7 @@ export default function CandidatesPage() {
                   src="/new2.png"
                   alt="Nurse preparing for Canadian healthcare career"
                   fill
+                  loading="lazy"
                   className="object-cover object-[center_15%]"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
@@ -531,6 +533,7 @@ export default function CandidatesPage() {
             src="/empty2.jpg"
             alt="Nurses collaborating"
             fill
+            loading="lazy"
             className="object-cover"
             sizes="100vw"
             style={{ willChange: "transform" }}

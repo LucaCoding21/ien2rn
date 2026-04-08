@@ -75,7 +75,7 @@ export default function HowItWorks() {
         <div className="md:hidden mb-6 flex gap-1.5 bg-white border border-secondary/15 rounded-full p-1.5 max-w-sm">
           <button
             onClick={() => setActiveTab("nurse")}
-            className={`flex-1 font-body text-sm font-semibold py-2.5 rounded-full transition-all duration-300 ${
+            className={`flex-1 font-body text-sm font-semibold py-3 rounded-full transition-all duration-300 ${
               activeTab === "nurse"
                 ? "bg-primary text-white shadow-sm"
                 : "text-muted hover:text-foreground"
@@ -85,7 +85,7 @@ export default function HowItWorks() {
           </button>
           <button
             onClick={() => setActiveTab("employer")}
-            className={`flex-1 font-body text-sm font-semibold py-2.5 rounded-full transition-all duration-300 ${
+            className={`flex-1 font-body text-sm font-semibold py-3 rounded-full transition-all duration-300 ${
               activeTab === "employer"
                 ? "bg-primary text-white shadow-sm"
                 : "text-muted hover:text-foreground"
@@ -104,6 +104,7 @@ export default function HowItWorks() {
                 src="/Satisfaction-rate.jpg"
                 alt="Nurse in a clinical consultation"
                 fill
+                loading="lazy"
                 className="object-cover object-[center_10%]"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
@@ -112,9 +113,9 @@ export default function HowItWorks() {
               <p className="font-body text-sm font-semibold text-primary uppercase tracking-[0.08em] mb-6 sm:mb-8 hidden md:block">
                 For nurses
               </p>
-              <div className="space-y-5 sm:space-y-7 md:space-y-8 mb-8 md:mb-10">
+              <div className="space-y-6 sm:space-y-6 md:space-y-8 mb-8 md:mb-10">
                 {nurseSteps.map((step) => (
-                  <div key={step.number} className="hiw-step flex gap-4 sm:gap-5">
+                  <div key={step.number} className="hiw-step flex gap-4 sm:gap-6">
                     <span className="font-heading font-bold text-sm text-secondary pt-0.5 shrink-0">
                       {step.number}
                     </span>
@@ -140,6 +141,7 @@ export default function HowItWorks() {
                 src="/employer-partnership2.jpg"
                 alt="Healthcare professional reviewing candidate qualifications"
                 fill
+                loading="lazy"
                 className="object-cover object-[center_20%]"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
@@ -148,9 +150,9 @@ export default function HowItWorks() {
               <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-6 sm:mb-8 hidden md:block">
                 For employers
               </p>
-              <div className="space-y-5 sm:space-y-7 md:space-y-8 mb-8 md:mb-10">
+              <div className="space-y-6 sm:space-y-6 md:space-y-8 mb-8 md:mb-10">
                 {employerSteps.map((step) => (
-                  <div key={step.number} className="hiw-step flex gap-4 sm:gap-5">
+                  <div key={step.number} className="hiw-step flex gap-4 sm:gap-6">
                     <span className="font-heading font-bold text-sm text-secondary pt-0.5 shrink-0">
                       {step.number}
                     </span>

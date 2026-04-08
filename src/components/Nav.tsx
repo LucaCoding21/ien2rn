@@ -192,7 +192,7 @@ export default function Nav() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden relative z-50 w-10 h-10 flex flex-col items-center justify-center gap-1.5"
+            className="lg:hidden relative z-50 w-11 h-11 flex flex-col items-center justify-center gap-1.5"
             aria-label="Toggle menu"
           >
             <span
@@ -222,7 +222,7 @@ export default function Nav() {
             : "opacity-0 pointer-events-none"
         }`}
       >
-        <div className="space-y-4 sm:space-y-5 mt-4">
+        <div className="space-y-4 sm:space-y-4 mt-4">
           {navLinks.map((link, i) => (
             <div key={link.label} className="overflow-hidden">
               <div className="flex items-center gap-2">

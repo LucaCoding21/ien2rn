@@ -211,7 +211,7 @@ export default function EmployersPage() {
                 </div>
               </div>
 
-              <p className="emp-hero-anim font-body text-base text-muted leading-relaxed mb-7">
+              <p className="emp-hero-anim font-body text-base text-muted leading-relaxed mb-8">
                 Mentored, upskilled IENs who are clinically prepared and culturally
                 integrated. Placed permanently where you need them most.
               </p>
@@ -242,7 +242,7 @@ export default function EmployersPage() {
                 ].map(({ value, label }) => (
                   <div key={label} className="min-w-0">
                     <p className="font-heading font-bold text-lg text-foreground">{value}</p>
-                    <p className="font-body text-[11px] text-muted/60 leading-snug">{label}</p>
+                    <p className="font-body text-xs text-muted/60 leading-snug">{label}</p>
                   </div>
                 ))}
               </div>
@@ -368,7 +368,7 @@ export default function EmployersPage() {
             {challenges.map((point, i) => (
               <div
                 key={point.title}
-                className={`challenge-item flex gap-3 sm:gap-5 py-5 sm:py-7 ${i < 3 ? "border-b border-secondary/15" : ""} ${i === 2 ? "md:border-b-0" : ""}`}
+                className={`challenge-item flex gap-3 sm:gap-6 py-6 sm:py-8 ${i < 3 ? "border-b border-secondary/15" : ""} ${i === 2 ? "md:border-b-0" : ""}`}
               >
                 <span className="font-heading font-bold text-2xl sm:text-3xl text-primary/15 leading-none shrink-0 w-9 sm:w-12">
                   {String(i + 1).padStart(2, "0")}
@@ -424,7 +424,7 @@ export default function EmployersPage() {
 
           {/* Mobile hint */}
           <div className="md:hidden flex items-center gap-2 mb-4 text-muted/60">
-            <span className="font-body text-[11px] uppercase tracking-wider">Swipe</span>
+            <span className="font-body text-xs uppercase tracking-wider">Swipe</span>
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
@@ -445,13 +445,14 @@ export default function EmployersPage() {
                       src={step.image}
                       alt={step.title}
                       fill
+                      loading="lazy"
                       className="approach-card-img object-cover"
                       sizes="80vw"
                       style={{ objectPosition: step.imagePosition }}
                     />
                   </div>
 
-                  <div className="p-5">
+                  <div className="p-6">
                     <div className="flex items-center gap-2 mb-3">
                       <span className="font-heading font-bold text-xs text-primary/40">
                         {String(i + 1).padStart(2, "0")}
@@ -470,7 +471,7 @@ export default function EmployersPage() {
                           <svg className="w-4 h-4 text-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                           </svg>
-                          <span className="font-body text-[13px] text-muted leading-snug">{item}</span>
+                          <span className="font-body text-sm text-muted leading-snug">{item}</span>
                         </li>
                       ))}
                     </ul>
@@ -494,6 +495,7 @@ export default function EmployersPage() {
                     src={step.image}
                     alt={step.title}
                     fill
+                    loading="lazy"
                     className="approach-card-img object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                     sizes="33vw"
                     style={{ objectPosition: step.imagePosition }}
@@ -550,6 +552,7 @@ export default function EmployersPage() {
             src="/3.jpg"
             alt="Employer partnership meeting"
             fill
+            loading="lazy"
             className="object-cover"
             sizes="100vw"
             style={{ willChange: "transform" }}
@@ -566,10 +569,10 @@ export default function EmployersPage() {
             Let&apos;s build your workforce
           </h2>
 
-          <div className="contact-anim grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-5 max-w-2xl">
+          <div className="contact-anim grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-2xl">
             <a
               href="tel:+16042295549"
-              className="group rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10 p-5 sm:p-6 hover:bg-white/15 transition-colors duration-300"
+              className="group rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10 p-6 sm:p-6 hover:bg-white/15 transition-colors duration-300"
             >
               <div className="flex items-center gap-3 sm:block">
                 <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center text-white shrink-0 sm:mb-5 group-hover:bg-white group-hover:text-foreground transition-colors duration-300">
@@ -589,7 +592,7 @@ export default function EmployersPage() {
 
             <a
               href="mailto:NurseMentor@ien2rn.org"
-              className="group rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10 p-5 sm:p-6 hover:bg-white/15 transition-colors duration-300"
+              className="group rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10 p-6 sm:p-6 hover:bg-white/15 transition-colors duration-300"
             >
               <div className="flex items-center gap-3 sm:block">
                 <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center text-white shrink-0 sm:mb-5 group-hover:bg-white group-hover:text-foreground transition-colors duration-300">

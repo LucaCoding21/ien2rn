@@ -75,6 +75,7 @@ export default function Trust() {
                     src="/team/sheena.jpg"
                     alt="Sheena Park"
                     fill
+                    loading="lazy"
                     className="object-cover"
                     sizes="40px"
                   />

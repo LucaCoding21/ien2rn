@@ -101,6 +101,7 @@ export default function Services() {
                   src={service.image}
                   alt={service.title}
                   fill
+                  loading="lazy"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   sizes="(max-width: 768px) 100vw, 33vw"
                   style={{ objectPosition: i === 0 ? "center 30%" : i === 1 ? "center 20%" : "center bottom" }}

@@ -79,6 +79,7 @@ export default function Problem() {
               src="/empty1.jpg"
               alt="Navigating complex credentialing paperwork"
               fill
+              loading="lazy"
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 58vw"
             />
