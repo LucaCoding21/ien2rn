@@ -64,7 +64,7 @@ export default function VideoTestimonials() {
       {/* Scrollable row — extends past container edge */}
       <div className="overflow-hidden">
         <div className="overflow-x-auto scrollbar-hide">
-          <div className="flex gap-4 sm:gap-5 md:gap-6 pl-5 sm:pl-6 md:pl-16 lg:pl-24 pr-5 sm:pr-6 md:pr-16 lg:pr-24">
+          <div className="flex gap-4 sm:gap-6 md:gap-6 pl-5 sm:pl-6 md:pl-16 lg:pl-24 pr-5 sm:pr-6 md:pr-16 lg:pr-24">
           {videoTestimonials.map((t) => (
             <div
               key={t.name}

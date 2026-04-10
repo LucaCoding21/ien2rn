@@ -224,7 +224,7 @@ export default function CandidatesPage() {
               <br />
               Let&apos;s make it happen.
             </h1>
-            <p className="hero-anim font-body text-base md:text-lg text-white/60 leading-relaxed max-w-md mb-7 sm:mb-8">
+            <p className="hero-anim font-body text-base md:text-lg text-white/60 leading-relaxed max-w-md mb-8">
               ien2RN guides internationally educated nurses through licensing, preparation, and placement in Canada.
             </p>
             <div className="hero-anim flex flex-col sm:flex-row items-stretch sm:items-start gap-3 sm:gap-4">
@@ -254,7 +254,7 @@ export default function CandidatesPage() {
                   <p className="font-heading font-bold text-xl sm:text-2xl text-primary leading-none">
                     {stat.value}
                   </p>
-                  <p className="font-body text-[11px] sm:text-xs text-muted mt-1 leading-snug">{stat.label}</p>
+                  <p className="font-body text-xs text-muted mt-1 leading-snug">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -345,7 +345,7 @@ export default function CandidatesPage() {
                 {pathwaySteps.map((step, i) => (
                   <div
                     key={step.number}
-                    className={`pathway-step flex gap-4 sm:gap-5 py-5 sm:py-7 lg:hover:bg-secondary-light/20 rounded-lg px-3 -mx-3 transition-all duration-300 ${
+                    className={`pathway-step flex gap-4 sm:gap-6 py-6 sm:py-8 lg:hover:bg-secondary-light/20 rounded-lg px-3 -mx-3 transition-all duration-300 ${
                       i < pathwaySteps.length - 1 ? "border-b border-secondary/15" : ""
                     }`}
                   >
@@ -414,7 +414,7 @@ export default function CandidatesPage() {
 
         <div className="test-anim overflow-hidden">
           <div className="overflow-x-auto scrollbar-hide">
-            <div className="flex gap-4 sm:gap-5 md:gap-6 pl-5 sm:pl-6 md:pl-12 pr-5 sm:pr-6 md:pr-12">
+            <div className="flex gap-4 sm:gap-6 md:gap-6 pl-5 sm:pl-6 md:pl-12 pr-5 sm:pr-6 md:pr-12">
               {[
                 { name: "Amara O.", role: "Registered Nurse, Toronto", initials: "AO" },
                 { name: "Dr. Sarah Chen", role: "Director of Nursing, Vancouver", initials: "SC" },

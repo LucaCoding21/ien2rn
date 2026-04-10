@@ -268,7 +268,7 @@ export default function AssessmentPage() {
                   <button
                     key={opt.value}
                     onClick={() => handleSelect(opt.weight)}
-                    className="q-animate w-full text-left p-5 rounded-xl border border-secondary/20 hover:border-primary/40 hover:bg-secondary-light/30 transition-all duration-200 group"
+                    className="q-animate w-full text-left p-4 rounded-xl border border-secondary/20 hover:border-primary/40 hover:bg-secondary-light/30 transition-all duration-200 group"
                   >
                     <span className="font-body text-base text-foreground group-hover:text-primary transition-colors duration-200">
                       {opt.label}

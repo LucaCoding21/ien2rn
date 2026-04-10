@@ -613,7 +613,7 @@ export default function EmployersPage() {
 
           <Link
             href="/employers/request-staff"
-            className="contact-anim group inline-flex items-center gap-2 font-body font-semibold text-sm text-white/60 hover:text-white mt-7 sm:mt-8 transition-colors duration-300"
+            className="contact-anim group inline-flex items-center gap-2 font-body font-semibold text-sm text-white/60 hover:text-white mt-8 transition-colors duration-300"
           >
             Or submit a staffing request
             <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

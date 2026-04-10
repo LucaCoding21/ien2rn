@@ -198,7 +198,7 @@ export default function ResourcesPage() {
                       <button
                         key={resource.title}
                         onClick={() => handleDownload(resource)}
-                        className="res-card text-left group bg-offwhite border border-secondary/15 rounded-xl p-5 hover:border-primary/25 hover:shadow-sm transition-all duration-300"
+                        className="res-card text-left group bg-offwhite border border-secondary/15 rounded-xl p-6 hover:border-primary/25 hover:shadow-sm transition-all duration-300"
                       >
                         <div className="flex items-start gap-4">
                           <div className="w-10 h-10 rounded-lg bg-secondary-light/60 flex items-center justify-center text-primary shrink-0 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
@@ -254,7 +254,7 @@ export default function ResourcesPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-5">
+          <div className="grid md:grid-cols-3 gap-4">
             {premiumResources.map((resource) => (
               <button
                 key={resource.title}
@@ -318,7 +318,7 @@ export default function ResourcesPage() {
       {/* ── Bottom nudge back to programs ── */}
       <section className="py-16">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 sm:gap-6 rounded-2xl bg-secondary-light/30 px-6 sm:px-8 md:px-10 py-7 sm:py-8">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 rounded-2xl bg-secondary-light/30 px-6 sm:px-8 md:px-10 py-8">
             <div>
               <p className="font-heading font-bold text-lg text-foreground mb-1">
                 Want more than resources?

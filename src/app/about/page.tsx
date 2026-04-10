@@ -243,7 +243,7 @@ export default function AboutPage() {
       {/* ── Mission & Vision ── */}
       <section ref={missionRef} className="py-10 md:py-14">
         <div className="max-w-[1600px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24">
-          <div className="grid lg:grid-cols-12 gap-5 lg:gap-6">
+          <div className="grid lg:grid-cols-12 gap-6 lg:gap-6">
 
             {/* Large photo */}
             <div className="mission-anim mission-photo lg:col-span-7 relative rounded-lg overflow-hidden min-h-[340px] aspect-[4/3] lg:aspect-auto">
@@ -315,7 +315,7 @@ export default function AboutPage() {
           </div>
 
           {/* Team grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
             {team.map((member) => (
               <button
                 key={member.name}

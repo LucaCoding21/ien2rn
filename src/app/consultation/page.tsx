@@ -197,7 +197,7 @@ export default function ConsultationPage() {
                     {person.specialties.map((s) => (
                       <span
                         key={s}
-                        className="font-body text-[11px] text-muted bg-secondary-light/50 px-2.5 py-1 rounded-full"
+                        className="font-body text-xs text-muted bg-secondary-light/50 px-2.5 py-1 rounded-full"
                       >
                         {s}
                       </span>

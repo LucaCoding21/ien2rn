@@ -220,7 +220,7 @@ export default function CoursesPage() {
               <br />
               for IEN nurses.
             </h1>
-            <p className="courses-hero-anim font-body text-base md:text-lg text-white/60 leading-relaxed max-w-md mb-7 sm:mb-8">
+            <p className="courses-hero-anim font-body text-base md:text-lg text-white/60 leading-relaxed max-w-md mb-8">
               CBA &amp; SLA boot camps, 1-on-1 mentorship, and upskilling workshops —
               everything you need to succeed in Canadian healthcare.
             </p>
@@ -339,7 +339,7 @@ export default function CoursesPage() {
               </div>
 
               {/* Testimonial */}
-              <div className="bg-secondary-light/30 rounded-xl p-5 mb-8">
+              <div className="bg-secondary-light/30 rounded-xl p-6 mb-8">
                 <p className="font-body text-sm text-foreground italic leading-relaxed mb-3">
                   &ldquo;I enrolled in the ien2RN SLA bootcamp with only one week
                   before my assessment. The mentorship gave me the confidence and
@@ -361,7 +361,7 @@ export default function CoursesPage() {
                     <p className="font-heading font-bold text-xs text-foreground">
                       April
                     </p>
-                    <p className="font-body text-[11px] text-muted">
+                    <p className="font-body text-xs text-muted">
                       IEN from the Philippines, SLA Bootcamp Graduate
                     </p>
                   </div>
