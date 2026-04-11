@@ -115,7 +115,7 @@ export default function Services() {
               <p className="font-body text-sm text-muted leading-relaxed mb-4 flex-1 order-3">
                 {service.description}
               </p>
-              <span className="inline-flex items-center gap-2 font-body font-semibold text-sm text-primary border border-primary/30 rounded-full px-5 py-2 transition-all duration-300 group-hover:bg-primary group-hover:text-white group-hover:border-primary self-end mt-1 order-4">
+              <span className="inline-flex items-center gap-2 font-body font-semibold text-sm text-primary border border-primary/30 rounded-full px-5 py-2 transition-all duration-300 group-hover:bg-primary group-hover:text-white group-hover:border-primary self-end mt-1 md:mt-auto order-4">
                 {service.linkText}
                 <svg
                   className="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"

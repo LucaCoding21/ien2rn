@@ -43,7 +43,7 @@ export default function PageHero({ label, heading, description, image, headingCl
       <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
         <div className={`flex flex-col ${image ? "lg:flex-row lg:items-center lg:gap-16" : ""}`}>
           <div className={image ? "lg:flex-1" : "max-w-3xl"}>
-            <p className="page-hero-label font-body text-xs font-semibold text-accent uppercase tracking-[0.08em] mb-3 sm:mb-4">
+            <p className="page-hero-label font-body text-xs sm:text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-3 sm:mb-4">
               {label}
             </p>
             <h1 className={headingClassName || "page-hero-heading font-heading font-bold text-display-lg text-foreground mb-5 sm:mb-6"} style={headingStyle}>

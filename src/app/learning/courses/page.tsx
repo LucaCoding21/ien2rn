@@ -205,7 +205,7 @@ export default function CoursesPage() {
 
         <div className="relative z-10 w-full max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12 pb-12 sm:pb-16 md:pb-20 pt-32 sm:pt-36 md:pt-40">
           <div className="max-w-2xl">
-            <p className="courses-hero-anim font-body text-xs font-semibold text-accent uppercase tracking-[0.08em] mb-4 sm:mb-5">
+            <p className="courses-hero-anim font-body text-xs sm:text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4 sm:mb-5">
               Learning & Mentorship
             </p>
             <h1
@@ -277,7 +277,7 @@ export default function CoursesPage() {
                   alt="CBA & SLA Boot Camp training session"
                   fill
                   loading="lazy"
-                  className="object-cover object-[center_15%]"
+                  className="object-cover object-[center_15%] lg:object-[center_40%]"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/10 via-transparent to-transparent" />
@@ -287,7 +287,7 @@ export default function CoursesPage() {
             {/* Content */}
             <div className="lg:col-span-6 flex flex-col justify-center bc-content text-center lg:text-left items-center lg:items-start">
               {/* Desktop only title */}
-              <span className="hidden lg:block font-body text-xs font-semibold text-accent uppercase tracking-[0.08em] mb-4">
+              <span className="hidden lg:inline-block font-body text-[10px] font-semibold text-primary uppercase tracking-[0.15em] bg-secondary-light/50 lg:self-start px-3 py-1 rounded-full mb-5">
                 Flagship Program
               </span>
               <h2 className="hidden lg:block font-heading font-bold text-display-md text-foreground mb-4">
@@ -359,7 +359,7 @@ export default function CoursesPage() {
               </div>
 
               {/* Testimonial */}
-              <div className="bg-secondary-light/30 rounded-xl p-6 mb-8 w-full">
+              <div className="bg-secondary-light/30 rounded-xl p-6 mb-8 w-full lg:w-auto">
                 <p className="font-body text-sm text-foreground italic leading-relaxed mb-3 text-left">
                   &ldquo;I enrolled in the ien2RN SLA bootcamp with only one week
                   before my assessment. The mentorship gave me the confidence and
@@ -416,7 +416,7 @@ export default function CoursesPage() {
       <section ref={curriculumRef} className="py-section bg-secondary-light/25">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
           <div className="max-w-2xl mb-14 text-center sm:text-left mx-auto sm:mx-0">
-            <p className="font-body text-xs font-semibold text-accent uppercase tracking-[0.08em] mb-4">
+            <p className="font-body text-xs sm:text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
               What you&apos;ll learn
             </p>
             <h2 className="font-heading font-bold text-display-md text-foreground">
@@ -430,10 +430,13 @@ export default function CoursesPage() {
                 key={phase.week}
                 className="curr-item bg-offwhite rounded-2xl p-5 sm:p-6 border border-secondary/10"
               >
-                <span className="block font-body text-xs font-semibold text-accent uppercase tracking-[0.08em] mb-2">
+                <span className="hidden lg:block font-heading font-bold text-3xl text-primary/15 leading-none">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="block font-body text-xs font-semibold text-accent lg:text-primary uppercase tracking-[0.08em] lg:tracking-wide mb-2 lg:mt-3">
                   {phase.week}
                 </span>
-                <h3 className="font-heading font-bold text-base text-foreground mb-2">
+                <h3 className="font-heading font-bold text-base text-foreground mb-2 lg:mb-3">
                   {phase.title}
                 </h3>
                 <p className="font-body text-sm text-muted leading-relaxed">
@@ -477,7 +480,7 @@ export default function CoursesPage() {
             {/* Content */}
             <div className="lg:col-span-7 flex flex-col justify-center order-3 lg:order-2 text-center lg:text-left items-center lg:items-start">
               {/* Desktop only title */}
-              <span className="hidden lg:block font-body text-xs font-semibold text-accent uppercase tracking-[0.08em] mb-4">
+              <span className="hidden lg:block font-body text-[10px] font-semibold text-primary uppercase tracking-[0.15em] mb-4">
                 Mentorship
               </span>
               <h2 className="hidden lg:block font-heading font-bold text-display-md text-foreground mb-5">
@@ -617,7 +620,7 @@ export default function CoursesPage() {
             {/* Content */}
             <div className="lg:col-span-7 flex flex-col justify-center order-3 lg:order-1 text-center lg:text-left items-center lg:items-start">
               {/* Desktop only title */}
-              <span className="hidden lg:block font-body text-xs font-semibold text-accent uppercase tracking-[0.08em] mb-4">
+              <span className="hidden lg:block font-body text-[10px] font-semibold text-primary uppercase tracking-[0.15em] mb-4">
                 Career Development
               </span>
               <h2 className="hidden lg:block font-heading font-bold text-display-md text-foreground mb-5">

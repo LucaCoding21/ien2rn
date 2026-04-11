@@ -115,7 +115,8 @@ export default function ConsultationPage() {
               Our Team
             </p>
             <h2 className="font-heading font-bold text-display-md text-foreground">
-              Meet your consultants
+              Meet your{" "}
+              <span className="serif-italic text-primary">consultants</span>
             </h2>
           </div>
 
@@ -153,11 +154,25 @@ export default function ConsultationPage() {
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
+                  {/* Paid badge (desktop only) */}
+                  {person.isPaid && (
+                    <div className="hidden lg:block absolute top-4 right-4 bg-white/95 backdrop-blur-sm border border-secondary/20 rounded-full px-3 py-1">
+                      <span className="font-body text-xs font-semibold text-foreground">
+                        {person.rate}
+                      </span>
+                    </div>
+                  )}
+                  {/* Category badge (desktop only) */}
+                  <div className="hidden lg:block absolute bottom-4 left-4">
+                    <span className="bg-primary/90 backdrop-blur-sm text-white font-body text-xs font-medium px-3 py-1 rounded-full">
+                      {categories.find((c) => c.key === person.category)?.label}
+                    </span>
+                  </div>
                 </div>
 
                 {/* Content */}
                 <div className="p-6">
-                  <div className="flex items-center gap-3 mb-4">
+                  <div className="flex items-center lg:items-start gap-3 mb-4">
                     <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center shrink-0">
                       <span className="font-heading font-bold text-xs text-white">
                         {person.initials}
@@ -167,7 +182,7 @@ export default function ConsultationPage() {
                       <h3 className="font-heading font-bold text-base text-foreground leading-tight">
                         {person.name}
                       </h3>
-                      <p className="font-body text-xs text-primary font-medium mt-0.5">
+                      <p className="font-body text-xs text-primary font-medium mt-0.5 lg:truncate">
                         {person.title}
                       </p>
                     </div>
@@ -176,6 +191,18 @@ export default function ConsultationPage() {
                   <p className="font-body text-sm text-muted leading-relaxed mb-4 line-clamp-3">
                     {person.bio}
                   </p>
+
+                  {/* Specialties (desktop only) */}
+                  <div className="hidden lg:flex flex-wrap gap-1.5 mb-5">
+                    {person.specialties.map((s) => (
+                      <span
+                        key={s}
+                        className="font-body text-xs text-muted bg-secondary-light/50 px-2.5 py-1 rounded-full"
+                      >
+                        {s}
+                      </span>
+                    ))}
+                  </div>
 
                   {/* Book Button */}
                   <button

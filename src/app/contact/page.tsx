@@ -66,28 +66,28 @@ export default function ContactPage() {
                 Get in touch
               </h2>
 
-              <div className="space-y-6 mb-12">
+              <div className="space-y-6 lg:space-y-8 mb-12">
                 <div>
-                  <p className="font-body text-xs font-semibold text-accent uppercase tracking-wider mb-1.5">Phone</p>
-                  <a href="tel:+16042295549" className="font-heading font-bold text-lg text-foreground hover:text-primary transition-colors duration-300">
+                  <p className="font-body text-xs font-semibold text-accent lg:text-muted uppercase tracking-wider mb-1.5 lg:mb-2">Phone</p>
+                  <a href="tel:+16042295549" className="font-heading font-bold text-lg md:text-2xl text-foreground hover:text-primary transition-colors duration-300">
                     (604) 229-5549
                   </a>
                 </div>
                 <div>
-                  <p className="font-body text-xs font-semibold text-accent uppercase tracking-wider mb-1.5">Email</p>
-                  <a href="mailto:NurseMentor@ien2RN.org" className="font-heading font-bold text-lg text-foreground hover:text-primary transition-colors duration-300 break-all">
+                  <p className="font-body text-xs font-semibold text-accent lg:text-muted uppercase tracking-wider mb-1.5 lg:mb-2">Email</p>
+                  <a href="mailto:NurseMentor@ien2RN.org" className="font-heading font-bold text-lg md:text-2xl text-foreground hover:text-primary transition-colors duration-300 break-all">
                     NurseMentor@ien2RN.org
                   </a>
                 </div>
                 <div>
-                  <p className="font-body text-xs font-semibold text-accent uppercase tracking-wider mb-1.5">Website</p>
-                  <a href="https://www.ien2rn.org" className="font-heading font-bold text-lg text-foreground hover:text-primary transition-colors duration-300">
+                  <p className="font-body text-xs font-semibold text-accent lg:text-muted uppercase tracking-wider mb-1.5 lg:mb-2">Website</p>
+                  <a href="https://www.ien2rn.org" className="font-heading font-bold text-lg md:text-2xl text-foreground hover:text-primary transition-colors duration-300">
                     www.ien2rn.org
                   </a>
                 </div>
                 <div>
-                  <p className="font-body text-xs font-semibold text-accent uppercase tracking-wider mb-1.5">Location</p>
-                  <p className="font-heading font-bold text-lg text-foreground">
+                  <p className="font-body text-xs font-semibold text-accent lg:text-muted uppercase tracking-wider mb-1.5 lg:mb-2">Location</p>
+                  <p className="font-heading font-bold text-lg md:text-2xl text-foreground">
                     Vancouver, British Columbia
                   </p>
                 </div>
@@ -125,7 +125,7 @@ export default function ContactPage() {
             </div>
 
             {/* Right - Form */}
-            <div className="lg:col-span-7 contact-right bg-white border border-secondary/15 rounded-2xl p-6 sm:p-8">
+            <div className="lg:col-span-7 contact-right bg-white border border-secondary/15 rounded-2xl p-6 sm:p-8 lg:bg-transparent lg:border-0 lg:rounded-none lg:p-0">
               <h2 className="font-heading font-bold text-2xl text-foreground mb-8">
                 Send us a message
               </h2>

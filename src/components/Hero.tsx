@@ -77,7 +77,7 @@ export default function Hero() {
 
       {/* Main content */}
       <div className="relative flex-1 flex items-start px-5 sm:px-6 md:px-12 lg:px-20 pt-8 sm:pt-12 lg:pt-14">
-        <div className="max-w-[1400px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
+        <div className="max-w-[1400px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 lg:items-stretch">
           {/* Text content */}
           <div className="order-1 lg:col-start-1 lg:col-end-7 lg:pl-2 xl:pl-4">
             {/* Label */}
@@ -118,7 +118,7 @@ export default function Hero() {
             </p>
 
             {/* CTAs */}
-            <div className="hero-cta flex flex-col sm:flex-row sm:items-start items-stretch gap-3 sm:gap-4">
+            <div className="hero-cta flex flex-col sm:flex-row sm:items-start items-stretch gap-3 sm:gap-4 lg:mb-12">
               <ApplyButton />
               <Link
                 href="/employers"

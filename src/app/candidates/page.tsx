@@ -360,7 +360,7 @@ export default function CandidatesPage() {
                       i < pathwaySteps.length - 1 ? "border-b border-secondary/15" : ""
                     }`}
                   >
-                    <span className="font-heading font-bold text-xl sm:text-2xl text-primary shrink-0 w-9 sm:w-10">
+                    <span className="font-heading font-bold text-xl sm:text-2xl text-primary lg:text-primary/20 shrink-0 w-9 sm:w-10">
                       {step.number}
                     </span>
                     <div className="min-w-0">
@@ -479,10 +479,22 @@ export default function CandidatesPage() {
               <h2 className="font-heading font-bold text-display-md text-foreground mb-4">
                 Common questions
               </h2>
-              <p className="font-body text-sm text-muted leading-relaxed">
+              <p className="font-body text-sm text-muted leading-relaxed lg:mb-6">
                 Can&apos;t find what you&apos;re looking for? Book a consultation
                 with our team.
               </p>
+              <Link
+                href="/consultation"
+                className="hidden lg:inline-flex items-center gap-2 font-body font-semibold text-sm text-primary hover:text-primary-dark transition-colors duration-300 group"
+              >
+                Book a consultation
+                <svg
+                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </Link>
             </div>
 
             <div className="lg:col-span-8">
@@ -522,8 +534,8 @@ export default function CandidatesPage() {
                 </div>
               ))}
 
-              {/* Book a consultation — after Q&A */}
-              <div className="flex justify-center mt-8">
+              {/* Book a consultation — after Q&A (mobile only; desktop has it in left column) */}
+              <div className="flex lg:hidden justify-center mt-8">
                 <Link
                   href="/consultation"
                   className="inline-flex items-center gap-2 font-body font-semibold text-sm text-primary hover:text-primary-dark transition-colors duration-300 group"
@@ -558,7 +570,7 @@ export default function CandidatesPage() {
         </div>
         <div className="absolute inset-0 bg-foreground/80" />
 
-        <div className="relative z-10 max-w-[1600px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24 flex flex-col items-center text-center gap-8">
+        <div className="relative z-10 max-w-[1600px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24 flex flex-col items-center text-center gap-8 lg:flex-row lg:items-center lg:justify-between lg:text-left lg:gap-10">
           <div className="max-w-2xl">
             <p className="cta-anim font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
               Ready?
@@ -572,7 +584,7 @@ export default function CandidatesPage() {
             </p>
           </div>
 
-          <div className="cta-anim flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto max-w-md sm:max-w-none mx-auto">
+          <div className="cta-anim flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto max-w-md sm:max-w-none mx-auto lg:shrink-0">
             <ApplyButton variant="white" className="w-full sm:w-auto" />
             <Link
               href="/consultation"

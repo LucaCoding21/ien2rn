@@ -239,16 +239,16 @@ export default function ResourcesPage() {
       </div>
 
       {/* ── Premium Resources ── */}
-      <section ref={premiumRef} className="py-10 sm:py-section bg-secondary-light/25">
+      <section ref={premiumRef} className="py-10 sm:py-section bg-secondary-light/25 lg:bg-foreground">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
           <div className="max-w-2xl mb-12">
-            <p className="font-body text-xs font-semibold text-accent uppercase tracking-[0.08em] mb-4">
+            <p className="font-body text-xs lg:text-sm font-semibold text-accent lg:text-white/30 uppercase tracking-[0.08em] lg:tracking-[0.2em] mb-4">
               Go deeper
             </p>
-            <h2 className="font-heading font-bold text-display-md text-foreground mb-3">
+            <h2 className="font-heading font-bold text-display-md lg:text-display-sm text-foreground lg:text-white mb-3">
               Premium resources
             </h2>
-            <p className="font-body text-sm sm:text-base text-muted leading-relaxed">
+            <p className="font-body text-sm sm:text-base text-muted lg:text-white/40 leading-relaxed">
               In-depth study materials designed to complement our programs. Built
               by IEN nurses who&apos;ve passed these assessments themselves.
             </p>
@@ -259,10 +259,10 @@ export default function ResourcesPage() {
               <button
                 key={resource.title}
                 onClick={() => handleDownload(resource)}
-                className="premium-card text-left group bg-white border border-secondary/15 rounded-xl p-6 hover:border-primary/25 hover:shadow-sm transition-all duration-300"
+                className="premium-card text-left group bg-white lg:bg-white/[0.06] border border-secondary/15 lg:border-white/10 rounded-xl p-6 hover:border-primary/25 hover:shadow-sm lg:hover:bg-white/[0.1] lg:hover:border-white/20 transition-all duration-300"
               >
                 <div className="flex items-start justify-between gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-lg bg-secondary-light/60 flex items-center justify-center text-primary shrink-0 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                  <div className="w-10 h-10 rounded-lg bg-secondary-light/60 lg:bg-white/10 flex items-center justify-center text-primary lg:text-white/60 shrink-0 group-hover:bg-primary group-hover:text-white lg:group-hover:bg-white lg:group-hover:text-foreground transition-colors duration-300">
                     <svg
                       className="w-5 h-5"
                       fill="none"
@@ -277,25 +277,38 @@ export default function ResourcesPage() {
                       />
                     </svg>
                   </div>
-                  <span className="font-heading font-bold text-lg text-primary">
+                  <span className="font-heading font-bold text-lg text-primary lg:text-white">
                     {resource.price}
                   </span>
                 </div>
-                <h3 className="font-heading font-bold text-base text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                <h3 className="font-heading font-bold text-base text-foreground lg:text-white mb-2 group-hover:text-primary lg:group-hover:text-secondary transition-colors duration-300">
                   {resource.title}
                 </h3>
-                <p className="font-body text-sm text-muted leading-relaxed mb-5">
+                <p className="font-body text-sm text-muted lg:text-white/35 leading-relaxed mb-5">
                   {resource.description}
                 </p>
-                <span className="flex justify-end font-body font-semibold text-sm text-primary group-hover:text-primary-dark transition-colors duration-300">
+                <span className="flex justify-end lg:inline-flex lg:justify-start items-center gap-2 font-body font-semibold text-sm text-primary lg:text-white/50 group-hover:text-primary-dark lg:group-hover:text-white transition-colors duration-300">
                   Purchase &amp; Download
+                  <svg
+                    className="hidden lg:block w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
                 </span>
               </button>
             ))}
           </div>
 
           {/* Info */}
-          <p className="font-body text-xs text-muted/50 mt-8">
+          <p className="font-body text-xs text-muted/50 lg:text-white/20 mt-8">
             Paid resources are processed securely through Stripe. You&apos;ll receive
             the PDF immediately after payment. No account required.
           </p>
@@ -305,19 +318,19 @@ export default function ResourcesPage() {
       {/* ── Bottom nudge back to programs ── */}
       <section className="py-8 sm:py-16">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
-          <div className="flex flex-col sm:flex-row items-center text-center sm:text-left justify-between gap-6 rounded-2xl bg-primary px-6 sm:px-8 md:px-10 py-10 sm:py-8">
+          <div className="flex flex-col sm:flex-row items-center text-center sm:text-left justify-between gap-6 rounded-2xl bg-primary lg:bg-secondary-light/30 px-6 sm:px-8 md:px-10 py-10 sm:py-8">
             <div>
-              <p className="font-heading font-bold text-xl sm:text-2xl text-white mb-2">
+              <p className="font-heading font-bold text-xl sm:text-2xl lg:text-lg text-white lg:text-foreground mb-2 lg:mb-1">
                 Want more than resources?
               </p>
-              <p className="font-body text-sm text-white/70">
+              <p className="font-body text-sm text-white/70 lg:text-muted">
                 Our CBA boot camp, mentorship, and career programs go deeper
                 than any PDF.
               </p>
             </div>
             <Link
               href="/learning/courses"
-              className="group shrink-0 inline-flex items-center justify-center gap-2.5 font-body font-semibold text-sm px-7 py-3.5 rounded-full bg-white text-primary transition-all duration-300 hover:shadow-lg hover:shadow-white/25 hover:-translate-y-0.5"
+              className="group shrink-0 inline-flex items-center justify-center gap-2.5 font-body font-semibold text-sm px-7 py-3.5 rounded-full bg-white lg:bg-primary text-primary lg:text-white transition-all duration-300 hover:shadow-lg hover:shadow-white/25 lg:hover:shadow-primary/25 hover:-translate-y-0.5"
             >
               View Programs
               <svg

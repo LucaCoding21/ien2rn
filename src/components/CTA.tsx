@@ -59,7 +59,7 @@ export default function CTA() {
       <div className="absolute inset-0 bg-foreground/80" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-[1600px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24 flex flex-col items-center text-center gap-8">
+      <div className="relative z-10 max-w-[1600px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24 flex flex-col items-center text-center gap-8 lg:flex-row lg:items-center lg:justify-between lg:text-left lg:gap-10">
 
         {/* Text */}
         <div className="max-w-2xl">
@@ -75,7 +75,7 @@ export default function CTA() {
         </div>
 
         {/* CTAs */}
-        <div className="cta-animate flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto max-w-md sm:max-w-none mx-auto">
+        <div className="cta-animate flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto max-w-md sm:max-w-none mx-auto lg:shrink-0">
           <ApplyButton variant="white" className="w-full sm:w-auto" />
           <Link
             href="/employers"

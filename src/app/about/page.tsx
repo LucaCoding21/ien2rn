@@ -315,7 +315,7 @@ export default function AboutPage() {
           </div>
 
           {/* Team grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 sm:gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 sm:gap-8 lg:gap-4">
             {team.map((member) => (
               <button
                 key={member.name}
@@ -336,7 +336,7 @@ export default function AboutPage() {
                     />
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="font-heading font-bold text-4xl text-primary">
+                      <span className="font-heading font-bold text-4xl text-primary lg:text-primary/15">
                         {member.initials}
                       </span>
                     </div>
@@ -347,7 +347,7 @@ export default function AboutPage() {
                 <h3 className="font-heading font-bold text-sm text-foreground group-hover:text-primary transition-colors duration-300 mb-0.5">
                   {member.name.split(",")[0]}
                 </h3>
-                <p className="font-body text-sm text-primary font-medium">
+                <p className="font-body text-sm text-primary font-medium lg:text-xs lg:text-muted lg:font-normal">
                   {member.role}
                 </p>
               </button>
@@ -357,7 +357,7 @@ export default function AboutPage() {
           {/* Board of Advisors */}
           <div className="mt-14 pt-10 border-t border-secondary/15">
             <div className="flex flex-col sm:flex-row items-center gap-6">
-              <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] shrink-0">
+              <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] shrink-0 lg:text-xs lg:font-normal lg:text-muted">
                 Board of Advisors
               </p>
               <div className="flex items-center gap-6">
@@ -448,7 +448,7 @@ export default function AboutPage() {
             >
               <div>
                 <p className="font-heading font-bold text-base text-foreground group-hover:text-primary transition-colors duration-300">I&apos;m a nurse</p>
-                <p className="font-body text-sm text-muted mt-0.5">Explore programs & pathways</p>
+                <p className="font-body text-sm text-muted mt-0.5 lg:text-xs lg:text-muted/60">Explore programs & pathways</p>
               </div>
               <svg className="w-4 h-4 text-muted group-hover:text-primary transition-all duration-300 group-hover:translate-x-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
@@ -460,7 +460,7 @@ export default function AboutPage() {
             >
               <div>
                 <p className="font-heading font-bold text-base text-foreground group-hover:text-primary transition-colors duration-300">I&apos;m an employer</p>
-                <p className="font-body text-sm text-muted mt-0.5">Find mentored, permanent staff</p>
+                <p className="font-body text-sm text-muted mt-0.5 lg:text-xs lg:text-muted/60">Find mentored, permanent staff</p>
               </div>
               <svg className="w-4 h-4 text-muted group-hover:text-primary transition-all duration-300 group-hover:translate-x-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />

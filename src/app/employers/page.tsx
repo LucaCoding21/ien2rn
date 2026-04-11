@@ -356,7 +356,7 @@ export default function EmployersPage() {
                 key={point.title}
                 className={`challenge-item flex gap-3 sm:gap-6 py-6 sm:py-8 ${i < 3 ? "border-b border-secondary/15" : ""} ${i === 2 ? "md:border-b-0" : ""}`}
               >
-                <span className="font-heading font-bold text-2xl sm:text-3xl text-primary leading-none shrink-0 w-9 sm:w-12">
+                <span className="font-heading font-bold text-2xl sm:text-3xl text-primary lg:text-primary/15 leading-none shrink-0 w-9 sm:w-12">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div className="min-w-0">
@@ -586,7 +586,7 @@ export default function EmployersPage() {
             </a>
           </div>
 
-          <div className="flex justify-center mt-8">
+          <div className="flex justify-center lg:justify-start mt-8">
           <Link
             href="/employers/request-staff"
             className="contact-anim group inline-flex items-center gap-2 font-body font-semibold text-sm text-white/60 hover:text-white transition-colors duration-300"

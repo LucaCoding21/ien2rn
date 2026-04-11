@@ -99,7 +99,7 @@ export default function HowItWorks() {
         <div className="hiw-cards grid md:grid-cols-2 gap-6 lg:gap-8">
           {/* Nurse pathway */}
           <div className={`hiw-card bg-white rounded-lg overflow-hidden border border-secondary/15 flex flex-col ${activeTab === "nurse" ? "flex" : "hidden md:flex"}`}>
-            <div className="hiw-image-nurse relative aspect-[3/2] md:aspect-[16/10] sm:aspect-[4/3] overflow-hidden order-2 md:order-1">
+            <div className="hiw-image-nurse relative aspect-[3/2] sm:aspect-[4/3] overflow-hidden order-2 md:order-1">
               <Image
                 src="/Satisfaction-rate.jpg"
                 alt="Nurse in a clinical consultation"
@@ -110,7 +110,7 @@ export default function HowItWorks() {
               />
             </div>
             <div className="p-6 sm:p-8 md:p-10 order-1 md:order-2">
-              <p className="font-body text-xs font-semibold text-accent uppercase tracking-[0.08em] mb-6 sm:mb-8 hidden md:block">
+              <p className="font-body text-sm font-semibold text-primary uppercase tracking-[0.08em] mb-6 sm:mb-8 hidden md:block">
                 For nurses
               </p>
               <div className="space-y-6 sm:space-y-6 md:space-y-8 mb-8 md:mb-10">
@@ -138,7 +138,7 @@ export default function HowItWorks() {
 
           {/* Employer pathway */}
           <div className={`hiw-card bg-white rounded-lg overflow-hidden border border-secondary/15 flex flex-col ${activeTab === "employer" ? "flex" : "hidden md:flex"}`}>
-            <div className="hiw-image-employer relative aspect-[3/2] md:aspect-[16/10] sm:aspect-[4/3] overflow-hidden order-2 md:order-1">
+            <div className="hiw-image-employer relative aspect-[3/2] sm:aspect-[4/3] overflow-hidden order-2 md:order-1">
               <Image
                 src="/employer-partnership2.jpg"
                 alt="Healthcare professional reviewing candidate qualifications"
