@@ -111,10 +111,10 @@ export default function ResourcesPage() {
       gsap.to(headerEls, {
         y: 0,
         autoAlpha: 1,
-        duration: 0.7,
+        duration: 0.4,
         stagger: 0.06,
         ease: "power2.out",
-        delay: 0.3,
+        delay: 0.15,
       });
 
       // Free resource groups
@@ -125,7 +125,7 @@ export default function ResourcesPage() {
         gsap.to(els, {
           y: 0,
           autoAlpha: 1,
-          duration: 0.6,
+          duration: 0.4,
           stagger: 0.06,
           ease: "power2.out",
           scrollTrigger: { trigger: group, start: "top 85%" },
@@ -141,7 +141,7 @@ export default function ResourcesPage() {
           gsap.to(el, {
             y: 0,
             autoAlpha: 1,
-            duration: 0.7,
+            duration: 0.4,
             delay: i * 0.1,
             ease: "power2.out",
             scrollTrigger: { trigger: el, start: "top 85%" },
@@ -174,7 +174,7 @@ export default function ResourcesPage() {
               Study guides, templates, and reference materials — organized by
               where you are in your nursing career.
             </p>
-            <div className="res-header h-px bg-gradient-to-r from-primary/25 via-secondary/20 to-transparent mt-10" />
+            <div className="res-header hidden sm:block h-px bg-gradient-to-r from-primary/25 via-secondary/20 to-transparent mt-10" />
           </div>
         </section>
 
@@ -217,15 +217,15 @@ export default function ResourcesPage() {
                             </svg>
                           </div>
                           <div className="flex-1 min-w-0">
+                            <span className="inline-block mb-2 font-body text-xs font-bold text-green-700 bg-green-100 px-3 py-1 rounded-full uppercase tracking-wide">
+                              Free
+                            </span>
                             <h3 className="font-heading font-bold text-sm text-foreground mb-1.5 group-hover:text-primary transition-colors duration-300">
                               {resource.title}
                             </h3>
                             <p className="font-body text-xs text-muted leading-relaxed">
                               {resource.description}
                             </p>
-                            <span className="inline-block mt-3 font-body text-[10px] font-semibold text-green-600 bg-green-50 px-2.5 py-1 rounded-full uppercase tracking-wide">
-                              Free
-                            </span>
                           </div>
                         </div>
                       </button>
@@ -239,16 +239,16 @@ export default function ResourcesPage() {
       </div>
 
       {/* ── Premium Resources ── */}
-      <section ref={premiumRef} className="py-section bg-foreground">
+      <section ref={premiumRef} className="py-10 sm:py-section bg-secondary-light/25">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
           <div className="max-w-2xl mb-12">
-            <p className="font-body text-sm font-semibold text-white/30 uppercase tracking-[0.2em] mb-4">
+            <p className="font-body text-xs font-semibold text-accent uppercase tracking-[0.08em] mb-4">
               Go deeper
             </p>
-            <h2 className="font-heading font-bold text-display-sm text-white mb-3">
+            <h2 className="font-heading font-bold text-display-md text-foreground mb-3">
               Premium resources
             </h2>
-            <p className="font-body text-base text-white/40 leading-relaxed">
+            <p className="font-body text-sm sm:text-base text-muted leading-relaxed">
               In-depth study materials designed to complement our programs. Built
               by IEN nurses who&apos;ve passed these assessments themselves.
             </p>
@@ -259,10 +259,10 @@ export default function ResourcesPage() {
               <button
                 key={resource.title}
                 onClick={() => handleDownload(resource)}
-                className="premium-card text-left group bg-white/[0.06] border border-white/10 rounded-xl p-6 hover:bg-white/[0.1] hover:border-white/20 transition-all duration-300"
+                className="premium-card text-left group bg-white border border-secondary/15 rounded-xl p-6 hover:border-primary/25 hover:shadow-sm transition-all duration-300"
               >
                 <div className="flex items-start justify-between gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-white/60 shrink-0 group-hover:bg-white group-hover:text-foreground transition-colors duration-300">
+                  <div className="w-10 h-10 rounded-lg bg-secondary-light/60 flex items-center justify-center text-primary shrink-0 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                     <svg
                       className="w-5 h-5"
                       fill="none"
@@ -277,38 +277,25 @@ export default function ResourcesPage() {
                       />
                     </svg>
                   </div>
-                  <span className="font-heading font-bold text-lg text-white">
+                  <span className="font-heading font-bold text-lg text-primary">
                     {resource.price}
                   </span>
                 </div>
-                <h3 className="font-heading font-bold text-base text-white mb-2 group-hover:text-secondary transition-colors duration-300">
+                <h3 className="font-heading font-bold text-base text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
                   {resource.title}
                 </h3>
-                <p className="font-body text-sm text-white/35 leading-relaxed mb-5">
+                <p className="font-body text-sm text-muted leading-relaxed mb-5">
                   {resource.description}
                 </p>
-                <span className="inline-flex items-center gap-2 font-body font-semibold text-sm text-white/50 group-hover:text-white transition-colors duration-300">
-                  Purchase & Download
-                  <svg
-                    className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
+                <span className="flex justify-end font-body font-semibold text-sm text-primary group-hover:text-primary-dark transition-colors duration-300">
+                  Purchase &amp; Download
                 </span>
               </button>
             ))}
           </div>
 
           {/* Info */}
-          <p className="font-body text-xs text-white/20 mt-8">
+          <p className="font-body text-xs text-muted/50 mt-8">
             Paid resources are processed securely through Stripe. You&apos;ll receive
             the PDF immediately after payment. No account required.
           </p>
@@ -316,21 +303,21 @@ export default function ResourcesPage() {
       </section>
 
       {/* ── Bottom nudge back to programs ── */}
-      <section className="py-16">
+      <section className="py-8 sm:py-16">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 rounded-2xl bg-secondary-light/30 px-6 sm:px-8 md:px-10 py-8">
+          <div className="flex flex-col sm:flex-row items-center text-center sm:text-left justify-between gap-6 rounded-2xl bg-primary px-6 sm:px-8 md:px-10 py-10 sm:py-8">
             <div>
-              <p className="font-heading font-bold text-lg text-foreground mb-1">
+              <p className="font-heading font-bold text-xl sm:text-2xl text-white mb-2">
                 Want more than resources?
               </p>
-              <p className="font-body text-sm text-muted">
+              <p className="font-body text-sm text-white/70">
                 Our CBA boot camp, mentorship, and career programs go deeper
                 than any PDF.
               </p>
             </div>
             <Link
               href="/learning/courses"
-              className="group shrink-0 inline-flex items-center justify-center gap-2.5 font-body font-semibold text-sm px-7 py-3.5 rounded-full bg-primary text-white transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5"
+              className="group shrink-0 inline-flex items-center justify-center gap-2.5 font-body font-semibold text-sm px-7 py-3.5 rounded-full bg-white text-primary transition-all duration-300 hover:shadow-lg hover:shadow-white/25 hover:-translate-y-0.5"
             >
               View Programs
               <svg

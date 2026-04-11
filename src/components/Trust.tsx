@@ -18,7 +18,7 @@ export default function Trust() {
       gsap.to(imgWrap, {
         clipPath: "inset(0% 0% 0% 0% round 0.5rem)",
         autoAlpha: 1,
-        duration: 1.3,
+        duration: 0.6,
         ease: "power3.inOut",
         scrollTrigger: { trigger: sectionRef.current, start: "top 70%" },
       });
@@ -29,8 +29,8 @@ export default function Trust() {
       gsap.to(contentEls, {
         y: 0,
         autoAlpha: 1,
-        duration: 0.8,
-        stagger: 0.08,
+        duration: 0.5,
+        stagger: 0.04,
         ease: "power2.out",
         scrollTrigger: { trigger: sectionRef.current, start: "top 65%" },
       });
@@ -45,12 +45,12 @@ export default function Trust() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
 
           {/* Left — Image placeholder */}
-          <div className="trust-image lg:col-span-7 relative rounded-lg overflow-hidden aspect-[16/10] sm:aspect-[4/3] bg-gray-200 flex items-center justify-center">
+          <div className="trust-image lg:col-span-7 relative rounded-lg overflow-hidden aspect-[16/10] sm:aspect-[4/3] bg-gray-200 flex items-center justify-center order-2 lg:order-1">
             <p className="font-body text-sm text-gray-500 text-center px-6">PUT COMPANY PHOTO OR GROUP PHOTO HERE</p>
           </div>
 
           {/* Right — Content */}
-          <div className="trust-content lg:col-span-5 flex flex-col justify-center">
+          <div className="trust-content lg:col-span-5 flex flex-col justify-center order-1 lg:order-2">
             <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-5">
               Who we are
             </p>

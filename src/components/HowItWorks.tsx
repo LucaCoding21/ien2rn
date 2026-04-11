@@ -32,7 +32,7 @@ export default function HowItWorks() {
       // Header
       gsap.set(".hiw-header > *", { y: 25, autoAlpha: 0 });
       gsap.to(".hiw-header > *", {
-        y: 0, autoAlpha: 1, duration: 0.8, stagger: 0.08, ease: "power2.out",
+        y: 0, autoAlpha: 1, duration: 0.5, stagger: 0.04, ease: "power2.out",
         scrollTrigger: { trigger: sectionRef.current, start: "top 75%" },
       });
 
@@ -41,7 +41,7 @@ export default function HowItWorks() {
       gsap.set(cards, { y: 40, autoAlpha: 0 });
       cards.forEach((card, i) => {
         gsap.to(card, {
-          y: 0, autoAlpha: 1, duration: 0.9, delay: i * 0.15, ease: "power2.out",
+          y: 0, autoAlpha: 1, duration: 0.5, delay: i * 0.15, ease: "power2.out",
           scrollTrigger: { trigger: ".hiw-cards", start: "top 80%" },
         });
       });
@@ -50,7 +50,7 @@ export default function HowItWorks() {
       const steps = sectionRef.current!.querySelectorAll(".hiw-step");
       gsap.set(steps, { y: 15, autoAlpha: 0 });
       gsap.to(steps, {
-        y: 0, autoAlpha: 1, duration: 0.6, stagger: 0.06, ease: "power2.out",
+        y: 0, autoAlpha: 1, duration: 0.4, stagger: 0.06, ease: "power2.out",
         scrollTrigger: { trigger: ".hiw-cards", start: "top 70%" },
       });
     }, sectionRef);
@@ -62,7 +62,7 @@ export default function HowItWorks() {
     <section ref={sectionRef} className="pb-section pt-10 md:pt-14 bg-secondary-light/25">
       <div className="max-w-[1600px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24">
         {/* Header */}
-        <div className="hiw-header max-w-2xl mb-8 sm:mb-14 md:mb-16">
+        <div className="hiw-header max-w-2xl mb-8 sm:mb-14 md:mb-16 text-center sm:text-left mx-auto sm:mx-0">
           <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
             How it works
           </p>
@@ -72,7 +72,7 @@ export default function HowItWorks() {
         </div>
 
         {/* Mobile tab toggle */}
-        <div className="md:hidden mb-6 flex gap-1.5 bg-white border border-secondary/15 rounded-full p-1.5 max-w-sm">
+        <div className="md:hidden mb-6 flex gap-1.5 bg-white border border-secondary/15 rounded-full p-1.5 max-w-sm mx-auto">
           <button
             onClick={() => setActiveTab("nurse")}
             className={`flex-1 font-body text-sm font-semibold py-3 rounded-full transition-all duration-300 ${
@@ -98,8 +98,8 @@ export default function HowItWorks() {
         {/* Two pathway cards */}
         <div className="hiw-cards grid md:grid-cols-2 gap-6 lg:gap-8">
           {/* Nurse pathway */}
-          <div className={`hiw-card bg-white rounded-lg overflow-hidden border border-secondary/15 ${activeTab === "nurse" ? "block" : "hidden md:block"}`}>
-            <div className="hiw-image-nurse relative aspect-[16/10] sm:aspect-[4/3] overflow-hidden">
+          <div className={`hiw-card bg-white rounded-lg overflow-hidden border border-secondary/15 flex flex-col ${activeTab === "nurse" ? "flex" : "hidden md:flex"}`}>
+            <div className="hiw-image-nurse relative aspect-[3/2] md:aspect-[16/10] sm:aspect-[4/3] overflow-hidden order-2 md:order-1">
               <Image
                 src="/Satisfaction-rate.jpg"
                 alt="Nurse in a clinical consultation"
@@ -109,8 +109,8 @@ export default function HowItWorks() {
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
-            <div className="p-6 sm:p-8 md:p-10">
-              <p className="font-body text-sm font-semibold text-primary uppercase tracking-[0.08em] mb-6 sm:mb-8 hidden md:block">
+            <div className="p-6 sm:p-8 md:p-10 order-1 md:order-2">
+              <p className="font-body text-xs font-semibold text-accent uppercase tracking-[0.08em] mb-6 sm:mb-8 hidden md:block">
                 For nurses
               </p>
               <div className="space-y-6 sm:space-y-6 md:space-y-8 mb-8 md:mb-10">
@@ -130,13 +130,15 @@ export default function HowItWorks() {
                   </div>
                 ))}
               </div>
-              <ApplyButton variant="small" label="Apply now" />
+              <div className="flex justify-center md:justify-start">
+                <ApplyButton variant="small" label="Apply now" />
+              </div>
             </div>
           </div>
 
           {/* Employer pathway */}
-          <div className={`hiw-card bg-white rounded-lg overflow-hidden border border-secondary/15 ${activeTab === "employer" ? "block" : "hidden md:block"}`}>
-            <div className="hiw-image-employer relative aspect-[16/10] sm:aspect-[4/3] overflow-hidden">
+          <div className={`hiw-card bg-white rounded-lg overflow-hidden border border-secondary/15 flex flex-col ${activeTab === "employer" ? "flex" : "hidden md:flex"}`}>
+            <div className="hiw-image-employer relative aspect-[3/2] md:aspect-[16/10] sm:aspect-[4/3] overflow-hidden order-2 md:order-1">
               <Image
                 src="/employer-partnership2.jpg"
                 alt="Healthcare professional reviewing candidate qualifications"
@@ -146,7 +148,7 @@ export default function HowItWorks() {
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
-            <div className="p-6 sm:p-8 md:p-10">
+            <div className="p-6 sm:p-8 md:p-10 order-1 md:order-2">
               <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-6 sm:mb-8 hidden md:block">
                 For employers
               </p>
@@ -167,12 +169,14 @@ export default function HowItWorks() {
                   </div>
                 ))}
               </div>
-              <Link
-                href="/employers"
-                className="inline-flex items-center justify-center font-body font-semibold text-sm px-7 py-3.5 rounded-full border-2 border-primary text-primary transition-all duration-300 hover:bg-primary hover:text-white hover:-translate-y-0.5"
-              >
-                Partner with us
-              </Link>
+              <div className="flex justify-center md:justify-start">
+                <Link
+                  href="/employers"
+                  className="inline-flex items-center justify-center font-body font-semibold text-sm px-7 py-3.5 rounded-full border-2 border-primary text-primary transition-all duration-300 hover:bg-primary hover:text-white hover:-translate-y-0.5"
+                >
+                  Partner with us
+                </Link>
+              </div>
             </div>
           </div>
         </div>

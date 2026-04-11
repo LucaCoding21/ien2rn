@@ -25,7 +25,7 @@ export default function VideoTestimonials() {
       gsap.to(headerEls, {
         y: 0,
         autoAlpha: 1,
-        duration: 0.75,
+        duration: 0.4,
         stagger: 0.06,
         ease: "power3.out",
         scrollTrigger: { trigger: sectionRef.current, start: "top 80%" },
@@ -38,7 +38,7 @@ export default function VideoTestimonials() {
         gsap.to(card, {
           y: 0,
           autoAlpha: 1,
-          duration: 0.75,
+          duration: 0.4,
           delay: i * 0.1,
           ease: "power3.out",
           scrollTrigger: { trigger: sectionRef.current, start: "top 75%" },

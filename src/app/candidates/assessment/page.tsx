@@ -182,8 +182,8 @@ export default function AssessmentPage() {
       gsap.to(els, {
         y: 0,
         autoAlpha: 1,
-        duration: 0.7,
-        stagger: 0.08,
+        duration: 0.4,
+        stagger: 0.04,
         ease: "power2.out",
         delay: 0.2,
       });
@@ -250,9 +250,34 @@ export default function AssessmentPage() {
           {/* ─── Questions ─── */}
           {!done && current && (
             <div ref={containerRef}>
-              <p className="q-animate font-body text-[10px] font-semibold text-primary uppercase tracking-[0.15em] mb-3">
-                Tell us about yourself
-              </p>
+              {/* Back button — top */}
+              {step > 0 && (
+                <button
+                  onClick={() => setStep(step - 1)}
+                  className="q-animate mb-6 inline-flex items-center gap-2 font-body text-sm text-muted hover:text-foreground transition-colors duration-200"
+                >
+                  <svg
+                    className="w-3.5 h-3.5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+                    />
+                  </svg>
+                  Previous question
+                </button>
+              )}
+
+              {step === 0 && (
+                <p className="q-animate font-body text-xs font-semibold text-accent uppercase tracking-[0.08em] mb-3">
+                  Tell us about yourself
+                </p>
+              )}
               <h1 className="q-animate font-heading font-bold text-xl sm:text-2xl md:text-3xl text-foreground mb-2 leading-tight">
                 {current.question}
               </h1>
@@ -276,29 +301,6 @@ export default function AssessmentPage() {
                   </button>
                 ))}
               </div>
-
-              {/* Back button */}
-              {step > 0 && (
-                <button
-                  onClick={() => setStep(step - 1)}
-                  className="q-animate mt-8 inline-flex items-center gap-2 font-body text-sm text-muted hover:text-foreground transition-colors duration-200"
-                >
-                  <svg
-                    className="w-3.5 h-3.5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
-                    />
-                  </svg>
-                  Previous question
-                </button>
-              )}
             </div>
           )}
 

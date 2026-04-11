@@ -110,10 +110,10 @@ export default function AboutPage() {
       gsap.to(heroEls, {
         y: 0,
         autoAlpha: 1,
-        duration: 0.8,
-        stagger: 0.08,
+        duration: 0.5,
+        stagger: 0.04,
         ease: "power2.out",
-        delay: 0.3,
+        delay: 0.15,
       });
 
       // Mission
@@ -123,7 +123,7 @@ export default function AboutPage() {
         gsap.to(el, {
           y: 0,
           autoAlpha: 1,
-          duration: 0.7,
+          duration: 0.4,
           delay: i * 0.1,
           ease: "power2.out",
           scrollTrigger: { trigger: missionRef.current, start: "top 75%" },
@@ -136,7 +136,7 @@ export default function AboutPage() {
         gsap.set(missionPhoto, { clipPath: "inset(0 100% 0 0)" });
         gsap.to(missionPhoto, {
           clipPath: "inset(0 0% 0 0)",
-          duration: 1.2,
+          duration: 0.6,
           ease: "power3.inOut",
           scrollTrigger: { trigger: missionPhoto, start: "top 75%" },
         });
@@ -149,7 +149,7 @@ export default function AboutPage() {
         gsap.to(el, {
           y: 0,
           autoAlpha: 1,
-          duration: 0.6,
+          duration: 0.4,
           delay: i * 0.05,
           ease: "power2.out",
           scrollTrigger: { trigger: teamRef.current, start: "top 80%" },
@@ -163,8 +163,8 @@ export default function AboutPage() {
       gsap.to(quoteEls, {
         y: 0,
         autoAlpha: 1,
-        duration: 0.8,
-        stagger: 0.08,
+        duration: 0.5,
+        stagger: 0.04,
         ease: "power2.out",
         scrollTrigger: { trigger: quoteRef.current, start: "top 70%" },
       });
@@ -196,7 +196,7 @@ export default function AboutPage() {
           <div className="flex flex-col lg:flex-row lg:items-end gap-6 sm:gap-8 lg:gap-20">
             {/* Left — tagline + headline */}
             <div className="flex-1">
-              <p className="about-hero-anim font-body text-xs sm:text-sm font-semibold text-yellow-400 uppercase tracking-[0.08em] mb-4 sm:mb-5">
+              <p className="about-hero-anim font-body text-xs sm:text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4 sm:mb-5">
                 About ien2RN
               </p>
               <h1
@@ -217,7 +217,7 @@ export default function AboutPage() {
             <div className="lg:max-w-sm xl:max-w-md shrink-0">
               <p className="about-hero-anim font-body text-base text-white/60 leading-relaxed">
                 ien2RN was founded by internationally educated nurses who lived the
-                struggle firsthand — navigating an unfamiliar system without support.
+                struggle firsthand, navigating an unfamiliar system without support.
                 Today, we provide the mentorship, upskilling, and placement pathways
                 we wished had existed when we arrived.
               </p>
@@ -261,7 +261,7 @@ export default function AboutPage() {
             <div className="mission-anim lg:col-span-5 bg-foreground rounded-lg px-6 py-8 sm:px-8 sm:py-10 md:px-10 md:py-12 flex flex-col justify-between gap-8 sm:gap-10">
 
               <div>
-                <p className="font-body text-xs font-semibold text-yellow-400 uppercase tracking-[0.15em] mb-5">
+                <p className="font-body text-xs font-semibold text-accent uppercase tracking-[0.08em] mb-5">
                   Our Mission
                 </p>
                 <p className="font-heading font-bold text-white leading-tight"
@@ -275,7 +275,7 @@ export default function AboutPage() {
               <div className="h-px bg-white/10" />
 
               <div>
-                <p className="font-body text-xs font-semibold text-yellow-400 uppercase tracking-[0.15em] mb-5">
+                <p className="font-body text-xs font-semibold text-accent uppercase tracking-[0.08em] mb-5">
                   Our Vision
                 </p>
                 <p className="font-heading font-bold text-white leading-tight"
@@ -283,7 +283,7 @@ export default function AboutPage() {
                 >
                   Strengthened and sustainable high quality care for all.
                 </p>
-                <p className="font-body text-sm text-white/50 leading-relaxed mt-4">
+                <p className="font-body text-sm text-white/75 leading-relaxed mt-4">
                   When internationally educated nurses are fully supported,
                   patients and communities everywhere benefit.
                 </p>
@@ -299,8 +299,8 @@ export default function AboutPage() {
         <div className="max-w-[1600px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24">
 
           {/* Header */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-            <div>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 text-center sm:text-left">
+            <div className="mx-auto sm:mx-0">
               <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
                 The team
               </p>
@@ -308,14 +308,14 @@ export default function AboutPage() {
                 The people behind ien2RN
               </h2>
             </div>
-            <p className="font-body text-sm text-muted max-w-xs leading-relaxed md:text-right shrink-0">
-              IEN nurses, educators, and career coaches — each with lived
+            <p className="font-body text-sm text-muted max-w-xs leading-relaxed md:text-right shrink-0 mx-auto sm:mx-0">
+              IEN nurses, educators, and career coaches, each with lived
               experience of the journey.
             </p>
           </div>
 
           {/* Team grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 sm:gap-8">
             {team.map((member) => (
               <button
                 key={member.name}
@@ -336,7 +336,7 @@ export default function AboutPage() {
                     />
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="font-heading font-bold text-4xl text-primary/15">
+                      <span className="font-heading font-bold text-4xl text-primary">
                         {member.initials}
                       </span>
                     </div>
@@ -347,7 +347,7 @@ export default function AboutPage() {
                 <h3 className="font-heading font-bold text-sm text-foreground group-hover:text-primary transition-colors duration-300 mb-0.5">
                   {member.name.split(",")[0]}
                 </h3>
-                <p className="font-body text-xs text-muted">
+                <p className="font-body text-sm text-primary font-medium">
                   {member.role}
                 </p>
               </button>
@@ -357,7 +357,7 @@ export default function AboutPage() {
           {/* Board of Advisors */}
           <div className="mt-14 pt-10 border-t border-secondary/15">
             <div className="flex flex-col sm:flex-row items-center gap-6">
-              <p className="font-body text-xs text-muted uppercase tracking-[0.15em] shrink-0">
+              <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] shrink-0">
                 Board of Advisors
               </p>
               <div className="flex items-center gap-6">
@@ -388,10 +388,10 @@ export default function AboutPage() {
                 className="object-cover object-[center_20%]"
                 sizes="100vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/55 to-foreground/25" />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/60 to-foreground/30 sm:bg-gradient-to-r sm:from-foreground/80 sm:via-foreground/55 sm:to-foreground/25" />
             </div>
 
-            <div className="relative z-10 flex items-center min-h-[360px] sm:min-h-[400px] md:min-h-[450px] px-6 sm:px-8 md:px-16 py-12 sm:py-14">
+            <div className="relative z-10 flex items-end sm:items-center min-h-[360px] sm:min-h-[400px] md:min-h-[450px] px-6 sm:px-8 md:px-16 py-8 sm:py-14">
               <div className="max-w-2xl">
                 <svg
                   className="quote-anim w-8 h-8 text-white/15 mb-6"
@@ -438,7 +438,7 @@ export default function AboutPage() {
       {/* ── Bottom links ── */}
       <section className="pt-10 pb-16 md:pb-20">
         <div className="max-w-[1600px] mx-auto px-5 sm:px-6 md:px-12">
-          <p className="font-body text-xs font-semibold text-muted/50 uppercase tracking-[0.12em] text-center mb-8">
+          <p className="font-body text-xs font-semibold text-muted/50 uppercase tracking-[0.08em] text-center mb-8">
             Where would you like to go?
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -448,7 +448,7 @@ export default function AboutPage() {
             >
               <div>
                 <p className="font-heading font-bold text-base text-foreground group-hover:text-primary transition-colors duration-300">I&apos;m a nurse</p>
-                <p className="font-body text-xs text-muted/60 mt-0.5">Explore programs & pathways</p>
+                <p className="font-body text-sm text-muted mt-0.5">Explore programs & pathways</p>
               </div>
               <svg className="w-4 h-4 text-muted group-hover:text-primary transition-all duration-300 group-hover:translate-x-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
@@ -460,7 +460,7 @@ export default function AboutPage() {
             >
               <div>
                 <p className="font-heading font-bold text-base text-foreground group-hover:text-primary transition-colors duration-300">I&apos;m an employer</p>
-                <p className="font-body text-xs text-muted/60 mt-0.5">Find mentored, permanent staff</p>
+                <p className="font-body text-sm text-muted mt-0.5">Find mentored, permanent staff</p>
               </div>
               <svg className="w-4 h-4 text-muted group-hover:text-primary transition-all duration-300 group-hover:translate-x-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />

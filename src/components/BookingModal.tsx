@@ -90,7 +90,7 @@ export default function BookingModal({ professional, onClose }: BookingModalProp
         {/* Header */}
         <div className="flex items-start justify-between gap-3 px-5 sm:px-7 pt-6 sm:pt-7 pb-0">
           <div>
-            <p className="font-body text-xs font-semibold text-primary uppercase tracking-[0.15em]">
+            <p className="font-body text-xs font-semibold text-primary uppercase tracking-[0.08em]">
               Book a Session
             </p>
             <h3 className="font-heading font-bold text-lg text-foreground mt-1">

@@ -115,8 +115,7 @@ export default function ConsultationPage() {
               Our Team
             </p>
             <h2 className="font-heading font-bold text-display-md text-foreground">
-              Meet your{" "}
-              <span className="serif-italic text-primary">consultants</span>
+              Meet your consultants
             </h2>
           </div>
 
@@ -154,25 +153,11 @@ export default function ConsultationPage() {
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
-                  {/* Paid badge */}
-                  {person.isPaid && (
-                    <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm border border-secondary/20 rounded-full px-3 py-1">
-                      <span className="font-body text-xs font-semibold text-foreground">
-                        {person.rate}
-                      </span>
-                    </div>
-                  )}
-                  {/* Category badge */}
-                  <div className="absolute bottom-4 left-4">
-                    <span className="bg-primary/90 backdrop-blur-sm text-white font-body text-xs font-medium px-3 py-1 rounded-full">
-                      {categories.find((c) => c.key === person.category)?.label}
-                    </span>
-                  </div>
                 </div>
 
                 {/* Content */}
                 <div className="p-6">
-                  <div className="flex items-start gap-3 mb-4">
+                  <div className="flex items-center gap-3 mb-4">
                     <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center shrink-0">
                       <span className="font-heading font-bold text-xs text-white">
                         {person.initials}
@@ -182,7 +167,7 @@ export default function ConsultationPage() {
                       <h3 className="font-heading font-bold text-base text-foreground leading-tight">
                         {person.name}
                       </h3>
-                      <p className="font-body text-xs text-primary font-medium mt-0.5 truncate">
+                      <p className="font-body text-xs text-primary font-medium mt-0.5">
                         {person.title}
                       </p>
                     </div>
@@ -191,18 +176,6 @@ export default function ConsultationPage() {
                   <p className="font-body text-sm text-muted leading-relaxed mb-4 line-clamp-3">
                     {person.bio}
                   </p>
-
-                  {/* Specialties */}
-                  <div className="flex flex-wrap gap-1.5 mb-5">
-                    {person.specialties.map((s) => (
-                      <span
-                        key={s}
-                        className="font-body text-xs text-muted bg-secondary-light/50 px-2.5 py-1 rounded-full"
-                      >
-                        {s}
-                      </span>
-                    ))}
-                  </div>
 
                   {/* Book Button */}
                   <button
@@ -215,10 +188,7 @@ export default function ConsultationPage() {
                   >
                     {person.isPaid ? (
                       <>
-                        Book Paid Session
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
+                        Book Paid Session · {person.rate}
                       </>
                     ) : (
                       <>

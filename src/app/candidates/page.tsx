@@ -95,7 +95,7 @@ export default function CandidatesPage() {
       const heroEls = heroRef.current!.querySelectorAll(".hero-anim");
       gsap.set(heroEls, { y: 30, autoAlpha: 0 });
       gsap.to(heroEls, {
-        y: 0, autoAlpha: 1, duration: 0.8, stagger: 0.08, ease: "power2.out", delay: 0.3,
+        y: 0, autoAlpha: 1, duration: 0.5, stagger: 0.04, ease: "power2.out", delay: 0.15,
       });
 
       // Trust bar
@@ -103,7 +103,7 @@ export default function CandidatesPage() {
         const trustEls = trustRef.current.querySelectorAll(".trust-item");
         gsap.set(trustEls, { y: 15, autoAlpha: 0 });
         gsap.to(trustEls, {
-          y: 0, autoAlpha: 1, duration: 0.6, stagger: 0.08, ease: "power2.out",
+          y: 0, autoAlpha: 1, duration: 0.4, stagger: 0.04, ease: "power2.out",
           scrollTrigger: { trigger: trustRef.current, start: "top 85%" },
         });
       }
@@ -118,13 +118,13 @@ export default function CandidatesPage() {
             const xOffset = i % 2 === 0 ? -20 : 20;
             gsap.set(el, { x: xOffset, autoAlpha: 0 });
             gsap.to(el, {
-              x: 0, autoAlpha: 1, duration: 0.8, delay: i * 0.08, ease: "power2.out",
+              x: 0, autoAlpha: 1, duration: 0.5, delay: i * 0.08, ease: "power2.out",
               scrollTrigger: { trigger: realityRef.current, start: "top 75%" },
             });
           } else {
             gsap.set(el, { y: 25, autoAlpha: 0 });
             gsap.to(el, {
-              y: 0, autoAlpha: 1, duration: 0.8, delay: i * 0.08, ease: "power2.out",
+              y: 0, autoAlpha: 1, duration: 0.5, delay: i * 0.08, ease: "power2.out",
               scrollTrigger: { trigger: realityRef.current, start: "top 75%" },
             });
           }
@@ -136,7 +136,7 @@ export default function CandidatesPage() {
       gsap.set(stepEls, { y: 25, autoAlpha: 0 });
       stepEls.forEach((step, i) => {
         gsap.to(step, {
-          y: 0, autoAlpha: 1, duration: 0.7, delay: i * 0.1, ease: "power2.out",
+          y: 0, autoAlpha: 1, duration: 0.4, delay: i * 0.1, ease: "power2.out",
           scrollTrigger: { trigger: step, start: "top 88%" },
         });
       });
@@ -147,7 +147,7 @@ export default function CandidatesPage() {
         gsap.set(img, { clipPath: "inset(100% 0 0 0)", autoAlpha: 0 });
         gsap.to(img, {
           clipPath: "inset(0% 0 0 0)", autoAlpha: 1,
-          duration: 1.3, ease: "power3.inOut",
+          duration: 0.6, ease: "power3.inOut",
           scrollTrigger: { trigger: img, start: "top 75%" },
         });
       });
@@ -157,7 +157,7 @@ export default function CandidatesPage() {
         const tEls = testimonialRef.current.querySelectorAll(".test-anim");
         gsap.set(tEls, { y: 25, autoAlpha: 0 });
         gsap.to(tEls, {
-          y: 0, autoAlpha: 1, duration: 0.8, stagger: 0.08, ease: "power2.out",
+          y: 0, autoAlpha: 1, duration: 0.5, stagger: 0.04, ease: "power2.out",
           scrollTrigger: { trigger: testimonialRef.current, start: "top 75%" },
         });
       }
@@ -167,7 +167,7 @@ export default function CandidatesPage() {
       gsap.set(faqEls, { y: 15, autoAlpha: 0 });
       faqEls.forEach((item, i) => {
         gsap.to(item, {
-          y: 0, autoAlpha: 1, duration: 0.6, delay: i * 0.06, ease: "power2.out",
+          y: 0, autoAlpha: 1, duration: 0.4, delay: i * 0.06, ease: "power2.out",
           scrollTrigger: { trigger: item, start: "top 92%" },
         });
       });
@@ -176,7 +176,7 @@ export default function CandidatesPage() {
       const ctaEls = ctaRef.current!.querySelectorAll(".cta-anim");
       gsap.set(ctaEls, { y: 25, autoAlpha: 0 });
       gsap.to(ctaEls, {
-        y: 0, autoAlpha: 1, duration: 0.8, stagger: 0.08, ease: "power2.out",
+        y: 0, autoAlpha: 1, duration: 0.5, stagger: 0.04, ease: "power2.out",
         scrollTrigger: { trigger: ctaRef.current, start: "top 75%" },
       });
 
@@ -211,7 +211,7 @@ export default function CandidatesPage() {
 
         <div className="relative z-10 w-full max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12 pb-12 sm:pb-16 md:pb-20 pt-32 sm:pt-36 md:pt-40">
           <div className="max-w-2xl">
-            <p className="hero-anim font-body text-xs sm:text-sm font-semibold text-yellow-400 uppercase tracking-[0.18em] sm:tracking-[0.2em] mb-4 sm:mb-5">
+            <p className="hero-anim font-body text-xs sm:text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4 sm:mb-5">
               For nurses
             </p>
             <h1
@@ -272,31 +272,42 @@ export default function CandidatesPage() {
       </div>
 
       {/* ============ THE REALITY ============ */}
-      <section ref={realityRef} className="py-section">
+      <section ref={realityRef} className="py-12 sm:py-section">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
           <div className="grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-24">
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-5 text-center sm:text-left">
               <p className="reality-anim font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-3 sm:mb-4">
                 The reality
               </p>
               <h2 className="reality-anim font-heading font-bold text-display-md text-foreground">
-                You&apos;re not starting over. But it can feel that way.
+                <span className="hidden sm:inline">You&apos;re not starting over. But it can feel that way.</span>
+                <span className="sm:hidden">It can feel like starting over.</span>
               </h2>
             </div>
             <div className="lg:col-span-7 flex flex-col justify-center">
-              <div className="space-y-3 sm:space-y-5 mb-6 sm:mb-8">
+              {/* Mobile: two short sentences, centered */}
+              <div className="sm:hidden text-center">
+                <p className="reality-anim font-body text-sm text-muted leading-relaxed">
+                  Unclear next steps, overwhelming exams, and no guide.
+                </p>
+                <p className="reality-anim font-body text-sm text-muted leading-relaxed mt-2">
+                  You don&apos;t have to do it alone.
+                </p>
+              </div>
+              {/* Desktop: bullet list */}
+              <div className="hidden sm:block space-y-5 mb-8">
                 {challenges.map((challenge) => (
-                  <div key={challenge} className="reality-anim flex items-start gap-3 sm:gap-4">
+                  <div key={challenge} className="reality-anim flex items-start gap-4">
                     <svg className="w-4 h-4 text-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                     </svg>
-                    <p className="font-body text-sm sm:text-base text-muted leading-relaxed">
+                    <p className="font-body text-base text-muted leading-relaxed">
                       {challenge}
                     </p>
                   </div>
                 ))}
               </div>
-              <p className="reality-anim font-heading font-bold text-base sm:text-lg text-foreground">
+              <p className="reality-anim font-heading font-bold text-base sm:text-lg text-foreground hidden sm:block">
                 You don&apos;t have to figure it out alone.
               </p>
             </div>
@@ -349,7 +360,7 @@ export default function CandidatesPage() {
                       i < pathwaySteps.length - 1 ? "border-b border-secondary/15" : ""
                     }`}
                   >
-                    <span className="font-heading font-bold text-xl sm:text-2xl text-primary/20 shrink-0 w-9 sm:w-10">
+                    <span className="font-heading font-bold text-xl sm:text-2xl text-primary shrink-0 w-9 sm:w-10">
                       {step.number}
                     </span>
                     <div className="min-w-0">
@@ -377,7 +388,7 @@ export default function CandidatesPage() {
               </div>
 
               {/* Mobile: single CTA at the end */}
-              <div className="lg:hidden mt-8">
+              <div className="lg:hidden mt-8 flex justify-end">
                 <ApplyButton variant="small" label="Start your pathway" />
               </div>
             </div>
@@ -460,29 +471,18 @@ export default function CandidatesPage() {
       <section ref={faqRef} className="py-section bg-secondary-light/25">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
-            <div className="lg:col-span-4">
+            {/* Header — centered on mobile */}
+            <div className="lg:col-span-4 text-center lg:text-left">
               <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
                 FAQ
               </p>
               <h2 className="font-heading font-bold text-display-md text-foreground mb-4">
                 Common questions
               </h2>
-              <p className="font-body text-sm text-muted leading-relaxed mb-6">
+              <p className="font-body text-sm text-muted leading-relaxed">
                 Can&apos;t find what you&apos;re looking for? Book a consultation
                 with our team.
               </p>
-              <Link
-                href="/consultation"
-                className="inline-flex items-center gap-2 font-body font-semibold text-sm text-primary hover:text-primary-dark transition-colors duration-300 group"
-              >
-                Book a consultation
-                <svg
-                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                  fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                </svg>
-              </Link>
             </div>
 
             <div className="lg:col-span-8">
@@ -521,6 +521,22 @@ export default function CandidatesPage() {
                   </div>
                 </div>
               ))}
+
+              {/* Book a consultation — after Q&A */}
+              <div className="flex justify-center mt-8">
+                <Link
+                  href="/consultation"
+                  className="inline-flex items-center gap-2 font-body font-semibold text-sm text-primary hover:text-primary-dark transition-colors duration-300 group"
+                >
+                  Book a consultation
+                  <svg
+                    className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -542,7 +558,7 @@ export default function CandidatesPage() {
         </div>
         <div className="absolute inset-0 bg-foreground/80" />
 
-        <div className="relative z-10 max-w-[1600px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24 flex flex-col lg:flex-row lg:items-center justify-between gap-8 lg:gap-10">
+        <div className="relative z-10 max-w-[1600px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24 flex flex-col items-center text-center gap-8">
           <div className="max-w-2xl">
             <p className="cta-anim font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
               Ready?
@@ -550,17 +566,17 @@ export default function CandidatesPage() {
             <h2 className="cta-anim font-heading font-bold text-display-md text-white mb-4">
               Your career in Canada starts with one step
             </h2>
-            <p className="cta-anim font-body text-base text-white/55 leading-relaxed">
+            <p className="cta-anim font-body text-base text-white/75 leading-relaxed">
               Apply now and our team will reach out to guide you through
               the next steps.
             </p>
           </div>
 
-          <div className="cta-anim flex flex-col sm:flex-row gap-3 sm:gap-4 shrink-0">
-            <ApplyButton variant="white" />
+          <div className="cta-anim flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto max-w-md sm:max-w-none mx-auto">
+            <ApplyButton variant="white" className="w-full sm:w-auto" />
             <Link
               href="/consultation"
-              className="inline-flex items-center justify-center border border-white/25 text-white font-body font-semibold text-sm px-8 py-4 rounded-full hover:border-white/50 transition-colors duration-300"
+              className="w-full sm:w-auto inline-flex items-center justify-center border border-white/25 text-white font-body font-semibold text-sm px-8 py-4 rounded-full hover:border-white/50 transition-colors duration-300"
             >
               Book a Consultation
             </Link>

@@ -110,10 +110,10 @@ export default function CoursesPage() {
       gsap.to(heroEls, {
         y: 0,
         autoAlpha: 1,
-        duration: 0.8,
-        stagger: 0.08,
+        duration: 0.5,
+        stagger: 0.04,
         ease: "power2.out",
-        delay: 0.3,
+        delay: 0.15,
       });
 
       // Boot camp image
@@ -124,7 +124,7 @@ export default function CoursesPage() {
       gsap.to(".bc-image", {
         clipPath: "inset(0% 0% 0% 0% round 1.5rem)",
         autoAlpha: 1,
-        duration: 1.2,
+        duration: 0.6,
         ease: "power3.inOut",
         scrollTrigger: { trigger: ".bc-image", start: "top 80%" },
       });
@@ -135,7 +135,7 @@ export default function CoursesPage() {
       gsap.to(bcContent, {
         x: 0,
         autoAlpha: 1,
-        duration: 0.8,
+        duration: 0.5,
         stagger: 0.06,
         ease: "power2.out",
         scrollTrigger: { trigger: bootcampRef.current, start: "top 65%" },
@@ -148,7 +148,7 @@ export default function CoursesPage() {
         gsap.to(el, {
           y: 0,
           autoAlpha: 1,
-          duration: 0.7,
+          duration: 0.4,
           delay: i * 0.1,
           ease: "power2.out",
           scrollTrigger: { trigger: el, start: "top 88%" },
@@ -162,7 +162,7 @@ export default function CoursesPage() {
         gsap.to(el, {
           y: 0,
           autoAlpha: 1,
-          duration: 0.8,
+          duration: 0.5,
           delay: i * 0.15,
           ease: "power2.out",
           scrollTrigger: { trigger: el, start: "top 85%" },
@@ -176,7 +176,7 @@ export default function CoursesPage() {
         gsap.to(item, {
           y: 0,
           autoAlpha: 1,
-          duration: 0.6,
+          duration: 0.4,
           delay: i * 0.06,
           ease: "power2.out",
           scrollTrigger: { trigger: item, start: "top 92%" },
@@ -205,7 +205,7 @@ export default function CoursesPage() {
 
         <div className="relative z-10 w-full max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12 pb-12 sm:pb-16 md:pb-20 pt-32 sm:pt-36 md:pt-40">
           <div className="max-w-2xl">
-            <p className="courses-hero-anim font-body text-xs sm:text-sm font-semibold text-yellow-400 uppercase tracking-[0.08em] mb-4 sm:mb-5">
+            <p className="courses-hero-anim font-body text-xs font-semibold text-accent uppercase tracking-[0.08em] mb-4 sm:mb-5">
               Learning & Mentorship
             </p>
             <h1
@@ -224,7 +224,7 @@ export default function CoursesPage() {
               CBA &amp; SLA boot camps, 1-on-1 mentorship, and upskilling workshops —
               everything you need to succeed in Canadian healthcare.
             </p>
-            <div className="courses-hero-anim flex flex-col sm:flex-row items-stretch sm:items-start gap-3 sm:gap-4">
+            <div className="courses-hero-anim flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4">
               <Link
                 href="/consultation"
                 className="group inline-flex items-center justify-center gap-2.5 text-foreground font-body font-semibold text-sm px-8 py-3.5 rounded-full bg-white transition-all duration-300 hover:shadow-lg hover:shadow-white/20 hover:-translate-y-0.5"
@@ -256,18 +256,28 @@ export default function CoursesPage() {
       </section>
 
       {/* ── Section 2 — CBA & SLA Boot Camp (deep dive) ── */}
-      <section ref={bootcampRef} className="py-section">
+      <section ref={bootcampRef} className="py-10 sm:py-section">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
-          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
+          <div className="grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12">
+            {/* Mobile: tagline + title above image */}
+            <div className="lg:hidden text-center">
+              <span className="font-body text-xs font-semibold text-accent uppercase tracking-[0.08em]">
+                Flagship Program
+              </span>
+              <h2 className="font-heading font-bold text-display-md text-foreground mt-2">
+                CBA &amp; SLA Boot Camp
+              </h2>
+            </div>
+
             {/* Image */}
             <div className="lg:col-span-6">
-              <div className="bc-image relative rounded-3xl overflow-hidden aspect-[4/5] shadow-xl shadow-foreground/5">
+              <div className="bc-image relative rounded-3xl overflow-hidden aspect-[16/9] lg:aspect-[4/5] shadow-xl shadow-foreground/5">
                 <Image
                   src="/photo3.jpg"
                   alt="CBA & SLA Boot Camp training session"
                   fill
                   loading="lazy"
-                  className="object-cover object-[center_40%]"
+                  className="object-cover object-[center_15%]"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/10 via-transparent to-transparent" />
@@ -275,50 +285,60 @@ export default function CoursesPage() {
             </div>
 
             {/* Content */}
-            <div className="lg:col-span-6 flex flex-col justify-center bc-content">
-              <span className="font-body text-[10px] font-semibold text-primary uppercase tracking-[0.15em] bg-secondary-light/50 self-start px-3 py-1 rounded-full mb-5">
+            <div className="lg:col-span-6 flex flex-col justify-center bc-content text-center lg:text-left items-center lg:items-start">
+              {/* Desktop only title */}
+              <span className="hidden lg:block font-body text-xs font-semibold text-accent uppercase tracking-[0.08em] mb-4">
                 Flagship Program
               </span>
-              <h2 className="font-heading font-bold text-display-md text-foreground mb-4">
-                CBA & SLA Boot Camp
+              <h2 className="hidden lg:block font-heading font-bold text-display-md text-foreground mb-4">
+                CBA &amp; SLA Boot Camp
               </h2>
-              <p className="font-body text-base text-muted leading-relaxed mb-8">
-                Our intensive 12-week program prepares you for the
-                Competency-Based Assessment and Substantially Equivalent
-                Competency assessment. In-hospital simulation, hands-on practice,
-                and mentorship from nurses who&apos;ve passed it themselves.
+
+              {/* Mobile: condensed */}
+              <p className="font-body text-sm text-muted leading-relaxed mb-6 sm:hidden">
+                Intensive 12-week program to prepare you for the CBA and SLA assessments. In-hospital simulation, hands-on practice, and mentorship from nurses who&apos;ve passed it themselves.
               </p>
 
-              <div className="space-y-3 mb-8">
-                {[
-                  "In-hospital simulation & hands-on clinical practice",
-                  "Mentored by IEN nurses who passed the CBA/SLA",
-                  "Study plans tailored to your specific gaps",
-                  "Small cohorts for personalized attention",
-                  "Mock assessments under real conditions",
-                ].map((item) => (
-                  <div key={item} className="flex items-start gap-3">
-                    <svg
-                      className="w-5 h-5 text-primary shrink-0 mt-0.5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M4.5 12.75l6 6 9-13.5"
-                      />
-                    </svg>
-                    <span className="font-body text-sm text-foreground">
-                      {item}
-                    </span>
-                  </div>
-                ))}
+              {/* Desktop: full content */}
+              <div className="hidden sm:block">
+                <p className="font-body text-base text-muted leading-relaxed mb-8">
+                  Our intensive 12-week program prepares you for the
+                  Competency-Based Assessment and Substantially Equivalent
+                  Competency assessment. In-hospital simulation, hands-on practice,
+                  and mentorship from nurses who&apos;ve passed it themselves.
+                </p>
+
+                <div className="space-y-3 mb-8">
+                  {[
+                    "In-hospital simulation & hands-on clinical practice",
+                    "Mentored by IEN nurses who passed the CBA/SLA",
+                    "Study plans tailored to your specific gaps",
+                    "Small cohorts for personalized attention",
+                    "Mock assessments under real conditions",
+                  ].map((item) => (
+                    <div key={item} className="flex items-start gap-3">
+                      <svg
+                        className="w-5 h-5 text-primary shrink-0 mt-0.5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M4.5 12.75l6 6 9-13.5"
+                        />
+                      </svg>
+                      <span className="font-body text-sm text-foreground">
+                        {item}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              <div className="flex items-center gap-6 mb-8 pb-8 border-b border-secondary/15">
+              <div className="flex items-center justify-center lg:justify-start gap-6 mb-8 pb-8 border-b border-secondary/15 w-full">
                 {[
                   { value: "12", label: "weeks" },
                   { value: "All", label: "levels" },
@@ -339,8 +359,8 @@ export default function CoursesPage() {
               </div>
 
               {/* Testimonial */}
-              <div className="bg-secondary-light/30 rounded-xl p-6 mb-8">
-                <p className="font-body text-sm text-foreground italic leading-relaxed mb-3">
+              <div className="bg-secondary-light/30 rounded-xl p-6 mb-8 w-full">
+                <p className="font-body text-sm text-foreground italic leading-relaxed mb-3 text-left">
                   &ldquo;I enrolled in the ien2RN SLA bootcamp with only one week
                   before my assessment. The mentorship gave me the confidence and
                   resilience I needed. Without a doubt, this is what started my
@@ -357,7 +377,7 @@ export default function CoursesPage() {
                       sizes="32px"
                     />
                   </div>
-                  <div>
+                  <div className="text-left">
                     <p className="font-heading font-bold text-xs text-foreground">
                       April
                     </p>
@@ -370,7 +390,7 @@ export default function CoursesPage() {
 
               <Link
                 href="/contact"
-                className="group inline-flex items-center justify-center gap-2.5 text-white font-body font-semibold text-sm px-8 py-3.5 rounded-full bg-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 self-start"
+                className="group inline-flex items-center justify-center gap-2.5 text-white font-body font-semibold text-sm px-8 py-3.5 rounded-full bg-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 self-center lg:self-start"
               >
                 Apply for the Next Cohort
                 <svg
@@ -395,8 +415,8 @@ export default function CoursesPage() {
       {/* ── Curriculum breakdown ── */}
       <section ref={curriculumRef} className="py-section bg-secondary-light/25">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
-          <div className="max-w-2xl mb-14">
-            <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
+          <div className="max-w-2xl mb-14 text-center sm:text-left mx-auto sm:mx-0">
+            <p className="font-body text-xs font-semibold text-accent uppercase tracking-[0.08em] mb-4">
               What you&apos;ll learn
             </p>
             <h2 className="font-heading font-bold text-display-md text-foreground">
@@ -408,15 +428,12 @@ export default function CoursesPage() {
             {curriculum.map((phase, i) => (
               <div
                 key={phase.week}
-                className="curr-item bg-offwhite rounded-2xl p-6 border border-secondary/10"
+                className="curr-item bg-offwhite rounded-2xl p-5 sm:p-6 border border-secondary/10"
               >
-                <span className="font-heading font-bold text-3xl text-primary/15 leading-none">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <p className="font-body text-xs font-semibold text-primary uppercase tracking-wide mt-3 mb-2">
+                <span className="block font-body text-xs font-semibold text-accent uppercase tracking-[0.08em] mb-2">
                   {phase.week}
-                </p>
-                <h3 className="font-heading font-bold text-base text-foreground mb-3">
+                </span>
+                <h3 className="font-heading font-bold text-base text-foreground mb-2">
                   {phase.title}
                 </h3>
                 <p className="font-body text-sm text-muted leading-relaxed">
@@ -429,12 +446,22 @@ export default function CoursesPage() {
       </section>
 
       {/* ── Section 3a — IEN Nurse Mentorship ── */}
-      <section ref={programsRef} className="py-section">
+      <section ref={programsRef} className="py-10 sm:py-section">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
           <div className="prog-card grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-start">
+            {/* Mobile: tagline + title above image */}
+            <div className="lg:hidden order-1 text-center">
+              <span className="font-body text-xs font-semibold text-accent uppercase tracking-[0.08em]">
+                Mentorship
+              </span>
+              <h2 className="font-heading font-bold text-display-md text-foreground mt-2">
+                IEN Nurse Mentorship
+              </h2>
+            </div>
+
             {/* Image */}
-            <div className="lg:col-span-5">
-              <div className="relative rounded-2xl overflow-hidden aspect-[4/5] shadow-lg shadow-foreground/5">
+            <div className="lg:col-span-5 order-2 lg:order-1">
+              <div className="relative rounded-2xl overflow-hidden aspect-[16/9] lg:aspect-[4/5] shadow-lg shadow-foreground/5">
                 <Image
                   src="/new2.png"
                   alt="IEN Nurse mentorship session"
@@ -448,64 +475,73 @@ export default function CoursesPage() {
             </div>
 
             {/* Content */}
-            <div className="lg:col-span-7 flex flex-col justify-center">
-              <span className="font-body text-[10px] font-semibold text-primary uppercase tracking-[0.15em] mb-4">
+            <div className="lg:col-span-7 flex flex-col justify-center order-3 lg:order-2 text-center lg:text-left items-center lg:items-start">
+              {/* Desktop only title */}
+              <span className="hidden lg:block font-body text-xs font-semibold text-accent uppercase tracking-[0.08em] mb-4">
                 Mentorship
               </span>
-              <h2 className="font-heading font-bold text-display-md text-foreground mb-5">
+              <h2 className="hidden lg:block font-heading font-bold text-display-md text-foreground mb-5">
                 IEN Nurse Mentorship
               </h2>
-              <p className="font-body text-base text-muted leading-relaxed mb-6">
-                We utilise the power of mentorship to set you up for success from
-                the get-go. Whether you&apos;re an IEN nurse within or outside
-                Canada, our mentors are dedicated to supporting you in advancing
-                your competencies — as an entry-level nurse or exploring advanced
-                roles.
+              {/* Mobile: condensed */}
+              <p className="font-body text-sm text-muted leading-relaxed mb-6 sm:hidden">
+                1-on-1 mentorship from nurses who&apos;ve been where you are. Get guidance on navigating the healthcare system, building confidence, and advancing your career.
               </p>
 
-              {/* Pain points */}
-              <p className="font-heading font-bold text-sm text-foreground mb-3">
-                Are you an IEN nurse&hellip;
-              </p>
-              <div className="space-y-2 mb-8">
-                {mentorshipPainPoints.map((point) => (
-                  <div key={point} className="flex items-start gap-2.5">
-                    <span className="text-primary font-bold mt-0.5">?</span>
-                    <span className="font-body text-sm text-muted">
-                      {point}
-                    </span>
-                  </div>
-                ))}
+              {/* Desktop: full content */}
+              <div className="hidden sm:block">
+                <p className="font-body text-base text-muted leading-relaxed mb-6">
+                  We utilise the power of mentorship to set you up for success from
+                  the get-go. Whether you&apos;re an IEN nurse within or outside
+                  Canada, our mentors are dedicated to supporting you in advancing
+                  your competencies — as an entry-level nurse or exploring advanced
+                  roles.
+                </p>
+
+                {/* Pain points */}
+                <p className="font-heading font-bold text-sm text-foreground mb-3">
+                  Are you an IEN nurse&hellip;
+                </p>
+                <div className="space-y-2 mb-8">
+                  {mentorshipPainPoints.map((point) => (
+                    <div key={point} className="flex items-start gap-2.5">
+                      <span className="text-primary font-bold mt-0.5">?</span>
+                      <span className="font-body text-sm text-muted">
+                        {point}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Benefits */}
+                <p className="font-heading font-bold text-sm text-foreground mb-3">
+                  Benefits
+                </p>
+                <div className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5 mb-8">
+                  {mentorshipBenefits.map((benefit) => (
+                    <div key={benefit} className="flex items-start gap-2.5">
+                      <svg
+                        className="w-4 h-4 text-primary shrink-0 mt-0.5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M4.5 12.75l6 6 9-13.5"
+                        />
+                      </svg>
+                      <span className="font-body text-sm text-muted">
+                        {benefit}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              {/* Benefits */}
-              <p className="font-heading font-bold text-sm text-foreground mb-3">
-                Benefits
-              </p>
-              <div className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5 mb-8">
-                {mentorshipBenefits.map((benefit) => (
-                  <div key={benefit} className="flex items-start gap-2.5">
-                    <svg
-                      className="w-4 h-4 text-primary shrink-0 mt-0.5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M4.5 12.75l6 6 9-13.5"
-                      />
-                    </svg>
-                    <span className="font-body text-sm text-muted">
-                      {benefit}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="flex items-center gap-6 mb-8 pb-8 border-b border-secondary/15">
+              <div className="flex items-center justify-center lg:justify-start gap-6 mb-8 pb-8 border-b border-secondary/15 w-full">
                 {[
                   { value: "1-on-1", label: "mentorship" },
                   { value: "Ongoing", label: "sessions" },
@@ -527,7 +563,7 @@ export default function CoursesPage() {
 
               <Link
                 href="/contact"
-                className="group inline-flex items-center justify-center gap-2.5 text-white font-body font-semibold text-sm px-8 py-3.5 rounded-full bg-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 self-start"
+                className="group inline-flex items-center justify-center gap-2.5 text-white font-body font-semibold text-sm px-8 py-3.5 rounded-full bg-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 self-center lg:self-start"
               >
                 Register Now
                 <svg
@@ -550,68 +586,103 @@ export default function CoursesPage() {
       </section>
 
       {/* ── Section 3b — Career Accelerator Program ── */}
-      <section className="py-section bg-secondary-light/25">
+      <section className="py-10 sm:py-section bg-secondary-light/25">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
           <div className="prog-card grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-start">
-            {/* Content (left on desktop) */}
-            <div className="lg:col-span-7 flex flex-col justify-center order-2 lg:order-1">
-              <span className="font-body text-[10px] font-semibold text-primary uppercase tracking-[0.15em] mb-4">
+            {/* Mobile: tagline + title above image */}
+            <div className="lg:hidden order-1 text-center">
+              <span className="font-body text-xs font-semibold text-accent uppercase tracking-[0.08em]">
                 Career Development
               </span>
-              <h2 className="font-heading font-bold text-display-md text-foreground mb-5">
+              <h2 className="font-heading font-bold text-display-md text-foreground mt-2">
                 Career Accelerator Program
               </h2>
-              <p className="font-body text-base text-muted leading-relaxed mb-6">
-                Our dedicated team is positioned not just for entry-level and
-                specialized clinical practice but also for professional development
-                and career advancement. With our combined 100+ years of healthcare
-                and professional leadership, discover how our team truly makes a
-                difference in accelerating your career in Canada.
+            </div>
+
+            {/* Image */}
+            <div className="lg:col-span-5 order-2 lg:order-2">
+              <div className="relative rounded-2xl overflow-hidden aspect-[16/9] lg:aspect-[4/5] shadow-lg shadow-foreground/5">
+                <Image
+                  src="/1.jpg"
+                  alt="Career accelerator consultation"
+                  fill
+                  loading="lazy"
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 42vw"
+                  style={{ objectPosition: "center 30%" }}
+                />
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="lg:col-span-7 flex flex-col justify-center order-3 lg:order-1 text-center lg:text-left items-center lg:items-start">
+              {/* Desktop only title */}
+              <span className="hidden lg:block font-body text-xs font-semibold text-accent uppercase tracking-[0.08em] mb-4">
+                Career Development
+              </span>
+              <h2 className="hidden lg:block font-heading font-bold text-display-md text-foreground mb-5">
+                Career Accelerator Program
+              </h2>
+
+              {/* Mobile: condensed */}
+              <p className="font-body text-sm text-muted leading-relaxed mb-6 sm:hidden">
+                Professional development and career advancement with 100+ years of combined healthcare leadership experience. From entry-level to specialized roles.
               </p>
 
-              {/* Pain points */}
-              <p className="font-heading font-bold text-sm text-foreground mb-3">
-                Are you an IEN nurse&hellip;
-              </p>
-              <div className="space-y-2 mb-8">
-                {careerPainPoints.map((point) => (
-                  <div key={point} className="flex items-start gap-2.5">
-                    <span className="text-primary font-bold mt-0.5">?</span>
-                    <span className="font-body text-sm text-muted">
-                      {point}
-                    </span>
-                  </div>
-                ))}
+              {/* Desktop: full content */}
+              <div className="hidden sm:block">
+                <p className="font-body text-base text-muted leading-relaxed mb-6">
+                  Our dedicated team is positioned not just for entry-level and
+                  specialized clinical practice but also for professional development
+                  and career advancement. With our combined 100+ years of healthcare
+                  and professional leadership, discover how our team truly makes a
+                  difference in accelerating your career in Canada.
+                </p>
+
+                {/* Pain points */}
+                <p className="font-heading font-bold text-sm text-foreground mb-3">
+                  Are you an IEN nurse&hellip;
+                </p>
+                <div className="space-y-2 mb-8">
+                  {careerPainPoints.map((point) => (
+                    <div key={point} className="flex items-start gap-2.5">
+                      <span className="text-primary font-bold mt-0.5">?</span>
+                      <span className="font-body text-sm text-muted">
+                        {point}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Benefits */}
+                <p className="font-heading font-bold text-sm text-foreground mb-3">
+                  Benefits
+                </p>
+                <div className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5 mb-8">
+                  {careerBenefits.map((benefit) => (
+                    <div key={benefit} className="flex items-start gap-2.5">
+                      <svg
+                        className="w-4 h-4 text-primary shrink-0 mt-0.5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M4.5 12.75l6 6 9-13.5"
+                        />
+                      </svg>
+                      <span className="font-body text-sm text-muted">
+                        {benefit}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              {/* Benefits */}
-              <p className="font-heading font-bold text-sm text-foreground mb-3">
-                Benefits
-              </p>
-              <div className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5 mb-8">
-                {careerBenefits.map((benefit) => (
-                  <div key={benefit} className="flex items-start gap-2.5">
-                    <svg
-                      className="w-4 h-4 text-primary shrink-0 mt-0.5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M4.5 12.75l6 6 9-13.5"
-                      />
-                    </svg>
-                    <span className="font-body text-sm text-muted">
-                      {benefit}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="flex items-center gap-6 mb-8 pb-8 border-b border-secondary/15">
+              <div className="flex items-center justify-center lg:justify-start gap-6 mb-8 pb-8 border-b border-secondary/15 w-full">
                 {[
                   { value: "100+", label: "years combined experience" },
                   { value: "1-on-1", label: "coaching" },
@@ -632,7 +703,7 @@ export default function CoursesPage() {
 
               <Link
                 href="/contact"
-                className="group inline-flex items-center justify-center gap-2.5 text-white font-body font-semibold text-sm px-8 py-3.5 rounded-full bg-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 self-start"
+                className="group inline-flex items-center justify-center gap-2.5 text-white font-body font-semibold text-sm px-8 py-3.5 rounded-full bg-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 self-center lg:self-start"
               >
                 Register Now
                 <svg
@@ -649,21 +720,6 @@ export default function CoursesPage() {
                   />
                 </svg>
               </Link>
-            </div>
-
-            {/* Image (right on desktop) */}
-            <div className="lg:col-span-5 order-1 lg:order-2">
-              <div className="relative rounded-2xl overflow-hidden aspect-[4/5] shadow-lg shadow-foreground/5">
-                <Image
-                  src="/1.jpg"
-                  alt="Career accelerator consultation"
-                  fill
-                  loading="lazy"
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 42vw"
-                  style={{ objectPosition: "center 30%" }}
-                />
-              </div>
             </div>
           </div>
         </div>

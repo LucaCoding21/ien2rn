@@ -91,15 +91,16 @@ export default function Nav() {
     <>
       <nav
         ref={navRef}
-        className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-4 md:px-8 transition-all duration-200"
+        className={`fixed top-0 left-0 right-0 z-50 px-3 sm:px-4 md:px-8 transition-all duration-200 ${
+          scrolled ? "pt-2" : "pt-[0.7rem] md:pt-4"
+        }`}
         style={{
-          paddingTop: scrolled ? "0.5rem" : "1rem",
           transform: visible ? "translateY(0)" : "translateY(-100%)",
         }}
       >
         <div
           className={`max-w-[1400px] mx-auto flex items-center justify-between transition-all duration-500 rounded-full px-5 md:px-8  ${
-            scrolled ? "py-2.5" : "py-4"
+            scrolled ? "py-2.5" : "py-[0.7rem] md:py-4"
           }`}
           style={{ backgroundColor: "#2832C2" }}
         >
@@ -192,24 +193,26 @@ export default function Nav() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden relative z-50 w-11 h-11 flex flex-col items-center justify-center gap-1.5"
+            className="lg:hidden relative z-50 w-11 h-11 flex items-center justify-center"
             aria-label="Toggle menu"
           >
-            <span
-              className={`w-6 h-[1.5px] transition-all duration-300 ${
-                mobileOpen ? "rotate-45 translate-y-[4.5px] bg-foreground" : "bg-white"
-              }`}
-            />
-            <span
-              className={`w-6 h-[1.5px] transition-all duration-300 ${
-                mobileOpen ? "opacity-0 bg-foreground" : "bg-white"
-              }`}
-            />
-            <span
-              className={`w-6 h-[1.5px] transition-all duration-300 ${
-                mobileOpen ? "-rotate-45 -translate-y-[4.5px] bg-foreground" : "bg-white"
-              }`}
-            />
+            <span className="relative w-6 h-5 flex flex-col justify-between">
+              <span
+                className={`absolute left-0 right-0 h-[1.5px] bg-white transition-all duration-300 origin-center ${
+                  mobileOpen ? "top-1/2 -translate-y-1/2 rotate-45" : "top-0"
+                }`}
+              />
+              <span
+                className={`absolute left-0 right-0 h-[1.5px] bg-white top-1/2 -translate-y-1/2 transition-all duration-300 ${
+                  mobileOpen ? "opacity-0" : ""
+                }`}
+              />
+              <span
+                className={`absolute left-0 right-0 h-[1.5px] bg-white transition-all duration-300 origin-center ${
+                  mobileOpen ? "top-1/2 -translate-y-1/2 -rotate-45" : "bottom-0 top-auto"
+                }`}
+              />
+            </span>
           </button>
         </div>
       </nav>

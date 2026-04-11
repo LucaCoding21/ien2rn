@@ -18,8 +18,8 @@ export default function CTABanner() {
       gsap.to(els, {
         y: 0,
         autoAlpha: 1,
-        duration: 0.8,
-        stagger: 0.08,
+        duration: 0.5,
+        stagger: 0.04,
         ease: "power2.out",
         scrollTrigger: { trigger: sectionRef.current, start: "top 75%" },
       });

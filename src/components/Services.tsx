@@ -49,7 +49,7 @@ export default function Services() {
       gsap.to(headerEls, {
         x: 0,
         autoAlpha: 1,
-        duration: 0.8,
+        duration: 0.5,
         stagger: 0.06,
         ease: "power2.out",
         scrollTrigger: { trigger: sectionRef.current, start: "top 80%" },
@@ -63,7 +63,7 @@ export default function Services() {
         gsap.to(card, {
           x: 0,
           autoAlpha: 1,
-          duration: 0.9,
+          duration: 0.5,
           delay: i * 0.12,
           ease: "power2.out",
           scrollTrigger: { trigger: card, start: "top 85%" },
@@ -88,7 +88,7 @@ export default function Services() {
         </div>
 
         {/* Editorial service cards */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-3 gap-12 md:gap-6 lg:gap-8">
           {services.map((service, i) => (
             <Link
               key={service.title}
@@ -96,7 +96,7 @@ export default function Services() {
               className="service-card group flex flex-col"
             >
               {/* Image */}
-              <div className="relative rounded-lg overflow-hidden aspect-[4/3] mb-6">
+              <div className="relative rounded-lg overflow-hidden aspect-[3/2] md:aspect-[4/3] mb-6 order-2 md:order-1">
                 <Image
                   src={service.image}
                   alt={service.title}
@@ -109,13 +109,13 @@ export default function Services() {
               </div>
 
               {/* Content */}
-              <h3 className="font-heading font-bold text-xl md:text-2xl text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+              <h3 className="font-heading font-bold text-xl md:text-2xl text-foreground mb-3 group-hover:text-primary transition-colors duration-300 order-1 md:order-2">
                 {service.title}
               </h3>
-              <p className="font-body text-sm text-muted leading-relaxed mb-4 flex-1">
+              <p className="font-body text-sm text-muted leading-relaxed mb-4 flex-1 order-3">
                 {service.description}
               </p>
-              <span className="inline-flex items-center gap-2 font-body font-semibold text-sm text-primary border border-primary/30 rounded-full px-5 py-2 transition-all duration-300 group-hover:bg-primary group-hover:text-white group-hover:border-primary self-end mt-auto">
+              <span className="inline-flex items-center gap-2 font-body font-semibold text-sm text-primary border border-primary/30 rounded-full px-5 py-2 transition-all duration-300 group-hover:bg-primary group-hover:text-white group-hover:border-primary self-end mt-1 order-4">
                 {service.linkText}
                 <svg
                   className="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"

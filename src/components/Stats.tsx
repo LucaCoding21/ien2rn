@@ -22,8 +22,8 @@ export default function Stats() {
       gsap.from(sectionRef.current!.querySelectorAll(".stat-item"), {
         y: 60,
         opacity: 0,
-        duration: 1,
-        stagger: 0.15,
+        duration: 0.5,
+        stagger: 0.05,
         ease: "power3.out",
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -39,7 +39,7 @@ export default function Stats() {
 
         gsap.from(el, {
           innerText: 0,
-          duration: 2,
+          duration: 0.6,
           ease: "power2.out",
           snap: { innerText: 1 },
           scrollTrigger: {
@@ -53,9 +53,9 @@ export default function Stats() {
       // Animate the divider lines
       gsap.from(sectionRef.current!.querySelectorAll(".stat-divider"), {
         scaleY: 0,
-        duration: 1,
+        duration: 0.5,
         ease: "power3.out",
-        stagger: 0.2,
+        stagger: 0.05,
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 80%",

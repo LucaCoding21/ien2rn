@@ -19,7 +19,7 @@ export default function RequestStaffPage() {
       gsap.to(els, {
         y: 0,
         autoAlpha: 1,
-        duration: 0.7,
+        duration: 0.4,
         stagger: 0.06,
         ease: "power2.out",
         scrollTrigger: { trigger: formRef.current, start: "top 75%" },
@@ -54,7 +54,7 @@ export default function RequestStaffPage() {
       />
 
       {/* Centered form - focused, clean */}
-      <section ref={formRef} className="py-section">
+      <section ref={formRef} className="py-10 sm:py-section">
         <div className="max-w-[720px] mx-auto px-5 sm:px-6 md:px-12">
           {submitted ? (
             <div className="form-animate bg-secondary-light/40 rounded-3xl p-10 md:p-14 text-center">
@@ -83,56 +83,52 @@ export default function RequestStaffPage() {
               </a>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-8">
+            <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
               {/* Section 1: Organization */}
-              <div>
-                <h2 className="form-animate font-heading font-bold text-lg text-foreground mb-5 flex items-center gap-3">
-                  <span className="w-7 h-7 rounded-full bg-primary text-white font-body text-xs font-bold flex items-center justify-center">1</span>
+              <div className="form-animate bg-white rounded-2xl border border-secondary/15 p-5 sm:p-8">
+                <h2 className="font-heading font-bold text-base sm:text-lg text-foreground mb-4 sm:mb-5 flex items-center gap-2.5">
+                  <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-primary text-white font-body text-[11px] sm:text-xs font-bold flex items-center justify-center shrink-0">1</span>
                   Organization details
                 </h2>
-                <div className="space-y-4 pl-10">
-                  <div className="form-animate grid sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block font-body text-sm font-medium text-foreground mb-1.5">
-                        Organization name *
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        className="w-full font-body text-sm px-4 py-3 rounded-xl border border-secondary/25 bg-transparent focus:outline-none focus:border-primary transition-colors"
-                        placeholder="e.g. Vancouver General Hospital"
-                      />
-                    </div>
-                    <div>
-                      <label className="block font-body text-sm font-medium text-foreground mb-1.5">
-                        Facility type *
-                      </label>
-                      <select
-                        required
-                        className="w-full font-body text-sm px-4 py-3 rounded-xl border border-secondary/25 bg-transparent focus:outline-none focus:border-primary transition-colors text-muted"
-                      >
-                        <option value="">Select type</option>
-                        <option value="hospital">Hospital</option>
-                        <option value="clinic">Clinic</option>
-                        <option value="ltc">Long-term Care</option>
-                        <option value="home-care">Home Care</option>
-                        <option value="other">Other</option>
-                      </select>
-                    </div>
+                <div className="space-y-4">
+                  <div>
+                    <label className="block font-body text-sm font-medium text-foreground mb-1.5">
+                      Organization name *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      className="w-full font-body text-sm px-4 py-3 rounded-xl border border-secondary/25 bg-transparent focus:outline-none focus:border-primary transition-colors"
+                      placeholder="e.g. Vancouver General Hospital"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-body text-sm font-medium text-foreground mb-1.5">
+                      Facility type *
+                    </label>
+                    <select
+                      required
+                      className="w-full font-body text-sm px-4 py-3 rounded-xl border border-secondary/25 bg-transparent focus:outline-none focus:border-primary transition-colors text-muted"
+                    >
+                      <option value="">Select type</option>
+                      <option value="hospital">Hospital</option>
+                      <option value="clinic">Clinic</option>
+                      <option value="ltc">Long-term Care</option>
+                      <option value="home-care">Home Care</option>
+                      <option value="other">Other</option>
+                    </select>
                   </div>
                 </div>
               </div>
 
-              <div className="form-animate h-px bg-secondary/15" />
-
               {/* Section 2: Contact */}
-              <div>
-                <h2 className="form-animate font-heading font-bold text-lg text-foreground mb-5 flex items-center gap-3">
-                  <span className="w-7 h-7 rounded-full bg-primary text-white font-body text-xs font-bold flex items-center justify-center">2</span>
+              <div className="form-animate bg-white rounded-2xl border border-secondary/15 p-5 sm:p-8">
+                <h2 className="font-heading font-bold text-base sm:text-lg text-foreground mb-4 sm:mb-5 flex items-center gap-2.5">
+                  <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-primary text-white font-body text-[11px] sm:text-xs font-bold flex items-center justify-center shrink-0">2</span>
                   Contact information
                 </h2>
-                <div className="space-y-4 pl-10">
-                  <div className="form-animate grid sm:grid-cols-2 gap-4">
+                <div className="space-y-4">
+                  <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block font-body text-sm font-medium text-foreground mb-1.5">
                         Contact name *
@@ -155,7 +151,7 @@ export default function RequestStaffPage() {
                       />
                     </div>
                   </div>
-                  <div className="form-animate grid sm:grid-cols-2 gap-4">
+                  <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block font-body text-sm font-medium text-foreground mb-1.5">
                         Email *
@@ -181,16 +177,14 @@ export default function RequestStaffPage() {
                 </div>
               </div>
 
-              <div className="form-animate h-px bg-secondary/15" />
-
               {/* Section 3: Staffing Needs */}
-              <div>
-                <h2 className="form-animate font-heading font-bold text-lg text-foreground mb-5 flex items-center gap-3">
-                  <span className="w-7 h-7 rounded-full bg-primary text-white font-body text-xs font-bold flex items-center justify-center">3</span>
+              <div className="form-animate bg-white rounded-2xl border border-secondary/15 p-5 sm:p-8">
+                <h2 className="font-heading font-bold text-base sm:text-lg text-foreground mb-4 sm:mb-5 flex items-center gap-2.5">
+                  <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-primary text-white font-body text-[11px] sm:text-xs font-bold flex items-center justify-center shrink-0">3</span>
                   Staffing needs
                 </h2>
-                <div className="space-y-4 pl-10">
-                  <div className="form-animate">
+                <div className="space-y-4">
+                  <div>
                     <label className="block font-body text-sm font-medium text-foreground mb-1.5">
                       Describe your staffing needs *
                     </label>
@@ -201,7 +195,7 @@ export default function RequestStaffPage() {
                       placeholder="Number of nurses, specialties required, shift requirements, etc."
                     />
                   </div>
-                  <div className="form-animate grid sm:grid-cols-2 gap-4">
+                  <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block font-body text-sm font-medium text-foreground mb-1.5">
                         Placement type *
@@ -236,10 +230,10 @@ export default function RequestStaffPage() {
                 </div>
               </div>
 
-              <div className="form-animate pl-10">
+              <div className="form-animate">
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center gap-2.5 text-white font-body font-semibold text-sm px-8 py-3.5 rounded-full bg-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 text-white font-body font-semibold text-sm px-8 py-4 rounded-full bg-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5"
                 >
                   Submit Request
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -251,21 +245,21 @@ export default function RequestStaffPage() {
           )}
 
           {/* What happens next - horizontal at bottom */}
-          <div className="mt-16 pt-12 border-t border-secondary/15">
-            <p className="font-heading font-bold text-sm text-foreground mb-6 text-center">
+          <div className="mt-10 sm:mt-16 pt-8 sm:pt-12 border-t border-secondary/15">
+            <p className="font-heading font-bold text-sm text-foreground mb-5 sm:mb-6 text-center">
               What happens after you submit
             </p>
-            <div className="grid grid-cols-3 gap-4 text-center">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 text-center">
               {[
                 { num: "1", text: "We review your request within one business day" },
                 { num: "2", text: "A team member reaches out to discuss details" },
                 { num: "3", text: "We start matching qualified candidates" },
               ].map((step) => (
-                <div key={step.num}>
-                  <div className="w-8 h-8 rounded-full bg-secondary-light text-primary font-heading font-bold text-xs flex items-center justify-center mx-auto mb-2">
+                <div key={step.num} className="flex sm:flex-col items-center sm:items-center gap-3 sm:gap-2 flex-1">
+                  <div className="w-8 h-8 rounded-full bg-secondary-light text-primary font-heading font-bold text-xs flex items-center justify-center shrink-0">
                     {step.num}
                   </div>
-                  <p className="font-body text-xs text-muted leading-relaxed">
+                  <p className="font-body text-xs text-muted leading-relaxed text-left sm:text-center">
                     {step.text}
                   </p>
                 </div>

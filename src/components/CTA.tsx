@@ -17,7 +17,7 @@ export default function CTA() {
       const els = sectionRef.current!.querySelectorAll(".cta-animate");
       gsap.set(els, { y: 25, autoAlpha: 0 });
       gsap.to(els, {
-        y: 0, autoAlpha: 1, duration: 0.8, stagger: 0.08, ease: "power2.out",
+        y: 0, autoAlpha: 1, duration: 0.5, stagger: 0.04, ease: "power2.out",
         scrollTrigger: { trigger: sectionRef.current, start: "top 75%" },
       });
 
@@ -59,9 +59,9 @@ export default function CTA() {
       <div className="absolute inset-0 bg-foreground/80" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-[1600px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24 flex flex-col lg:flex-row lg:items-center justify-between gap-8 lg:gap-10">
+      <div className="relative z-10 max-w-[1600px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24 flex flex-col items-center text-center gap-8">
 
-        {/* Left — text */}
+        {/* Text */}
         <div className="max-w-2xl">
           <p className="cta-animate font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
             Start today
@@ -69,17 +69,17 @@ export default function CTA() {
           <h2 className="cta-animate font-heading font-bold text-display-md text-white mb-4">
             Ready to begin your nursing career in Canada?
           </h2>
-          <p className="cta-animate font-body text-base text-white/55 leading-relaxed">
+          <p className="cta-animate font-body text-base md:text-lg text-white/75 leading-relaxed">
             Whether you are a nurse looking for work or an employer looking for talent, we are here to help.
           </p>
         </div>
 
-        {/* Right — CTAs */}
-        <div className="cta-animate flex flex-col sm:flex-row gap-3 sm:gap-4 shrink-0">
-          <ApplyButton variant="white" />
+        {/* CTAs */}
+        <div className="cta-animate flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto max-w-md sm:max-w-none mx-auto">
+          <ApplyButton variant="white" className="w-full sm:w-auto" />
           <Link
             href="/employers"
-            className="inline-flex items-center justify-center border border-white/25 text-white font-body font-semibold text-sm px-8 py-4 rounded-full hover:border-white/50 transition-colors duration-300"
+            className="w-full sm:w-auto inline-flex items-center justify-center border border-white/25 text-white font-body font-semibold text-sm px-8 py-4 rounded-full hover:border-white/50 transition-colors duration-300"
           >
             Hire Qualified Staff
           </Link>

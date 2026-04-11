@@ -32,13 +32,13 @@ export default function Hero() {
       gsap.set(".hero-trust", { y: 14, autoAlpha: 0 });
 
       // Main entrance timeline
-      tl.to(".hero-label", { y: 0, autoAlpha: 1, duration: 0.8, ease: "power2.out" })
+      tl.to(".hero-label", { y: 0, autoAlpha: 1, duration: 0.5, ease: "power2.out" })
         .to(
           ".hero-headline-line",
-          { yPercent: 0, duration: 1.2, stagger: 0.1, ease: "power4.out" },
+          { yPercent: 0, duration: 0.6, stagger: 0.05, ease: "power4.out" },
           "-=0.5"
         )
-        .to(".hero-sub", { y: 0, autoAlpha: 1, duration: 0.6 }, "-=0.7")
+        .to(".hero-sub", { y: 0, autoAlpha: 1, duration: 0.4 }, "-=0.7")
         .to(
           ".hero-cta > *",
           { y: 0, autoAlpha: 1, duration: 0.4, stagger: 0.06 },
@@ -48,17 +48,17 @@ export default function Hero() {
           ".hero-image-wrap",
           {
             clipPath: "inset(0 0 0 0% round 0.5rem)",
-            duration: 0.9,
+            duration: 0.5,
             ease: "power4.inOut",
           },
-          0.3
+          0.15
         )
         .to(
           ".hero-stat-item",
-          { y: 0, autoAlpha: 1, duration: 0.7, stagger: 0.1 },
+          { y: 0, autoAlpha: 1, duration: 0.4, stagger: 0.05 },
           "-=0.6"
         )
-        .to(".hero-trust", { y: 0, autoAlpha: 1, duration: 0.7 }, "-=0.4");
+        .to(".hero-trust", { y: 0, autoAlpha: 1, duration: 0.4 }, "-=0.4");
 
 
     }, sectionRef);
@@ -77,11 +77,11 @@ export default function Hero() {
 
       {/* Main content */}
       <div className="relative flex-1 flex items-start px-5 sm:px-6 md:px-12 lg:px-20 pt-8 sm:pt-12 lg:pt-14">
-        <div className="max-w-[1400px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-stretch">
-          {/* Left column - text */}
-          <div className="lg:col-span-6 xl:col-span-6 lg:pl-2 xl:pl-4">
+        <div className="max-w-[1400px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
+          {/* Text content */}
+          <div className="order-1 lg:col-start-1 lg:col-end-7 lg:pl-2 xl:pl-4">
             {/* Label */}
-            <p className="hero-label font-body text-[0.78rem] sm:text-[0.85rem] font-semibold text-accent tracking-[0.12em] uppercase mb-[0.85rem]">
+            <p className="hero-label font-body text-[0.78rem] sm:text-[0.85rem] font-semibold text-accent tracking-[0.08em] uppercase mb-[0.85rem]">
               Now placing nurses across Canada
             </p>
 
@@ -118,7 +118,7 @@ export default function Hero() {
             </p>
 
             {/* CTAs */}
-            <div className="hero-cta flex flex-col sm:flex-row sm:items-start items-stretch gap-3 sm:gap-4 mb-10 sm:mb-12">
+            <div className="hero-cta flex flex-col sm:flex-row sm:items-start items-stretch gap-3 sm:gap-4">
               <ApplyButton />
               <Link
                 href="/employers"
@@ -127,8 +127,26 @@ export default function Hero() {
                 Hire Qualified Staff
               </Link>
             </div>
+          </div>
 
-            {/* Stats */}
+          {/* Image */}
+          <div className="order-2 lg:col-start-7 lg:col-end-13 lg:row-start-1 lg:row-end-3 pt-0 lg:pt-0">
+            <div className="hero-image-wrap relative rounded-lg overflow-hidden h-full min-h-[320px] sm:min-h-[400px] md:min-h-[460px] lg:min-h-[500px] shadow-2xl shadow-foreground/8">
+              <Image
+                src="/heroimage.png"
+                alt="Internationally educated nurse working in a Canadian healthcare setting"
+                fill
+                className="object-cover object-top"
+                priority
+                sizes="(max-width: 1024px) 100vw, 45vw"
+              />
+              {/* Soft warm gradient at bottom */}
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/15 via-transparent to-transparent" />
+            </div>
+          </div>
+
+          {/* Stats */}
+          <div className="order-3 lg:col-start-1 lg:col-end-7 lg:pl-2 xl:pl-4">
             <div className="grid grid-cols-3 sm:flex sm:items-center gap-3 sm:gap-8 md:gap-10">
               {stats.map((stat, i) => (
                 <div key={stat.label} className="hero-stat-item flex items-center gap-3 sm:gap-8 md:gap-10 min-w-0">
@@ -147,38 +165,22 @@ export default function Hero() {
               ))}
             </div>
           </div>
-
-          {/* Right column - image */}
-          <div className="lg:col-span-6 xl:col-span-6 pt-0 lg:pt-0">
-            <div className="hero-image-wrap relative rounded-lg overflow-hidden h-full min-h-[320px] sm:min-h-[400px] md:min-h-[460px] lg:min-h-[500px] shadow-2xl shadow-foreground/8">
-              <Image
-                src="/heroimage.png"
-                alt="Internationally educated nurse working in a Canadian healthcare setting"
-                fill
-                className="object-cover object-top"
-                priority
-                sizes="(max-width: 1024px) 100vw, 45vw"
-              />
-              {/* Soft warm gradient at bottom */}
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/15 via-transparent to-transparent" />
-            </div>
-          </div>
         </div>
       </div>
 
       {/* Trust bar */}
-      <div className="hero-trust shrink-0 py-10 sm:py-14 px-5 sm:px-6 md:px-12 mt-8">
+      <div className="hero-trust shrink-0 py-14 sm:py-14 px-5 sm:px-6 md:px-12 mt-8">
         <div className="max-w-[1400px] mx-auto">
-          <div className="border-t border-secondary/15 pt-8 sm:pt-10">
-            <p className="font-body text-xs sm:text-sm text-muted/70 uppercase tracking-[0.15em] text-center mb-6 sm:mb-8">
+          <div className="md:border-t border-secondary/15 pt-0 sm:pt-10">
+            <p className="font-body text-xs sm:text-sm text-muted/70 uppercase tracking-[0.06em] text-center mb-6 sm:mb-8">
               Trusted by healthcare organizations across Canada
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-4 sm:gap-10 md:gap-20 opacity-60">
+            <div className="flex items-center justify-center gap-6 sm:gap-10 md:gap-20 opacity-60">
               {["Ontario Health", "BC Health", "Alberta HS", "Quebec CISSS"].map(
                 (name) => (
                   <span
                     key={name}
-                    className="font-heading font-bold text-sm sm:text-base md:text-xl text-foreground whitespace-nowrap"
+                    className="font-heading font-bold text-xs sm:text-base md:text-xl text-foreground whitespace-nowrap"
                   >
                     {name}
                   </span>

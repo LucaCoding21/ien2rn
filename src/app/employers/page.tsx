@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
+import ApplyButton from "@/components/ApplyButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -80,20 +81,20 @@ export default function EmployersPage() {
       const heroEls = heroRef.current!.querySelectorAll(".emp-hero-anim");
       gsap.set(heroEls, { y: 30, autoAlpha: 0 });
       gsap.to(heroEls, {
-        y: 0, autoAlpha: 1, duration: 0.8, stagger: 0.08, ease: "power2.out", delay: 0.3,
+        y: 0, autoAlpha: 1, duration: 0.5, stagger: 0.04, ease: "power2.out", delay: 0.15,
       });
 
       // Hero image
       gsap.set(".emp-hero-image", { autoAlpha: 0, x: 40 });
       gsap.to(".emp-hero-image", {
-        autoAlpha: 1, x: 0, duration: 1.2, ease: "power3.out", delay: 0.4,
+        autoAlpha: 1, x: 0, duration: 0.6, ease: "power3.out", delay: 0.15,
       });
 
       // Challenge header
       const challengeHeader = challengeRef.current!.querySelectorAll(".challenge-header > *");
       gsap.set(challengeHeader, { y: 25, autoAlpha: 0 });
       gsap.to(challengeHeader, {
-        y: 0, autoAlpha: 1, duration: 0.8, stagger: 0.06, ease: "power2.out",
+        y: 0, autoAlpha: 1, duration: 0.5, stagger: 0.06, ease: "power2.out",
         scrollTrigger: { trigger: challengeRef.current, start: "top 75%" },
       });
 
@@ -101,7 +102,7 @@ export default function EmployersPage() {
       gsap.set(".challenge-image", { clipPath: "inset(4% 4% 4% 4% round 1.5rem)", autoAlpha: 0 });
       gsap.to(".challenge-image", {
         clipPath: "inset(0% 0% 0% 0% round 1.5rem)", autoAlpha: 1,
-        duration: 1.2, ease: "power3.inOut",
+        duration: 0.6, ease: "power3.inOut",
         scrollTrigger: { trigger: ".challenge-image", start: "top 80%" },
       });
 
@@ -111,7 +112,7 @@ export default function EmployersPage() {
         const fromX = i % 2 === 0 ? -25 : 25;
         gsap.set(el, { x: fromX, autoAlpha: 0 });
         gsap.to(el, {
-          x: 0, autoAlpha: 1, duration: 0.7, delay: i * 0.1, ease: "power2.out",
+          x: 0, autoAlpha: 1, duration: 0.4, delay: i * 0.1, ease: "power2.out",
           scrollTrigger: { trigger: el, start: "top 88%" },
         });
       });
@@ -120,7 +121,7 @@ export default function EmployersPage() {
       const approachHeader = approachRef.current!.querySelectorAll(".approach-header > *");
       gsap.set(approachHeader, { y: 25, autoAlpha: 0 });
       gsap.to(approachHeader, {
-        y: 0, autoAlpha: 1, duration: 0.8, stagger: 0.06, ease: "power2.out",
+        y: 0, autoAlpha: 1, duration: 0.5, stagger: 0.06, ease: "power2.out",
         scrollTrigger: { trigger: approachRef.current, start: "top 75%" },
       });
 
@@ -129,7 +130,7 @@ export default function EmployersPage() {
       gsap.set(approachCards, { y: 40, autoAlpha: 0, scale: 0.95 });
       approachCards.forEach((el, i) => {
         gsap.to(el, {
-          y: 0, autoAlpha: 1, scale: 1, duration: 0.8, delay: i * 0.15, ease: "power2.out",
+          y: 0, autoAlpha: 1, scale: 1, duration: 0.5, delay: i * 0.15, ease: "power2.out",
           scrollTrigger: { trigger: el, start: "top 85%" },
         });
       });
@@ -152,7 +153,7 @@ export default function EmployersPage() {
       gsap.set(contactEls, { y: 30, autoAlpha: 0 });
       contactEls.forEach((el, i) => {
         gsap.to(el, {
-          y: 0, autoAlpha: 1, duration: 0.8, delay: i * 0.1, ease: "power2.out",
+          y: 0, autoAlpha: 1, duration: 0.5, delay: i * 0.1, ease: "power2.out",
           scrollTrigger: { trigger: contactRef.current, start: "top 70%" },
         });
       });
@@ -173,7 +174,7 @@ export default function EmployersPage() {
   return (
     <main>
       {/* ── HERO ── */}
-      <section ref={heroRef} className="pt-24 pb-10 sm:pt-32 sm:pb-16 md:pt-40 md:pb-20">
+      <section ref={heroRef} className="pt-32 pb-10 sm:pt-32 sm:pb-16 md:pt-40 md:pb-20">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
           <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-12 xl:gap-16">
 
@@ -183,7 +184,7 @@ export default function EmployersPage() {
                 For Healthcare Employers
               </p>
               <h1
-                className="emp-hero-anim font-heading font-bold text-foreground mb-6"
+                className="emp-hero-anim font-heading font-bold text-foreground mb-5"
                 style={{ fontSize: "clamp(2.1rem, 9vw, 3.75rem)", lineHeight: "1.04", letterSpacing: "-0.03em" }}
               >
                 Build a workforce
@@ -191,8 +192,13 @@ export default function EmployersPage() {
                 <span className="text-primary">that stays.</span>
               </h1>
 
+              <p className="emp-hero-anim font-body text-sm text-muted leading-relaxed mb-6">
+                Mentored, upskilled IENs who are clinically prepared and culturally
+                integrated. Placed permanently where you need them most.
+              </p>
+
               {/* Image */}
-              <div className="emp-hero-image relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl shadow-foreground/10 mb-6">
+              <div className="emp-hero-image relative aspect-[3/2] rounded-2xl overflow-hidden mb-8">
                 <Image
                   src="/employer-partnership.jpg"
                   alt="Healthcare employer partnership"
@@ -201,31 +207,11 @@ export default function EmployersPage() {
                   priority
                   sizes="100vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 via-transparent to-transparent" />
-                {/* Single floating tag */}
-                <div className="absolute bottom-3 left-3 right-3 bg-primary text-white rounded-xl px-4 py-3">
-                  <p className="font-body text-[10px] font-semibold text-white/60 uppercase tracking-wide mb-0.5">The ien2RN difference</p>
-                  <p className="font-heading font-bold text-white text-sm leading-snug">
-                    Mentored from day one. Not just recruited.
-                  </p>
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/15 via-transparent to-transparent" />
               </div>
 
-              <p className="emp-hero-anim font-body text-base text-muted leading-relaxed mb-8">
-                Mentored, upskilled IENs who are clinically prepared and culturally
-                integrated. Placed permanently where you need them most.
-              </p>
-
-              <div className="emp-hero-anim flex flex-col gap-3 mb-9">
-                <Link
-                  href="/employers/request-staff"
-                  className="group inline-flex items-center justify-center gap-2.5 text-white font-body font-semibold text-sm px-8 py-4 rounded-full bg-primary transition-all duration-300 hover:shadow-xl hover:shadow-primary/25"
-                >
-                  Request Qualified Nurses
-                  <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                </Link>
+              <div className="emp-hero-anim flex flex-col gap-3 mb-9 max-w-sm mx-auto">
+                <ApplyButton href="/employers/request-staff" label="Request Qualified Nurses" />
                 <Link
                   href="/consultation"
                   className="inline-flex items-center justify-center gap-2 font-body font-medium text-sm text-foreground border border-foreground/20 px-8 py-4 rounded-full hover:border-foreground/40 transition-all duration-300"
@@ -370,7 +356,7 @@ export default function EmployersPage() {
                 key={point.title}
                 className={`challenge-item flex gap-3 sm:gap-6 py-6 sm:py-8 ${i < 3 ? "border-b border-secondary/15" : ""} ${i === 2 ? "md:border-b-0" : ""}`}
               >
-                <span className="font-heading font-bold text-2xl sm:text-3xl text-primary/15 leading-none shrink-0 w-9 sm:w-12">
+                <span className="font-heading font-bold text-2xl sm:text-3xl text-primary leading-none shrink-0 w-9 sm:w-12">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div className="min-w-0">
@@ -400,10 +386,6 @@ export default function EmployersPage() {
             </div>
           </div>
 
-          {/* Mobile-only compact closing line (no CTA) */}
-          <p className="challenge-item md:hidden font-heading font-bold text-base text-foreground mt-8 text-center max-w-xs mx-auto leading-snug">
-            Hiring IENs should solve staffing problems, not create new ones.
-          </p>
         </div>
       </section>
 
@@ -422,13 +404,6 @@ export default function EmployersPage() {
             </p>
           </div>
 
-          {/* Mobile hint */}
-          <div className="md:hidden flex items-center gap-2 mb-4 text-muted/60">
-            <span className="font-body text-xs uppercase tracking-wider">Swipe</span>
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </div>
         </div>
 
         {/* Mobile: horizontal scroll */}
@@ -611,15 +586,17 @@ export default function EmployersPage() {
             </a>
           </div>
 
+          <div className="flex justify-center mt-8">
           <Link
             href="/employers/request-staff"
-            className="contact-anim group inline-flex items-center gap-2 font-body font-semibold text-sm text-white/60 hover:text-white mt-8 transition-colors duration-300"
+            className="contact-anim group inline-flex items-center gap-2 font-body font-semibold text-sm text-white/60 hover:text-white transition-colors duration-300"
           >
             Or submit a staffing request
             <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
+          </div>
         </div>
       </section>
     </main>
