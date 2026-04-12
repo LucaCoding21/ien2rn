@@ -89,12 +89,13 @@ export default function VideoTestimonials() {
     return () => el.removeEventListener("scroll", updateScrollState);
   }, [updateScrollState]);
 
-  const scrollBy = (direction: "left" | "right") => {
+  const scrollByDirection = (direction: "left" | "right") => {
     const el = scrollRef.current;
     if (!el) return;
     const card = el.querySelector(".vt-card") as HTMLElement;
     const distance = card ? card.offsetWidth + 24 : 400;
-    el.scrollBy({ left: direction === "right" ? distance : -distance, behavior: "smooth" });
+    const target = el.scrollLeft + (direction === "right" ? distance : -distance);
+    gsap.to(el, { scrollLeft: target, duration: 0.5, ease: "power2.out", onUpdate: updateScrollState });
   };
 
   return (
@@ -114,7 +115,7 @@ export default function VideoTestimonials() {
             {/* Desktop arrows — next to heading */}
             <div className="hidden sm:flex items-center gap-2 shrink-0 pb-1">
               <button
-                onClick={() => scrollBy("left")}
+                onClick={() => scrollByDirection("left")}
                 disabled={!canScrollLeft}
                 className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-200 ${
                   canScrollLeft
@@ -128,7 +129,7 @@ export default function VideoTestimonials() {
                 </svg>
               </button>
               <button
-                onClick={() => scrollBy("right")}
+                onClick={() => scrollByDirection("right")}
                 disabled={!canScrollRight}
                 className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-200 ${
                   canScrollRight
@@ -194,11 +195,11 @@ export default function VideoTestimonials() {
                     </div>
 
                     {/* Identity bar — floating bottom bar */}
-                    <div className="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-sm rounded-lg px-4 py-2.5 shadow-sm">
-                      <p className="font-heading font-bold text-sm text-foreground leading-tight">
+                    <div className="absolute bottom-2 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-3 bg-white/95 backdrop-blur-sm rounded-md sm:rounded-lg px-3 py-1.5 sm:px-4 sm:py-2.5 shadow-sm">
+                      <p className="font-heading font-bold text-xs sm:text-sm text-foreground leading-tight">
                         {t.name}
                       </p>
-                      <p className="font-body text-xs text-muted">
+                      <p className="font-body text-[10px] sm:text-xs text-muted">
                         {t.role}
                       </p>
                     </div>
@@ -217,7 +218,7 @@ export default function VideoTestimonials() {
         {/* Mobile arrows — centered below cards */}
         <div className="sm:hidden flex items-center justify-center gap-3 mt-6 px-5">
           <button
-            onClick={() => scrollBy("left")}
+            onClick={() => scrollByDirection("left")}
             disabled={!canScrollLeft}
             className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-200 ${
               canScrollLeft
@@ -231,7 +232,7 @@ export default function VideoTestimonials() {
             </svg>
           </button>
           <button
-            onClick={() => scrollBy("right")}
+            onClick={() => scrollByDirection("right")}
             disabled={!canScrollRight}
             className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-200 ${
               canScrollRight
