@@ -10,17 +10,17 @@ import ApplyButton from "./ApplyButton";
 gsap.registerPlugin(ScrollTrigger);
 
 const nurseSteps = [
-  { number: "01", title: "Apply", description: "Tell us about your background, credentials, and goals so we can map out your next steps." },
-  { number: "02", title: "Mentorship", description: "Get paired with a nurse mentor who's already made the move to Canada." },
-  { number: "03", title: "Preparation", description: "Credentialing support, exam prep, and career coaching to get you job-ready." },
-  { number: "04", title: "Placement", description: "We match you with hospitals and clinics across Canada that need your skills." },
+  { number: "01", title: "Apply", description: "Tell us about your background, objectives, and situation so we can map out your next steps." },
+  { number: "02", title: "Prepare", description: "Be guided on the right pathway, exam prep, competency development, and career coaching to get you practice-ready." },
+  { number: "03", title: "Get Employed", description: "We make the introductions and matching. We even support your relocation." },
+  { number: "04", title: "Be Mentored", description: "Get paired with a mentor who's been there, done that, easing your transition." },
 ];
 
 const employerSteps = [
-  { number: "01", title: "Consultation", description: "Tell us about your staffing needs, timelines, and team." },
-  { number: "02", title: "Screening", description: "We identify qualified, credentialed candidates from our network." },
-  { number: "03", title: "Matching", description: "Nurses matched to your environment, culture, and requirements." },
-  { number: "04", title: "Support", description: "Ongoing integration and retention support after placement." },
+  { number: "01", title: "Explore", description: "Tell us about your team, goals, priorities, and workforce needs." },
+  { number: "02", title: "Partner", description: "Let us help you identify and build your workforce solution through our tiered model." },
+  { number: "03", title: "Get Matched", description: "Select nurses that match your culture and requirements." },
+  { number: "04", title: "Be Supported", description: "Choose from integration to retention support after placement." },
 ];
 
 export default function HowItWorks() {
@@ -64,7 +64,7 @@ export default function HowItWorks() {
         {/* Header */}
         <div className="hiw-header max-w-2xl mb-8 sm:mb-14 md:mb-16 text-center sm:text-left mx-auto sm:mx-0">
           <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
-            How it works
+            How we work
           </p>
           <h2 className="font-heading font-bold text-display-md text-foreground">
             A clear path for each side.
@@ -110,8 +110,11 @@ export default function HowItWorks() {
               />
             </div>
             <div className="p-6 sm:p-8 md:p-10 order-1 md:order-2">
-              <p className="font-body text-sm font-semibold text-primary uppercase tracking-[0.08em] mb-6 sm:mb-8 hidden md:block">
+              <p className="font-body text-sm font-semibold text-primary uppercase tracking-[0.08em] mb-3 hidden md:block">
                 For nurses
+              </p>
+              <p className="font-heading font-bold text-base sm:text-lg text-foreground mb-6 sm:mb-8">
+                From uncertainty to practice-ready. You don&apos;t have to navigate this alone.
               </p>
               <div className="space-y-6 sm:space-y-6 md:space-y-8 mb-8 md:mb-10">
                 {nurseSteps.map((step) => (
@@ -149,8 +152,11 @@ export default function HowItWorks() {
               />
             </div>
             <div className="p-6 sm:p-8 md:p-10 order-1 md:order-2">
-              <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-6 sm:mb-8 hidden md:block">
+              <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-3 hidden md:block">
                 For employers
+              </p>
+              <p className="font-heading font-bold text-base sm:text-lg text-foreground mb-6 sm:mb-8">
+                Not just recruiting: building a workforce that is empowered, strengthened, and resilient.
               </p>
               <div className="space-y-6 sm:space-y-6 md:space-y-8 mb-8 md:mb-10">
                 {employerSteps.map((step) => (

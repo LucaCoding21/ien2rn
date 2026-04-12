@@ -56,20 +56,23 @@ export default function Problem() {
           {/* Left — Content */}
           <div className="problem-content lg:col-span-5 flex flex-col justify-center order-1 lg:order-1">
             <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-5">
-              The challenge
+              The Gap
             </p>
             <h2 className="font-heading font-bold text-display-md text-foreground mb-6">
-              It shouldn&apos;t be this hard.
+              We bring years of nursing experience.
             </h2>
             <p className="font-body text-base text-muted leading-relaxed mb-4">
-              You&apos;ve spent years as a nurse. But moving to Canada means
-              navigating credential assessments, licensing exams, and immigration
-              paperwork, often with no clear path and no one in your corner.
+              But in Canada, the path to practice is complex (credentialing,
+              exams, and immigration), often with no clear direction, no
+              guaranteed employment, and no one in your corner.
             </p>
-            <p className="font-body text-base text-muted leading-relaxed">
-              Meanwhile, healthcare employers across Canada are short-staffed
-              and struggling to find nurses who are licensed, prepared, and
-              ready to start.
+            <p className="font-body text-base text-muted leading-relaxed mb-6">
+              Meanwhile, healthcare employers across the country are critically
+              short-staffed, seeking nurses who are not only licensed, but truly
+              ready to practice in the Canadian care environment.
+            </p>
+            <p className="font-heading font-bold text-base sm:text-lg text-foreground">
+              This is the gap. This is where ien2RN leads.
             </p>
           </div>
 

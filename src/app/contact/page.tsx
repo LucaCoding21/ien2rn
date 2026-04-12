@@ -69,14 +69,14 @@ export default function ContactPage() {
               <div className="space-y-6 lg:space-y-8 mb-12">
                 <div>
                   <p className="font-body text-xs font-semibold text-accent lg:text-muted uppercase tracking-wider mb-1.5 lg:mb-2">Phone</p>
-                  <a href="tel:+16042295549" className="font-heading font-bold text-lg md:text-2xl text-foreground hover:text-primary transition-colors duration-300">
-                    (604) 229-5549
+                  <a href="tel:+16042392400" className="font-heading font-bold text-lg md:text-2xl text-foreground hover:text-primary transition-colors duration-300">
+                    (604) 239-2400
                   </a>
                 </div>
                 <div>
                   <p className="font-body text-xs font-semibold text-accent lg:text-muted uppercase tracking-wider mb-1.5 lg:mb-2">Email</p>
-                  <a href="mailto:NurseMentor@ien2RN.org" className="font-heading font-bold text-lg md:text-2xl text-foreground hover:text-primary transition-colors duration-300 break-all">
-                    NurseMentor@ien2RN.org
+                  <a href="mailto:Workforce@ien2RN.org" className="font-heading font-bold text-lg md:text-2xl text-foreground hover:text-primary transition-colors duration-300 break-all">
+                    Workforce@ien2RN.org
                   </a>
                 </div>
                 <div>

@@ -546,7 +546,7 @@ export default function EmployersPage() {
 
           <div className="contact-anim grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-2xl">
             <a
-              href="tel:+16042295549"
+              href="tel:+16042392400"
               className="group rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10 p-6 sm:p-6 hover:bg-white/15 transition-colors duration-300"
             >
               <div className="flex items-center gap-3 sm:block">
@@ -559,14 +559,14 @@ export default function EmployersPage() {
                   <p className="font-heading font-bold text-sm sm:text-base text-white">Call us directly</p>
                   <p className="font-body text-xs text-white/40 sm:mb-4 hidden sm:block">Phone or WhatsApp</p>
                   <p className="font-heading font-bold text-xs sm:text-sm text-white group-hover:text-secondary transition-colors duration-300">
-                    +1-604-229-5549
+                    +1-604-239-2400
                   </p>
                 </div>
               </div>
             </a>
 
             <a
-              href="mailto:NurseMentor@ien2rn.org"
+              href="mailto:Workforce@ien2RN.org"
               className="group rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10 p-6 sm:p-6 hover:bg-white/15 transition-colors duration-300"
             >
               <div className="flex items-center gap-3 sm:block">
@@ -579,7 +579,7 @@ export default function EmployersPage() {
                   <p className="font-heading font-bold text-sm sm:text-base text-white">Send us a message</p>
                   <p className="font-body text-xs text-white/40 sm:mb-4 hidden sm:block">Email</p>
                   <p className="font-heading font-bold text-xs sm:text-sm text-white truncate group-hover:text-secondary transition-colors duration-300">
-                    NurseMentor@ien2rn.org
+                    Workforce@ien2RN.org
                   </p>
                 </div>
               </div>

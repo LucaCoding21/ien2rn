@@ -55,12 +55,15 @@ export default function Trust() {
               Who we are
             </p>
             <h2 className="font-heading font-bold text-display-md text-foreground mb-6">
-              We&apos;re nurses too. We understand your journey.
+              We go beyond recruitment.
             </h2>
+            <p className="font-body text-base text-muted leading-relaxed mb-4">
+              ien2RN is a workforce integration and practice-readiness platform
+              designed to bridge the gap between internationally educated nurses
+              and the Canadian healthcare system.
+            </p>
             <p className="font-body text-base text-muted leading-relaxed mb-6">
-              ien2RN was started by internationally educated nurses who moved
-              to Canada, just like you. We know how hard it is. We built
-              this company so you don&apos;t have to do it alone.
+              We deliver end-to-end integration.
             </p>
 
             {/* Quote */}

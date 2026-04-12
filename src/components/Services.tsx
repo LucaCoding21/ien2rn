@@ -11,27 +11,27 @@ gsap.registerPlugin(ScrollTrigger);
 const services = [
   {
     label: "For nurses",
-    title: "Job Placement",
+    title: "Training & Development",
     description:
-      "We match you with hospitals, clinics, and care homes across Canada that need your skills. From your first interview to your first shift.",
-    href: "/candidates",
-    linkText: "Learn more",
-    image: "/job-placement.jpg",
-  },
-  {
-    label: "For nurses",
-    title: "Mentorship & Training",
-    description:
-      "CBA & SLA boot camps, 1-on-1 nurse mentorship, career coaching, and upskilling webinars. All built by IEN nurses who've been where you are.",
+      "We equip you in choosing the best pathway to work and stay in Canada. Our programs are carefully developed by nurses who have been where you are.",
     href: "/learning/courses",
     linkText: "View programs",
     image: "/mentorship.jpg",
   },
   {
+    label: "For nurses",
+    title: "Job Placement",
+    description:
+      "We help you embark on your new nursing journey, from acute to long-term care and vice versa. Our guidance goes beyond your first shift.",
+    href: "/candidates",
+    linkText: "Learn more",
+    image: "/job-placement.jpg",
+  },
+  {
     label: "For employers",
     title: "Employer Partnerships",
     description:
-      "We connect healthcare employers with qualified, ready-to-work internationally educated nurses.",
+      "We partner with you in curating the workforce solution for your desired outcome. From recruitment to retention, we are with you.",
     href: "/employers",
     linkText: "Partner with us",
     image: "/employer-partnership.jpg",
@@ -83,7 +83,7 @@ export default function Services() {
             What we do
           </p>
           <h2 className="font-heading font-bold text-display-md text-foreground lg:whitespace-nowrap">
-            All you need to work in Canada
+            All you need to thrive in Canada
           </h2>
         </div>
 

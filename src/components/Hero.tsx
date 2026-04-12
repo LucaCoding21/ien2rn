@@ -7,9 +7,9 @@ import Link from "next/link";
 import ApplyButton from "./ApplyButton";
 
 const stats = [
-  { value: "500+", label: "Nurses placed" },
-  { value: "95%", label: "Satisfaction rate" },
-  { value: "100%", label: "Employer retention" },
+  { value: "500+", label: "Practice ready nurses" },
+  { value: "100%", label: "Training satisfaction" },
+  { value: "91.67%", label: "Employer retention" },
 ];
 
 export default function Hero() {
@@ -113,18 +113,18 @@ export default function Hero() {
 
             {/* Subline */}
             <p className="hero-sub font-body text-base md:text-lg text-muted max-w-xl mb-6 sm:mb-8 leading-relaxed">
-              We handle credentialing, immigration support, and
-              employer matching, so you can focus on what you do best.
+              We address practice readiness, employer matching, and
+              settlement support so you can focus on what you do best.
             </p>
 
             {/* CTAs */}
             <div className="hero-cta flex flex-col sm:flex-row sm:items-start items-stretch gap-3 sm:gap-4 lg:mb-12">
-              <ApplyButton />
+              <ApplyButton label="I want to apply" />
               <Link
                 href="/employers"
                 className="inline-flex items-center justify-center text-primary font-body font-semibold text-base px-8 sm:px-10 py-4 rounded-full border-2 border-primary transition-all duration-300 hover:bg-primary hover:text-white hover:-translate-y-0.5"
               >
-                Hire Qualified Staff
+                I want to hire
               </Link>
             </div>
           </div>
@@ -133,7 +133,7 @@ export default function Hero() {
           <div className="order-2 lg:col-start-7 lg:col-end-13 lg:row-start-1 lg:row-end-3 pt-0 lg:pt-0">
             <div className="hero-image-wrap relative rounded-lg overflow-hidden h-full min-h-[320px] sm:min-h-[400px] md:min-h-[460px] lg:min-h-[500px] shadow-2xl shadow-foreground/8">
               <Image
-                src="/heroimage.png"
+                src="/newhero.png"
                 alt="Internationally educated nurse working in a Canadian healthcare setting"
                 fill
                 className="object-cover object-top"
@@ -173,10 +173,10 @@ export default function Hero() {
         <div className="max-w-[1400px] mx-auto">
           <div className="md:border-t border-secondary/15 pt-0 sm:pt-10">
             <p className="font-body text-xs sm:text-sm text-muted/70 uppercase tracking-[0.06em] text-center mb-6 sm:mb-8">
-              Trusted by healthcare organizations across Canada
+              Our practice-ready nurses are employed across Canada
             </p>
             <div className="flex items-center justify-center gap-6 sm:gap-10 md:gap-20 opacity-60">
-              {["Ontario Health", "BC Health", "Alberta HS", "Quebec CISSS"].map(
+              {["Island Health", "Vancouver Coastal Health", "Northern Health", "Interior Health"].map(
                 (name) => (
                   <span
                     key={name}
