@@ -11,6 +11,7 @@ const testimonials = [
   { name: "Sherry", role: "IEN Nurse", video: "/videos/testimony1sherry.mp4" },
   { name: "Sherry", role: "IEN Nurse", video: "/videos/testimony1sherry.mp4" },
   { name: "Sherry", role: "IEN Nurse", video: "/videos/testimony1sherry.mp4" },
+  { name: "Sherry", role: "IEN Nurse", video: "/videos/testimony1sherry.mp4" },
 ];
 
 export default function VideoTestimonials() {
