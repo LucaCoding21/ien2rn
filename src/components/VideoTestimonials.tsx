@@ -135,16 +135,14 @@ export default function VideoTestimonials() {
                       </div>
                     </div>
 
-                    {/* Identity card — bottom left */}
-                    <div className="absolute bottom-3 left-3">
-                      <div className="bg-white rounded-lg px-3.5 py-2 shadow-sm">
-                        <p className="font-heading font-bold text-sm text-foreground leading-tight">
-                          {t.name}
-                        </p>
-                        <p className="font-body text-xs text-muted">
-                          {t.role}
-                        </p>
-                      </div>
+                    {/* Identity bar — full-width bottom strip */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-sm px-4 py-3">
+                      <p className="font-heading font-bold text-sm text-foreground leading-tight">
+                        {t.name}
+                      </p>
+                      <p className="font-body text-xs text-muted">
+                        {t.role}
+                      </p>
                     </div>
 
                     {/* Duration badge — top right */}
