@@ -6,12 +6,6 @@ import Image from "next/image";
 import CTABanner from "@/components/CTABanner";
 import BookingModal from "@/components/BookingModal";
 
-const categories = [
-  { key: "all", label: "All Professionals" },
-  { key: "career", label: "Career Counsellors" },
-  { key: "immigration", label: "Immigration Consultants" },
-];
-
 const professionals = [
   {
     name: "Sheena Ramirez",
@@ -65,15 +59,9 @@ const professionals = [
 
 export default function ConsultationPage() {
   const gridRef = useRef<HTMLDivElement>(null);
-  const [activeCategory, setActiveCategory] = useState("all");
   const [selectedProfessional, setSelectedProfessional] = useState<(typeof professionals)[number] | null>(null);
 
-  const filtered =
-    activeCategory === "all"
-      ? professionals
-      : professionals.filter((p) => p.category === activeCategory);
-
-  // Animate cards on filter change
+  // Animate cards on mount
   useEffect(() => {
     if (!gridRef.current) return;
     const cards = gridRef.current.querySelectorAll(".pro-card");
@@ -85,7 +73,7 @@ export default function ConsultationPage() {
       stagger: 0.07,
       ease: "power2.out",
     });
-  }, [activeCategory]);
+  }, []);
 
   return (
     <main>
@@ -103,26 +91,9 @@ export default function ConsultationPage() {
             </h2>
           </div>
 
-          {/* Category Filter */}
-          <div className="flex flex-wrap gap-2 mb-10">
-            {categories.map((cat) => (
-              <button
-                key={cat.key}
-                onClick={() => setActiveCategory(cat.key)}
-                className={`font-body text-sm font-medium px-5 py-2 rounded-full border transition-all duration-300 ${
-                  activeCategory === cat.key
-                    ? "bg-primary text-white border-primary"
-                    : "bg-white text-muted border-secondary/25 hover:border-primary/30 hover:text-foreground"
-                }`}
-              >
-                {cat.label}
-              </button>
-            ))}
-          </div>
-
           {/* Cards Grid */}
           <div ref={gridRef} className="grid md:grid-cols-2 gap-6">
-            {filtered.map((person) => (
+            {professionals.map((person) => (
               <div
                 key={person.name}
                 className="pro-card group bg-offwhite rounded-2xl border border-secondary/15 overflow-hidden hover:shadow-lg hover:shadow-primary/5 transition-all duration-500"
@@ -143,20 +114,6 @@ export default function ConsultationPage() {
                       <span className="font-heading font-bold text-5xl text-primary/20">{person.initials}</span>
                     </div>
                   )}
-                  {/* Paid badge (desktop only) */}
-                  {person.isPaid && (
-                    <div className="hidden lg:block absolute top-4 right-4 bg-white/95 backdrop-blur-sm border border-secondary/20 rounded-full px-3 py-1">
-                      <span className="font-body text-xs font-semibold text-foreground">
-                        {person.rate}
-                      </span>
-                    </div>
-                  )}
-                  {/* Category badge (desktop only) */}
-                  <div className="hidden lg:block absolute bottom-4 left-4">
-                    <span className="bg-primary/90 backdrop-blur-sm text-white font-body text-xs font-medium px-3 py-1 rounded-full">
-                      {categories.find((c) => c.key === person.category)?.label}
-                    </span>
-                  </div>
                 </div>
 
                 {/* Content */}
