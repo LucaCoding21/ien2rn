@@ -11,15 +11,16 @@ const testimonials = [
   { name: "Sherry", role: "IEN Nurse", video: "/videos/testimony1sherry.mp4" },
   { name: "Sherry", role: "IEN Nurse", video: "/videos/testimony1sherry.mp4" },
   { name: "Sherry", role: "IEN Nurse", video: "/videos/testimony1sherry.mp4" },
-  { name: "Sherry", role: "IEN Nurse", video: "/videos/testimony1sherry.mp4" },
-  { name: "Sherry", role: "IEN Nurse", video: "/videos/testimony1sherry.mp4" },
 ];
 
 export default function VideoTestimonials() {
   const sectionRef = useRef<HTMLElement>(null);
   const previewRef = useRef<HTMLVideoElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
   const [activeVideo, setActiveVideo] = useState<{ src: string; name: string; role: string } | null>(null);
   const [previewReady, setPreviewReady] = useState(false);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
 
   // GSAP entrance animation
   useEffect(() => {
@@ -71,23 +72,81 @@ export default function VideoTestimonials() {
     return () => observer.disconnect();
   }, [previewReady]);
 
+  // Track scroll position for arrow state
+  const updateScrollState = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 10);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10);
+  }, []);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.addEventListener("scroll", updateScrollState, { passive: true });
+    updateScrollState();
+    return () => el.removeEventListener("scroll", updateScrollState);
+  }, [updateScrollState]);
+
+  const scrollBy = (direction: "left" | "right") => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const card = el.querySelector(".vt-card") as HTMLElement;
+    const distance = card ? card.offsetWidth + 24 : 400;
+    el.scrollBy({ left: direction === "right" ? distance : -distance, behavior: "smooth" });
+  };
+
   return (
     <>
       <section ref={sectionRef} className="pb-section pt-10 md:pt-14 bg-secondary-light/25">
         <div className="max-w-[1600px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24">
-          <div className="vt-header mb-10 sm:mb-14 md:mb-16">
-            <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
-              Stories
-            </p>
-            <h2 className="font-heading font-bold text-display-md text-foreground">
-              Hear from our community
-            </h2>
+          <div className="vt-header mb-10 sm:mb-14 md:mb-16 flex items-end justify-between gap-6">
+            <div>
+              <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
+                Stories
+              </p>
+              <h2 className="font-heading font-bold text-display-md text-foreground">
+                Hear from our community
+              </h2>
+            </div>
+
+            {/* Desktop arrows — next to heading */}
+            <div className="hidden sm:flex items-center gap-2 shrink-0 pb-1">
+              <button
+                onClick={() => scrollBy("left")}
+                disabled={!canScrollLeft}
+                className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-200 ${
+                  canScrollLeft
+                    ? "border-secondary/30 text-foreground hover:border-primary hover:text-primary"
+                    : "border-secondary/15 text-muted/30 cursor-default"
+                }`}
+                aria-label="Previous"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                </svg>
+              </button>
+              <button
+                onClick={() => scrollBy("right")}
+                disabled={!canScrollRight}
+                className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-200 ${
+                  canScrollRight
+                    ? "border-secondary/30 text-foreground hover:border-primary hover:text-primary"
+                    : "border-secondary/15 text-muted/30 cursor-default"
+                }`}
+                aria-label="Next"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
 
         {/* Scrollable row */}
         <div className="overflow-hidden">
-          <div className="overflow-x-auto scrollbar-hide">
+          <div ref={scrollRef} className="overflow-x-auto scrollbar-hide">
             <div className="flex gap-4 sm:gap-6 pl-5 sm:pl-6 md:pl-16 lg:pl-24 pr-5 sm:pr-6 md:pr-16 lg:pr-24">
               {testimonials.map((t, i) => (
                 <div
@@ -99,7 +158,6 @@ export default function VideoTestimonials() {
                   {/* Video / Thumbnail */}
                   <div className="relative aspect-video bg-foreground/5">
                     {i === 0 ? (
-                      /* First card: 15-second muted autoplay preview */
                       <video
                         ref={previewRef}
                         src={t.video}
@@ -111,7 +169,6 @@ export default function VideoTestimonials() {
                         className="w-full h-full object-cover"
                       />
                     ) : (
-                      /* Other cards: poster frame (first frame of video) */
                       <video
                         src={t.video}
                         muted
@@ -154,6 +211,38 @@ export default function VideoTestimonials() {
               ))}
             </div>
           </div>
+        </div>
+
+        {/* Mobile arrows — centered below cards */}
+        <div className="sm:hidden flex items-center justify-center gap-3 mt-6 px-5">
+          <button
+            onClick={() => scrollBy("left")}
+            disabled={!canScrollLeft}
+            className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-200 ${
+              canScrollLeft
+                ? "border-secondary/30 text-foreground"
+                : "border-secondary/15 text-muted/30 cursor-default"
+            }`}
+            aria-label="Previous"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+          </button>
+          <button
+            onClick={() => scrollBy("right")}
+            disabled={!canScrollRight}
+            className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-200 ${
+              canScrollRight
+                ? "border-secondary/30 text-foreground"
+                : "border-secondary/15 text-muted/30 cursor-default"
+            }`}
+            aria-label="Next"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </button>
         </div>
       </section>
 
