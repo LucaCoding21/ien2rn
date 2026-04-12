@@ -9,7 +9,6 @@ import BookingModal from "@/components/BookingModal";
 const categories = [
   { key: "all", label: "All Professionals" },
   { key: "career", label: "Career Counsellors" },
-  { key: "mentor", label: "Nursing Mentors" },
   { key: "immigration", label: "Immigration Consultants" },
 ];
 
@@ -21,7 +20,9 @@ const professionals = [
     specialties: ["Resume building", "Interview prep", "Job placement strategy"],
     bio: "Sheena has placed over 200 internationally educated nurses into Canadian healthcare roles. She specializes in helping IENs present their unique strengths to Canadian employers.",
     initials: "SR",
-    image: "/hero-nurse.jpg",
+    image: "/team/sheena.jpg",
+    isPaid: true,
+    rate: "$59/30 min · $89/45 min",
     calLink: "https://cal.com/cloverfield/30min",
   },
   {
@@ -31,51 +32,33 @@ const professionals = [
     specialties: ["Career transitions", "Credential guidance", "Networking strategies"],
     bio: "With a background in healthcare recruitment and counselling, Kammy helps nurses navigate career pivots and identify the right opportunities across provinces.",
     initials: "KL",
-    image: "/hero-nurse.jpg",
-    calLink: "https://cal.com/cloverfield/30min",
-  },
-  {
-    name: "Priya Desai",
-    title: "Nursing Mentor | RN, BScN",
-    category: "mentor",
-    specialties: ["Clinical integration", "CBA & SLA preparation", "Workplace culture coaching"],
-    bio: "An internationally educated nurse herself, Priya walked the IEN-to-RN path and now mentors new nurses through the clinical and cultural transition to Canadian practice.",
-    initials: "PD",
-    image: "/hero-nurse.jpg",
-    calLink: "https://cal.com/cloverfield/30min",
-  },
-  {
-    name: "Grace Adeyemi",
-    title: "Nursing Mentor | RN, MN",
-    category: "mentor",
-    specialties: ["Exam strategies", "Competency assessments", "Confidence building"],
-    bio: "Grace brings 12 years of Canadian nursing experience and a Master's in Nursing. She focuses on bridging the gap between international training and Canadian practice expectations.",
-    initials: "GA",
-    image: "/hero-nurse.jpg",
+    image: "",
+    isPaid: true,
+    rate: "$59/30 min · $89/45 min",
     calLink: "https://cal.com/cloverfield/30min",
   },
   {
     name: "Jeffrey Santos",
     title: "Regulated Canadian Immigration Consultant (RCIC)",
     category: "immigration",
-    isPaid: true,
-    rate: "$150/hr",
     specialties: ["Work permits", "PR applications", "LMIA support", "Provincial nominees"],
     bio: "Jeffrey is a licensed RCIC who specializes in healthcare worker immigration. He has helped hundreds of nurses secure work permits and permanent residency in Canada.",
     initials: "JS",
-    image: "/hero-nurse.jpg",
+    image: "/team/jeffry.jpg",
+    isPaid: true,
+    rate: "$59/30 min · $89/45 min",
     calLink: "https://cal.com/cloverfield/30min",
   },
   {
     name: "Pamela Okafor",
     title: "Immigration & Settlement Consultant",
     category: "immigration",
-    isPaid: true,
-    rate: "$125/hr",
     specialties: ["Settlement support", "Spousal sponsorship", "Document preparation"],
     bio: "Pamela combines immigration expertise with settlement guidance, helping nurses and their families adjust to life in Canada, from paperwork to finding a community.",
     initials: "PO",
-    image: "/hero-nurse.jpg",
+    image: "",
+    isPaid: true,
+    rate: "$59/30 min · $89/45 min",
     calLink: "https://cal.com/cloverfield/30min",
   },
 ];
@@ -138,7 +121,7 @@ export default function ConsultationPage() {
           </div>
 
           {/* Cards Grid */}
-          <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div ref={gridRef} className="grid md:grid-cols-2 gap-6">
             {filtered.map((person) => (
               <div
                 key={person.name}
@@ -146,14 +129,20 @@ export default function ConsultationPage() {
               >
                 {/* Image */}
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
-                    src={person.image}
-                    alt={person.name}
-                    fill
-                    loading="lazy"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
+                  {person.image ? (
+                    <Image
+                      src={person.image}
+                      alt={person.name}
+                      fill
+                      loading="lazy"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-secondary-light flex items-center justify-center">
+                      <span className="font-heading font-bold text-5xl text-primary/20">{person.initials}</span>
+                    </div>
+                  )}
                   {/* Paid badge (desktop only) */}
                   {person.isPaid && (
                     <div className="hidden lg:block absolute top-4 right-4 bg-white/95 backdrop-blur-sm border border-secondary/20 rounded-full px-3 py-1">
@@ -204,27 +193,24 @@ export default function ConsultationPage() {
                     ))}
                   </div>
 
+                  {/* Pricing */}
+                  <div className="flex items-center gap-3 mb-4 text-center">
+                    <div className="flex-1 bg-secondary-light/40 rounded-lg py-2 px-3">
+                      <p className="font-heading font-bold text-sm text-foreground">$59 <span className="font-body text-xs text-muted font-normal">CAD</span></p>
+                      <p className="font-body text-xs text-muted">30 min</p>
+                    </div>
+                    <div className="flex-1 bg-secondary-light/40 rounded-lg py-2 px-3">
+                      <p className="font-heading font-bold text-sm text-foreground">$89 <span className="font-body text-xs text-muted font-normal">CAD</span></p>
+                      <p className="font-body text-xs text-muted">45 min</p>
+                    </div>
+                  </div>
+
                   {/* Book Button */}
                   <button
                     onClick={() => setSelectedProfessional(person)}
-                    className={`w-full font-body text-sm font-semibold py-3 rounded-full transition-all duration-300 flex items-center justify-center gap-2 ${
-                      person.isPaid
-                        ? "bg-foreground text-white hover:bg-foreground/90"
-                        : "bg-primary text-white hover:bg-primary-dark"
-                    }`}
+                    className="w-full font-body text-sm font-semibold py-3 rounded-full transition-all duration-300 flex items-center justify-center gap-2 bg-primary text-white hover:bg-primary-dark"
                   >
-                    {person.isPaid ? (
-                      <>
-                        Book Paid Session · {person.rate}
-                      </>
-                    ) : (
-                      <>
-                        Book Free Session
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                      </>
-                    )}
+                    Book a Session
                   </button>
                 </div>
               </div>
