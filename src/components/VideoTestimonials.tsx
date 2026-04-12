@@ -135,8 +135,8 @@ export default function VideoTestimonials() {
                       </div>
                     </div>
 
-                    {/* Identity bar — solid bottom bar */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-white px-4 py-3">
+                    {/* Identity bar — floating bottom bar */}
+                    <div className="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-sm rounded-lg px-4 py-2.5 shadow-sm">
                       <p className="font-heading font-bold text-sm text-foreground leading-tight">
                         {t.name}
                       </p>
