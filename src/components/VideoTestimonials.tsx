@@ -16,10 +16,9 @@ const testimonials = [
 
 export default function VideoTestimonials() {
   const sectionRef = useRef<HTMLElement>(null);
-  const previewRef = useRef<HTMLVideoElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const [activeVideo, setActiveVideo] = useState<{ src: string; name: string; role: string } | null>(null);
-  const [previewReady, setPreviewReady] = useState(false);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
 
@@ -45,33 +44,29 @@ export default function VideoTestimonials() {
     return () => ctx.revert();
   }, []);
 
-  // 15-second preview loop for the first card
-  const handlePreviewTimeUpdate = useCallback(() => {
-    const v = previewRef.current;
-    if (v && v.currentTime >= 15) {
-      v.currentTime = 0;
-    }
+  // 15-second loop: reset any video that passes 15s
+  const handleTimeUpdate = useCallback((e: React.SyntheticEvent<HTMLVideoElement>) => {
+    const v = e.currentTarget;
+    if (v.currentTime >= 15) v.currentTime = 0;
   }, []);
 
-  // Start preview when visible via IntersectionObserver
+  // Autoplay/pause each video when it enters/leaves viewport
   useEffect(() => {
-    const v = previewRef.current;
-    if (!v) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          v.play().catch(() => {});
-        } else {
-          v.pause();
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    observer.observe(v);
-    return () => observer.disconnect();
-  }, [previewReady]);
+    const observers: IntersectionObserver[] = [];
+    videoRefs.current.forEach((v) => {
+      if (!v) return;
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) v.play().catch(() => {});
+          else v.pause();
+        },
+        { threshold: 0.3 }
+      );
+      obs.observe(v);
+      observers.push(obs);
+    });
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
 
   // Track scroll position for arrow state
   const updateScrollState = useCallback(() => {
@@ -168,34 +163,21 @@ export default function VideoTestimonials() {
                 >
                   {/* Video / Thumbnail */}
                   <div className="relative aspect-video bg-foreground/5">
-                    {i === 0 ? (
-                      <video
-                        ref={previewRef}
-                        src={t.video}
-                        muted
-                        playsInline
-                        preload="metadata"
-                        onLoadedData={() => setPreviewReady(true)}
-                        onTimeUpdate={handlePreviewTimeUpdate}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <video
-                        src={t.video}
-                        muted
-                        playsInline
-                        preload="metadata"
-                        className="w-full h-full object-cover"
-                      />
-                    )}
+                    <video
+                      ref={(el) => { videoRefs.current[i] = el; }}
+                      src={t.video}
+                      muted
+                      playsInline
+                      preload="metadata"
+                      onTimeUpdate={handleTimeUpdate}
+                      className="w-full h-full object-cover"
+                    />
 
                     {/* Dark gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10" />
 
                     {/* Play button — desktop only (hover) */}
-                    <div className={`hidden sm:flex absolute inset-0 items-center justify-center transition-opacity duration-300 ${
-                      i === 0 ? "opacity-0 group-hover:opacity-100" : "sm:opacity-0 sm:group-hover:opacity-100"
-                    }`}>
+                    <div className="hidden sm:flex absolute inset-0 items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div className="w-16 h-16 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center shadow-sm group-hover:scale-110 transition-all duration-300">
                         <svg className="w-6 h-6 text-foreground ml-0.5" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M8 5v14l11-7z" />
