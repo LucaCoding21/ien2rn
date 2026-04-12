@@ -93,7 +93,7 @@ export default function VideoTestimonials() {
                 <div
                   key={`${t.name}-${i}`}
                   className="vt-card group flex-shrink-0 relative rounded-xl overflow-hidden cursor-pointer"
-                  style={{ width: "clamp(300px, 42vw, 480px)" }}
+                  style={{ width: "clamp(300px, 50vw, 540px)" }}
                   onClick={() => setActiveVideo({ src: t.video, name: t.name, role: t.role })}
                 >
                   {/* Video / Thumbnail */}
@@ -135,8 +135,8 @@ export default function VideoTestimonials() {
                       </div>
                     </div>
 
-                    {/* Identity bar — full-width bottom strip */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-sm px-4 py-3">
+                    {/* Identity bar — solid bottom bar */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-white px-4 py-3">
                       <p className="font-heading font-bold text-sm text-foreground leading-tight">
                         {t.name}
                       </p>
