@@ -85,13 +85,15 @@ export default function VideoTestimonials() {
           </div>
         </div>
 
-        {/* Video grid */}
-        <div className="max-w-[1600px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        {/* Scrollable row */}
+        <div className="overflow-hidden">
+          <div className="overflow-x-auto scrollbar-hide">
+            <div className="flex gap-4 sm:gap-6 pl-5 sm:pl-6 md:pl-16 lg:pl-24 pr-5 sm:pr-6 md:pr-16 lg:pr-24">
               {testimonials.map((t, i) => (
                 <div
                   key={`${t.name}-${i}`}
-                  className="vt-card group relative rounded-xl overflow-hidden cursor-pointer"
+                  className="vt-card group flex-shrink-0 relative rounded-xl overflow-hidden cursor-pointer"
+                  style={{ width: "clamp(300px, 42vw, 480px)" }}
                   onClick={() => setActiveVideo({ src: t.video, name: t.name, role: t.role })}
                 >
                   {/* Video / Thumbnail */}
@@ -133,14 +135,16 @@ export default function VideoTestimonials() {
                       </div>
                     </div>
 
-                    {/* Identity bar — bottom of card */}
-                    <div className="absolute bottom-0 left-0 right-0 px-4 pb-4">
-                      <p className="font-heading font-bold text-sm sm:text-base text-white drop-shadow-md">
-                        {t.name}
-                      </p>
-                      <p className="font-body text-xs sm:text-sm text-white/70">
-                        {t.role}
-                      </p>
+                    {/* Identity card — bottom left */}
+                    <div className="absolute bottom-3 left-3">
+                      <div className="bg-white rounded-lg px-3.5 py-2 shadow-sm">
+                        <p className="font-heading font-bold text-sm text-foreground leading-tight">
+                          {t.name}
+                        </p>
+                        <p className="font-body text-xs text-muted">
+                          {t.role}
+                        </p>
+                      </div>
                     </div>
 
                     {/* Duration badge — top right */}
@@ -150,6 +154,7 @@ export default function VideoTestimonials() {
                   </div>
                 </div>
               ))}
+            </div>
           </div>
         </div>
       </section>
