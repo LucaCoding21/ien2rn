@@ -93,9 +93,18 @@ export default function VideoTestimonials() {
     const el = scrollRef.current;
     if (!el) return;
     const card = el.querySelector(".vt-card") as HTMLElement;
-    const distance = card ? card.offsetWidth + 24 : 400;
-    const target = el.scrollLeft + (direction === "right" ? distance : -distance);
-    gsap.to(el, { scrollLeft: target, duration: 0.5, ease: "power2.out", onUpdate: updateScrollState });
+    if (!card) return;
+    const gap = parseFloat(getComputedStyle(card.parentElement!).gap) || 16;
+    const distance = card.offsetWidth + gap;
+    const maxScroll = el.scrollWidth - el.clientWidth;
+    const target = Math.max(0, Math.min(maxScroll, el.scrollLeft + (direction === "right" ? distance : -distance)));
+    gsap.killTweensOf(el);
+    gsap.to(el, {
+      scrollLeft: target,
+      duration: 0.6,
+      ease: "power3.out",
+      onComplete: updateScrollState,
+    });
   };
 
   return (
@@ -113,32 +122,32 @@ export default function VideoTestimonials() {
             </div>
 
             {/* Desktop arrows — next to heading */}
-            <div className="hidden sm:flex items-center gap-2 shrink-0 pb-1">
+            <div className="hidden sm:flex items-center gap-2.5 shrink-0 pb-1">
               <button
                 onClick={() => scrollByDirection("left")}
                 disabled={!canScrollLeft}
-                className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-200 ${
+                className={`w-11 h-11 rounded-full flex items-center justify-center transition-all duration-200 shadow-sm ${
                   canScrollLeft
-                    ? "border-secondary/30 text-foreground hover:border-primary hover:text-primary"
-                    : "border-secondary/15 text-muted/30 cursor-default"
+                    ? "bg-white text-foreground border border-secondary/20 hover:shadow-md hover:text-primary active:scale-95"
+                    : "bg-secondary-light/40 text-muted/30 cursor-default"
                 }`}
                 aria-label="Previous"
               >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
                 </svg>
               </button>
               <button
                 onClick={() => scrollByDirection("right")}
                 disabled={!canScrollRight}
-                className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-200 ${
+                className={`w-11 h-11 rounded-full flex items-center justify-center transition-all duration-200 shadow-sm ${
                   canScrollRight
-                    ? "border-secondary/30 text-foreground hover:border-primary hover:text-primary"
-                    : "border-secondary/15 text-muted/30 cursor-default"
+                    ? "bg-white text-foreground border border-secondary/20 hover:shadow-md hover:text-primary active:scale-95"
+                    : "bg-secondary-light/40 text-muted/30 cursor-default"
                 }`}
                 aria-label="Next"
               >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                 </svg>
               </button>
@@ -220,28 +229,28 @@ export default function VideoTestimonials() {
           <button
             onClick={() => scrollByDirection("left")}
             disabled={!canScrollLeft}
-            className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-200 ${
+            className={`w-11 h-11 rounded-full flex items-center justify-center transition-all duration-200 shadow-sm ${
               canScrollLeft
-                ? "border-secondary/30 text-foreground"
-                : "border-secondary/15 text-muted/30 cursor-default"
+                ? "bg-white text-foreground border border-secondary/20 active:scale-95"
+                : "bg-secondary-light/40 text-muted/30 cursor-default"
             }`}
             aria-label="Previous"
           >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
             </svg>
           </button>
           <button
             onClick={() => scrollByDirection("right")}
             disabled={!canScrollRight}
-            className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-200 ${
+            className={`w-11 h-11 rounded-full flex items-center justify-center transition-all duration-200 shadow-sm ${
               canScrollRight
-                ? "border-secondary/30 text-foreground"
-                : "border-secondary/15 text-muted/30 cursor-default"
+                ? "bg-white text-foreground border border-secondary/20 active:scale-95"
+                : "bg-secondary-light/40 text-muted/30 cursor-default"
             }`}
             aria-label="Next"
           >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
             </svg>
           </button>
