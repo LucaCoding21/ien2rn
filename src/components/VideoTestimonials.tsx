@@ -192,25 +192,33 @@ export default function VideoTestimonials() {
                     {/* Dark gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10" />
 
-                    {/* Play button */}
-                    <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
-                      i === 0 ? "opacity-0 group-hover:opacity-100" : "opacity-100"
+                    {/* Play button — desktop only (hover) */}
+                    <div className={`hidden sm:flex absolute inset-0 items-center justify-center transition-opacity duration-300 ${
+                      i === 0 ? "opacity-0 group-hover:opacity-100" : "sm:opacity-0 sm:group-hover:opacity-100"
                     }`}>
-                      <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center shadow-sm group-hover:scale-110 transition-all duration-300">
+                      <div className="w-16 h-16 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center shadow-sm group-hover:scale-110 transition-all duration-300">
                         <svg className="w-6 h-6 text-foreground ml-0.5" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M8 5v14l11-7z" />
                         </svg>
                       </div>
                     </div>
 
-                    {/* Identity bar — floating bottom bar */}
-                    <div className="absolute bottom-2 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-3 bg-white/95 backdrop-blur-sm rounded-md sm:rounded-lg px-3 py-1.5 sm:px-4 sm:py-2.5 shadow-sm">
-                      <p className="font-heading font-bold text-xs sm:text-sm text-foreground leading-tight">
-                        {t.name}
-                      </p>
-                      <p className="font-body text-[10px] sm:text-xs text-muted">
-                        {t.role}
-                      </p>
+                    {/* Identity bar — floating bottom bar with play icon on mobile */}
+                    <div className="absolute bottom-2 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-3 bg-white/95 backdrop-blur-sm rounded-md sm:rounded-lg shadow-sm flex items-center gap-2.5 px-2.5 py-1.5 sm:px-4 sm:py-2.5">
+                      {/* Small play icon — mobile only */}
+                      <div className="sm:hidden w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0">
+                        <svg className="w-3 h-3 text-white ml-px" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
+                      <div className="min-w-0">
+                        <p className="font-heading font-bold text-xs sm:text-sm text-foreground leading-tight truncate">
+                          {t.name}
+                        </p>
+                        <p className="font-body text-[10px] sm:text-xs text-muted truncate">
+                          {t.role}
+                        </p>
+                      </div>
                     </div>
 
                     {/* Duration badge — top right */}
