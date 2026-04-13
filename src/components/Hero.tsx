@@ -34,7 +34,7 @@ export default function Hero() {
 
       // Initial states
       gsap.set(".hero-label", { y: 20, autoAlpha: 0 });
-      gsap.set(".hero-headline-line", { yPercent: 100 });
+      gsap.set(".hero-headline-line", { yPercent: 100, autoAlpha: 0 });
       gsap.set(".hero-sub", { y: 20, autoAlpha: 0 });
       gsap.set(".hero-cta > *", { y: 16, autoAlpha: 0 });
       gsap.set(".hero-stat-item", { y: 20, autoAlpha: 0 });
@@ -45,7 +45,7 @@ export default function Hero() {
       tl.to(".hero-label", { y: 0, autoAlpha: 1, duration: 0.5, ease: "power2.out" })
         .to(
           ".hero-headline-line",
-          { yPercent: 0, duration: 0.6, stagger: 0.05, ease: "power4.out" },
+          { yPercent: 0, autoAlpha: 1, duration: 0.6, stagger: 0.05, ease: "power4.out" },
           "-=0.5"
         )
         .to(".hero-sub", { y: 0, autoAlpha: 1, duration: 0.4 }, "-=0.7")

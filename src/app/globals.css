@@ -84,15 +84,12 @@ body {
 .hero-stat-item,
 .hero-image-wrap,
 .hero-trust,
+.hero-headline-line,
 .page-hero-label,
 .page-hero-heading,
 .page-hero-desc,
 .page-hero-line {
   visibility: hidden;
-}
-
-.hero-headline-line {
-  transform: translateY(100%);
 }
 
 /* Text split animation helper */
@@ -183,11 +180,9 @@ body {
   .page-hero-label,
   .page-hero-heading,
   .page-hero-desc,
-  .page-hero-line {
-    visibility: visible !important;
-  }
+  .page-hero-line,
   .hero-headline-line {
-    transform: none !important;
+    visibility: visible !important;
   }
 }
 
