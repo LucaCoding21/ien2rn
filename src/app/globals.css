@@ -83,8 +83,16 @@ body {
 .hero-cta > *,
 .hero-stat-item,
 .hero-image-wrap,
-.hero-trust {
+.hero-trust,
+.page-hero-label,
+.page-hero-heading,
+.page-hero-desc,
+.page-hero-line {
   visibility: hidden;
+}
+
+.hero-headline-line {
+  transform: translateY(100%);
 }
 
 /* Text split animation helper */
@@ -171,8 +179,15 @@ body {
   .hero-cta > *,
   .hero-stat-item,
   .hero-image-wrap,
-  .hero-trust {
+  .hero-trust,
+  .page-hero-label,
+  .page-hero-heading,
+  .page-hero-desc,
+  .page-hero-line {
     visibility: visible !important;
+  }
+  .hero-headline-line {
+    transform: none !important;
   }
 }
 

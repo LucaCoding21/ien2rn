@@ -190,10 +190,12 @@ export default function Hero() {
         <div className="overflow-hidden">
           <div className="flex animate-marquee w-max">
             {[...logos, ...logos].map((logo, i) => (
-              <img
+              <Image
                 key={i}
                 src={logo.src}
                 alt={logo.alt}
+                width={120}
+                height={48}
                 className="h-10 sm:h-12 w-auto object-contain mx-6 sm:mx-10 md:mx-14 shrink-0 opacity-40"
                 style={{ filter: `${"invert" in logo && logo.invert ? "invert(1) " : ""}grayscale(1)` }}
                 loading="lazy"
