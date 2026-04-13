@@ -35,7 +35,7 @@ const challenges = [
 const approachSteps = [
   {
     title: "Rigorous vetting",
-    image: "/employer-partnership2.jpg",
+    image: "/employer-partnership2.webp",
     imagePosition: "center 15%",
     description: "We assess beyond credentials.",
     items: [
@@ -47,7 +47,7 @@ const approachSteps = [
   },
   {
     title: "Pre-employment preparation",
-    image: "/new2.png",
+    image: "/new2.webp",
     imagePosition: "center 10%",
     description: "Before placement, every candidate receives:",
     items: [
@@ -58,7 +58,7 @@ const approachSteps = [
   },
   {
     title: "Ongoing retention support",
-    image: "/photo3.jpg",
+    image: "/photo3.webp",
     imagePosition: "center 15%",
     description: "Our involvement continues after placement.",
     items: [
@@ -85,7 +85,7 @@ export default function EmployersPage() {
       });
 
       // Hero image
-      gsap.set(".emp-hero-image", { autoAlpha: 0, x: 40 });
+      gsap.set(".emp-hero-image", { opacity: 0, x: 40 });
       gsap.to(".emp-hero-image", {
         autoAlpha: 1, x: 0, duration: 0.6, ease: "power3.out", delay: 0.15,
       });
@@ -96,14 +96,6 @@ export default function EmployersPage() {
       gsap.to(challengeHeader, {
         y: 0, autoAlpha: 1, duration: 0.5, stagger: 0.06, ease: "power2.out",
         scrollTrigger: { trigger: challengeRef.current, start: "top 75%" },
-      });
-
-      // Challenge image
-      gsap.set(".challenge-image", { clipPath: "inset(4% 4% 4% 4% round 1.5rem)", autoAlpha: 0 });
-      gsap.to(".challenge-image", {
-        clipPath: "inset(0% 0% 0% 0% round 1.5rem)", autoAlpha: 1,
-        duration: 0.6, ease: "power3.inOut",
-        scrollTrigger: { trigger: ".challenge-image", start: "top 80%" },
       });
 
       // Challenge items — alternate from left and right
@@ -127,7 +119,7 @@ export default function EmployersPage() {
 
       // Approach cards — scale up with increasing delay
       const approachCards = approachRef.current!.querySelectorAll(".approach-card");
-      gsap.set(approachCards, { y: 40, autoAlpha: 0, scale: 0.95 });
+      gsap.set(approachCards, { y: 40, opacity: 0, scale: 0.95 });
       approachCards.forEach((el, i) => {
         gsap.to(el, {
           y: 0, autoAlpha: 1, scale: 1, duration: 0.5, delay: i * 0.15, ease: "power2.out",
@@ -200,12 +192,11 @@ export default function EmployersPage() {
               {/* Image */}
               <div className="emp-hero-image relative aspect-[3/2] rounded-2xl overflow-hidden mb-8">
                 <Image
-                  src="/employer-partnership.jpg"
+                  src="/employer-partnership.webp"
                   alt="Healthcare employer partnership"
                   fill
                   className="object-cover object-center"
-                  priority
-                  sizes="100vw"
+                  sizes="(max-width: 1024px) 92vw, 580px"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/15 via-transparent to-transparent" />
               </div>
@@ -308,7 +299,7 @@ export default function EmployersPage() {
             <div className="emp-hero-image hidden lg:block relative w-full lg:w-[480px] xl:w-[580px] shrink-0">
               <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl shadow-foreground/10">
                 <Image
-                  src="/employer-partnership.jpg"
+                  src="/employer-partnership.webp"
                   alt="Healthcare employer partnership"
                   fill
                   className="object-cover object-center"
@@ -524,7 +515,7 @@ export default function EmployersPage() {
       <section ref={contactRef} className="relative py-20 sm:py-24 md:py-36 overflow-hidden">
         <div className="absolute inset-0 scale-100 md:scale-110">
           <Image
-            src="/3.jpg"
+            src="/3.webp"
             alt="Employer partnership meeting"
             fill
             loading="lazy"

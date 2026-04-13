@@ -44,7 +44,7 @@ export default function CTA() {
       {/* Background image with parallax */}
       <div className="absolute inset-0 scale-100 md:scale-110">
         <Image
-          src="/cta-section.jpg"
+          src="/cta-section.webp"
           alt="Nurses working in a Canadian hospital"
           fill
           loading="lazy"

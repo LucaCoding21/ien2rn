@@ -38,7 +38,7 @@ export default function HowItWorks() {
 
       // Cards
       const cards = sectionRef.current!.querySelectorAll(".hiw-card");
-      gsap.set(cards, { y: 40, autoAlpha: 0 });
+      gsap.set(cards, { y: 40, opacity: 0 });
       cards.forEach((card, i) => {
         gsap.to(card, {
           y: 0, autoAlpha: 1, duration: 0.5, delay: i * 0.15, ease: "power2.out",
@@ -101,7 +101,7 @@ export default function HowItWorks() {
           <div className={`hiw-card bg-white rounded-lg overflow-hidden border border-secondary/15 flex flex-col ${activeTab === "nurse" ? "flex" : "hidden md:flex"}`}>
             <div className="hiw-image-nurse relative aspect-[3/2] sm:aspect-[4/3] overflow-hidden order-2 md:order-1">
               <Image
-                src="/Satisfaction-rate.jpg"
+                src="/Satisfaction-rate.webp"
                 alt="Nurse in a clinical consultation"
                 fill
                 loading="lazy"
@@ -143,7 +143,7 @@ export default function HowItWorks() {
           <div className={`hiw-card bg-white rounded-lg overflow-hidden border border-secondary/15 flex flex-col ${activeTab === "employer" ? "flex" : "hidden md:flex"}`}>
             <div className="hiw-image-employer relative aspect-[3/2] sm:aspect-[4/3] overflow-hidden order-2 md:order-1">
               <Image
-                src="/employer-partnership2.jpg"
+                src="/employer-partnership2.webp"
                 alt="Healthcare professional reviewing candidate qualifications"
                 fill
                 loading="lazy"

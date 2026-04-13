@@ -14,7 +14,7 @@ export default function Trust() {
     const ctx = gsap.context(() => {
       // Image reveal
       const imgWrap = sectionRef.current!.querySelector(".trust-image");
-      gsap.set(imgWrap, { clipPath: "inset(4% 4% 4% 4% round 0.5rem)", autoAlpha: 0 });
+      gsap.set(imgWrap, { clipPath: "inset(4% 4% 4% 4% round 0.5rem)", opacity: 0 });
       gsap.to(imgWrap, {
         clipPath: "inset(0% 0% 0% 0% round 0.5rem)",
         autoAlpha: 1,
@@ -75,7 +75,7 @@ export default function Trust() {
               <footer className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full overflow-hidden relative">
                   <Image
-                    src="/team/sheena.jpg"
+                    src="/team/sheena.webp"
                     alt="Sheena Park"
                     fill
                     loading="lazy"

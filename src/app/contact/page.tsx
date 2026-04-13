@@ -54,7 +54,7 @@ export default function ContactPage() {
         label="Contact"
         heading="We'd love to hear from you"
         description="Have a question that isn't answered on our website? Drop us a message and our team will get back to you."
-        image="/mentorship.jpg"
+        image="/mentorship.webp"
       />
 
       <section ref={contentRef} className="pt-8 md:pt-12 pb-8 md:pb-12">

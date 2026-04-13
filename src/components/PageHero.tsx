@@ -9,11 +9,12 @@ interface PageHeroProps {
   heading: React.ReactNode;
   description: string;
   image?: string;
+  imageAlt?: string;
   headingClassName?: string;
   headingStyle?: React.CSSProperties;
 }
 
-export default function PageHero({ label, heading, description, image, headingClassName, headingStyle }: PageHeroProps) {
+export default function PageHero({ label, heading, description, image, imageAlt, headingClassName, headingStyle }: PageHeroProps) {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -58,7 +59,7 @@ export default function PageHero({ label, heading, description, image, headingCl
             <div className="page-hero-desc relative mt-8 sm:mt-10 lg:mt-0 w-full lg:w-[42%] rounded-2xl overflow-hidden aspect-[16/10] sm:aspect-[4/3] shrink-0">
               <Image
                 src={image}
-                alt=""
+                alt={imageAlt || label}
                 fill
                 priority
                 className="object-cover"

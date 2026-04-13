@@ -152,7 +152,7 @@ export default function VideoTestimonials() {
 
         {/* Scrollable row */}
         <div className="overflow-hidden">
-          <div ref={scrollRef} className="overflow-x-auto scrollbar-hide">
+          <div ref={scrollRef} className="overflow-x-auto overflow-y-hidden scrollbar-hide">
             <div className="flex gap-4 sm:gap-6 pl-5 sm:pl-6 md:pl-16 lg:pl-24 pr-5 sm:pr-6 md:pr-16 lg:pr-24">
               {testimonials.map((t, i) => (
                 <div

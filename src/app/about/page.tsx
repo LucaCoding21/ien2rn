@@ -22,28 +22,28 @@ const team: TeamMember[] = [
     name: "Sheena Park, RN",
     role: "Founder",
     initials: "SP",
-    photo: "/team/sheena.jpg",
+    photo: "/team/sheena.webp",
     bio: "A life-long learner, keen to propel others forward and provide exemplary care, Sheena is a BC, Canada and UK RN with progressive healthcare practice spanning Emergency, ENT, Oncology\u2019s Systemic & Radiation Therapies, Clinical Research & Trials, Clinical & Systems Transformation, Quality, Safety & Accreditation, and Home Health Care.\n\nHer professional journey began as a Senior Analyst for business, technology, and human resources consulting Fortune 300 companies \u2013 Accenture and ADP. She completed the Bachelor of Science in Nursing in the Philippines then had a short but sweet experience in Kuwait, where she was part of the core leadership that prepared and had the hospital awarded with the JCI Accreditation.\n\nSheena studied Overseas Nursing in City, University of London then completed Systemic Anti-Cancer Therapy: Issues in Care and Management from the University of Surrey. She finds her experience in the Royal Surrey NHS as the most gratifying, having been surrounded by excellent mentors whom she credits to have set her up for success.\n\nAfter moving to Canada, she started AllCare Nursing so seniors receive consistently reliable quality care. She mentored IENs as a way to give back whilst working for the Provincial Health Services Authority in different capacities. She has a Master of Health Leadership and Policy from UBC, is a Certified Clinical Research Professional, and a Certified Health Executive.",
   },
   {
     name: "Jeffrey Lee, MAS(L)",
     role: "Manager",
     initials: "JL",
-    photo: "/team/jeffry.jpg",
+    photo: "/team/jeffry.webp",
     bio: "Jeff is a seasoned career development professional with over 14 years of experience in career coaching and counseling.\n\nHe has worked at esteemed institutions such as UBC, SFU, FDU, and WorkBC, where he gained expertise in career counselling, professional development, career transitioning, job search strategies, workshop development, and industry networking.\n\nJeff has successfully helped a diverse portfolio of clients, ranging from entry-level first-year students to professional job seekers with over 15 years of experience, achieve their career goals. He has also worked extensively with foreign-trained professionals, connecting them to resources and employers in fields such as Health Services, Management, Accounting, Finance, Applied Sciences, IT, and Hospitality.\n\nHe is dedicated to helping IENs and healthcare professionals at ien2RN achieve their employment goals and overcome barriers by connecting them to essential resources and programs.\n\nAdditionally, Jeff engages with healthcare organizations to match employers with qualified and mentored IEN job seekers, addressing various health service talent needs.",
   },
   {
     name: "Alice Wong, RN",
     role: "Educator",
     initials: "AW",
-    photo: "/team/alice.jpg",
+    photo: "/team/alice.webp",
     bio: "Alice holds active RN registration in British Columbia (Canada), England, United States and Hong Kong with healthcare practice spanning from nursing education, critical care nursing, acute medical and surgical nursing, renal nursing, intraoperative nursing to community health care.\n\nShe completed her Bachelor and Master of Science in Nursing in The University of Hong Kong and continued earning her Master\u2019s degree in Health Leadership and Policy in Clinical Education (MHLP \u2013 CE) from the University of British Columbia to enhance her career in nursing education.\n\nAlice has been working in the nursing field for almost 20 years. Before coming to Canada, Alice worked as a nurse educator for 10 years in two of the Universities in Hong Kong. Currently, she is actively practising nursing in a health authority and involved in nursing education at a university in the lower mainland of British Columbia. Her area of expertise and interest is mentoring nursing undergraduates and nurses, as well as simulation teaching.\n\nAlice is fluent in Cantonese, Mandarin, and English. She personally understands the challenges and struggles of internationally educated nurses (IENs). She is dedicated to supporting IENs to starting and continuing their nursing careers here in Canada.",
   },
   {
     name: "Pola",
     role: "IEN Engagement",
     initials: "PO",
-    photo: "/team/pola.jpg",
+    photo: "/team/pola.webp",
     bio: "Pola focuses on the timely communication with IENs. Her professional journey began as an Assistant Operations Manager in the BPO industry. Driven by a desire to expand her expertise, Pola transitioned to become a Quality Assurance Analyst. In this role, she ensured that timely assurance and excellent quality is at the heart of every processes and interactions her team immersed in.\n\nAs someone passionate about supporting others, she is now focused on helping Internationally Educated Nurses (IENs) navigate their career transitions in order to successfully live, work and thrive in their new professional environments.\n\nIf you are interested in learning more about our mentorship, monthly upskilling webinars and exclusive ien2RN resources, Pola is ready to support you. She is also the primary point of contact of IEN Nurses looking for permanent job placements in Canada.",
   },
   {
@@ -57,7 +57,7 @@ const team: TeamMember[] = [
     name: "John, RPN",
     role: "Mentor",
     initials: "JO",
-    photo: "/team/john.jpg",
+    photo: "/team/john.webp",
     photoPosition: "center 60%",
     bio: "John graduated with a Bachelor of Science in Nursing from the University of Santo Tomas \u2013 Legazpi. Following his graduation, he gained experience working in various nursing areas in the Philippines, including the Emergency Department, Obstetrics and Gynecology, Medical-Surgical, and Pediatric Wards. Additionally, he worked as a Jail Nurse, providing care to high-profile populations or Persons Deprived of Liberty (PDL).\n\nIn 2016, he made the courageous decision to immigrate to Canada to join his wife and pursue further professional growth and development. Determined to excel in his chosen field, he enrolled in a Health Care Assistant Diploma program to acclimate himself to the Canadian healthcare system. During this time, he worked for 7 years as a Tertiary Mental Health Worker, gaining valuable experience in the care of patients facing mental health issues.\n\nEager to expand his expertise, he later pursued a degree in Psychiatric Nursing. Throughout this transformative journey, he immersed himself in diverse clinical placements ranging from General Medical Nursing Clinical Practice, Rehabilitation Medical Nursing Clinical Practice, Acute Mental Health Nursing Clinical Practice, Psychosocial Rehabilitation Mental Health Nursing Practicum, Advanced Mental Health Nursing Clinical Practice, to St. Paul\u2019s Hospital Mental Health \u2013 Inpatient 2 North-Psych Unit, in Downtown Vancouver.\n\nToday, as a Registered Psychiatric Nurse (RPN) in the Acute Tertiary Mental Health Unit at Providence Health Care, he is privileged to work alongside a dedicated team of professionals at the forefront of psychiatric care. His role involves providing comprehensive nursing care, implementing therapeutic interventions, and advocating for the holistic well-being of his patients.\n\nWith a commitment to lifelong learning and a passion for promoting mental health awareness, he aspires to make a meaningful impact in the lives of those entrusted to his care. His journey from the Philippines to Canada has not only shaped him professionally but has also enriched his perspective and reinforced his dedication to serving others with empathy, integrity, and resilience.",
   },
@@ -65,7 +65,7 @@ const team: TeamMember[] = [
     name: "Cates Bayabay, RN",
     role: "Mentor",
     initials: "CB",
-    photo: "/team/cates.jpg",
+    photo: "/team/cates.webp",
     bio: "Cates is an immigrant, a mother of two under two, and a dedicated registered nurse with over 12 years of clinical experience in Thoracic Surgery, Respiratory Medicine, Cardiac Health, Emergency, Community Health, Public Health, and Indigenous Health.\n\nShe has also taken on roles in Health Informatics, Communicable Disease Coordination, and Mass Vaccine Planning and Distribution during the COVID-19 pandemic. She has a particular passion for delivering nursing services in remote and underserved communities.\n\nHer journey into nursing was a paradox. Recognizing the Filipino-nurse stereotype, she tried to resist going into nursing. And now into her thirteenth year, she cannot imagine a better professional identity that aligns with her values: choice, accountability, and community.\n\nHaving lived and worked in remote Arctic communities, Cates understands the value of nurturing and mentoring nurses. She embraces mistakes and strives for excellence even under resource-depleted conditions. To her, mistakes are a gateway to learning and being in resource-poor settings leads to resourcefulness and creativity.\n\nAs a mentor, she hopes to pass on these insights to fellow and future nurses. Her personal mission is to transform the current narrative that \u201cnurses eat their young\u201d to \u201cnurses nurture our young\u201d.",
   },
   {
@@ -86,7 +86,7 @@ const team: TeamMember[] = [
     name: "Ron, LPN",
     role: "Mentor",
     initials: "RO",
-    photo: "/team/ron.jpg",
+    photo: "/team/ron.webp",
     photoPosition: "center 30%",
     bio: "Ron immigrated to Canada and became an LPN. With 26+ years of Canadian healthcare service, she continuously makes a difference in her workplace and communities. Receiving appreciation for the care she gives and best nursing practices she shares validates that being a nurse by serving others is her calling.\n\nRon has looked after older adults, people recovering from surgeries, those with Multiple Sclerosis, Quadra/Paraplegia, Mental Health concerns, Pregnant women before, during and after deliveries, and individuals needing End-of-Life comfort. She is currently caring for people undergoing Cancer treatments.\n\nShe is involved in supportive partnerships with individuals and their families, tailoring the care they receive in honour of their preferences. She believes in advocating for nursing peers and guiding service users for them not to be lost in and not to be treated as just a number in BC\u2019s complex healthcare system.\n\nRon\u2019s day brightens when people remember her as a nurse and colleague whom they can count on. She has consistently been commended for her care of persons with Cancer and Dementia/Alzheimer\u2019s.",
   },
@@ -144,7 +144,7 @@ export default function AboutPage() {
 
       // Team
       const teamEls = teamRef.current!.querySelectorAll(".team-member");
-      gsap.set(teamEls, { y: 20, autoAlpha: 0 });
+      gsap.set(teamEls, { y: 20, opacity: 0 });
       teamEls.forEach((el, i) => {
         gsap.to(el, {
           y: 0,
@@ -182,7 +182,7 @@ export default function AboutPage() {
       >
         <div className="absolute inset-0">
           <Image
-            src="/aboutus2.jpg"
+            src="/aboutus2.webp"
             alt="The ien2RN team"
             fill
             className="object-cover object-[center_30%]"
@@ -248,7 +248,7 @@ export default function AboutPage() {
             {/* Large photo */}
             <div className="mission-anim mission-photo lg:col-span-7 relative rounded-lg overflow-hidden min-h-[340px] aspect-[4/3] lg:aspect-auto">
               <Image
-                src="/realactionshot.jpg"
+                src="/realactionshot.webp"
                 alt="ien2RN mentorship in action"
                 fill
                 loading="lazy"
@@ -381,7 +381,7 @@ export default function AboutPage() {
           <div className="relative rounded-[1.75rem] md:rounded-[3rem] overflow-hidden min-h-[360px] sm:min-h-[400px] md:min-h-[450px]">
             <div className="quote-bg absolute inset-0">
               <Image
-                src="/sheenabigphoto.jpg"
+                src="/sheenabigphoto.webp"
                 alt="ien2RN team"
                 fill
                 loading="lazy"
@@ -413,7 +413,7 @@ export default function AboutPage() {
                 <div className="quote-anim flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full overflow-hidden relative shrink-0">
                     <Image
-                      src="/team/sheena.jpg"
+                      src="/team/sheena.webp"
                       alt="Sheena Park"
                       fill
                       className="object-cover"

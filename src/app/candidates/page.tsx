@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
 import ApplyButton from "@/components/ApplyButton";
+import VideoTestimonials from "@/components/VideoTestimonials";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -84,7 +85,6 @@ export default function CandidatesPage() {
   const trustRef = useRef<HTMLDivElement>(null);
   const realityRef = useRef<HTMLElement>(null);
   const pathwayRef = useRef<HTMLElement>(null);
-  const testimonialRef = useRef<HTMLElement>(null);
   const faqRef = useRef<HTMLElement>(null);
   const ctaRef = useRef<HTMLElement>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -144,23 +144,13 @@ export default function CandidatesPage() {
       // Pathway image (mobile + desktop variants share the class)
       const pathwayImgs = pathwayRef.current!.querySelectorAll(".pathway-image");
       pathwayImgs.forEach((img) => {
-        gsap.set(img, { clipPath: "inset(100% 0 0 0)", autoAlpha: 0 });
+        gsap.set(img, { clipPath: "inset(100% 0 0 0)", opacity: 0 });
         gsap.to(img, {
           clipPath: "inset(0% 0 0 0)", autoAlpha: 1,
           duration: 0.6, ease: "power3.inOut",
           scrollTrigger: { trigger: img, start: "top 75%" },
         });
       });
-
-      // Testimonial
-      if (testimonialRef.current) {
-        const tEls = testimonialRef.current.querySelectorAll(".test-anim");
-        gsap.set(tEls, { y: 25, autoAlpha: 0 });
-        gsap.to(tEls, {
-          y: 0, autoAlpha: 1, duration: 0.5, stagger: 0.04, ease: "power2.out",
-          scrollTrigger: { trigger: testimonialRef.current, start: "top 75%" },
-        });
-      }
 
       // FAQ
       const faqEls = faqRef.current!.querySelectorAll(".faq-item");
@@ -199,7 +189,7 @@ export default function CandidatesPage() {
       <section ref={heroRef} className="relative min-h-[75svh] sm:min-h-[85vh] flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/1.jpg"
+            src="/1.webp"
             alt="Internationally educated nurse in Canada"
             fill
             className="object-cover object-[center_25%]"
@@ -259,7 +249,7 @@ export default function CandidatesPage() {
               ))}
             </div>
             <div className="trust-item hidden md:flex items-center gap-3 bg-secondary-light/40 rounded-xl px-4 sm:px-5 py-3 w-full md:w-auto">
-              <img src="/testimonial-mentee.png" alt="Analyn" className="w-9 h-9 rounded-full object-cover shrink-0" />
+              <Image src="/testimonial-mentee.webp" alt="Analyn" width={36} height={36} className="rounded-full object-cover shrink-0" />
               <div>
                 <p className="font-body text-xs sm:text-sm text-muted italic leading-snug max-w-xs">
                   &ldquo;Sheena&apos;s mentorship gave me the confidence and skills to thrive in Canadian healthcare.&rdquo;
@@ -329,7 +319,7 @@ export default function CandidatesPage() {
             </h2>
             <div className="pathway-image relative rounded-2xl overflow-hidden aspect-[16/10] w-full">
               <Image
-                src="/new2.png"
+                src="/new2.webp"
                 alt="Nurse preparing for Canadian healthcare career"
                 fill
                 loading="lazy"
@@ -397,7 +387,7 @@ export default function CandidatesPage() {
             <div className="hidden lg:col-span-6 lg:flex items-center">
               <div className="pathway-image relative rounded-2xl overflow-hidden aspect-[4/5] max-h-[600px] w-full">
                 <Image
-                  src="/new2.png"
+                  src="/new2.webp"
                   alt="Nurse preparing for Canadian healthcare career"
                   fill
                   loading="lazy"
@@ -411,61 +401,7 @@ export default function CandidatesPage() {
       </section>
 
       {/* ============ TESTIMONIAL — Video cards ============ */}
-      <section ref={testimonialRef} className="py-section">
-        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
-          <div className="test-anim mb-10 sm:mb-14 md:mb-16">
-            <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
-              Stories
-            </p>
-            <h2 className="font-heading font-bold text-display-md text-foreground">
-              Hear from nurses like you
-            </h2>
-          </div>
-        </div>
-
-        <div className="test-anim overflow-hidden">
-          <div className="overflow-x-auto scrollbar-hide">
-            <div className="flex gap-4 sm:gap-6 md:gap-6 pl-5 sm:pl-6 md:pl-12 pr-5 sm:pr-6 md:pr-12">
-              {[
-                { name: "Amara O.", role: "Registered Nurse, Toronto", initials: "AO" },
-                { name: "Dr. Sarah Chen", role: "Director of Nursing, Vancouver", initials: "SC" },
-                { name: "James M.", role: "ICU Nurse, Ottawa", initials: "JM" },
-                { name: "Grace T.", role: "LPN, Calgary", initials: "GT" },
-                { name: "Priya S.", role: "Nurse Manager, Montreal", initials: "PS" },
-              ].map((t) => (
-                <div
-                  key={t.name}
-                  className="group flex-shrink-0 relative rounded-lg border border-secondary/15 overflow-hidden cursor-pointer"
-                  style={{ width: "clamp(220px, 70vw, 360px)", aspectRatio: "9/14" }}
-                >
-                  <div className="absolute inset-0 bg-secondary-light" />
-                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(168,174,228,0.3)_0%,transparent_70%)]" />
-
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-14 h-14 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center">
-                      <svg className="w-5 h-5 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
-                  </div>
-
-                  <div className="absolute bottom-3 left-3 right-3">
-                    <div className="bg-white rounded-full px-4 py-2.5 flex items-center gap-3 shadow-sm">
-                      <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0">
-                        <span className="font-heading font-bold text-[10px] text-white">{t.initials}</span>
-                      </div>
-                      <div className="min-w-0">
-                        <p className="font-heading font-bold text-sm text-foreground truncate">{t.name}</p>
-                        <p className="font-body text-xs text-muted truncate">{t.role}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <VideoTestimonials />
 
       {/* ============ FAQ ============ */}
       <section ref={faqRef} className="py-section bg-secondary-light/25">
@@ -558,7 +494,7 @@ export default function CandidatesPage() {
       <section ref={ctaRef} className="relative py-20 sm:py-24 md:py-36 overflow-hidden">
         <div className="absolute inset-0 scale-100 md:scale-110">
           <Image
-            src="/empty2.jpg"
+            src="/empty2.webp"
             alt="Nurses collaborating"
             fill
             loading="lazy"

@@ -16,7 +16,7 @@ const services = [
       "We equip you in choosing the best pathway to work and stay in Canada. Our programs are carefully developed by nurses who have been where you are.",
     href: "/learning/courses",
     linkText: "View programs",
-    image: "/mentorship.jpg",
+    image: "/mentorship.webp",
   },
   {
     label: "For nurses",
@@ -25,7 +25,7 @@ const services = [
       "We help you embark on your new nursing journey, from acute to long-term care and vice versa. Our guidance goes beyond your first shift.",
     href: "/candidates",
     linkText: "Learn more",
-    image: "/job-placement.jpg",
+    image: "/job-placement.webp",
   },
   {
     label: "For employers",
@@ -34,7 +34,7 @@ const services = [
       "We partner with you in curating the workforce solution for your desired outcome. From recruitment to retention, we are with you.",
     href: "/employers",
     linkText: "Partner with us",
-    image: "/employer-partnership.jpg",
+    image: "/employer-partnership.webp",
   },
 ];
 
@@ -59,7 +59,7 @@ export default function Services() {
       const cards = sectionRef.current!.querySelectorAll(".service-card");
       cards.forEach((card, i) => {
         const fromX = i % 2 === 0 ? -30 : 30;
-        gsap.set(card, { x: fromX, autoAlpha: 0 });
+        gsap.set(card, { x: fromX, opacity: 0 });
         gsap.to(card, {
           x: 0,
           autoAlpha: 1,

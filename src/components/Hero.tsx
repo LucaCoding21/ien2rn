@@ -133,7 +133,7 @@ export default function Hero() {
           <div className="order-2 lg:col-start-7 lg:col-end-13 lg:row-start-1 lg:row-end-3 pt-0 lg:pt-0">
             <div className="hero-image-wrap relative rounded-lg overflow-hidden h-full min-h-[320px] sm:min-h-[400px] md:min-h-[460px] lg:min-h-[500px] shadow-2xl shadow-foreground/8">
               <Image
-                src="/newhero.png"
+                src="/newhero.webp"
                 alt="Internationally educated nurse working in a Canadian healthcare setting"
                 fill
                 className="object-cover object-top"

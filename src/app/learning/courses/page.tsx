@@ -119,7 +119,7 @@ export default function CoursesPage() {
       // Boot camp image
       gsap.set(".bc-image", {
         clipPath: "inset(4% 4% 4% 4% round 1.5rem)",
-        autoAlpha: 0,
+        opacity: 0,
       });
       gsap.to(".bc-image", {
         clipPath: "inset(0% 0% 0% 0% round 1.5rem)",
@@ -193,7 +193,7 @@ export default function CoursesPage() {
       <section ref={heroRef} className="relative min-h-[85svh] sm:min-h-[85vh] flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/empty2.jpg"
+            src="/empty2.webp"
             alt="Nurse mentorship and training session"
             fill
             className="object-cover object-[center_30%]"
@@ -273,7 +273,7 @@ export default function CoursesPage() {
             <div className="lg:col-span-6">
               <div className="bc-image relative rounded-3xl overflow-hidden aspect-[16/9] lg:aspect-[4/5] shadow-xl shadow-foreground/5">
                 <Image
-                  src="/photo3.jpg"
+                  src="/photo3.webp"
                   alt="CBA & SLA Boot Camp training session"
                   fill
                   loading="lazy"
@@ -369,7 +369,7 @@ export default function CoursesPage() {
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full overflow-hidden relative shrink-0">
                     <Image
-                      src="/april.jpg"
+                      src="/april.webp"
                       alt="April"
                       fill
                       loading="lazy"
@@ -466,7 +466,7 @@ export default function CoursesPage() {
             <div className="lg:col-span-5 order-2 lg:order-1">
               <div className="relative rounded-2xl overflow-hidden aspect-[16/9] lg:aspect-[4/5] shadow-lg shadow-foreground/5">
                 <Image
-                  src="/new2.png"
+                  src="/new2.webp"
                   alt="IEN Nurse mentorship session"
                   fill
                   loading="lazy"
@@ -606,7 +606,7 @@ export default function CoursesPage() {
             <div className="lg:col-span-5 order-2 lg:order-2">
               <div className="relative rounded-2xl overflow-hidden aspect-[16/9] lg:aspect-[4/5] shadow-lg shadow-foreground/5">
                 <Image
-                  src="/1.jpg"
+                  src="/1.webp"
                   alt="Career accelerator consultation"
                   fill
                   loading="lazy"

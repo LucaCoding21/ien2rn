@@ -14,7 +14,7 @@ export default function Problem() {
     const ctx = gsap.context(() => {
       // Image reveal
       const imgWrap = sectionRef.current!.querySelector(".problem-image");
-      gsap.set(imgWrap, { clipPath: "inset(4% 4% 4% 4% round 0.5rem)", autoAlpha: 0 });
+      gsap.set(imgWrap, { clipPath: "inset(4% 4% 4% 4% round 0.5rem)", opacity: 0 });
       gsap.to(imgWrap, {
         clipPath: "inset(0% 0% 0% 0% round 0.5rem)",
         autoAlpha: 1,
@@ -79,7 +79,7 @@ export default function Problem() {
           {/* Right — Image */}
           <div className="problem-image lg:col-span-7 relative rounded-lg overflow-hidden aspect-[16/10] sm:aspect-[4/3] order-2 lg:order-2">
             <Image
-              src="/empty1.jpg"
+              src="/empty1.webp"
               alt="Navigating complex credentialing paperwork"
               fill
               loading="lazy"
