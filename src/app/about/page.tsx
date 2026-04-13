@@ -448,7 +448,7 @@ export default function AboutPage() {
             >
               <div>
                 <p className="font-heading font-bold text-base text-foreground group-hover:text-primary transition-colors duration-300">I&apos;m a nurse</p>
-                <p className="font-body text-sm text-muted mt-0.5 lg:text-xs lg:text-muted/60">Explore programs & pathways</p>
+                <p className="font-body text-sm text-muted mt-0.5 lg:text-xs lg:text-muted">Explore programs & pathways</p>
               </div>
               <svg className="w-4 h-4 text-muted group-hover:text-primary transition-all duration-300 group-hover:translate-x-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
@@ -460,7 +460,7 @@ export default function AboutPage() {
             >
               <div>
                 <p className="font-heading font-bold text-base text-foreground group-hover:text-primary transition-colors duration-300">I&apos;m an employer</p>
-                <p className="font-body text-sm text-muted mt-0.5 lg:text-xs lg:text-muted/60">Find mentored, permanent staff</p>
+                <p className="font-body text-sm text-muted mt-0.5 lg:text-xs lg:text-muted">Find mentored, permanent staff</p>
               </div>
               <svg className="w-4 h-4 text-muted group-hover:text-primary transition-all duration-300 group-hover:translate-x-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />

@@ -246,6 +246,7 @@ export default function Nav() {
                       setMobileExpanded(mobileExpanded === link.label ? null : link.label)
                     }
                     className="p-2 text-muted hover:text-primary transition-colors"
+                    aria-label="Expand submenu"
                     style={{
                       transform: mobileOpen ? "translateY(0)" : "translateY(100%)",
                       transition: `transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) ${i * 0.06}s`,

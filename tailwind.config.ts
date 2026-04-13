@@ -37,6 +37,15 @@ const config: Config = {
         "3xl": "1.5rem",
         "4xl": "2rem",
       },
+      keyframes: {
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+      },
+      animation: {
+        marquee: "marquee 50s linear infinite",
+      },
     },
   },
   plugins: [],

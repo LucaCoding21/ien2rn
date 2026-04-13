@@ -254,7 +254,7 @@ export default function CandidatesPage() {
                 <p className="font-body text-xs sm:text-sm text-muted italic leading-snug max-w-xs">
                   &ldquo;Sheena&apos;s mentorship gave me the confidence and skills to thrive in Canadian healthcare.&rdquo;
                 </p>
-                <p className="font-body text-xs text-muted/70 mt-1 not-italic">Analyn, RN</p>
+                <p className="font-body text-xs text-muted mt-1 not-italic">Analyn, RN</p>
               </div>
             </div>
           </div>

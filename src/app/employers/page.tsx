@@ -219,7 +219,7 @@ export default function EmployersPage() {
                 ].map(({ value, label }) => (
                   <div key={label} className="min-w-0">
                     <p className="font-heading font-bold text-lg text-foreground">{value}</p>
-                    <p className="font-body text-xs text-muted/60 leading-snug">{label}</p>
+                    <p className="font-body text-xs text-muted leading-snug">{label}</p>
                   </div>
                 ))}
               </div>
@@ -289,7 +289,7 @@ export default function EmployersPage() {
                 ].map(({ value, label }) => (
                   <div key={label}>
                     <p className="font-heading font-bold text-xl text-foreground">{value}</p>
-                    <p className="font-body text-xs text-muted/60">{label}</p>
+                    <p className="font-body text-xs text-muted">{label}</p>
                   </div>
                 ))}
               </div>

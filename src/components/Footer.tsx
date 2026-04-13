@@ -182,7 +182,7 @@ export default function Footer() {
                 Terms
               </Link>
             </div>
-            <p className="font-body text-xs text-muted/70">
+            <p className="font-body text-xs text-muted">
               &copy; {new Date().getFullYear()} ien2RN. All rights reserved.
             </p>
           </div>

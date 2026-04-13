@@ -134,6 +134,7 @@ export default function VideoPlayerModal({ src, name, role, onClose }: VideoPlay
         <button
           onClick={handleClose}
           className="absolute -top-12 right-0 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors z-10"
+          aria-label="Close video"
         >
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -189,7 +190,7 @@ export default function VideoPlayerModal({ src, name, role, onClose }: VideoPlay
             <div className="flex items-center justify-between gap-4">
               <div className="flex items-center gap-3">
                 {/* Play/Pause */}
-                <button onClick={togglePlay} className="text-white hover:text-primary transition-colors">
+                <button onClick={togglePlay} className="text-white hover:text-primary transition-colors" aria-label={playing ? "Pause" : "Play"}>
                   {playing ? (
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
@@ -202,7 +203,7 @@ export default function VideoPlayerModal({ src, name, role, onClose }: VideoPlay
                 </button>
 
                 {/* Volume */}
-                <button onClick={() => setMuted(!muted)} className="text-white hover:text-primary transition-colors">
+                <button onClick={() => setMuted(!muted)} className="text-white hover:text-primary transition-colors" aria-label={muted ? "Unmute" : "Mute"}>
                   {muted || volume === 0 ? (
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
@@ -247,7 +248,7 @@ export default function VideoPlayerModal({ src, name, role, onClose }: VideoPlay
                 </span>
 
                 {/* Fullscreen */}
-                <button onClick={toggleFullscreen} className="text-white hover:text-primary transition-colors">
+                <button onClick={toggleFullscreen} className="text-white hover:text-primary transition-colors" aria-label="Fullscreen">
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
                   </svg>

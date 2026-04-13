@@ -12,6 +12,16 @@ const stats = [
   { value: "91.67%", label: "Employer retention" },
 ];
 
+const logos = [
+  { src: "/logos/islandhealth.svg", alt: "Island Health" },
+  { src: "/logos/vancouvercoastalhealth.webp", alt: "Vancouver Coastal Health" },
+  { src: "/logos/northernhealth.png", alt: "Northern Health" },
+  { src: "/logos/interiorhealth.png", alt: "Interior Health" },
+  { src: "/logos/agecare.png", alt: "AgeCare" },
+  { src: "/logos/Louisbrier.webp", alt: "Louis Brier Home & Hospital", invert: true },
+  { src: "/logos/universityhealthnetwork.svg", alt: "University Health Network" },
+] as const;
+
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -168,25 +178,27 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Trust bar */}
-      <div className="hero-trust shrink-0 py-14 sm:py-14 px-5 sm:px-6 md:px-12 mt-8">
-        <div className="max-w-[1400px] mx-auto">
+      {/* Trust bar — logo marquee */}
+      <div className="hero-trust shrink-0 py-14 sm:py-14 px-0 mt-8">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
           <div className="md:border-t border-secondary/15 pt-0 sm:pt-10">
-            <p className="font-body text-xs sm:text-sm text-muted/70 uppercase tracking-[0.06em] text-center mb-6 sm:mb-8">
+            <p className="font-body text-[0.65rem] sm:text-xs text-muted uppercase tracking-[0.08em] text-center mb-6 sm:mb-8">
               Our practice-ready nurses are employed across Canada
             </p>
-            <div className="flex items-center justify-center gap-6 sm:gap-10 md:gap-20 opacity-60">
-              {["Island Health", "Vancouver Coastal Health", "Northern Health", "Interior Health"].map(
-                (name) => (
-                  <span
-                    key={name}
-                    className="font-heading font-bold text-xs sm:text-base md:text-xl text-foreground whitespace-nowrap"
-                  >
-                    {name}
-                  </span>
-                )
-              )}
-            </div>
+          </div>
+        </div>
+        <div className="overflow-hidden">
+          <div className="flex animate-marquee w-max">
+            {[...logos, ...logos].map((logo, i) => (
+              <img
+                key={i}
+                src={logo.src}
+                alt={logo.alt}
+                className="h-10 sm:h-12 w-auto object-contain mx-6 sm:mx-10 md:mx-14 shrink-0 opacity-40"
+                style={{ filter: `${"invert" in logo && logo.invert ? "invert(1) " : ""}grayscale(1)` }}
+                loading="lazy"
+              />
+            ))}
           </div>
         </div>
       </div>
