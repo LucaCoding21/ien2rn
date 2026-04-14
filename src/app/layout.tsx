@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Public_Sans, Poppins } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -36,6 +37,11 @@ export default function RootLayout({
         <Nav />
         {children}
         <Footer />
+        <Script
+          id="hs-script-loader"
+          src="//js.hs-scripts.com/46990102.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
