@@ -13,7 +13,7 @@ const services = [
     label: "For nurses",
     title: "Training & Development",
     description:
-      "We equip you in choosing the best pathway to work and stay in Canada. Our programs are carefully developed by nurses who have been where you are.",
+      "We equip you in choosing the best pathway to work and live in Canada. Our programs are carefully developed by nurses who have been where you are.",
     href: "/learning/courses",
     linkText: "View programs",
     image: "/mentorship.webp",
@@ -22,7 +22,7 @@ const services = [
     label: "For nurses",
     title: "Job Placement",
     description:
-      "We help you embark on your new nursing journey, from acute to long-term care and vice versa. Our guidance goes beyond your first shift.",
+      "We help you embark on your new nursing journey - from frontline nursing in an acute or community setting to nursing leadership. Our guidance goes beyond your first shift.",
     href: "/candidates",
     linkText: "Learn more",
     image: "/job-placement.webp",
@@ -31,7 +31,7 @@ const services = [
     label: "For employers",
     title: "Employer Partnerships",
     description:
-      "We partner with you in curating the workforce solution for your desired outcome. From recruitment to retention, we are with you.",
+      "We partner with you in curating the workforce solution for your desired outcome. From recruitment to retention, you have options.",
     href: "/employers",
     linkText: "Partner with us",
     image: "/employer-partnership.webp",

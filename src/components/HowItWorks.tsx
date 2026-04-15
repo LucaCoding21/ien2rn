@@ -20,7 +20,7 @@ const employerSteps = [
   { number: "01", title: "Explore", description: "Tell us about your team, goals, priorities, and workforce needs." },
   { number: "02", title: "Partner", description: "Let us help you identify and build your workforce solution through our tiered model." },
   { number: "03", title: "Get Matched", description: "Select nurses that match your culture and requirements." },
-  { number: "04", title: "Be Supported", description: "Choose from integration to retention support after placement." },
+  { number: "04", title: "Be Supported", description: "Choose from recruitment to integration and retention support after placement." },
 ];
 
 export default function HowItWorks() {

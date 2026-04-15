@@ -59,7 +59,7 @@ export default function Problem() {
               The Gap
             </p>
             <h2 className="font-heading font-bold text-display-md text-foreground mb-6">
-              We bring years of nursing experience.
+              IENs have years of nursing experience.
             </h2>
             <p className="font-body text-base text-muted leading-relaxed mb-4">
               But in Canada, the path to practice is complex (credentialing,
