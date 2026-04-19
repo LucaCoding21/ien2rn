@@ -17,7 +17,7 @@ const professionals = [
     image: "/team/sheena.webp",
     isPaid: true,
     rate: "$59/30 min · $89/45 min",
-    calLink: "https://cal.com/cloverfield/30min",
+    calLink: "https://cal.com/ien2rnsheena",
   },
   {
     name: "Kammy Yip, LPN",

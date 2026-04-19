@@ -17,6 +17,20 @@ interface Question {
   options: { label: string; value: string; weight: number }[];
 }
 
+interface Contact {
+  firstName: string;
+  lastName: string;
+  email: string;
+  province: "bc" | "alberta" | "other_canada" | "not_licensed";
+}
+
+const provinceOptions: { label: string; value: Contact["province"] }[] = [
+  { label: "British Columbia", value: "bc" },
+  { label: "Alberta", value: "alberta" },
+  { label: "Somewhere else in Canada", value: "other_canada" },
+  { label: "I'm not licensed yet", value: "not_licensed" },
+];
+
 const questions: Question[] = [
   {
     id: "licensed",
@@ -106,9 +120,8 @@ const results: Record<
     description:
       "Based on your answers, you meet the requirements to be matched with healthcare employers in Canada. Create your profile and our team will begin the matching process.",
     cta: {
-      label: "Create My Profile",
-      href: "https://engine-hire.com",
-      external: true,
+      label: "Start My Application",
+      href: "/candidates/apply",
     },
     secondary: {
       label: "Browse our courses",
@@ -118,11 +131,10 @@ const results: Record<
   almost: {
     headline: "You're almost there",
     description:
-      "You're on the right track, but there are a few things to complete before we can match you with employers. Create your profile now and our team will help you with the remaining steps, including mentorship, training, and credential support.",
+      "You're on the right track, but there are a few things to complete before we can match you with employers. Start your application now and our team will help you with the remaining steps, including mentorship, training, and credential support.",
     cta: {
-      label: "Create My Profile",
-      href: "https://engine-hire.com",
-      external: true,
+      label: "Start My Application",
+      href: "/candidates/apply",
     },
     secondary: {
       label: "Explore training & courses",
@@ -146,16 +158,39 @@ const results: Record<
 
 /* ─── Component ─── */
 
+type GateStage = "contact" | "province" | "done";
+
 export default function AssessmentPage() {
+  const [gateStage, setGateStage] = useState<GateStage>("contact");
+  const [contact, setContact] = useState<Contact | null>(null);
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    province: "" as Contact["province"] | "",
+  });
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [done, setDone] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const formRef = useRef<HTMLDivElement>(null);
   const resultRef = useRef<HTMLDivElement>(null);
 
   const total = questions.length;
-  const progress = done ? 100 : (step / total) * 100;
+  const totalSteps = 2 + total; // contact + province + 6 questions
+  const currentStepIndex =
+    gateStage === "contact"
+      ? 0
+      : gateStage === "province"
+      ? 1
+      : 2 + step;
+  const progress = done ? 100 : (currentStepIndex / totalSteps) * 100;
   const current = questions[step];
+
+  const contactValid =
+    form.firstName.trim().length > 0 &&
+    form.lastName.trim().length > 0 &&
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim());
 
   /* animate question transitions */
   const animateIn = () => {
@@ -172,8 +207,22 @@ export default function AssessmentPage() {
   };
 
   useEffect(() => {
-    if (!done) animateIn();
-  }, [step, done]);
+    if (gateStage === "done" && !done) animateIn();
+  }, [step, done, gateStage]);
+
+  useEffect(() => {
+    if (gateStage !== "done" && formRef.current) {
+      const els = formRef.current.querySelectorAll(".form-animate");
+      gsap.set(els, { y: 20, autoAlpha: 0 });
+      gsap.to(els, {
+        y: 0,
+        autoAlpha: 1,
+        duration: 0.5,
+        stagger: 0.06,
+        ease: "power2.out",
+      });
+    }
+  }, [gateStage]);
 
   useEffect(() => {
     if (done && resultRef.current) {
@@ -189,6 +238,18 @@ export default function AssessmentPage() {
       });
     }
   }, [done]);
+
+  const submitResults = (finalAnswers: Record<string, number>) => {
+    if (!contact) return;
+    const payload = {
+      contact,
+      answers: finalAnswers,
+      tier: getResult(finalAnswers),
+      submittedAt: new Date().toISOString(),
+    };
+    /* TODO: POST to /api/assessment-submit once Resend is wired up */
+    console.log("[assessment submit]", payload);
+  };
 
   const handleSelect = (weight: number) => {
     const next = { ...answers, [current.id]: weight };
@@ -211,8 +272,26 @@ export default function AssessmentPage() {
         setStep(step + 1);
       }
     } else {
+      submitResults(next);
       setDone(true);
     }
+  };
+
+  const handleContactSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!contactValid) return;
+    setGateStage("province");
+  };
+
+  const handleProvinceSelect = (province: Contact["province"]) => {
+    setForm({ ...form, province });
+    setContact({
+      firstName: form.firstName.trim(),
+      lastName: form.lastName.trim(),
+      email: form.email.trim(),
+      province,
+    });
+    setGateStage("done");
   };
 
   const tier = done ? getResult(answers) : null;
@@ -225,28 +304,136 @@ export default function AssessmentPage() {
 
       <div className="flex-1 flex flex-col items-center px-5 sm:px-6 md:px-12 pb-16 sm:pb-20">
         <div className="w-full max-w-[600px]">
-          {/* Progress bar */}
-          <div className="mb-10 sm:mb-12">
-            <div className="flex items-center justify-between mb-3">
-              <p className="font-body text-xs text-muted">
-                {done
-                  ? "Assessment complete"
-                  : `Question ${step + 1} of ${total}`}
-              </p>
-              {!done && (
+          {/* Progress bar — spans the whole flow */}
+          {!done && (
+            <div className="mb-10 sm:mb-12">
+              <div className="flex items-center justify-between mb-3">
+                <p className="font-body text-xs text-muted">
+                  Step {currentStepIndex + 1} of {totalSteps}
+                </p>
                 <p className="font-body text-xs text-muted">
                   {Math.round(progress)}%
                 </p>
-              )}
+              </div>
+              <div className="h-1.5 bg-secondary/20 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-primary rounded-full transition-all duration-500 ease-out"
+                  style={{ width: `${progress}%` }}
+                />
+              </div>
             </div>
-            <div className="h-1.5 bg-secondary/20 rounded-full overflow-hidden">
-              <div
-                className="h-full bg-primary rounded-full transition-all duration-500 ease-out"
-                style={{ width: `${progress}%` }}
-              />
+          )}
+
+        {/* ─── Gate step 1: contact info ─── */}
+        {gateStage === "contact" && (
+          <div ref={formRef}>
+            <h1 className="form-animate font-heading font-bold text-2xl sm:text-3xl md:text-4xl text-foreground mb-4 leading-tight">
+              See if you&apos;re ready to work in Canada
+            </h1>
+            <p className="form-animate font-body text-base text-muted leading-relaxed mb-8">
+              Start by sharing your name and email so our team can follow up with you.
+            </p>
+
+            <form onSubmit={handleContactSubmit} className="space-y-5">
+              <div className="form-animate grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="firstName" className="block font-body text-sm font-medium text-foreground mb-2">
+                    First name
+                  </label>
+                  <input
+                    id="firstName"
+                    type="text"
+                    autoComplete="given-name"
+                    required
+                    value={form.firstName}
+                    onChange={(e) => setForm({ ...form, firstName: e.target.value })}
+                    className="w-full px-4 py-3 rounded-xl border border-secondary/25 bg-white font-body text-base text-foreground placeholder:text-muted/60 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15 transition-all duration-200"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="lastName" className="block font-body text-sm font-medium text-foreground mb-2">
+                    Last name
+                  </label>
+                  <input
+                    id="lastName"
+                    type="text"
+                    autoComplete="family-name"
+                    required
+                    value={form.lastName}
+                    onChange={(e) => setForm({ ...form, lastName: e.target.value })}
+                    className="w-full px-4 py-3 rounded-xl border border-secondary/25 bg-white font-body text-base text-foreground placeholder:text-muted/60 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15 transition-all duration-200"
+                  />
+                </div>
+              </div>
+
+              <div className="form-animate">
+                <label htmlFor="email" className="block font-body text-sm font-medium text-foreground mb-2">
+                  Email address
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-secondary/25 bg-white font-body text-base text-foreground placeholder:text-muted/60 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15 transition-all duration-200"
+                />
+              </div>
+
+              <div className="form-animate pt-2">
+                <button
+                  type="submit"
+                  disabled={!contactValid}
+                  className="inline-flex items-center justify-center gap-2.5 text-white font-body font-semibold text-sm px-8 py-3.5 rounded-full bg-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none"
+                >
+                  Continue
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </button>
+              </div>
+            </form>
+          </div>
+        )}
+
+        {/* ─── Gate step 2: licensing ─── */}
+        {gateStage === "province" && (
+          <div ref={formRef}>
+            <button
+              type="button"
+              onClick={() => setGateStage("contact")}
+              className="form-animate mb-6 inline-flex items-center gap-2 font-body text-sm text-muted hover:text-foreground transition-colors duration-200"
+            >
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+              </svg>
+              Previous question
+            </button>
+
+            <h1 className="form-animate font-heading font-bold text-xl sm:text-2xl md:text-3xl text-foreground mb-8 leading-tight">
+              Where are you licensed to work as a nurse?
+            </h1>
+
+            <div className="space-y-3">
+              {provinceOptions.map((opt) => (
+                <button
+                  key={opt.value}
+                  type="button"
+                  onClick={() => handleProvinceSelect(opt.value)}
+                  className="form-animate w-full text-left p-4 rounded-xl border border-secondary/20 hover:border-primary/40 hover:bg-secondary-light/30 transition-all duration-200 group"
+                >
+                  <span className="font-body text-base text-foreground group-hover:text-primary transition-colors duration-200">
+                    {opt.label}
+                  </span>
+                </button>
+              ))}
             </div>
           </div>
+        )}
 
+        {gateStage === "done" && (
+        <div>
           {/* ─── Questions ─── */}
           {!done && current && (
             <div ref={containerRef}>
@@ -273,11 +460,6 @@ export default function AssessmentPage() {
                 </button>
               )}
 
-              {step === 0 && (
-                <p className="q-animate font-body text-xs font-semibold text-accent uppercase tracking-[0.08em] mb-3">
-                  Tell us about yourself
-                </p>
-              )}
               <h1 className="q-animate font-heading font-bold text-xl sm:text-2xl md:text-3xl text-foreground mb-2 leading-tight">
                 {current.question}
               </h1>
@@ -377,22 +559,10 @@ export default function AssessmentPage() {
                 )}
               </div>
 
-              {/* Retake */}
-              <button
-                onClick={() => {
-                  setStep(0);
-                  setAnswers({});
-                  setDone(false);
-                }}
-                className="result-animate mt-10 inline-flex items-center gap-2 font-body text-sm text-muted hover:text-foreground transition-colors duration-200"
-              >
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182" />
-                </svg>
-                Retake assessment
-              </button>
             </div>
           )}
+        </div>
+        )}
         </div>
       </div>
     </main>
