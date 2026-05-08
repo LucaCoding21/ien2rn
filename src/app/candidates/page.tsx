@@ -201,7 +201,7 @@ export default function CandidatesPage() {
 
         <div className="relative z-10 w-full max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12 pb-12 sm:pb-16 md:pb-20 pt-32 sm:pt-36 md:pt-40">
           <div className="max-w-2xl">
-            <p className="hero-anim font-body text-xs sm:text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4 sm:mb-5">
+            <p className="hero-anim font-body text-xs sm:text-sm font-semibold text-yellow-300 uppercase tracking-[0.08em] mb-4 sm:mb-5">
               For nurses
             </p>
             <h1

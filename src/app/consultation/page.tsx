@@ -8,34 +8,10 @@ import BookingModal from "@/components/BookingModal";
 
 const professionals = [
   {
-    name: "Sheena Park, MHLP, RN, CCRP, CHE",
-    title: "Licensed Recruiter & Registered Nurse",
-    category: "recruitment",
-    specialties: ["Recruitment", "Healthcare leadership", "IEN mentoring", "Systems strategy"],
-    bio: "Sheena is a BC, Canada and UK RN and Licensed Recruiter with a Master of Health Leadership and Policy from UBC. Her practice spans Emergency, Oncology, Clinical Research, and Quality & Accreditation, and she has mentored IENs throughout her career.",
-    initials: "SP",
-    image: "/team/sheena.webp",
-    isPaid: true,
-    rate: "$59/30 min · $89/45 min",
-    calLink: "https://cal.com/ien2rnsheena",
-  },
-  {
-    name: "Kammy Yip, LPN",
-    title: "Licensed Practical Nurse & Clinical Instructor",
-    category: "nursing",
-    specialties: ["Clinical practice", "LPN program instruction", "IEN transition", "Patient safety"],
-    bio: "Kammy is a Licensed Practical Nurse with over 10 years of nursing experience in Hong Kong and Canada, across acute care, long-term care, and home care. As clinical lead for the ien2RN LPN program, she helps IENs build the clinical competence and confidence needed for Canadian practice.",
-    initials: "KY",
-    image: "",
-    isPaid: true,
-    rate: "$59/30 min · $89/45 min",
-    calLink: "https://cal.com/ien2rnkammy",
-  },
-  {
     name: "Jeffrey Lee, MAS, BA",
-    title: "Career Development & Professional Coaching Consultant",
+    title: "Career Consultant",
     category: "career",
-    specialties: ["Career coaching", "Career transitions", "Job search strategy", "Professional branding"],
+    specialties: ["Career coaching & resume improvement", "Professional branding", "Job search strategy"],
     bio: "Jeffrey is a career and professional coaching consultant with over 15 years of experience at institutions including UBC, SFU, and WorkBC. He helps IENs and foreign-trained professionals translate international experience into Canadian contexts and navigate credentialing pathways.",
     initials: "JL",
     image: "/team/jeffry.webp",
@@ -44,16 +20,66 @@ const professionals = [
     calLink: "https://cal.com/ien2rnjefflee",
   },
   {
+    name: "Kammy Yip, LPN",
+    title: "LPN Instructor",
+    category: "nursing",
+    specialties: ["CBA-SLA Boot Camp", "CELBAN", "Readiness to Practice for LPNs"],
+    bio: "Kammy is a Licensed Practical Nurse with over 10 years of nursing experience in Hong Kong and Canada, across acute care, long-term care, and home care. As clinical lead for the ien2RN LPN program, she helps IENs build the clinical competence and confidence needed for Canadian practice.",
+    initials: "KY",
+    image: "/team/kammy.jpeg",
+    imagePosition: "center 25%",
+    isPaid: true,
+    rate: "$59/30 min · $89/45 min",
+    calLink: "https://cal.com/ien2rnkammy",
+  },
+  {
+    name: "JM Dineros, RPN",
+    title: "RPN Mentor",
+    category: "psychiatric",
+    specialties: ["RPN Boot Camp", "HCA to RPN-RN transition"],
+    bio: "JM is a Registered Psychiatric Nurse currently in acute tertiary mental health at Providence Health Care, with experience across emergency, OB/GYN, medical-surgical, and psychiatric care. He mentors IENs and HCAs navigating the Canadian RPN and RN pathways.",
+    initials: "JD",
+    image: "/team/john.webp",
+    isPaid: true,
+    rate: "$59/30 min · $89/45 min",
+    calLink: "",
+  },
+  {
+    name: "Alice Wong, RN, MHLP",
+    title: "RN Educator",
+    category: "education",
+    specialties: ["CBA-SLA Boot Camp", "Readiness to Practice for RNs", "Simulation-based education"],
+    bio: "Alice is a Registered Nurse with active registration in BC, England, the US, and Hong Kong, and nearly 20 years of nursing and education experience. She mentors IENs through clinical practice, simulation teaching, and the transition into Canadian nursing.",
+    initials: "AW",
+    image: "/team/alice.webp",
+    isPaid: true,
+    rate: "$59/30 min · $89/45 min",
+    calLink: "",
+  },
+  {
     name: "Pamela Dima-ala, MA TESOL",
-    title: "Career & Communication Coach",
+    title: "Communication Coach",
     category: "communication",
-    specialties: ["Workplace English", "Professional writing", "Interview coaching", "Cross-cultural communication"],
+    specialties: ["IELTS", "Cross-cultural communication", "Interview coaching"],
     bio: "Pamela is a career and communication coach with over 20 years of international teaching experience and a Master of Arts in TESOL from Trinity Western University. She helps internationally educated professionals develop clear, confident, and culturally appropriate communication for the Canadian workplace.",
     initials: "PD",
-    image: "",
+    image: "/team/pamela.png",
+    imagePosition: "center 20%",
     isPaid: true,
     rate: "$59/30 min · $89/45 min",
     calLink: "https://cal.com/cloverfield/30min",
+  },
+  {
+    name: "Sheena Park, MHLP, RN, CCRP, CHE",
+    title: "Recruiter",
+    category: "recruitment",
+    specialties: ["Recruitment", "Leadership", "Pathways and systems strategy"],
+    bio: "Sheena is a BC, Canada and UK RN and Licensed Recruiter with a Master of Health Leadership and Policy from UBC. Her practice spans Emergency, Oncology, Clinical Research, and Quality & Accreditation, and she has mentored IENs throughout her career.",
+    initials: "SP",
+    image: "/team/sheena.webp",
+    isPaid: true,
+    rate: "$59/30 min · $89/45 min",
+    calLink: "https://cal.com/ien2rnsheena",
   },
 ];
 
@@ -81,18 +107,19 @@ export default function ConsultationPage() {
       <section className="py-section bg-secondary-light/20">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12">
           {/* Section heading */}
-          <div className="max-w-2xl mb-8">
+          <div className="max-w-4xl mb-8">
             <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
               Our Team
             </p>
             <h2 className="font-heading font-bold text-display-md text-foreground">
-              Meet your{" "}
-              <span className="serif-italic text-primary">consultants</span>
+              Accelerate your path to becoming a licensed,{" "}
+              <span className="serif-italic text-primary">practice-ready</span>{" "}
+              nurse in Canada
             </h2>
           </div>
 
           {/* Cards Grid */}
-          <div ref={gridRef} className="grid md:grid-cols-2 gap-6">
+          <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {professionals.map((person) => (
               <div
                 key={person.name}
@@ -107,6 +134,7 @@ export default function ConsultationPage() {
                       fill
                       loading="lazy"
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                      style={{ objectPosition: "imagePosition" in person ? person.imagePosition : undefined }}
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                   ) : (

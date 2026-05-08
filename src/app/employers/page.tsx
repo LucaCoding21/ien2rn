@@ -181,11 +181,11 @@ export default function EmployersPage() {
               >
                 Build a workforce
                 <br />
-                <span className="text-primary">that stays.</span>
+                <span className="text-primary">that’s resilient.</span>
               </h1>
 
               <p className="emp-hero-anim font-body text-sm text-muted leading-relaxed mb-6">
-                Mentored, upskilled IENs who are clinically prepared and culturally
+                Upskilled, mentored nurses who are practice ready and culturally
                 integrated. Placed permanently where you need them most.
               </p>
 
@@ -202,7 +202,7 @@ export default function EmployersPage() {
               </div>
 
               <div className="emp-hero-anim flex flex-col gap-3 mb-9 max-w-sm mx-auto">
-                <ApplyButton href="/employers/request-staff" label="Request Qualified Nurses" />
+                <ApplyButton href="/employers/request-staff" label="Request practice-ready nurses" />
                 <Link
                   href="/consultation"
                   className="inline-flex items-center justify-center gap-2 font-body font-medium text-sm text-foreground border border-foreground/20 px-8 py-4 rounded-full hover:border-foreground/40 transition-all duration-300"
@@ -238,18 +238,18 @@ export default function EmployersPage() {
               >
                 Build a workforce
                 <br />
-                <span className="text-primary">that stays.</span>
+                <span className="text-primary">that’s resilient.</span>
               </h1>
 
               <p className="emp-hero-anim font-body text-base text-muted leading-relaxed mb-8 max-w-[400px]">
-                Mentored, upskilled IENs who are clinically prepared and culturally
+                Upskilled, mentored nurses who are practice ready and culturally
                 integrated. Placed permanently where you need them most.
               </p>
 
               <ul className="emp-hero-anim space-y-3 mb-10">
                 {[
-                  "Nurses vetted and upskilled to Canadian clinical standards",
-                  "Permanent placements, not costly temp agency rotations",
+                  "Nurses vetted and upskilled to Canadian practice standards",
+                  "Permanent placements, not temporary agency rotations",
                   "Rural and remote facilities served across Canada",
                 ].map((line) => (
                   <li key={line} className="flex items-start gap-3">
@@ -268,7 +268,7 @@ export default function EmployersPage() {
                   href="/employers/request-staff"
                   className="group inline-flex items-center justify-center gap-2.5 text-white font-body font-semibold text-sm px-8 py-3.5 rounded-full bg-primary transition-all duration-300 hover:shadow-xl hover:shadow-primary/25 hover:-translate-y-0.5"
                 >
-                  Request Qualified Nurses
+                  Request practice-ready nurses
                   <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>
@@ -321,7 +321,7 @@ export default function EmployersPage() {
               <div className="absolute -bottom-4 -right-4 bg-primary text-white rounded-2xl px-4 py-3.5 max-w-[210px]">
                 <p className="font-body text-xs font-semibold text-white/60 uppercase tracking-wide mb-1">The ien2RN difference</p>
                 <p className="font-heading font-bold text-white text-sm leading-snug">
-                  Mentored from day one. Not just recruited.
+                  Tiered workforce solutions. Not just recruitment.
                 </p>
               </div>
             </div>
@@ -337,7 +337,7 @@ export default function EmployersPage() {
               The challenge
             </p>
             <h2 className="font-heading font-bold text-display-md text-foreground">
-              The talent exists. The gap is integration.
+              Qualified talent exists. The gap is integrated readiness.
             </h2>
           </div>
 
@@ -499,7 +499,7 @@ export default function EmployersPage() {
               href="/employers/request-staff"
               className="inline-flex items-center justify-center font-body font-semibold text-sm px-7 py-4 sm:py-3.5 rounded-full bg-primary text-white transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5"
             >
-              Request Qualified Nurses
+              Request practice-ready nurses
             </Link>
             <Link
               href="/consultation"

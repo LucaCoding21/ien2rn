@@ -48,7 +48,7 @@ export default function CTABanner() {
               href="/employers"
               className="inline-flex items-center justify-center border border-foreground/15 text-foreground font-body font-semibold text-sm px-7 py-3 rounded-full hover:border-primary hover:text-primary transition-all duration-300"
             >
-              Hire Qualified Staff
+              Hire Practice-Ready Staff
             </Link>
           </div>
         </div>

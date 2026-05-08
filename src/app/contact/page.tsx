@@ -75,14 +75,14 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="font-body text-xs font-semibold text-accent lg:text-muted uppercase tracking-wider mb-1.5 lg:mb-2">Email</p>
-                  <a href="mailto:Workforce@ien2RN.org" className="font-heading font-bold text-lg md:text-2xl text-foreground hover:text-primary transition-colors duration-300 break-all">
-                    Workforce@ien2RN.org
+                  <a href="mailto:NurseMentor@ien2RN.org" className="font-heading font-bold text-lg md:text-2xl text-foreground hover:text-primary transition-colors duration-300 break-all">
+                    NurseMentor@ien2RN.org
                   </a>
                 </div>
                 <div>
                   <p className="font-body text-xs font-semibold text-accent lg:text-muted uppercase tracking-wider mb-1.5 lg:mb-2">Website</p>
                   <a href="https://www.ien2rn.org" className="font-heading font-bold text-lg md:text-2xl text-foreground hover:text-primary transition-colors duration-300">
-                    www.ien2rn.org
+                    www.ien2RN.org
                   </a>
                 </div>
                 <div>
@@ -189,11 +189,11 @@ export default function ContactPage() {
                     </label>
                     <select className="w-full font-body text-sm px-5 py-3.5 rounded-xl border border-secondary/25 bg-transparent focus:outline-none focus:border-primary transition-colors text-muted">
                       <option value="">Select a topic</option>
-                      <option value="general">General inquiry</option>
+                      <option value="pathways">I&apos;m a nurse looking for practice pathways</option>
                       <option value="candidate">I&apos;m a nurse looking for work</option>
                       <option value="employer">I&apos;m an employer looking for staff</option>
                       <option value="learning">Question about courses or resources</option>
-                      <option value="other">Other</option>
+                      <option value="general">General inquiry</option>
                     </select>
                   </div>
 

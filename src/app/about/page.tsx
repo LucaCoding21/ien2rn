@@ -19,76 +19,49 @@ interface TeamMember {
 
 const team: TeamMember[] = [
   {
-    name: "Sheena Park, RN",
-    role: "Founder",
-    initials: "SP",
-    photo: "/team/sheena.webp",
-    bio: "A life-long learner, keen to propel others forward and provide exemplary care, Sheena is a BC, Canada and UK RN with progressive healthcare practice spanning Emergency, ENT, Oncology\u2019s Systemic & Radiation Therapies, Clinical Research & Trials, Clinical & Systems Transformation, Quality, Safety & Accreditation, and Home Health Care.\n\nHer professional journey began as a Senior Analyst for business, technology, and human resources consulting Fortune 300 companies \u2013 Accenture and ADP. She completed the Bachelor of Science in Nursing in the Philippines then had a short but sweet experience in Kuwait, where she was part of the core leadership that prepared and had the hospital awarded with the JCI Accreditation.\n\nSheena studied Overseas Nursing in City, University of London then completed Systemic Anti-Cancer Therapy: Issues in Care and Management from the University of Surrey. She finds her experience in the Royal Surrey NHS as the most gratifying, having been surrounded by excellent mentors whom she credits to have set her up for success.\n\nAfter moving to Canada, she started AllCare Nursing so seniors receive consistently reliable quality care. She mentored IENs as a way to give back whilst working for the Provincial Health Services Authority in different capacities. She has a Master of Health Leadership and Policy from UBC, is a Certified Clinical Research Professional, and a Certified Health Executive.",
-  },
-  {
-    name: "Jeffrey Lee, MAS(L)",
-    role: "Manager",
+    name: "Jeffrey Lee",
+    role: "Career Consultant",
     initials: "JL",
     photo: "/team/jeffry.webp",
     bio: "Jeff is a seasoned career development professional with over 14 years of experience in career coaching and counseling.\n\nHe has worked at esteemed institutions such as UBC, SFU, FDU, and WorkBC, where he gained expertise in career counselling, professional development, career transitioning, job search strategies, workshop development, and industry networking.\n\nJeff has successfully helped a diverse portfolio of clients, ranging from entry-level first-year students to professional job seekers with over 15 years of experience, achieve their career goals. He has also worked extensively with foreign-trained professionals, connecting them to resources and employers in fields such as Health Services, Management, Accounting, Finance, Applied Sciences, IT, and Hospitality.\n\nHe is dedicated to helping IENs and healthcare professionals at ien2RN achieve their employment goals and overcome barriers by connecting them to essential resources and programs.\n\nAdditionally, Jeff engages with healthcare organizations to match employers with qualified and mentored IEN job seekers, addressing various health service talent needs.",
   },
   {
-    name: "Alice Wong, RN",
-    role: "Educator",
+    name: "Kammy Yip",
+    role: "LPN Instructor",
+    initials: "KY",
+    photo: "/team/kammy.jpeg",
+    photoPosition: "center 40%",
+    bio: "Kammy holds a higher diploma in Nursing from a tertiary institution in Hong Kong and a valid Enrolled Nurse licensure. Additionally, she has completed a Bachelor\u2019s degree in Health Education.\n\nWith over 10 years of experience in nursing and social welfare sectors, Kammy has worked in various capacities, including in a neurosurgical ward. Her primary focus has been providing long-term care, home health care and health education to the older adults and individuals with special needs as well as school-age children within the community.\n\nIn 2022, Kammy relocated to Vancouver and began the nursing application process as an Internationally Educated Nurse (IEN). Acknowledging the complexity, challenges, and difficulties encountered during this transition, she is dedicated to sharing her experiences and best practices to other IENs going through similar processes.\n\nKammy likes to assist fellow IEN professionals who aspire to move and live in British Columbia, Canada, by offering her lessons learned and industry insights to support them throughout their nursing journeys in Canada.",
+  },
+  {
+    name: "JM Dineros",
+    role: "RPN Mentor",
+    initials: "JD",
+    photo: "/team/john.webp",
+    photoPosition: "center 60%",
+    bio: "JM graduated with a Bachelor of Science in Nursing from the University of Santo Tomas \u2013 Legazpi. Following his graduation, he gained experience working in various nursing areas in the Philippines, including the Emergency Department, Obstetrics and Gynecology, Medical-Surgical, and Pediatric Wards. Additionally, he worked as a Jail Nurse, providing care to high-profile populations or Persons Deprived of Liberty (PDL).\n\nIn 2016, he made the courageous decision to immigrate to Canada to join his wife and pursue further professional growth and development. Determined to excel in his chosen field, he enrolled in a Health Care Assistant Diploma program to acclimate himself to the Canadian healthcare system. During this time, he worked for 7 years as a Tertiary Mental Health Worker, gaining valuable experience in the care of patients facing mental health issues.\n\nEager to expand his expertise, he later pursued a degree in Psychiatric Nursing. Throughout this transformative journey, he immersed himself in diverse clinical placements ranging from General Medical Nursing Clinical Practice, Rehabilitation Medical Nursing Clinical Practice, Acute Mental Health Nursing Clinical Practice, Psychosocial Rehabilitation Mental Health Nursing Practicum, Advanced Mental Health Nursing Clinical Practice, to St. Paul\u2019s Hospital Mental Health \u2013 Inpatient 2 North-Psych Unit, in Downtown Vancouver.\n\nToday, as a Registered Psychiatric Nurse (RPN) in the Acute Tertiary Mental Health Unit at Providence Health Care, he is privileged to work alongside a dedicated team of professionals at the forefront of psychiatric care. His role involves providing comprehensive nursing care, implementing therapeutic interventions, and advocating for the holistic well-being of his patients.\n\nWith a commitment to lifelong learning and a passion for promoting mental health awareness, he aspires to make a meaningful impact in the lives of those entrusted to his care. His journey from the Philippines to Canada has not only shaped him professionally but has also enriched his perspective and reinforced his dedication to serving others with empathy, integrity, and resilience.",
+  },
+  {
+    name: "Alice Wong",
+    role: "RN Educator",
     initials: "AW",
     photo: "/team/alice.webp",
     bio: "Alice holds active RN registration in British Columbia (Canada), England, United States and Hong Kong with healthcare practice spanning from nursing education, critical care nursing, acute medical and surgical nursing, renal nursing, intraoperative nursing to community health care.\n\nShe completed her Bachelor and Master of Science in Nursing in The University of Hong Kong and continued earning her Master\u2019s degree in Health Leadership and Policy in Clinical Education (MHLP \u2013 CE) from the University of British Columbia to enhance her career in nursing education.\n\nAlice has been working in the nursing field for almost 20 years. Before coming to Canada, Alice worked as a nurse educator for 10 years in two of the Universities in Hong Kong. Currently, she is actively practising nursing in a health authority and involved in nursing education at a university in the lower mainland of British Columbia. Her area of expertise and interest is mentoring nursing undergraduates and nurses, as well as simulation teaching.\n\nAlice is fluent in Cantonese, Mandarin, and English. She personally understands the challenges and struggles of internationally educated nurses (IENs). She is dedicated to supporting IENs to starting and continuing their nursing careers here in Canada.",
   },
   {
-    name: "Pola",
-    role: "IEN Engagement",
-    initials: "PO",
-    photo: "/team/pola.webp",
-    bio: "Pola focuses on the timely communication with IENs. Her professional journey began as an Assistant Operations Manager in the BPO industry. Driven by a desire to expand her expertise, Pola transitioned to become a Quality Assurance Analyst. In this role, she ensured that timely assurance and excellent quality is at the heart of every processes and interactions her team immersed in.\n\nAs someone passionate about supporting others, she is now focused on helping Internationally Educated Nurses (IENs) navigate their career transitions in order to successfully live, work and thrive in their new professional environments.\n\nIf you are interested in learning more about our mentorship, monthly upskilling webinars and exclusive ien2RN resources, Pola is ready to support you. She is also the primary point of contact of IEN Nurses looking for permanent job placements in Canada.",
+    name: "Pamela Dima-ala",
+    role: "Communication Coach",
+    initials: "PD",
+    photo: "/team/pamela.png",
+    photoPosition: "center 40%",
+    bio: "Pamela is a career and professional communication coach specializing in supporting internationally educated professionals (IEPs) as they transition into the Canadian workplace. With over 20 years of international teaching and coaching experience across Asia, the Pacific, and Canada, she brings a deep understanding of the linguistic, cultural, and professional challenges faced by globally trained professionals.\n\nShe holds an MA in TESOL from Trinity Western University (TWU) and has taught Academic English and ESL in universities, colleges, and language institutions, including six years at a university in Shandong Province, China, four years with Language Link Vietnam, and teaching roles in New Zealand. In Canada, she has worked extensively with learners from diverse cultural and professional backgrounds in post-secondary and workplace-focused programs.\n\nHer current work focuses on helping professionals develop confident, clear, and culturally appropriate communication skills for the Canadian context. She coaches clients in workplace communication, professional and academic writing, presentations, interviews, and cross-cultural communication strategies. Her approach is practical, supportive, and tailored to real-world professional expectations.\n\nShe is passionate about helping internationally educated professionals communicate with clarity, credibility, and confidence as they advance their careers in Canada.",
   },
   {
-    name: "Kylie Perrins, RN",
-    role: "Manager",
-    initials: "KP",
-    photo: null,
-    bio: "With over two decades of experience in healthcare, Kylie has dedicated her career to improving patient care and fostering professional growth within her teams. Currently, she manages the VGH Simulation Centre at Vancouver Coastal Health, where she has been instrumental in enhancing clinical training programs.\n\nHer journey began in Australia, where she earned her Bachelor of Science in Nursing from the University of Southern Queensland and gained valuable experience as a Registered Nurse at Princess Alexandra Hospital.\n\nAfter moving to Canada, Kylie furthered her education with a High Acuity Nursing Certificate from the British Columbia Institute of Technology and a Master of Arts in Leadership from Royal Roads University.\n\nThroughout her career, she has held various roles including Clinical Nurse Educator and Patient Service Manager, which have honed her skills in leadership and education. As a BLS Instructor with Heart & Stroke, she is passionate about teaching life-saving skills and mentoring the next generation of healthcare professionals.\n\nKylie\u2019s diverse background and commitment to excellence make her a dedicated mentor eager to support and inspire others in their professional journeys.",
-  },
-  {
-    name: "John, RPN",
-    role: "Mentor",
-    initials: "JO",
-    photo: "/team/john.webp",
-    photoPosition: "center 60%",
-    bio: "John graduated with a Bachelor of Science in Nursing from the University of Santo Tomas \u2013 Legazpi. Following his graduation, he gained experience working in various nursing areas in the Philippines, including the Emergency Department, Obstetrics and Gynecology, Medical-Surgical, and Pediatric Wards. Additionally, he worked as a Jail Nurse, providing care to high-profile populations or Persons Deprived of Liberty (PDL).\n\nIn 2016, he made the courageous decision to immigrate to Canada to join his wife and pursue further professional growth and development. Determined to excel in his chosen field, he enrolled in a Health Care Assistant Diploma program to acclimate himself to the Canadian healthcare system. During this time, he worked for 7 years as a Tertiary Mental Health Worker, gaining valuable experience in the care of patients facing mental health issues.\n\nEager to expand his expertise, he later pursued a degree in Psychiatric Nursing. Throughout this transformative journey, he immersed himself in diverse clinical placements ranging from General Medical Nursing Clinical Practice, Rehabilitation Medical Nursing Clinical Practice, Acute Mental Health Nursing Clinical Practice, Psychosocial Rehabilitation Mental Health Nursing Practicum, Advanced Mental Health Nursing Clinical Practice, to St. Paul\u2019s Hospital Mental Health \u2013 Inpatient 2 North-Psych Unit, in Downtown Vancouver.\n\nToday, as a Registered Psychiatric Nurse (RPN) in the Acute Tertiary Mental Health Unit at Providence Health Care, he is privileged to work alongside a dedicated team of professionals at the forefront of psychiatric care. His role involves providing comprehensive nursing care, implementing therapeutic interventions, and advocating for the holistic well-being of his patients.\n\nWith a commitment to lifelong learning and a passion for promoting mental health awareness, he aspires to make a meaningful impact in the lives of those entrusted to his care. His journey from the Philippines to Canada has not only shaped him professionally but has also enriched his perspective and reinforced his dedication to serving others with empathy, integrity, and resilience.",
-  },
-  {
-    name: "Cates Bayabay, RN",
-    role: "Mentor",
-    initials: "CB",
-    photo: "/team/cates.webp",
-    bio: "Cates is an immigrant, a mother of two under two, and a dedicated registered nurse with over 12 years of clinical experience in Thoracic Surgery, Respiratory Medicine, Cardiac Health, Emergency, Community Health, Public Health, and Indigenous Health.\n\nShe has also taken on roles in Health Informatics, Communicable Disease Coordination, and Mass Vaccine Planning and Distribution during the COVID-19 pandemic. She has a particular passion for delivering nursing services in remote and underserved communities.\n\nHer journey into nursing was a paradox. Recognizing the Filipino-nurse stereotype, she tried to resist going into nursing. And now into her thirteenth year, she cannot imagine a better professional identity that aligns with her values: choice, accountability, and community.\n\nHaving lived and worked in remote Arctic communities, Cates understands the value of nurturing and mentoring nurses. She embraces mistakes and strives for excellence even under resource-depleted conditions. To her, mistakes are a gateway to learning and being in resource-poor settings leads to resourcefulness and creativity.\n\nAs a mentor, she hopes to pass on these insights to fellow and future nurses. Her personal mission is to transform the current narrative that \u201cnurses eat their young\u201d to \u201cnurses nurture our young\u201d.",
-  },
-  {
-    name: "Kammy, LPN(c)",
-    role: "Mentor",
-    initials: "KA",
-    photo: null,
-    bio: "Kammy holds a higher diploma in Nursing from a tertiary institution in Hong Kong and a valid Enrolled Nurse licensure. Additionally, she has completed a Bachelor\u2019s degree in Health Education.\n\nWith over 10 years of experience in nursing and social welfare sectors, Kammy has worked in various capacities, including in a neurosurgical ward. Her primary focus has been providing long-term care, home health care and health education to the older adults and individuals with special needs as well as school-age children within the community.\n\nIn 2022, Kammy relocated to Vancouver and began the nursing application process as an Internationally Educated Nurse (IEN). Acknowledging the complexity, challenges, and difficulties encountered during this transition, she is dedicated to sharing her experiences and best practices to other IENs going through similar processes.\n\nKammy likes to assist fellow IEN professionals who aspire to move and live in British Columbia, Canada, by offering her lessons learned and industry insights to support them throughout their nursing journeys in Canada.",
-  },
-  {
-    name: "Jo-Ann, RN",
-    role: "Mentor",
-    initials: "JA",
-    photo: null,
-    bio: "Jo-Ann completed the Bachelor of Science in Nursing from the Philippines and is a Registered Nurse currently working in the Radiation Oncology department of BC\u2019s largest regional cancer centre. She has extensive clinical experience in multiple settings, having worked for years as a nurse in Ontario before moving to British Columbia where she specialized in caring for persons undergoing cancer therapies.\n\nJo-Ann is an empathic professional who always ensures that every patient she cares for feels valued and listened to. She is also an excellent collaborator and a great support to the physicians and interdisciplinary teams she works closely with.\n\nAs an IEN herself, she can relate to the struggles and adjustments of new nurse immigrants in Canada. She believes that being surrounded with a strong support network along with the desire to learn, improve and be open to new ways of living and practicing nursing are key to successfully adjust, adopt and thrive in a new environment.\n\nNursing is a profession that requires life-long learning, safety in every practice and skills beyond the bedside. As an aspiring nurse in Canada, every IEN will benefit in having a mentor who has lived through a similar journey.",
-  },
-  {
-    name: "Ron, LPN",
-    role: "Mentor",
-    initials: "RO",
-    photo: "/team/ron.webp",
-    photoPosition: "center 30%",
-    bio: "Ron immigrated to Canada and became an LPN. With 26+ years of Canadian healthcare service, she continuously makes a difference in her workplace and communities. Receiving appreciation for the care she gives and best nursing practices she shares validates that being a nurse by serving others is her calling.\n\nRon has looked after older adults, people recovering from surgeries, those with Multiple Sclerosis, Quadra/Paraplegia, Mental Health concerns, Pregnant women before, during and after deliveries, and individuals needing End-of-Life comfort. She is currently caring for people undergoing Cancer treatments.\n\nShe is involved in supportive partnerships with individuals and their families, tailoring the care they receive in honour of their preferences. She believes in advocating for nursing peers and guiding service users for them not to be lost in and not to be treated as just a number in BC\u2019s complex healthcare system.\n\nRon\u2019s day brightens when people remember her as a nurse and colleague whom they can count on. She has consistently been commended for her care of persons with Cancer and Dementia/Alzheimer\u2019s.",
+    name: "Sheena Park",
+    role: "Recruiter",
+    initials: "SP",
+    photo: "/team/sheena.webp",
+    bio: "A life-long learner, keen to propel others forward and provide exemplary care, Sheena is a BC, Canada and UK RN with progressive healthcare practice spanning Emergency, ENT, Oncology\u2019s Systemic & Radiation Therapies, Clinical Research & Trials, Clinical & Systems Transformation, Quality, Safety & Accreditation, and Home Health Care.\n\nHer professional journey began as a Senior Analyst for business, technology, and human resources consulting Fortune 300 companies \u2013 Accenture and ADP. She completed the Bachelor of Science in Nursing in the Philippines then had a short but sweet experience in Kuwait, where she was part of the core leadership that prepared and had the hospital awarded with the JCI Accreditation.\n\nSheena studied Overseas Nursing in City, University of London then completed Systemic Anti-Cancer Therapy: Issues in Care and Management from the University of Surrey. She finds her experience in the Royal Surrey NHS as the most gratifying, having been surrounded by excellent mentors whom she credits to have set her up for success.\n\nAfter moving to Canada, she started AllCare Nursing so seniors receive consistently reliable quality care. She mentored IENs as a way to give back whilst working for the Provincial Health Services Authority in different capacities. She has a Master of Health Leadership and Policy from UBC, is a Certified Clinical Research Professional, and a Certified Health Executive.",
   },
 ];
 
@@ -196,8 +169,8 @@ export default function AboutPage() {
           <div className="flex flex-col lg:flex-row lg:items-end gap-6 sm:gap-8 lg:gap-20">
             {/* Left — tagline + headline */}
             <div className="flex-1">
-              <p className="about-hero-anim font-body text-xs sm:text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4 sm:mb-5">
-                About ien2RN
+              <p className="about-hero-anim font-body text-xs sm:text-sm font-semibold text-yellow-300 uppercase tracking-[0.08em] mb-4 sm:mb-5">
+                Our drive
               </p>
               <h1
                 className="about-hero-anim font-heading font-bold text-white"
@@ -215,9 +188,11 @@ export default function AboutPage() {
 
             {/* Right — description */}
             <div className="lg:max-w-sm xl:max-w-md shrink-0">
-              <p className="about-hero-anim font-body text-base text-white/60 leading-relaxed">
+              <p className="about-hero-anim font-body text-base text-white/60 leading-relaxed mb-4">
                 ien2RN was founded by internationally educated nurses who lived the
                 struggle firsthand, navigating an unfamiliar system without support.
+              </p>
+              <p className="about-hero-anim font-body text-base text-white/60 leading-relaxed">
                 Today, we provide the mentorship, upskilling, and placement pathways
                 we wished had existed when we arrived.
               </p>
@@ -231,7 +206,7 @@ export default function AboutPage() {
         <div className="max-w-[1600px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24">
           <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
             <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] mb-4">
-              About ien2RN
+              About <span className="normal-case">ien2RN</span>
             </p>
             <h2 className="font-heading font-bold text-display-md text-foreground">
               Our story, our mission,<br />our people.
@@ -264,11 +239,17 @@ export default function AboutPage() {
                 <p className="font-body text-xs font-semibold text-accent uppercase tracking-[0.08em] mb-5">
                   Our Mission
                 </p>
-                <p className="font-heading font-bold text-white leading-tight"
-                  style={{ fontSize: "clamp(1.2rem, 2vw, 1.6rem)", letterSpacing: "-0.01em" }}
+                <p className="font-heading font-bold text-white leading-tight mb-4"
+                  style={{ fontSize: "clamp(1.4rem, 2.4vw, 1.9rem)", letterSpacing: "-0.01em" }}
                 >
-                  Empower IEN integration through mentorship and partner with
-                  healthcare organizations to conquer the HHR crisis.
+                  Closing the integration gap.
+                </p>
+                <p className="font-body text-sm text-white/75 leading-relaxed">
+                  We accelerate the safe, confident, and efficient integration of
+                  internationally educated nurses into Canada’s healthcare workforce
+                  by bridging clinical, cultural, and system-level gaps — delivering
+                  practice-ready professionals and reducing time-to-practice to
+                  strengthen workforce capacity.
                 </p>
               </div>
 
@@ -278,14 +259,22 @@ export default function AboutPage() {
                 <p className="font-body text-xs font-semibold text-accent uppercase tracking-[0.08em] mb-5">
                   Our Vision
                 </p>
-                <p className="font-heading font-bold text-white leading-tight"
-                  style={{ fontSize: "clamp(1.2rem, 2vw, 1.6rem)", letterSpacing: "-0.01em" }}
+                <p className="font-heading font-bold text-white leading-tight mb-4"
+                  style={{ fontSize: "clamp(1.4rem, 2.4vw, 1.9rem)", letterSpacing: "-0.01em" }}
                 >
-                  Strengthened and sustainable high quality care for all.
+                  An integrated, resilient workforce.
+                </p>
+                <p className="font-body text-sm text-white/75 leading-relaxed">
+                  A healthcare system where internationally educated nurses are
+                  seamlessly integrated through competency-aligned, real-world
+                  practice pathways — strengthening workforce capacity and
+                  sustainably closing critical health human resource gaps.
                 </p>
                 <p className="font-body text-sm text-white/75 leading-relaxed mt-4">
-                  When internationally educated nurses are fully supported,
-                  patients and communities everywhere benefit.
+                  ien2RN reduces the hidden costs of failed integration:
+                  vacancies, turnover, and extended onboarding through a scalable
+                  model that aligns talent, employers, and systems, advancing
+                  readiness and improving long-term workforce stability.
                 </p>
               </div>
 
@@ -309,8 +298,8 @@ export default function AboutPage() {
               </h2>
             </div>
             <p className="font-body text-sm text-muted max-w-xs leading-relaxed md:text-right shrink-0 mx-auto sm:mx-0">
-              IEN nurses, educators, and career coaches, each with lived
-              experience of the journey.
+              Educators, coaches, and consultants, each with lived experience
+              of the journey.
             </p>
           </div>
 
@@ -354,24 +343,6 @@ export default function AboutPage() {
             ))}
           </div>
 
-          {/* Board of Advisors */}
-          <div className="mt-14 pt-10 border-t border-secondary/15">
-            <div className="flex flex-col sm:flex-row items-center gap-6">
-              <p className="font-body text-sm font-semibold text-accent uppercase tracking-[0.08em] shrink-0 lg:text-xs lg:font-normal lg:text-muted">
-                Board of Advisors
-              </p>
-              <div className="flex items-center gap-6">
-                <p className="font-heading font-bold text-sm text-foreground">
-                  Dr. Sylvain Brousseau
-                </p>
-                <div className="w-px h-4 bg-secondary/25" />
-                <p className="font-heading font-bold text-sm text-foreground">
-                  John Kay
-                </p>
-              </div>
-            </div>
-          </div>
-
         </div>
       </section>
 
@@ -406,9 +377,12 @@ export default function AboutPage() {
                     fontSize: "clamp(1.1rem, 2.5vw, 1.6rem)",
                   }}
                 >
-                  Because of our innate understanding of the struggles faced by
-                  IENs, we built ien2RN to ensure patients, families, and
-                  communities truly receive safe, high quality care.
+                  Recognizing the clinical, cultural, and systemic barriers
+                  internationally educated nurses face in transition, ien2RN
+                  addresses critical gaps at both the individual and system
+                  level—supporting nurse success, strengthening workforce
+                  outcomes, and improving the safety, quality, and consistency
+                  of care delivery.
                 </p>
                 <div className="quote-anim flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full overflow-hidden relative shrink-0">
@@ -460,7 +434,7 @@ export default function AboutPage() {
             >
               <div>
                 <p className="font-heading font-bold text-base text-foreground group-hover:text-primary transition-colors duration-300">I&apos;m an employer</p>
-                <p className="font-body text-sm text-muted mt-0.5 lg:text-xs lg:text-muted">Find mentored, permanent staff</p>
+                <p className="font-body text-sm text-muted mt-0.5 lg:text-xs lg:text-muted">Find practice-ready staff</p>
               </div>
               <svg className="w-4 h-4 text-muted group-hover:text-primary transition-all duration-300 group-hover:translate-x-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
